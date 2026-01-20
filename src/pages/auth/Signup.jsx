@@ -4,7 +4,7 @@ import Input from "../../components/common/Input";
 import Button from "../../components/common/Button";
 import illustration from "../../assets/loginimg.svg";
 import Select from "../../components/common/Select";
-import OtpModal from "../../components/modal/otpModal";
+import OtpModal from "../../components/modal/OtpModal";
 
 const roleOptions = [
   { value: "CEO", label: "Chief Executive Officer (CEO)" },
@@ -154,10 +154,10 @@ const Signup = () => {
           </Button>
 
           <OtpModal
-                open={openOtpModal}
-                onClose={() => setOpenOtpModal(false)}
-                navigateTo="/"
-              />
+            open={openOtpModal}
+            onClose={() => setOpenOtpModal(false)}
+            navigateTo="/"
+          />
 
           <p className="text-center text-[18px] text-[#726D6D] mt-6">
             Already have an account?{" "}
