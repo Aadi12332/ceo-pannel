@@ -5,7 +5,7 @@ import Button from "../../components/common/Button";
 import illustration from "../../assets/loginimg.svg";
 import googleIcon from "../../assets/googleicon.svg";
 import facebookIcon from "../../assets/facebookicon.svg";
-import OtpModal from "../../components/modal/otpModal";
+import OtpModal from "../../components/modal/OtpModal";
 
 const roles = [
   { key: "CEO", label: "Chief Executive Officer (CEO)" },
