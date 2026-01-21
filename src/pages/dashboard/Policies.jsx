@@ -1,12 +1,65 @@
+import { useState } from "react";
+import PageHeader from "../../components/common/Heading";
 import MainLayout from "../../components/layout/MainLayout";
+import plusIcon from "../../assets/plusicon.svg";
+import SummaryCards from "../../components/common/SummaryCard";
+import PolicyTrends from "../../components/common/PolicyChart";
+import PolicyPackSelector from "../../components/common/PolicySelector";
+
+const policyStats = [
+  {
+    label: "Active Policies",
+    value: 24,
+    change: 8,
+  },
+  {
+    label: "Policy Violations",
+    value: 18,
+    change: -22,
+  },
+  {
+    label: "Avg Compliance Score",
+    value: "94%",
+    change: 3,
+  },
+  {
+    label: "Pending Reviews",
+    value: 3,
+    change: 0,
+  },
+];
 
 const Policies = () => {
+  const [activeTab, setActiveTab] = useState("global");
   return (
     <MainLayout>
-      <h1 className="text-2xl font-bold">Policies</h1>
-      <p className="mt-2 text-gray-600">
-        Update your policies details.
-      </p>
+      <PageHeader
+        title="Policy Management"
+        description="Create, version, and enforce platform policies and thresholds with RBAC controls"
+        actions={[
+          {
+            label: "Create Policy",
+            icon: plusIcon,
+            onClick: () => console.log("Create Policy"),
+          },
+        ]}
+      />
+
+      <SummaryCards items={policyStats} title="Policy Dashboard" />
+
+      <PolicyTrends />
+
+      <PolicyPackSelector
+        tabs={[
+          { label: "Global", value: "global" },
+          { label: "City", value: "city" },
+          { label: "Vertical", value: "vertical" },
+          { label: "Department", value: "department" },
+          { label: "Year", value: "year" },
+        ]}
+        activeTab={activeTab}
+        onChange={setActiveTab}
+      />
     </MainLayout>
   );
 };

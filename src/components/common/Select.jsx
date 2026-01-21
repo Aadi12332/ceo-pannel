@@ -10,6 +10,8 @@ const Select = ({
   placeholder = "Select option",
   className = "",
   inputClassName = "",
+  listItemClassName = "",
+  listParentClassName = "",
   placement = "bottom",
 }) => {
   const [open, setOpen] = useState(false);
@@ -52,7 +54,7 @@ const Select = ({
           ${inputClassName}`}
       >
         <span
-          className={`lg:text-[18px] text-base ${
+          className={` ${
             value ? "text-[#1E1E1E]" : "text-[#929292]"
           }`}
         >
@@ -71,7 +73,7 @@ const Select = ({
       {open && (
         <ul
           className={`absolute z-20 w-full bg-white border rounded-md shadow-md
-            overflow-auto max-h-[150px] scroll-hide
+            overflow-auto max-h-[150px] scroll-hide ${listParentClassName}
             ${dropdownPosition}`}
         >
           {options.map((opt) => (
@@ -83,7 +85,7 @@ const Select = ({
                 setOpen(false);
               }}
               className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base
-                hover:bg-[#F2F2F2]
+                hover:bg-[#F2F2F2] ${listItemClassName}
                 ${
                   value === opt.value
                     ? "bg-[#0E1E38] text-white"
