@@ -98,6 +98,7 @@ const Dashboard = () => {
         description="Comprehensive oversight dashboard for platform governance, compliance, and emergency control"
       />
       <FilterBar
+      label="Filters"
         filters={[
           {
             placeholder: "All Cities",

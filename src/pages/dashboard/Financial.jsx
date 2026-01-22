@@ -6,6 +6,69 @@ import alertIcon from "../../assets/sidebaricon/auditicon.svg";
 import pauseIcon from "../../assets/freezeicon.svg";
 import approvalIcon from "../../assets/sidebaricon/policiesicon.svg";
 import cityIcon from "../../assets/exporticon.svg";
+import FinanceChart from "../../components/common/FinanceChart";
+
+const mtd = [
+  {
+    title: "Revenue",
+    budget: "$550K",
+    actual: "$580K",
+    change: "+5.5%",
+    barColor: "bg-[#5CC65A]",
+  },
+  {
+    title: "Operating Costs",
+    budget: "$450K",
+    actual: "$487K",
+    change: "+8.2%",
+    barColor: "bg-[#EF4444]",
+  },
+  {
+    title: "Marketing",
+    budget: "$120K",
+    actual: "$124K",
+    change: "+3.3%",
+    barColor: "bg-[#EF4444]",
+  },
+  {
+    title: "R&D",
+    budget: "$280K",
+    actual: "$265K",
+    change: "-5.4%",
+    barColor: "bg-[#5CC65A]",
+  },
+];
+
+const ytd = [
+  {
+    title: "Revenue",
+    budget: "$62.0M",
+    actual: "$68.5M",
+    change: "+10.5%",
+    barColor: "bg-[#5CC65A]",
+  },
+  {
+    title: "Operating Costs",
+    budget: "$5.2M",
+    actual: "$5.5M",
+    change: "+4.8%",
+    barColor: "bg-[#EF4444]",
+  },
+  {
+    title: "Marketing",
+    budget: "$1.4M",
+    actual: "$1.5M",
+    change: "+8.6%",
+    barColor: "bg-[#EF4444]",
+  },
+  {
+    title: "R&D",
+    budget: "$3.2M",
+    actual: "$3.1M",
+    change: "-3.1%",
+    barColor: "bg-[#5CC65A]",
+  },
+];
 
 const financeStats = [
   {
@@ -41,6 +104,44 @@ const financeStats = [
 ];
 
 const Financial = () => {
+  const Section = ({ title, data }) => (
+    <div className="flex-1">
+      <h3 className="text-[18px] text-[#0A0A0A] mb-4">{title}</h3>
+
+      <div className="space-y-5">
+        {data.map((item, i) => (
+          <div key={i}>
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-[14px] text-[#0A0A0A]">{item.title}</span>
+              <span
+                className={`text-[14px] font-medium ${
+                  item.change.startsWith("-")
+                    ? "text-[#16A34A]"
+                    : item.barColor === "bg-[#EF4444]"
+                      ? "text-[#EF4444]"
+                      : "text-[#16A34A]"
+                }`}
+              >
+                {item.change}
+              </span>
+            </div>
+
+            <div className="flex justify-between text-[13px] text-[#475467] mb-2">
+              <span>Budget: {item.budget}</span>
+              <span>Actual: {item.actual}</span>
+            </div>
+
+            <div className="h-[8px] w-full bg-[#E5E7EB] rounded-full overflow-hidden">
+              <div
+                className={`h-full ${item.barColor}`}
+                style={{ width: "100%" }}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
   return (
     <MainLayout>
       <PageHeader
@@ -82,6 +183,17 @@ const Financial = () => {
           },
         ]}
       />
+
+      <FinanceChart />
+
+      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
+        <h2 className="text-[20px] text-[#0A0A0A] mb-6">Budget vs Actual</h2>
+
+        <div className="flex flex-col lg:flex-row gap-10">
+          <Section title="Month-to-Date (MTD)" data={mtd} />
+          <Section title="Year-to-Date (YTD)" data={ytd} />
+        </div>
+      </div>
     </MainLayout>
   );
 };
