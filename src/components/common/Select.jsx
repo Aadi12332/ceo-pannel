@@ -47,7 +47,7 @@ const Select = ({
       )}
 
       <div
-        onClick={() => setOpen(true)}
+        onClick={() => setOpen((prev) => !prev)}
         className={`w-full px-8 py-2 lg:text-[18px] text-base
           rounded-[10px] lg:h-[70px] h-12 bg-[#EDEDED] cursor-pointer
           flex items-center justify-between
@@ -85,11 +85,11 @@ const Select = ({
                 setOpen(false);
               }}
               className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base
-                hover:bg-[#F2F2F2] ${listItemClassName}
+                ${listItemClassName}
                 ${
                   value === opt.value
                     ? "bg-[#0E1E38] text-white"
-                    : "text-[#1E1E1E]"
+                    : "text-[#1E1E1E] hover:bg-[#F2F2F2]"
                 }`}
             >
               {opt.label}

@@ -60,7 +60,8 @@ const FilterBar = ({
                 value={filter.value}
                 onChange={filter.onChange}
                 inputClassName="!h-10 2xl:!w-[232px] xl:!w-[180px] !w-[150px] !px-3 !text-[14px] !text-[#0A0A0A] !bg-[#F3F3F5] !rounded-lg"
-                listItemClassName="!text-[14px] !px-3"
+                listItemClassName="!text-[14px] !px-3 !py-1.5"
+                listParentClassName="!max-h-[260px]"
               />
             </div>
           ))}
