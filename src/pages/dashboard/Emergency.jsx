@@ -3,7 +3,9 @@ import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
 import plusIcon from "../../assets/plusicon.svg";
 import warningIcon from "../../assets/warningicon.svg";
-import EmergencyChart from "../../components/common/EmergencyChart";
+import EmergencyChart from "../../components/emergency-component/EmergencyChart";
+import IncidentResponseTimeline from "../../components/emergency-component/IncidentResponseTimeline";
+import EmergencyDashboard from "../../components/emergency-component/EmergencyTabs";
 
 const policyStats = [
   {
@@ -59,6 +61,11 @@ const Emergency = () => {
       <SummaryCards items={policyStats} title="Emergency Dashboard" />
 
       <EmergencyChart />
+
+      <EmergencyDashboard />
+
+      <IncidentResponseTimeline />
+      
     </MainLayout>
   );
 };

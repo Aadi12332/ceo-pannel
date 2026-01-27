@@ -6,7 +6,9 @@ import dollarIcon from "../../assets/greendollaricon.svg";
 import clockIcon from "../../assets/clockicon.svg";
 import alertIcon from "../../assets/alertcircleicon.svg";
 import InsightCards from "../../components/common/InsightCard";
-import ApprovalTrends from "../../components/common/ApprovalTrendsChart";
+import ApprovalTrends from "../../components/approval-component/ApprovalTrendsChart";
+import ApprovalQueue from "../../components/approval-component/ApprovalTabs";
+import DelegationAndAudit from "../../components/approval-component/DelegationAndAudit";
 
 const insightData = [
   {
@@ -68,6 +70,11 @@ const Approvals = () => {
       <InsightCards items={insightData} />
 
       <ApprovalTrends />
+
+      <ApprovalQueue />
+
+      <DelegationAndAudit />
+
     </MainLayout>
   );
 };

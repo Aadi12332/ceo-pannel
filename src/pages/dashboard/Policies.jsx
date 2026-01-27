@@ -3,8 +3,10 @@ import PageHeader from "../../components/common/Heading";
 import MainLayout from "../../components/layout/MainLayout";
 import plusIcon from "../../assets/plusicon.svg";
 import SummaryCards from "../../components/common/SummaryCard";
-import PolicyTrends from "../../components/common/PolicyChart";
-import PolicyPackSelector from "../../components/common/PolicySelector";
+import PolicyTrends from "../../components/policy-component/PolicyChart";
+import PolicyPackSelector from "../../components/policy-component/PolicySelector";
+import ExceptionAndLogsSection from "../../components/policy-component/ExceptionandlogSection";
+import PolicyTabsPage from "../../components/policy-component/PolicyBuilder";
 
 const policyStats = [
   {
@@ -60,6 +62,10 @@ const Policies = () => {
         activeTab={activeTab}
         onChange={setActiveTab}
       />
+
+      <PolicyTabsPage />
+
+      <ExceptionAndLogsSection />
     </MainLayout>
   );
 };
