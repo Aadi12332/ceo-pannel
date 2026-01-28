@@ -1,6 +1,6 @@
 import { useState } from "react";
 import buildingIcon from "../../assets/buildingIcon.svg";
-import locationIcon from "../../assets/locationIcon.svg";
+import locationIcon from "../../assets/locationicon.svg";
 import ArrowUpRight from "../../assets/upsidecharticon.svg";
 import ArrowDownRight from "../../assets/downsidecharticon.svg";
 import { WarningTriangleIcon } from "../../assets/icons/icons";
