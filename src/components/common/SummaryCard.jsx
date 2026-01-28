@@ -5,7 +5,7 @@ const SummaryCards = ({ items = [], title }) => {
     {title && <h2 className="text-[22px] font-bold mb-5 text-[#0A0A0A]">{title}</h2>}
     <div   className={`grid ${
     isSixItems ? "xl:grid-cols-6" : "xl:grid-cols-4"
-  } lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 2xl:gap-6 gap-3 mb-5`}>
+  } lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 2xl:gap-6 gap-3 mb-5`}>
       {items.map((item, index) => {
         const isUp = item.change > 0;
         const isDown = item.change < 0;

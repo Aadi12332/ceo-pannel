@@ -1,5 +1,6 @@
-const QuickActions = ({ title, actions = [] }) => {
+const QuickActions = ({ title, actions }) => {
   const isFourItems = actions.length === 4;
+  const isFilter = actions.filter((action) => action.filter === true);
 
   return (
     <div className="w-full bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 mb-5">
@@ -35,7 +36,7 @@ const QuickActions = ({ title, actions = [] }) => {
                 <img
                   src={action.icon}
                   alt=""
-                  className="mb-4 w-5"
+                  className={isFilter == true ? "mb-4 w-5 invert filter" : "mb-4 w-5"}
                 />
               )}
 

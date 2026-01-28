@@ -6,7 +6,9 @@ import alertIcon from "../../assets/sidebaricon/auditicon.svg";
 import pauseIcon from "../../assets/freezeicon.svg";
 import approvalIcon from "../../assets/sidebaricon/policiesicon.svg";
 import cityIcon from "../../assets/exporticon.svg";
-import FinanceChart from "../../components/common/FinanceChart";
+import FinanceChart from "../../components/financial-component/FinanceChart";
+import RevenueGrossMargin from "../../components/financial-component/RevenueGrossMargin";
+import ChargebackAndFraudSection from "../../components/financial-component/ChargebackAndFraudSection";
 
 const mtd = [
   {
@@ -194,6 +196,11 @@ const Financial = () => {
           <Section title="Year-to-Date (YTD)" data={ytd} />
         </div>
       </div>
+
+      <RevenueGrossMargin />
+
+      <ChargebackAndFraudSection />
+      
     </MainLayout>
   );
 };

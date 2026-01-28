@@ -9,11 +9,11 @@ import {
 
 const auditLogsData = [
   { date: "Dec 15", value: 1100 },
-  { date: "Dec 16", value: 1130 },
+  { date: "Dec 16", value: 1030 },
   { date: "Dec 17", value: 1160 },
-  { date: "Dec 18", value: 1185 },
+  { date: "Dec 18", value: 1085 },
   { date: "Dec 19", value: 1210 },
-  { date: "Dec 20", value: 1235 },
+  { date: "Dec 20", value: 1135 },
   { date: "Dec 21", value: 1260 },
 ];
 
@@ -32,7 +32,7 @@ const DirectoryChart = () => {
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
       <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">
-          Emergency Response Time
+          Overall Health Score Trend
         </h3>
 
         <div className="h-[260px]">
@@ -68,7 +68,7 @@ const DirectoryChart = () => {
 
       <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">
-          System Health Trend
+          Budget Compliance Trend
         </h3>
 
         <div className="h-[260px]">

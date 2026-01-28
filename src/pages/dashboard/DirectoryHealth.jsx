@@ -1,7 +1,8 @@
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
-import EmergencyChart from "../../components/emergency-component/EmergencyChart";
+import DirectoryChart from "../../components/directory-component/DirectoryChart";
+import SLADashboard from "../../components/directory-component/SLADashboard";
 import alertIcon from "../../assets/alertcircleicon.svg";
 import folderIcon from "../../assets/fileicon.svg";
 import sendIcon from "../../assets/alertcircleicon.svg";
@@ -102,10 +103,7 @@ const healthCards = [
     name: "Mike Davis",
     health: 88,
     tone: "yellow",
-    risks: [
-      "Provider onboarding SLA breaching",
-      "Operational capacity at 95%",
-    ],
+    risks: ["Provider onboarding SLA breaching", "Operational capacity at 95%"],
     incidents: 2,
     approvals: 12,
     spend: "94%",
@@ -138,10 +136,7 @@ const healthCards = [
     name: "Jessica Lee",
     health: 76,
     tone: "yellow",
-    risks: [
-      "Campaign ROI below target",
-      "Marketing budget overspent by 8%",
-    ],
+    risks: ["Campaign ROI below target", "Marketing budget overspent by 8%"],
     incidents: 0,
     approvals: 6,
     spend: "108%",
@@ -212,7 +207,7 @@ const DirectoryHealth = () => {
 
       <SummaryCards items={healthStats} title="Directory Dashboard" />
 
-      <EmergencyChart />
+      <DirectoryChart />
 
       <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
         <div className="flex items-center justify-between mb-6">
@@ -301,81 +296,95 @@ const DirectoryHealth = () => {
         </div>
       </div>
 
-          <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
-      {healthCards.map((item, i) => {
-        const tone = toneMap[item.tone];
-        return (
-          <div
-            key={i}
-            className={`rounded-[16px] border p-5 flex flex-col justify-between ${tone.card}`}
-          >
-            <div>
-              <div className="flex justify-between items-start mb-4">
-                <div>
-                  <h3 className="text-[18px] font-medium text-[#0A0A0A]">
-                    {item.role}
-                  </h3>
-                  <p className="text-[14px] text-[#475467]">{item.name}</p>
+      <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 mb-5">
+        {healthCards.map((item, i) => {
+          const tone = toneMap[item.tone];
+          return (
+            <div
+              key={i}
+              className={`rounded-[16px] border p-5 flex flex-col justify-between ${tone.card}`}
+            >
+              <div>
+                <div className="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 className="text-[18px] font-medium text-[#0A0A0A]">
+                      {item.role}
+                    </h3>
+                    <p className="text-[14px] text-[#475467]">{item.name}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className={`text-[28px] font-semibold ${tone.health}`}>
+                      {item.health}
+                    </p>
+                    <p className="text-[14px] text-[#475467]">Health</p>
+                  </div>
                 </div>
-                <div className="text-right">
-                  <p className={`text-[28px] font-semibold ${tone.health}`}>
-                    {item.health}
-                  </p>
-                  <p className="text-[14px] text-[#475467]">Health</p>
+
+                <div className="mb-4">
+                  <p className="text-[14px] text-[#0A0A0A] mb-2">Top Risks:</p>
+                  {item.risks.length === 0 ? (
+                    <p className="text-[14px] text-[#16A34A]">
+                      ✓ No active risks
+                    </p>
+                  ) : (
+                    item.risks.map((r, idx) => (
+                      <div
+                        key={idx}
+                        className={`flex items-center gap-2 text-[14px] text-red-500`}
+                      >
+                        <img src={riskIcon} alt="" className="w-4 h-4" />
+                        {r}
+                      </div>
+                    ))
+                  )}
+                </div>
+
+                <div className="flex justify-between text-[14px] mb-4">
+                  <span className="text-center">
+                    Incidents
+                    <br />
+                    {item.incidents}
+                  </span>
+                  <span className="text-center">
+                    Approvals
+                    <br />
+                    {item.approvals}
+                  </span>
+                  <span className="text-center">
+                    Spend
+                    <br />
+                    {item.spend}
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-center mb-4">
+                  <span
+                    className={`px-3 py-1 rounded-full text-[13px] ${tone.badge}`}
+                  >
+                    {item.sla.status}
+                  </span>
+                  <span className="text-[14px] text-[#16A34A]">
+                    {item.sla.time}
+                  </span>
                 </div>
               </div>
 
-              <div className="mb-4">
-                <p className="text-[14px] text-[#0A0A0A] mb-2">Top Risks:</p>
-                {item.risks.length === 0 ? (
-                  <p className="text-[14px] text-[#16A34A]">
-                    ✓ No active risks
-                  </p>
-                ) : (
-                  item.risks.map((r, idx) => (
-                    <div
-                      key={idx}
-                      className={`flex items-center gap-2 text-[14px] text-red-500`}
-                    >
-                      <img src={riskIcon} alt="" className="w-4 h-4" />
-                      {r}
-                    </div>
-                  ))
-                )}
-              </div>
-
-              <div className="flex justify-between text-[14px] mb-4">
-                <span className="text-center">Incidents<br />{item.incidents}</span>
-                <span className="text-center">Approvals<br />{item.approvals}</span>
-                <span className="text-center">Spend<br />{item.spend}</span>
-              </div>
-
-              <div className="flex justify-between items-center mb-4">
-                <span
-                  className={`px-3 py-1 rounded-full text-[13px] ${tone.badge}`}
-                >
-                  {item.sla.status}
-                </span>
-                <span className="text-[14px] text-[#16A34A]">
-                  {item.sla.time}
-                </span>
+              <div className="space-y-2">
+                <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
+                  <img src={sendIcon} alt="" className="w-4 h-4" />
+                  Send Target
+                </button>
+                <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
+                  <img src={dashboardIcon} alt="" className="w-4 h-4" />
+                  Open Dashboard
+                </button>
               </div>
             </div>
+          );
+        })}
+      </div>
 
-            <div className="space-y-2">
-              <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
-                <img src={sendIcon} alt="" className="w-4 h-4" />
-                Send Target
-              </button>
-              <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
-                <img src={dashboardIcon} alt="" className="w-4 h-4" />
-                Open Dashboard
-              </button>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+      <SLADashboard />
     </MainLayout>
   );
 };

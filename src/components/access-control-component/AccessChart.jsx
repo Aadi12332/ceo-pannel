@@ -29,7 +29,7 @@ const complianceRateData = [
   { date: "Dec 21", value: 101 },
 ];
 
-const AuditChart = () => {
+const AccessChart = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
       <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
@@ -116,4 +116,4 @@ const AuditChart = () => {
   );
 };
 
-export default AuditChart;
+export default AccessChart;

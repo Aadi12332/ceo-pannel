@@ -2,12 +2,14 @@ import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
 import plusIcon from "../../assets/plusicon.svg";
-import AutomationChart from "../../components/common/AutomationChart";
 import shieldIcon from "../../assets/shieldicon.svg";
 import pauseIcon from "../../assets/pauseicon.svg";
 import dollarIcon from "../../assets/greendollaricon.svg";
 import alertIcon from "../../assets/alertcircleicon.svg";
 import warningIcon from "../../assets/alertcircleicon.svg";
+import AutomationChart from "../../components/automation-component/AutomationChart";
+import RetryPolicyAndDLQSection from "../../components/automation-component/RetryPolicyAndDLQSection";
+import AutomationGovernancePage from "../../components/automation-component/AutomationTabs";
 
 const automationStats = [
   {
@@ -146,6 +148,11 @@ const Automation = () => {
         </button>
       </div>
     </div>
+
+    <AutomationGovernancePage />
+
+    <RetryPolicyAndDLQSection />
+
     </MainLayout>
   );
 };

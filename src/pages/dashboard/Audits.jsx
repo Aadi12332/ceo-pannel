@@ -3,7 +3,7 @@ import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
 import fileIcon from "../../assets/fileicon.svg";
 import exportIcon from "../../assets/exporticon.svg";
-import AuditChart from "../../components/common/AuditChart";
+import AuditChart from "../../components/audit-component/AuditChart";
 import ComprehensiveAuditLogging from "../../components/audit-component/AuditLogging";
 import RetentionAndComplianceSection from "../../components/audit-component/RetentionAndComplianceSection";
 import AuditTabs from "../../components/audit-component/AuditTabs";
