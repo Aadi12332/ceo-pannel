@@ -22,7 +22,6 @@ const CreateReportModal = ({ open, onClose }) => {
   const [type, setType] = useState(REPORT_TYPES[0]);
   const [fromOpen, setFromOpen] = useState(false);
   const [toOpen, setToOpen] = useState(false);
-
   const [from, setFrom] = useState();
   const [to, setTo] = useState();
   const [formatType, setFormatType] = useState("PDF");

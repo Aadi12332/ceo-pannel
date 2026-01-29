@@ -1,10 +1,11 @@
 import { useState } from "react";
+import NotificationsSidebar from "./NotificationsSidebar";
 import searchIcon from "../../assets/searchicon.svg";
 import chatIcon from "../../assets/chaticon.svg";
 import bellIcon from "../../assets/notificationicon.svg";
-import arrowDown from "../../assets/downarrow.svg";
 import avatar from "../../assets/profileimg.svg";
 import Select from "../common/Select";
+import ChatModal from "./ChatModal";
 
 const roles = [
   { value: "CEO", label: "CEO" },
@@ -19,11 +20,13 @@ const roles = [
 
 const Header = ({ onMenuClick }) => {
   const [role, setRole] = useState("CEO");
+  const [chatModalOpen, setChatModalOpen] = useState(false);
+  const [openNotifications, setOpenNotifications] = useState(false);
 
   return (
     <header className="w-full bg-white p-2.5 flex items-center justify-between gap-5">
       <div className="flex gap-3 items-center">
-        <svg 
+        <svg
           onClick={onMenuClick}
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -52,7 +55,7 @@ const Header = ({ onMenuClick }) => {
           />
         </svg>
 
-        <div className="flex items-center bg-[#EEF4FF] rounded-full px-4 py-3 w-full max-w-[322px]">
+        <div className="flex items-center bg-[#EEF4FF] rounded-full px-4 py-3 w-full xl:w-[322px] max-w-[322px]  ">
           <img src={searchIcon} alt="Search" className="w-5 h-5 mr-3" />
           <input
             type="text"
@@ -63,11 +66,11 @@ const Header = ({ onMenuClick }) => {
       </div>
 
       <div className="flex items-center gap-6">
-        <button className="relative">
+        <button className="relative" onClick={() => setChatModalOpen(true)}>
           <img src={chatIcon} alt="Chat" className="min-w-6 w-6 h-6" />
         </button>
 
-        <button className="relative">
+        <button className="relative" onClick={() => setOpenNotifications(true)}>
           <img src={bellIcon} alt="Notifications" className="min-w-6 w-6 h-6" />
           {/* <span className="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full" /> */}
         </button>
@@ -89,6 +92,16 @@ const Header = ({ onMenuClick }) => {
           />
         </div>
       </div>
+
+      <ChatModal
+        chatModalOpen={chatModalOpen}
+        onClose={() => setChatModalOpen(false)}
+      />
+
+      <NotificationsSidebar
+        open={openNotifications}
+        onClose={() => setOpenNotifications(false)}
+      />
     </header>
   );
 };

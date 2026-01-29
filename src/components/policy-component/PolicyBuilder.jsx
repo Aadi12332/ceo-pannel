@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import policiesIcon from "../../assets/policiesicon.svg";
 import builderIcon from "../../assets/policybuildericon.svg";
 import simulatorIcon from "../../assets/simulatoricon.svg";
@@ -12,6 +11,24 @@ import activeIcon from "../../assets/workflowicon4.svg";
 import arrowIcon from "../../assets/workflowicon5.png";
 import Select from "../common/Select";
 import { ErrorIcon } from "../../assets/icons/icons";
+import CreatePolicyModal from "./CreatePolicyModal";
+import PolicyImpactModal from "./PolicyImpactModal";
+import IssueExceptionModal from "./IssueExceptionModal";
+import {
+  SquarePen,
+  Play,
+  RotateCcw,
+  Ticket,
+  Upload
+} from "lucide-react"
+
+const actionIcons = {
+  Edit: SquarePen,
+  Simulate: Play,
+  Rollback: RotateCcw,
+  "Issue Exception": Ticket,
+  Publish: Upload,
+}
 
 const TABS = [
   { key: "policies", label: "Policies", icon: policiesIcon },
@@ -182,6 +199,17 @@ const PolicyTabsPage = () => {
   const [scopeType, setScopeType] = useState("");
   const [simulation, setSimulation] = useState("");
   const [workflowpolicy, setWorkflowpolicy] = useState("");
+  const [policyOpen, setPolicyOpen] = useState(false);
+  const [policyImpactOpen, setPolicyImpactOpen] = useState(false);
+  const [rollbackOpen, setRollbackOpen] = useState(false);
+  // const [exceptionOpen, setExceptionOpen] = useState(false);
+
+  const actionHandlers = {
+    Edit: () => setPolicyOpen(true),
+    Simulate: () => setPolicyImpactOpen(true),
+    Rollback: () => setRollbackOpen(true),
+    // "Issue Exception": () => setExceptionOpen(true),
+  };
 
   return (
     <div className="mb-5 space-y-6">
@@ -291,18 +319,23 @@ const PolicyTabsPage = () => {
               </div>
 
               <div className="flex gap-2 flex-wrap">
-                {p.actions.map((action) => (
+                {p.actions.map((action) => {
+                  const Icon = actionIcons[action];
+                  return (
                   <button
                     key={action}
-                    className={`px-3 py-1.5 text-sm border rounded-md ${
+                    onClick={actionHandlers[action]}
+                    className={`px-3 py-1.5 text-sm border rounded-md flex items-center gap-2 ${
                       action === "Publish"
                         ? "bg-gray-900 text-white"
                         : "bg-white"
                     }`}
                   >
+                    {Icon && <Icon className="w-4 h-4" />}
                     {action}
                   </button>
-                ))}
+                )
+                })}
               </div>
             </div>
           ))}
@@ -712,6 +745,34 @@ const PolicyTabsPage = () => {
           </table>
         </div>
       )}
+
+      {policyOpen && 
+        <CreatePolicyModal
+          title="Edit New Policy Rule"
+          subtitle="Edit policy conditions and create a new version"
+          btnText="Save New Version"
+          policyOpen={policyOpen}
+          onClose={() => setPolicyOpen(false)}
+        />
+      }
+
+      {policyImpactOpen && 
+        <PolicyImpactModal
+          policyImpactOpen={policyImpactOpen}
+          onClose={() => setPolicyImpactOpen(false)}
+        />
+      }
+
+      {rollbackOpen && (
+        <IssueExceptionModal
+          rollbackOpen={rollbackOpen}
+          onClose={() => setRollbackOpen(false)}
+        />
+      )}
+
+      {/* {exceptionOpen && (
+        <IssueExceptionModal onClose={() => setExceptionOpen(false)} />
+      )} */}
     </div>
   );
 };

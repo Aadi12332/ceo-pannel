@@ -71,7 +71,7 @@ const quickActions = [
     label: "Send Mass Email",
     icon: quickIcon2,
     type: "navigate",
-    path: "#",
+    path: "/send-mass-email",
   },
   {
     label: "Broadcast Message",
@@ -255,7 +255,7 @@ const ExecutiveDashboardSection = ({ id }) => {
                 <div
                   onClick={() => handleQuickActionClick(a)}
                   key={i}
-                  className="flex items-center gap-3"
+                  className="flex items-center gap-3 cursor-pointer"
                 >
                   <img
                     src={a.icon}
