@@ -92,7 +92,7 @@ const GlobalToolRegistry = () => {
           {
             label: "Users",
             icon: usericon,
-            onClick: () => console.log("Users"),
+            onClick: () => navigate("/users"),
           },
         ]}
       />
@@ -230,6 +230,7 @@ const GlobalToolRegistry = () => {
           </div>
         </div>
       </div>
+      
     </MainLayout>
   );
 };

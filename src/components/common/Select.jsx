@@ -13,6 +13,7 @@ const Select = ({
   listItemClassName = "",
   listParentClassName = "",
   placement = "bottom",
+  showCheckbox = false,
 }) => {
   const [open, setOpen] = useState(false);
   const selectRef = useRef(null);
@@ -77,23 +78,44 @@ const Select = ({
             ${dropdownPosition}`}
         >
           {options.map((opt) => (
-            <li
-              key={opt.value}
-              onClick={(e) => {
-                e.stopPropagation();
-                onChange(opt.value);
-                setOpen(false);
-              }}
-              className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base
-                ${listItemClassName}
-                ${
-                  value === opt.value
-                    ? "bg-[#0E1E38] text-white"
-                    : "text-[#1E1E1E] hover:bg-[#F2F2F2]"
-                }`}
-            >
-              {opt.label}
-            </li>
+           <li
+  key={opt.value}
+  onClick={(e) => {
+    e.stopPropagation();
+
+    if (showCheckbox) {
+      onChange(
+        value.includes(opt.value)
+          ? value.filter((v) => v !== opt.value)
+          : [...value, opt.value]
+      );
+    } else {
+      onChange(opt.value);
+      setOpen(false);
+    }
+  }}
+  className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base flex items-center gap-3
+    ${listItemClassName}
+    ${
+      showCheckbox
+        ? "hover:bg-[#F2F2F2]"
+        : value === opt.value
+        ? "bg-[#0E1E38] text-white"
+        : "text-[#1E1E1E] hover:bg-[#F2F2F2]"
+    }`}
+>
+  {showCheckbox && (
+    <input
+      type="checkbox"
+      checked={value.includes(opt.value)}
+      onChange={() => {}}
+      className="accent-[#0E1E38] scale-125"
+    />
+  )}
+
+  {opt.label}
+</li>
+
           ))}
         </ul>
       )}

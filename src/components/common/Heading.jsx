@@ -15,7 +15,7 @@ const PageHeader = ({ title, description, filter, actions = [] }) => {
             <button
               key={index}
               onClick={action.onClick}
-              className={`flex items-center gap-2 px-5 lg:h-[62px] h-12 min-w-[180px] rounded-lg text-[18px] font-medium transition
+              className={`flex items-center gap-2 px-5 lg:h-[62px] h-12 min-w-max rounded-lg text-[18px] font-medium transition
                 ${
                   action.variant === "secondary"
                     ? "bg-white border border-[#0E1E38] text-[#0E1E38]"

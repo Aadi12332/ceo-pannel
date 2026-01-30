@@ -8,6 +8,7 @@ import {
   ChevronRight,
   FileDown,
   Plus,
+  Eye,
 } from "lucide-react";
 import RowActionMenu from "./RowActionMenu";
 import ConfirmActionModal from "./ConfirmActionModal";
@@ -21,78 +22,78 @@ const statusStyles = {
 
 const history = [
   {
-    id: "#VEN001",
-    title: "Emily Johnson",
+    id: "#C001",
+    title: "Maya Patel",
     content: "sara.bright@example.com",
     phone: "202-555-0199",
-    business: "Sunny Side Bakery",
+    orders: 12,
     status: "Active",
   },
   {
-    id: "#VEN002",
-    title: "Michael Smith",
+    id: "#C002",
+    title: "Ravi Kumar",
     content: "mike.jones@samplemail.com",
     phone: "415-555-0123",
-    business: "Green Leaf Landscaping",
+    orders: 12,
     status: "Suspended",
   },
   {
-    id: "#VEN003",
-    title: "Olivia Brown",
+    id: "#C003",
+    title: "Sofia Mehta",
     content: "linda.smith@webmail.com",
     phone: "312-555-0147",
-    business: "Blue Sky Tech Solutions",
+    orders: 12,
     status: "Active",
   },
   {
-    id: "#VEN004",
-    title: "James Wilson",
+    id: "#C004",
+    title: "Arjun Singh",
     content: "david.lee@domain.com",
     phone: "718-555-0165",
-    business: "Urban Chic Boutique",
+    orders: 12,
     status: "Active",
   },
   {
-    id: "#VEN005",
-    title: "Sophia Davis",
+    id: "#C005",
+    title: "Leela Joshi",
     content: "emily.clark@service.com",
     phone: "503-555-0182",
-    business: "Coastal Breeze",
+    orders: 12,
     status: "Under Review",
   },
   {
-    id: "#VEN006",
-    title: "Daniel Martinez",
+    id: "#C006",
+    title: "Kiran Desai",
     content: "james.brown@mymail.com",
     phone: "619-555-0134",
-    business: "Mountain Peak Fitness",
+    orders: 12,
     status: "Active",
   },
   {
-    id: "#VEN007",
-    title: "Ava Garcia",
+    id: "#C007",
+    title: "Nisha Verma",
     content: "olivia.white@inbox.com",
     phone: "303-555-0178",
-    business: "Golden Coffee Roasters",
+    orders: 12,
     status: "Active",
   },
   {
-    id: "#VEN008",
-    title: "Liam Rodriguez",
+    id: "#C008",
+    title: "Vikram Reddy",
     content: "noah@mailservice.com",
     phone: "404-555-0110",
-    business: "River Valley Art Supplies",
+    orders: 12,
     status: "Active",
   },
 ];
 
 export default function Merchants() {
   const navigate = useNavigate();
-    const [typeFilter, setTypeFilter] = useState("All")
-  const [statusFilter, setStatusFilter] = useState("All")
+  const [typeFilter, setTypeFilter] = useState("All");
+  const [statusFilter, setStatusFilter] = useState("All");
 
-  const [confirmType, setConfirmType] = useState(null)
-  const [selectedRow, setSelectedRow] = useState(null)
+  const [confirmType, setConfirmType] = useState(null);
+  const [selectedRow, setSelectedRow] = useState(null);
 
   return (
     <MainLayout>
@@ -104,7 +105,7 @@ export default function Merchants() {
           <ChevronLeft className="w-5 h-5 cursor-pointer" />
           <h1 className="text-xl font-semibold">
             <span className="text-gray-500">Global Tool Registry</span> &gt;
-            Merchants
+            Users
           </h1>
         </div>
 
@@ -116,7 +117,7 @@ export default function Merchants() {
       <div className="bg-[#EEF4FF] space-y-5">
         <div className="flex items-center justify-between">
           <h2 className="text-[20px] font-semibold text-[#101828]">
-            All Merchants
+            Under Review Users
           </h2>
 
           <div className="flex items-center gap-3">
@@ -125,7 +126,12 @@ export default function Merchants() {
               Export PDF
             </button>
 
-            <button onClick={()=>navigate("/add-new-merchant")} className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+            <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+              <Eye className="w-4 h-4 text-white" />
+              View New Applications
+            </button>
+
+            <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
               <Plus className="w-4 h-4" />
               Add New Merchant
             </button>
@@ -142,17 +148,17 @@ export default function Merchants() {
           </div>
 
           <div className="flex gap-3">
-                    <FilterDropdown
-          options={["All", "Restaurant", "Grocery", "Shopping"]}
-          value={typeFilter}
-          onChange={setTypeFilter}
-        />
+            <FilterDropdown
+              options={["All", "Users", "Influencers"]}
+              value={typeFilter}
+              onChange={setTypeFilter}
+            />
 
-        <FilterDropdown
-          options={["All", "Active", "Suspend", "Under Review"]}
-          value={statusFilter}
-          onChange={setStatusFilter}
-        />
+            <FilterDropdown
+              options={["All", "Active", "Suspend", "Under Review"]}
+              value={statusFilter}
+              onChange={setStatusFilter}
+            />
           </div>
         </div>
 
@@ -161,11 +167,11 @@ export default function Merchants() {
             <thead>
               <tr className="border-b border-[#D0D5DD]">
                 {[
-                  "Merchant ID",
-                  "Name",
+                  "Customer ID",
+                  "Customer Name",
                   "Email",
                   "Phone",
-                  "Business Name",
+                  "Total Orders",
                   "Status",
                   "Action",
                 ].map((label) => (
@@ -209,26 +215,18 @@ export default function Merchants() {
                   </td>
 
                   <td className="px-5 py-5">
-                     <RowActionMenu
-                    onView={() =>
-                      navigate("/add-new-merchant", {
-                        state: { view: true }
-                      })
-                    }
-                    onEdit={() =>
-                      navigate("/add-new-merchant", {
-                        state: { edit: true }
-                      })
-                    }
-                    onSuspend={() => {
-                      setSelectedRow(row)
-                      setConfirmType("SUSPEND")
-                    }}
-                    onDelete={() => {
-                      setSelectedRow(row)
-                      setConfirmType("DELETE")
-                    }}
-                  />
+                    <RowActionMenu
+                      onView={() => setSelectedRow(row)}
+                      onEdit={() => console.log("edit", row)}
+                      onSuspend={() => {
+                        setSelectedRow(row);
+                        setConfirmType("SUSPEND");
+                      }}
+                      onDelete={() => {
+                        setSelectedRow(row);
+                        setConfirmType("DELETE");
+                      }}
+                    />
                   </td>
                 </tr>
               ))}
@@ -236,16 +234,16 @@ export default function Merchants() {
           </table>
         </div>
 
-      <ConfirmActionModal
-        open={!!confirmType}
-        type={confirmType}
-        onClose={() => setConfirmType(null)}
-        onConfirm={() => {
-          console.log(confirmType, selectedRow)
-          setConfirmType(null)
-          setSelectedRow(null)
-        }}
-      />
+        <ConfirmActionModal
+          open={!!confirmType}
+          type={confirmType}
+          onClose={() => setConfirmType(null)}
+          onConfirm={() => {
+            console.log(confirmType, selectedRow);
+            setConfirmType(null);
+            setSelectedRow(null);
+          }}
+        />
 
         <div className="flex items-center justify-end gap-3 text-sm text-[#667085]">
           <span>1–10 of 1,247</span>
