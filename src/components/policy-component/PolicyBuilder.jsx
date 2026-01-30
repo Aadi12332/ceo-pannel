@@ -80,53 +80,6 @@ const workflowSteps = [
   },
 ];
 
-const policiesData = {
-  draft: [
-    {
-      id: "AEPS-APPROVAL-001",
-      title: "Emergency Override Approval",
-      author: "Mike Davis (COO)",
-      modified: "12/28/2024",
-      action: "submit",
-    },
-  ],
-  review: [
-    {
-      id: "AEPS-NYC-001",
-      title: "NYC City Launch Gate",
-      author: "Tom Rodriguez (GSD)",
-      modified: "12/22/2024",
-      action: "review",
-    },
-  ],
-  active: [
-    {
-      id: "AEPS-PAYOUT-001",
-      title: "High-Value Payout Approval",
-      author: "Sarah Johnson (CEO)",
-      modified: "1/15/2024",
-    },
-    {
-      id: "AEPS-REFUND-001",
-      title: "Auto-Approve Small Refunds",
-      author: "Sarah Johnson (CEO)",
-      modified: "2/1/2024",
-    },
-    {
-      id: "AEPS-RBAC-001",
-      title: "Admin Role Assignment",
-      author: "Sarah Johnson (CEO)",
-      modified: "1/1/2024",
-    },
-    {
-      id: "AEPS-AUTO-001",
-      title: "Marketing Automation Budget Cap",
-      author: "Sarah Johnson (CEO)",
-      modified: "3/1/2024",
-    },
-  ],
-};
-
 const options = [
   { value: "all", label: "All Cities" },
   { value: "nyc", label: "New York City" },

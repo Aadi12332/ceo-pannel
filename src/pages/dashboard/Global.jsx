@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
@@ -9,6 +10,8 @@ import toolsIcon from "../../assets/toolsicon.svg";
 import bellIcon from "../../assets/notificationicon.svg";
 import eyeIcon from "../../assets/eyeicon.svg";
 import Select from "../../components/common/Select";
+import AssignedToolsModal from "../../components/global-component/AssignedToolsModal";
+import UserRequestModal from "../../components/global-component/UserRequestModal";
 
 const toolsData = [
   {
@@ -71,6 +74,10 @@ const auditStats = [
 ];
 const GlobalToolRegistry = () => {
   const [role, setRole] = useState("");
+  const [assignedToolsOpen, setAssignedToolsOpen] = useState(false);
+  const [userRequestOpen, setUserRequestOpen] = useState(false);
+  const navigate = useNavigate();
+
   return (
     <MainLayout>
       <PageHeader
@@ -80,7 +87,7 @@ const GlobalToolRegistry = () => {
           {
             label: "Merchants",
             icon: merchanticon,
-            onClick: () => console.log("Merchants"),
+            onClick: () => navigate("/merchants"),
           },
           {
             label: "Users",
@@ -117,7 +124,10 @@ const GlobalToolRegistry = () => {
                 </div>
 
                 <div className="flex gap-2">
-                  <button className="text-[12px] px-3 py-1 rounded-full border border-[#E5E7EB] text-[#0A0A0A] bg-white">
+                  <button
+                    onClick={() => setAssignedToolsOpen(true)}
+                    className="text-[12px] px-3 py-1 rounded-full border border-[#E5E7EB] text-[#0A0A0A] bg-white"
+                  >
                     view details
                   </button>
                   <span className="text-[12px] px-3 py-1 rounded-full bg-[#FDECEC] text-[#D92D20]">
@@ -133,6 +143,11 @@ const GlobalToolRegistry = () => {
           ))}
         </div>
       </div>
+
+      <AssignedToolsModal
+        open={assignedToolsOpen}
+        onClose={() => setAssignedToolsOpen(false)}
+      />
 
       <div className="flex flex-col gap-5">
         <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
@@ -157,14 +172,14 @@ const GlobalToolRegistry = () => {
             <p className="text-[16px] text-[#0A0A0A] mb-2">Give Permission</p>
 
             <Select
-                placeholder="Select departments...."
-                options={roles}
-                value={role}
-                onChange={setRole}
-                inputClassName="!h-[unset] !min-w-[100px] !bg-white !px-4 !text-base"
-                listItemClassName="!px-3"
-                listParentClassName=""
-              />
+              placeholder="Select departments...."
+              options={roles}
+              value={role}
+              onChange={setRole}
+              inputClassName="!h-[unset] !min-w-[100px] !bg-white !px-4 !text-base"
+              listItemClassName="!px-3"
+              listParentClassName=""
+            />
           </div>
         </div>
 
@@ -200,9 +215,17 @@ const GlobalToolRegistry = () => {
                 </p>
               </div>
 
-              <button className="w-9 h-9 rounded-lg border border-[#0000001A] flex items-center justify-center bg-white">
+              <button
+                onClick={() => setUserRequestOpen(true)}
+                className="w-9 h-9 rounded-lg border border-[#0000001A] flex items-center justify-center bg-white"
+              >
                 <img src={eyeIcon} alt="" className="w-5 h-5" />
               </button>
+
+              <UserRequestModal
+                open={userRequestOpen}
+                onClose={() => setUserRequestOpen(false)}
+              />
             </div>
           </div>
         </div>

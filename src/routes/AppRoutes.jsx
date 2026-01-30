@@ -15,6 +15,7 @@ import Automation from "../pages/dashboard/Automation";
 import Financial from "../pages/dashboard/Financial";
 import Emergency from "../pages/dashboard/Emergency";
 import SendMassEmail from "../components/dashboard-component/SendMassEmail";
+import Merchants from "../components/global-component/Merchants";
 
 const AppRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const AppRoutes = () => {
       <Route path="/change-password" element={<ChangePassword />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/send-mass-email" element={<SendMassEmail />} />
+      <Route path="/merchants" element={<Merchants />} />
       <Route path="/approvals" element={<Approvals />} />
       <Route path="/audits" element={<Audits />} />
       <Route path="/policies" element={<Policies />} />
