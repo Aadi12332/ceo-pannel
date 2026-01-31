@@ -22,9 +22,7 @@ const Select = ({
     options.find((opt) => opt.value === value)?.label || placeholder;
 
   const dropdownPosition =
-    placement === "top"
-      ? "bottom-full mb-2"
-      : "top-full mt-2";
+    placement === "top" ? "bottom-full mb-2" : "top-full mt-2";
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -54,11 +52,7 @@ const Select = ({
           flex items-center justify-between
           ${inputClassName}`}
       >
-        <span
-          className={` ${
-            value ? "text-[#1E1E1E]" : "text-[#929292]"
-          }`}
-        >
+        <span className={` ${value ? "text-[#1E1E1E]" : "text-[#929292]"}`}>
           {selectedLabel}
         </span>
 
@@ -78,44 +72,43 @@ const Select = ({
             ${dropdownPosition}`}
         >
           {options.map((opt) => (
-           <li
-  key={opt.value}
-  onClick={(e) => {
-    e.stopPropagation();
+            <li
+              key={opt.value}
+              onClick={(e) => {
+                e.stopPropagation();
 
-    if (showCheckbox) {
-      onChange(
-        value.includes(opt.value)
-          ? value.filter((v) => v !== opt.value)
-          : [...value, opt.value]
-      );
-    } else {
-      onChange(opt.value);
-      setOpen(false);
-    }
-  }}
-  className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base flex items-center gap-3
-    ${listItemClassName}
-    ${
-      showCheckbox
-        ? "hover:bg-[#F2F2F2]"
-        : value === opt.value
-        ? "bg-[#0E1E38] text-white"
-        : "text-[#1E1E1E] hover:bg-[#F2F2F2]"
-    }`}
->
-  {showCheckbox && (
-    <input
-      type="checkbox"
-      checked={value.includes(opt.value)}
-      onChange={() => {}}
-      className="accent-[#0E1E38] scale-125"
-    />
-  )}
+                if (showCheckbox) {
+                  onChange(
+                    value.includes(opt.value)
+                      ? value.filter((v) => v !== opt.value)
+                      : [...value, opt.value],
+                  );
+                } else {
+                  onChange(opt.value);
+                  setOpen(false);
+                }
+              }}
+              className={`px-8 py-3 cursor-pointer lg:text-[18px] text-base flex items-center gap-3
+              ${listItemClassName}
+              ${
+                showCheckbox
+                  ? "hover:bg-[#F2F2F2]"
+                  : value === opt.value
+                    ? "bg-[#0E1E38] text-white"
+                    : "text-[#1E1E1E] hover:bg-[#F2F2F2]"
+              }`}
+            >
+              {showCheckbox && (
+                <input
+                  type="checkbox"
+                  checked={value.includes(opt.value)}
+                  onChange={() => {}}
+                  className={` ${showCheckbox ? "accent-red-500" : "accent-[#0E1E38]"} scale-125`}
+                />
+              )}
 
-  {opt.label}
-</li>
-
+              {opt.label}
+            </li>
           ))}
         </ul>
       )}

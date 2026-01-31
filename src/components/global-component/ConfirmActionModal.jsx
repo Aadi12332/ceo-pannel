@@ -1,4 +1,4 @@
-const ConfirmActionModal = ({ open, type, onClose, onConfirm }) => {
+const ConfirmActionModal = ({ open, type, onClose, onConfirm, viewApplication }) => {
   if (!open) return null
 
   return (
@@ -15,7 +15,7 @@ const ConfirmActionModal = ({ open, type, onClose, onConfirm }) => {
         <p className="text-sm text-[#475467] mt-2">
           Are you sure you want to{" "}
           <span className="text-red-600 font-bold">
-            {type === "DELETE" ? "Delete" : "Suspend"}
+            {viewApplication ? (type === "APPROVE" ? "Approve" : "Reject") : (type === "DELETE" ? "Delete" : "Suspend")}
           </span>{" "}
           this user?
         </p>

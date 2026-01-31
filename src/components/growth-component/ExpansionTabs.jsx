@@ -1,38 +1,57 @@
 import { useState } from "react";
 import brainicon from "../../assets/brainicon.svg";
 import { ElectricIcon } from "../../assets/icons/icons";
+import {
+  MapPin,
+  Lock,
+  FlaskConical,
+  Briefcase,
+  Brain,
+  CheckCircle,
+  XCircle,
+  AlertTriangle,
+  ShieldCheck,
+  Users,
+  Truck,
+  Clock,
+  Plug,
+} from "lucide-react";
+import CityLaunchGateModal from "./CityLaunchGateModal";
 
 export default function ExpansionTabs() {
-  const [tab, setTab] = useState("city")
+  const [tab, setTab] = useState("city");
 
   return (
     <div className="mb-5">
-        <div className="mb-5 flex items-center gap-2 bg-[#F3F4F6] rounded-full p-1">
-          {[
-            { key: "city", label: "City Readiness" },
-            { key: "gates", label: "Expansion Gates" },
-            { key: "experiments", label: "Experiments" },
-            { key: "risk", label: "Partner Risk" },
-            { key: "ai", label: "AI Performance" }
-          ].map(t => (
+      <div className="mb-5 flex items-center gap-2 bg-[#F3F4F6] rounded-full p-1">
+        {[
+          { key: "city", label: "City Readiness", icon: MapPin },
+          { key: "gates", label: "Expansion Gates", icon: Lock },
+          { key: "experiments", label: "Experiments", icon: FlaskConical },
+          { key: "risk", label: "Partner Risk", icon: Briefcase },
+          { key: "ai", label: "AI Performance", icon: Brain },
+        ].map((t) => {
+          const Icon = t.icon;
+          return (
             <button
               key={t.key}
               onClick={() => setTab(t.key)}
-              className={`px-4 py-2 rounded-full flex-1 text-sm ${
-                tab === t.key
-                  ? "bg-white text-black"
-                  : "text-gray-600"
-              }`}
+              className={`px-4 py-2 rounded-full flex items-center justify-center gap-2 flex-1 text-sm transition
+          ${tab === t.key ? "bg-white text-black shadow" : "text-gray-600"}`}
             >
-              {t.label}
+              <Icon className="w-4 h-4" />
+              <span>{t.label}</span>
             </button>
-          ))}
-        </div>
+          );
+        })}
+      </div>
+
       <div className=" bg-white rounded-xl p-6">
         {tab === "city" && (
           <div className="space-y-4">
             <h2 className="text-lg font-semibold">
-              City Readiness Scorecard - Permits, Staffing, Supply, SLA, Integration
+              City Readiness Scorecard - Permits, Staffing, Supply, SLA,
+              Integration
             </h2>
 
             <CityCard
@@ -61,7 +80,7 @@ export default function ExpansionTabs() {
               reason={[
                 "Food service permit expired",
                 "Support SLA breached",
-                "Integration error rate above 2%"
+                "Integration error rate above 2%",
               ]}
             />
 
@@ -115,8 +134,9 @@ export default function ExpansionTabs() {
             />
 
             <div className="rounded-xl bg-blue-50 p-4 text-sm text-blue-900">
-              Expansion gates are automatically enforced by policy AEPS-LAUNCH-001.
-              Cities must achieve readiness score ≥ 85 to launch.
+              Expansion gates are automatically enforced by policy
+              AEPS-LAUNCH-001. Cities must achieve readiness score ≥ 85 to
+              launch.
             </div>
           </div>
         )}
@@ -266,32 +286,39 @@ export default function ExpansionTabs() {
 
             <div className="rounded-xl bg-purple-50 p-4 text-sm flex flex-col gap-3">
               <p className="font-medium text-[#0A0A0A] text-[18px] flex items-center gap-2">
-                <ElectricIcon color="#9810FA" width={16}  />
-                AI Governance Summary</p>
-              <p className="text-[#364153]">Total cost savings: <span className="font-semibold text-green-600">$187K/month</span></p>
+                <ElectricIcon color="#9810FA" width={16} />
+                AI Governance Summary
+              </p>
               <p className="text-[#364153]">
-                AI is used as <span className="font-bold">assistive tooling only</span> - all outputs subject to human review and approval. No autonomous decision-making permitted.
+                Total cost savings:{" "}
+                <span className="font-semibold text-green-600">
+                  $187K/month
+                </span>
+              </p>
+              <p className="text-[#364153]">
+                AI is used as{" "}
+                <span className="font-bold">assistive tooling only</span> - all
+                outputs subject to human review and approval. No autonomous
+                decision-making permitted.
               </p>
             </div>
           </div>
         )}
       </div>
     </div>
-  )
+  );
 }
 
-function Metric({ label, value, sub, highlight }) {
+function Metric({ label, value, sub, color }) {
   return (
-    <div
-      className={`rounded bg-white p-3 text-center border ${
-        highlight ? "border-dashed border-purple-500" : ""
-      }`}
-    >
-      <p className="text-xs text-gray-500">{label}</p>
-      <p className="font-medium">{value}</p>
-      {sub && <p className="text-xs text-gray-400">{sub}</p>}
+    <div className="rounded-lg bg-white p-4 border flex flex-col gap-1">
+      <div className="flex items-center gap-2 text-sm text-[#475467]">
+        {label}
+      </div>
+      <p className={`text-xl font-semibold ${color}`}>{value}</p>
+      {sub && <p className="text-xs text-[#667085]">{sub}</p>}
     </div>
-  )
+  );
 }
 
 function CityCard({
@@ -305,84 +332,98 @@ function CityCard({
   integration,
   permits,
   reason,
-  action
+  action,
 }) {
   const bg =
     status === "ready"
       ? "bg-green-50 border-green-300"
-      : status === "blocked" && score < 60
-      ? "bg-red-50 border-red-300"
-      : "bg-yellow-50 border-yellow-300"
+      : score < 60
+        ? "bg-red-50 border-red-300"
+        : "bg-yellow-50 border-yellow-300";
 
   const meta = {
     "New York City": {
       staffingSub: "48/50",
       supplySub: "125 providers",
       slaSub: "Target: 4h",
-      integrationSub: "0.2% errors"
+      integrationSub: "0.2% errors",
     },
     "San Francisco": {
       staffingSub: "28/35",
       supplySub: "45 providers",
       slaSub: "Target: 4h",
-      integrationSub: "2.8% errors"
+      integrationSub: "2.8% errors",
     },
     Boston: {
       staffingSub: "32/30",
       supplySub: "78 providers",
       slaSub: "Target: 4h",
-      integrationSub: "0.5% errors"
+      integrationSub: "0.5% errors",
     },
     Chicago: {
       staffingSub: "25/40",
       supplySub: "92 providers",
       slaSub: "Target: 4h",
-      integrationSub: "0.8% errors"
-    }
-  }[name]
+      integrationSub: "0.8% errors",
+    },
+  }[name];
+
+    const [openGateModal, setOpenGateModal] = useState(false);
+  const [mode, setMode] = useState("approve");
 
   return (
-    <div className={`rounded-xl border p-4 ${bg}`}>
-      <div className="flex justify-between items-start mb-4">
+    <div className={`rounded-xl border p-5 ${bg}`}>
+      <div className="flex justify-between mb-5">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <p className="font-medium">{name}</p>
+            <MapPin className="w-4 h-4 text-[#155DFC]" />
+            <p className="font-semibold">{name}</p>
 
-            <span className="text-xs border rounded-full px-2 py-0.5 bg-white">
+            <span className="text-xs bg-white border rounded-full px-2 py-0.5">
               {region}
             </span>
 
             <span
-              className={`text-xs rounded-full px-2 py-0.5 ${
+              className={`text-xs rounded-full px-2 py-0.5 flex items-center gap-1 ${
                 status === "ready"
                   ? "bg-green-100 text-green-700"
                   : "bg-red-100 text-red-700"
               }`}
             >
+              {status === "ready" ? (
+                <CheckCircle className="w-3 h-3" />
+              ) : (
+                <XCircle className="w-3 h-3" />
+              )}
               {status === "ready" ? "Ready" : "Policy Blocked"}
             </span>
           </div>
 
-          <p className="text-xs text-gray-500">Policy: AEPS-LAUNCH-001</p>
+          <p className="text-xs text-[#667085]">Policy: AEPS-LAUNCH-001</p>
         </div>
 
         <div className="text-right">
           <p className="text-3xl font-bold">{score}</p>
-          <p className="text-xs text-gray-500">Readiness Score</p>
+          <p className="text-xs text-[#667085]">Readiness Score</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-3 text-sm mb-4">
-        <div className="rounded bg-white p-3 border">
-          <p className="text-xs text-gray-500 mb-1">Permits</p>
-          <ul className="space-y-1 text-xs">
-            {["Food Service", "Business", "Health"].map(p => (
+      <div className="grid grid-cols-5 gap-4 mb-4">
+        <div className="rounded-lg bg-white p-4 border">
+          <p className="text-xs text-[#475467] mb-2">Permits</p>
+          <ul className="space-y-1 text-sm">
+            {["Food Service", "Business", "Health"].map((p) => (
               <li
                 key={p}
-                className={
+                className={`flex items-center gap-1 ${
                   permits.includes(p) ? "text-green-700" : "text-red-600"
-                }
+                }`}
               >
+                {permits.includes(p) ? (
+                  <CheckCircle className="w-4 h-4" />
+                ) : (
+                  <XCircle className="w-4 h-4" />
+                )}
                 {p}
               </li>
             ))}
@@ -393,31 +434,41 @@ function CityCard({
           label="Staffing"
           value={staffing}
           sub={meta.staffingSub}
-          highlight={staffing.startsWith("107")}
+          color={staffing.startsWith("10") ? "text-green-600" : "text-red-600"}
         />
 
         <Metric
           label="Supply"
           value={supply}
           sub={meta.supplySub}
+          color="text-green-600"
         />
 
         <Metric
           label="Support SLA"
           value={sla}
           sub={meta.slaSub}
+          color={
+            sla.includes("h") && parseFloat(sla) > 4
+              ? "text-red-600"
+              : "text-green-600"
+          }
         />
 
         <Metric
           label="Integration"
           value={integration}
           sub={meta.integrationSub}
+          color="text-green-600"
         />
       </div>
 
       {reason && (
-        <div className="rounded bg-red-100 p-3 text-sm text-red-700 mb-4">
-          <p className="font-medium mb-1">Why This City is Blocked:</p>
+        <div className="rounded-lg bg-red-100 p-4 text-sm text-red-700 mb-4">
+          <p className="font-medium flex items-center gap-1 mb-2">
+            <AlertTriangle className="w-4 h-4" />
+            Why This City is Blocked:
+          </p>
           <ul className="list-disc ml-4">
             {reason.map((r, i) => (
               <li key={i}>{r}</li>
@@ -427,36 +478,53 @@ function CityCard({
       )}
 
       {status === "blocked" && (
-        <button className="rounded bg-red-600 text-white px-4 py-2 text-sm">
+        <button
+          className="rounded-lg bg-red-600 text-white px-4 py-2 text-sm flex items-center gap-2"
+          onClick={() => {
+            setMode("block");
+            setOpenGateModal(true);
+          }}
+        >
           Override Block (Manual)
         </button>
       )}
 
       {action && status === "ready" && (
-        <button className="rounded bg-black text-white px-4 py-2 text-sm">
+        <button
+          className="rounded-lg bg-black text-white px-4 py-2 text-sm"
+          onClick={() => {
+            setMode("approve");
+            setOpenGateModal(true);
+          }}
+        >
           Approve City Launch
         </button>
       )}
+
+      {openGateModal && (
+        <CityLaunchGateModal
+          mode={mode}
+          onClose={() => setOpenGateModal(false)}
+        />
+      )}
     </div>
-  )
+  );
 }
 
 function GateCard({ city, score, status, reason }) {
-  const isAllowed = status === "allowed"
+  const isAllowed = status === "allowed";
 
   const gateMap = {
     "New York City": "GATE-NYC",
     "San Francisco": "GATE-SF",
     Boston: "GATE-BOS",
-    Chicago: "GATE-CHI"
-  }
+    Chicago: "GATE-CHI",
+  };
 
   return (
     <div
       className={`rounded-xl border p-4 ${
-        isAllowed
-          ? "bg-green-50 border-green-300"
-          : "bg-red-50 border-red-300"
+        isAllowed ? "bg-green-50 border-green-300" : "bg-red-50 border-red-300"
       }`}
     >
       <div className="flex justify-between items-start mb-2">
@@ -483,9 +551,7 @@ function GateCard({ city, score, status, reason }) {
             </span>
           </div>
 
-          <p className="text-sm text-gray-600">
-            Policy Pack: AEPS-LAUNCH-001
-          </p>
+          <p className="text-sm text-gray-600">Policy Pack: AEPS-LAUNCH-001</p>
         </div>
 
         <div className="text-right">
@@ -502,17 +568,17 @@ function GateCard({ city, score, status, reason }) {
 
       {!isAllowed && reason && (
         <div className="mt-3 rounded bg-red-100 border border-red-300 p-3 text-sm text-red-700">
-          <span className="font-extrabold">Block Reason:</span>{" "}
-          Readiness score {score} &lt; threshold 85. Blockers: {reason}.
+          <span className="font-extrabold">Block Reason:</span> Readiness score{" "}
+          {score} &lt; threshold 85. Blockers: {reason}.
         </div>
       )}
     </div>
-  )
+  );
 }
 
 function MetricBlock({ title, data }) {
-  const positive = data.d.startsWith("+")
-  const negative = data.d.startsWith("-")
+  const positive = data.d.startsWith("+");
+  const negative = data.d.startsWith("-");
 
   return (
     <div className="rounded bg-gray-50 p-3">
@@ -525,13 +591,17 @@ function MetricBlock({ title, data }) {
       </p>
       <p
         className={`text-sm font-medium mt-1 ${
-          positive ? "text-green-600" : negative ? "text-red-600" : "text-gray-600"
+          positive
+            ? "text-green-600"
+            : negative
+              ? "text-red-600"
+              : "text-gray-600"
         }`}
       >
         {data.d}
       </p>
     </div>
-  )
+  );
 }
 
 function ExperimentCard({
@@ -542,14 +612,14 @@ function ExperimentCard({
   ltv,
   recommendation,
   success,
-  danger
+  danger,
 }) {
   const statusStyle =
     status === "completed"
       ? "bg-green-100 text-green-700"
       : status === "running"
-      ? "bg-yellow-100 text-yellow-700"
-      : "bg-blue-100 text-blue-700"
+        ? "bg-yellow-100 text-yellow-700"
+        : "bg-blue-100 text-blue-700";
 
   const metaMap = {
     "Dynamic Pricing - Peak Hours": {
@@ -561,7 +631,7 @@ function ExperimentCard({
       confidence: "Confidence: 95%",
       retention: { c: "72%", v: "78%", d: "+8.3%" },
       cac: { c: "$45", v: "$42", d: "-6.7%" },
-      ltv: { c: "$380", v: "$425", d: "+11.8%" }
+      ltv: { c: "$380", v: "$425", d: "+11.8%" },
     },
     "Onboarding Flow v3 - Gamification": {
       id: "EXP-002",
@@ -572,7 +642,7 @@ function ExperimentCard({
       confidence: "Confidence: 82%",
       retention: { c: "68%", v: "74%", d: "+8.8%" },
       cac: { c: "$48", v: "$48", d: "0%" },
-      ltv: { c: "$360", v: "$395", d: "+9.7%" }
+      ltv: { c: "$360", v: "$395", d: "+9.7%" },
     },
     "Referral Bonus - $20 vs $30": {
       id: "EXP-003",
@@ -583,7 +653,7 @@ function ExperimentCard({
       confidence: "Confidence: 98%",
       retention: { c: "65%", v: "64%", d: "-1.5%" },
       cac: { c: "$52", v: "$68", d: "+30.8%" },
-      ltv: { c: "$350", v: "$345", d: "-1.4%" }
+      ltv: { c: "$350", v: "$345", d: "-1.4%" },
     },
     "Premium Support Tier": {
       id: "EXP-004",
@@ -594,9 +664,9 @@ function ExperimentCard({
       confidence: "Confidence: 88%",
       retention: { c: "70%", v: "82%", d: "+17.1%" },
       cac: { c: "$45", v: "$45", d: "0%" },
-      ltv: { c: "$380", v: "$520", d: "+36.8%" }
-    }
-  }[title]
+      ltv: { c: "$380", v: "$520", d: "+36.8%" },
+    },
+  }[title];
 
   return (
     <div className="rounded-xl border p-4">
@@ -623,7 +693,10 @@ function ExperimentCard({
 
       <div className="grid grid-cols-3 gap-3 text-sm mb-4">
         <MetricBlock title="Cohort Retention" data={metaMap.retention} />
-        <MetricBlock title="CAC (Customer Acquisition Cost)" data={metaMap.cac} />
+        <MetricBlock
+          title="CAC (Customer Acquisition Cost)"
+          data={metaMap.cac}
+        />
         <MetricBlock title="LTV (Lifetime Value)" data={metaMap.ltv} />
       </div>
 
@@ -632,14 +705,14 @@ function ExperimentCard({
           success
             ? "bg-green-50 text-green-700 border-green-200"
             : danger
-            ? "bg-red-50 text-red-700 border-red-200"
-            : "bg-blue-50 text-blue-700 border-blue-200"
+              ? "bg-red-50 text-red-700 border-red-200"
+              : "bg-blue-50 text-blue-700 border-blue-200"
         }`}
       >
         <span className="font-medium">Recommendation:</span> {recommendation}
       </div>
     </div>
-  )
+  );
 }
 
 function PartnerCard({ name, score, revenue, uptime, level, plan }) {
@@ -647,31 +720,31 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
     level === "critical"
       ? "bg-red-50 border-red-300"
       : level === "high"
-      ? "bg-orange-50 border-orange-300"
-      : "bg-white border-gray-200"
+        ? "bg-orange-50 border-orange-300"
+        : "bg-white border-gray-200";
 
   const riskLabel =
     level === "critical"
       ? "critical risk"
       : level === "high"
-      ? "high risk"
-      : "medium risk"
+        ? "high risk"
+        : "medium risk";
 
   const categoryMap = {
     Stripe: "payment",
     Twilio: "integration",
     "Google Maps": "integration",
     AWS: "infrastructure",
-    SendGrid: "integration"
-  }
+    SendGrid: "integration",
+  };
 
   const revenueShareMap = {
     Stripe: "100% of total",
     Twilio: "70% of total",
     "Google Maps": "100% of total",
     AWS: "100% of total",
-    SendGrid: "50% of total"
-  }
+    SendGrid: "50% of total",
+  };
 
   return (
     <div className={`rounded-xl border p-4 ${bg}`}>
@@ -691,8 +764,8 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
                 level === "critical"
                   ? "bg-red-100 text-red-700"
                   : level === "high"
-                  ? "bg-orange-100 text-orange-700"
-                  : "bg-yellow-100 text-yellow-700"
+                    ? "bg-orange-100 text-orange-700"
+                    : "bg-yellow-100 text-yellow-700"
               }`}
             >
               {riskLabel}
@@ -706,8 +779,8 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
               level === "critical"
                 ? "text-red-600"
                 : level === "high"
-                ? "text-orange-600"
-                : "text-yellow-600"
+                  ? "text-orange-600"
+                  : "text-yellow-600"
             }`}
           >
             {score}
@@ -746,7 +819,7 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
         <span className="font-[900]">Mitigation Plan:</span> {plan}
       </div>
     </div>
-  )
+  );
 }
 
 function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
@@ -754,12 +827,16 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
     return (
       <div className="rounded-xl border p-4 bg-gray-50 text-gray-600">
         <div className="flex items-center gap-2 mb-2">
-          <img src={brainicon} alt="" className="filter brightness-0 opacity-60" />
+          <img
+            src={brainicon}
+            alt=""
+            className="filter brightness-0 opacity-60"
+          />
           <div>
             <p className="font-medium">{name}</p>
-          <span className="text-xs rounded-lg px-2 py-0.5 bg-gray-200 text-gray-700 border border-[#0000001A]">
-            AI Disabled
-          </span>
+            <span className="text-xs rounded-lg px-2 py-0.5 bg-gray-200 text-gray-700 border border-[#0000001A]">
+              AI Disabled
+            </span>
           </div>
         </div>
 
@@ -767,19 +844,19 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
           AI usage not permitted for this department per governance policy.
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="rounded-xl border p-4">
       <div className="flex items-center gap-2 mb-4">
         <img src={brainicon} alt="" />
-       <div>
-         <p className="font-medium">{name}</p>
-        <span className="text-xs rounded-lg px-2 py-0.5 bg-green-100 text-green-700 border border-[#0000001A]">
-          AI Enabled
-        </span>
-       </div>
+        <div>
+          <p className="font-medium">{name}</p>
+          <span className="text-xs rounded-lg px-2 py-0.5 bg-green-100 text-green-700 border border-[#0000001A]">
+            AI Enabled
+          </span>
+        </div>
       </div>
 
       <div className="grid grid-cols-4 gap-3 text-sm mb-4">
@@ -809,5 +886,5 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
         outputs are reviewed by humans (assistive only, not autonomous).
       </div>
     </div>
-  )
+  );
 }

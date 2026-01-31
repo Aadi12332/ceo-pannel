@@ -1,8 +1,9 @@
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
-import fileIcon from "../../assets/fileicon.svg";
-import exportIcon from "../../assets/exporticon.svg";
+import fileIcon from "../../assets/sidebaricon/policiesicon.svg";
+import dollorIcon from "../../assets/sidebaricon/financialicon.svg";
 import GrowthChart from "../../components/growth-component/GrowthChart";
 import checkIcon from "../../assets/checkedarrowicon.svg";
 import blockIcon from "../../assets/freezeicon.svg";
@@ -11,6 +12,8 @@ import pauseIcon from "../../assets/pauseicon.svg";
 import RoadmapMilestones from "../../components/growth-component/RoadmapMilestones";
 import StrategicAlertsSection from "../../components/growth-component/StrategicAlertsSection";
 import ExpansionTabs from "../../components/growth-component/ExpansionTabs";
+import RequestGrowthAnalysisModal from "../../components/growth-component/RequestGrowthAnalysisModal";
+import PricingChangeModal from "../../components/growth-component/PricingChangeModal";
 
 const auditStats = [
   {
@@ -66,6 +69,9 @@ const items = [
   },
 ];
 const Growth = () => {
+  const [openAnalysis, setOpenAnalysis] = useState(false);
+  const [openPricingModal, setOpenPricingModal] = useState(false);
+
   return (
     <MainLayout>
       <PageHeader
@@ -75,17 +81,25 @@ const Growth = () => {
           {
             label: "Request Analysis",
             icon: fileIcon,
-            onClick: () => console.log("Request Analysis"),
+            onClick: () => setOpenAnalysis(true),
           },
           {
             label: "Pricing Change",
-            icon: exportIcon,
-            filter: true,
-            onClick: () => console.log("Pricing Change"),
+            icon: dollorIcon,
+            onClick: () => setOpenPricingModal(true),
           },
         ]}
       />
 
+      <RequestGrowthAnalysisModal
+        open={openAnalysis}
+        onClose={() => setOpenAnalysis(false)}
+      />
+
+      <PricingChangeModal
+        open={openPricingModal}
+        onClose={() => setOpenPricingModal(false)}
+      />
       <SummaryCards items={auditStats} title="Strategic Dashboard" />
 
       <div className="grid xl:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 mb-5">

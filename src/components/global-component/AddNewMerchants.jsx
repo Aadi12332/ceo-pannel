@@ -2,19 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
-import {
-  ChevronLeft,
-  Edit,
-  Pencil
-} from "lucide-react";
+import { ChevronLeft, Eye, Pencil } from "lucide-react";
 import MerchantProfileForm from "./MerchantProfileForm";
 
 export default function AddNewMerchants() {
   const navigate = useNavigate();
-    const { state } = useLocation();
+  const { state } = useLocation();
   const [isView, setIsView] = useState(state?.view || false);
   const [isEdit, setIsEdit] = useState(state?.edit || false);
-  console.log(isView, isEdit,state)
   return (
     <MainLayout>
       <div className="mb-5">
@@ -24,8 +19,12 @@ export default function AddNewMerchants() {
         >
           <ChevronLeft className="w-5 h-5 cursor-pointer" />
           <h1 className="text-xl font-semibold flex items-center gap-2">
-            <span className="text-gray-500">Merchant</span> &gt; 
-            {isView ? " View Merchant" :isEdit ? " Edit Merchant" : " Add New Merchant"}
+            <span className="text-gray-500">Merchant</span> <span className="text-gray-500">&gt;</span>
+            {isView
+              ? " View Merchant"
+              : isEdit
+                ? " Edit Merchant"
+                : " Add New Merchant"}
           </h1>
         </div>
 
@@ -37,15 +36,42 @@ export default function AddNewMerchants() {
       <div className="space-y-5">
         <div className="flex items-center justify-between">
           <h2 className="text-[20px] font-semibold text-[#101828] flex items-center gap-3">
-            {isView ? " View Merchant" :isEdit ? " Edit Merchant" : " Add New Merchant"}
-            {isView && <div onClick={()=>{
-              setIsView(false);
-              setIsEdit(true)}} className="flex items-center cursor-pointer gap-2 text-sm border border-[#D0D5DD] px-2 py-1 rounded-[10px] bg-white"><Pencil className="w-4 h-4 text-[#667085]" /> Edit</div>}
+            {isView
+              ? " View This Merchant Account"
+              : isEdit
+                ? " Edit This Merchant Account"
+                : " Add New Merchant"}
+
+            {!(isView || isEdit) == false && (
+              <div
+              onClick={() => {
+                if (isView) {
+                  setIsView(false);
+                  setIsEdit(true);
+                } else {
+                  setIsView(true);
+                  setIsEdit(false);
+                }
+              }}
+              className="flex items-center cursor-pointer gap-2 text-sm border border-[#D0D5DD] px-2 py-1 rounded-[10px] bg-white"
+            >
+              {isView ? (
+                <>
+                  <Pencil className="w-4 h-4 text-[#667085]" />
+                  Edit
+                </>
+              ) : (
+                <>
+                  <Eye className="w-4 h-4 text-[#667085]" />
+                  View
+                </>
+              )}
+            </div>
+            )}
           </h2>
         </div>
 
-        <MerchantProfileForm />
-
+        <MerchantProfileForm isView={isView} isEdit={isEdit} />
       </div>
     </MainLayout>
   );

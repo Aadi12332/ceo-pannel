@@ -88,11 +88,11 @@ const history = [
 
 export default function Merchants() {
   const navigate = useNavigate();
-    const [typeFilter, setTypeFilter] = useState("All")
-  const [statusFilter, setStatusFilter] = useState("All")
+  const [typeFilter, setTypeFilter] = useState("All");
+  const [statusFilter, setStatusFilter] = useState("All");
 
-  const [confirmType, setConfirmType] = useState(null)
-  const [selectedRow, setSelectedRow] = useState(null)
+  const [confirmType, setConfirmType] = useState(null);
+  const [selectedRow, setSelectedRow] = useState(null);
 
   return (
     <MainLayout>
@@ -103,7 +103,7 @@ export default function Merchants() {
         >
           <ChevronLeft className="w-5 h-5 cursor-pointer" />
           <h1 className="text-xl font-semibold">
-            <span className="text-gray-500">Global Tool Registry</span> &gt;
+            <span className="text-gray-500">Global Tool Registry</span> <span className="text-gray-500">&gt;</span>
             Merchants
           </h1>
         </div>
@@ -125,7 +125,10 @@ export default function Merchants() {
               Export PDF
             </button>
 
-            <button onClick={()=>navigate("/add-new-merchant")} className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+            <button
+              onClick={() => navigate("/add-new-merchant")}
+              className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg"
+            >
               <Plus className="w-4 h-4" />
               Add New Merchant
             </button>
@@ -142,17 +145,17 @@ export default function Merchants() {
           </div>
 
           <div className="flex gap-3">
-                    <FilterDropdown
-          options={["All", "Restaurant", "Grocery", "Shopping"]}
-          value={typeFilter}
-          onChange={setTypeFilter}
-        />
+            <FilterDropdown
+              options={["All", "Restaurant", "Grocery", "Shopping"]}
+              value={typeFilter}
+              onChange={setTypeFilter}
+            />
 
-        <FilterDropdown
-          options={["All", "Active", "Suspend", "Under Review"]}
-          value={statusFilter}
-          onChange={setStatusFilter}
-        />
+            <FilterDropdown
+              options={["All", "Active", "Suspend", "Under Review"]}
+              value={statusFilter}
+              onChange={setStatusFilter}
+            />
           </div>
         </div>
 
@@ -209,26 +212,26 @@ export default function Merchants() {
                   </td>
 
                   <td className="px-5 py-5">
-                     <RowActionMenu
-                    onView={() =>
-                      navigate("/add-new-merchant", {
-                        state: { view: true }
-                      })
-                    }
-                    onEdit={() =>
-                      navigate("/add-new-merchant", {
-                        state: { edit: true }
-                      })
-                    }
-                    onSuspend={() => {
-                      setSelectedRow(row)
-                      setConfirmType("SUSPEND")
-                    }}
-                    onDelete={() => {
-                      setSelectedRow(row)
-                      setConfirmType("DELETE")
-                    }}
-                  />
+                    <RowActionMenu
+                      onView={() =>
+                        navigate("/add-new-merchant", {
+                          state: { view: true },
+                        })
+                      }
+                      onEdit={() =>
+                        navigate("/add-new-merchant", {
+                          state: { edit: true },
+                        })
+                      }
+                      onSuspend={() => {
+                        setSelectedRow(row);
+                        setConfirmType("SUSPEND");
+                      }}
+                      onDelete={() => {
+                        setSelectedRow(row);
+                        setConfirmType("DELETE");
+                      }}
+                    />
                   </td>
                 </tr>
               ))}
@@ -236,16 +239,16 @@ export default function Merchants() {
           </table>
         </div>
 
-      <ConfirmActionModal
-        open={!!confirmType}
-        type={confirmType}
-        onClose={() => setConfirmType(null)}
-        onConfirm={() => {
-          console.log(confirmType, selectedRow)
-          setConfirmType(null)
-          setSelectedRow(null)
-        }}
-      />
+        <ConfirmActionModal
+          open={!!confirmType}
+          type={confirmType}
+          onClose={() => setConfirmType(null)}
+          onConfirm={() => {
+            console.log(confirmType, selectedRow);
+            setConfirmType(null);
+            setSelectedRow(null);
+          }}
+        />
 
         <div className="flex items-center justify-end gap-3 text-sm text-[#667085]">
           <span>1–10 of 1,247</span>

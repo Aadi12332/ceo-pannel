@@ -2,6 +2,9 @@ import { Camera, Upload } from "lucide-react";
 import { useRef, useState } from "react";
 import Select from "../common/Select";
 import CoverPhotoUpload from "./CoverPhotoUpload";
+import EIN from "../../assets/ein.png";
+import FoodLicense from "../../assets/foodlicense.png";
+import ProfilePhoto from "../../assets/profileimgrest.png";
 
 const marketingPlans = [
   {
@@ -35,7 +38,7 @@ const subscriptionPlans = [
   },
 ];
 
-export default function MerchantProfileForm() {
+export default function MerchantProfileForm({ isView, isEdit }) {
   const [cover, setCover] = useState(null);
   const [profile, setProfile] = useState(null);
   const [Type, setType] = useState("");
@@ -45,9 +48,9 @@ export default function MerchantProfileForm() {
   const [marketingPlan, setMarketingPlan] = useState("10");
   const [subscriptionPlan, setSubscriptionPlan] = useState("annual");
 
-  const FileUploadBox = ({ label }) => {
+  const FileUploadBox = ({ label, uploadPreview: initialPreview }) => {
     const inputRef = useRef(null);
-    const [preview, setPreview] = useState(null);
+    const [uploadPreview, setUploadPreview] = useState(initialPreview || null);
 
     return (
       <div>
@@ -62,11 +65,13 @@ export default function MerchantProfileForm() {
           className="hidden"
           onChange={(e) => {
             const file = e.target.files[0];
-            if (file) setPreview(URL.createObjectURL(file));
+            if (file) {
+              setUploadPreview(URL.createObjectURL(file));
+            }
           }}
         />
 
-        {!preview ? (
+        {!uploadPreview ? (
           <div
             onClick={() => inputRef.current.click()}
             className="w-full h-[61px] mt-1 px-4 rounded-lg border border-[#D0D5DD] flex items-center justify-between cursor-pointer"
@@ -77,11 +82,10 @@ export default function MerchantProfileForm() {
         ) : (
           <div
             onClick={() => inputRef.current.click()}
-            className="mt-2 cursor-pointer relative rounded-lg overflow-hidden border-2 border-dashed border-[#D0D5DD]"
+            className="mt-2 cursor-pointer relative rounded-lg overflow-hidden border border-[#D0D5DD]"
           >
             <img
-              src={preview}
-              alt="preview"
+              src={uploadPreview}
               className="w-full h-[160px] object-cover"
             />
           </div>
@@ -92,24 +96,25 @@ export default function MerchantProfileForm() {
 
   return (
     <div className="">
-      <CoverPhotoUpload value={cover} onChange={setCover} />
+      <CoverPhotoUpload value={cover} onChange={setCover} isView={isView} isEdit={isEdit} />
 
       <div className="relative pb-6">
         <div className="absolute -top-14 left-1/2 -translate-x-1/2">
           <div
             onClick={() => profileRef.current.click()}
-            className="relative cursor-pointer w-28 h-28 rounded-full bg-[#D9D9D9] flex items-center justify-center border-4 border-white"
+            className="relative cursor-pointer w-28 h-28 rounded-full bg-[#D9D9D9] flex items-center justify-center border-4 border-white overflow-hidden"
           >
-            {profile && (
-              <img src={profile} className="w-full h-full object-cover" />
+            {profile ? (
+                <img src={profile} className="w-full h-full object-cover" />
+                ) : (isEdit || isView) ? (
+                <img src={ProfilePhoto} className="w-full h-full object-cover" />
+                ) : (
+                <div className="flex flex-col items-center gap-1">
+                    <Camera className="w-6 h-6 text-[#000]" />
+                    <p className="text-xs text-[#000]">Profile Photo</p>
+                </div>
             )}
 
-            {!profile && (
-              <div className="flex flex-col items-center gap-1">
-                <Camera className="w-6 h-6 text-[#000]" />
-                <p className="text-xs text-[#000]">Profile Photo</p>
-              </div>
-            )}
 
             <input
               ref={profileRef}
@@ -347,8 +352,24 @@ export default function MerchantProfileForm() {
             />
           </div>
 
-          <FileUploadBox label="Employer Identification Number (EIN)" />
-          <FileUploadBox label="Food Service License" />
+          {isView || isEdit ? (
+            <>
+              <FileUploadBox
+                label="Employer Identification Number (EIN)"
+                uploadPreview={EIN}
+              />
+
+              <FileUploadBox
+                label="Food Service License"
+                uploadPreview={FoodLicense}
+              />
+            </>
+          ) : (
+            <>
+              <FileUploadBox label="Employer Identification Number (EIN)" />
+              <FileUploadBox label="Food Service License" />
+            </>
+          )}
         </div>
 
         <div className="grid grid-cols-2 gap-5 bg-white rounded-xl p-6 mt-5">

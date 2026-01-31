@@ -1,17 +1,19 @@
 import { Camera } from "lucide-react"
 import { useRef } from "react"
+import CoverPhoto from "../../assets/coverimg.png";
 
-export default function CoverPhotoUpload({ value, onChange }) {
+export default function CoverPhotoUpload({ value, onChange, isView, isEdit }) {
   const inputRef = useRef(null)
 
   return (
     <div className="relative h-[180px] bg-[#E5E5E5] rounded-t-xl overflow-hidden">
-      {value && (
-        <img
-          src={value}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      )}
+     {(value || isView || isEdit) && (
+  <img
+    src={value ? value : CoverPhoto}
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+)}
+
 
       <input
         ref={inputRef}

@@ -91,7 +91,7 @@ export default function Merchants() {
   const navigate = useNavigate();
   const [typeFilter, setTypeFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
-
+  const [viewApplication, setViewApplication] = useState(false);
   const [confirmType, setConfirmType] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -100,12 +100,23 @@ export default function Merchants() {
       <div className="mb-5">
         <div
           className="flex items-center gap-5 mb-1 cursor-pointer"
-          onClick={() => navigate("/global-tool-registry")}
+          onClick={() => {
+            if (viewApplication) {
+              navigate("/users");
+              setViewApplication(false);
+            } else {
+              navigate("/global-tool-registry");
+              setViewApplication(true);
+            }
+          }}
         >
           <ChevronLeft className="w-5 h-5 cursor-pointer" />
           <h1 className="text-xl font-semibold">
-            <span className="text-gray-500">Global Tool Registry</span> &gt;
-            Users
+            <span className="text-gray-500">
+              {viewApplication ? "Users" : "Global Tool Registry"}
+            </span>{" "}
+            <span className="text-gray-500">&gt;</span>
+            {viewApplication ? " View New Applications" : " Users"}
           </h1>
         </div>
 
@@ -115,27 +126,34 @@ export default function Merchants() {
         </p>
       </div>
       <div className="bg-[#EEF4FF] space-y-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3 h-10">
           <h2 className="text-[20px] font-semibold text-[#101828]">
-            Under Review Users
+            {viewApplication
+              ? "All Influencer's Request"
+              : "Under Review Users"}
           </h2>
 
-          <div className="flex items-center gap-3">
-            <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
-              <FileDown className="w-4 h-4" />
-              Export PDF
-            </button>
+            <div className="flex items-center gap-3">
+              <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+                <FileDown className="w-4 h-4" />
+                Export PDF
+              </button>
 
-            <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
-              <Eye className="w-4 h-4 text-white" />
-              View New Applications
-            </button>
+              <button
+                onClick={() => setViewApplication(true)}
+                className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg"
+              >
+                <Eye className="w-4 h-4 text-white" />
+                View New Applications
+              </button>
 
-            <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
-              <Plus className="w-4 h-4" />
-              Add New Merchant
-            </button>
-          </div>
+              <button onClick={() => navigate("/add-new-user", {
+                          state: { adduser: true },
+                        })} className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+                <Plus className="w-4 h-4" />
+                Add New User
+              </button>
+            </div>
         </div>
 
         <div className="flex items-center justify-between gap-4">
@@ -147,19 +165,21 @@ export default function Merchants() {
             />
           </div>
 
-          <div className="flex gap-3">
-            <FilterDropdown
-              options={["All", "Users", "Influencers"]}
-              value={typeFilter}
-              onChange={setTypeFilter}
-            />
+          {!viewApplication && (
+            <div className="flex gap-3">
+              <FilterDropdown
+                options={["All", "Users", "Influencers"]}
+                value={typeFilter}
+                onChange={setTypeFilter}
+              />
 
-            <FilterDropdown
-              options={["All", "Active", "Suspend", "Under Review"]}
-              value={statusFilter}
-              onChange={setStatusFilter}
-            />
-          </div>
+              <FilterDropdown
+                options={["All", "Active", "Suspend", "Under Review"]}
+                value={statusFilter}
+                onChange={setStatusFilter}
+              />
+            </div>
+          )}
         </div>
 
         <div className="bg-white rounded-[14px] border border-[#D0D5DD] overflow-hidden">
@@ -171,10 +191,10 @@ export default function Merchants() {
                   "Customer Name",
                   "Email",
                   "Phone",
-                  "Total Orders",
+                  !viewApplication && "Total Orders",
                   "Status",
                   "Action",
-                ].map((label) => (
+                ].filter(Boolean).map((label) => (
                   <th
                     key={label}
                     className="px-5 py-4 text-left font-semibold text-[#101828]"
@@ -204,7 +224,9 @@ export default function Merchants() {
 
                   <td className="px-5 py-5 text-[#101828]">{row.phone}</td>
 
-                  <td className="px-5 py-5 text-[#101828]">{row.business}</td>
+                  {!viewApplication && (
+                    <td className="px-5 py-5 text-[#101828]">{row.orders}</td>
+                  )}
 
                   <td className="px-5 py-5">
                     <span
@@ -215,9 +237,18 @@ export default function Merchants() {
                   </td>
 
                   <td className="px-5 py-5">
-                    <RowActionMenu
-                      onView={() => setSelectedRow(row)}
-                      onEdit={() => console.log("edit", row)}
+                   <RowActionMenu
+                      viewApplication={viewApplication}
+                      onView={() =>
+                        navigate("/add-new-user", {
+                          state: { view: true, viewApplication:viewApplication },
+                        })
+                      }
+                      onEdit={() =>
+                        navigate("/add-new-user", {
+                          state: { edit: true },
+                        })
+                      }
                       onSuspend={() => {
                         setSelectedRow(row);
                         setConfirmType("SUSPEND");
@@ -225,6 +256,14 @@ export default function Merchants() {
                       onDelete={() => {
                         setSelectedRow(row);
                         setConfirmType("DELETE");
+                      }}
+                      onApprove={() => {
+                        setSelectedRow(row);
+                        setConfirmType("APPROVE");
+                      }}
+                      onReject={() => {
+                        setSelectedRow(row);
+                        setConfirmType("REJECT");
                       }}
                     />
                   </td>
@@ -235,6 +274,7 @@ export default function Merchants() {
         </div>
 
         <ConfirmActionModal
+          viewApplication={viewApplication}
           open={!!confirmType}
           type={confirmType}
           onClose={() => setConfirmType(null)}
