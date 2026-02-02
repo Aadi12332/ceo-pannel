@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
@@ -10,6 +11,8 @@ import warningIcon from "../../assets/alertcircleicon.svg";
 import AutomationChart from "../../components/automation-component/AutomationChart";
 import RetryPolicyAndDLQSection from "../../components/automation-component/RetryPolicyAndDLQSection";
 import AutomationGovernancePage from "../../components/automation-component/AutomationTabs";
+import AutomationCostCapModal from "../../components/automation-component/AutomationCostCapModal";
+import { Pause, Play } from "lucide-react";
 
 const automationStats = [
   {
@@ -34,6 +37,9 @@ const automationStats = [
   },
 ];
 const Automation = () => {
+  const [openCostCapModal, setOpenCostCapModal] = useState(false);
+  const [paused, setPaused] = useState(false);
+
   return (
     <MainLayout>
       <PageHeader
@@ -43,9 +49,14 @@ const Automation = () => {
           {
             label: "Set Cost Cap",
             icon: plusIcon,
-            onClick: () => console.log("Set Cost Cap"),
+            onClick: () => setOpenCostCapModal(true),
           },
         ]}
+      />
+
+      <AutomationCostCapModal
+        open={openCostCapModal}
+        onClose={() => setOpenCostCapModal(false)}
       />
 
       <SummaryCards items={automationStats} title="Automation Dashboard" />
@@ -61,9 +72,22 @@ const Automation = () => {
             </h2>
           </div>
 
-          <button className="flex items-center gap-2 bg-[#C5313F] text-white px-4 py-2 rounded-[10px] text-[14px] font-medium">
-            <img src={pauseIcon} alt="" className="w-4 h-4" />
-            Emergency Pause All
+          <button
+            onClick={() => setPaused((p) => !p)}
+            className={`flex items-center gap-2 px-4 py-2 rounded-[10px] transition-all duration-300 ease-linear text-[14px] font-medium
+        ${paused ? "bg-[#4CAF50] text-white" : "bg-[#C5313F] text-white"}`}
+          >
+            {paused ? (
+              <>
+                <Play className="w-5" />
+                Restore All
+              </>
+            ) : (
+              <>
+                <Pause className="w-5" />
+                Emergency Pause All
+              </>
+            )}
           </button>
         </div>
 
@@ -85,74 +109,58 @@ const Automation = () => {
         </div>
       </div>
 
-    <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
-        <div className="flex items-center gap-2 mb-6">
-          <img src={dollarIcon} alt="" />
-          <h3 className="text-[20px] text-[#0A0A0A]">Cost Overview</h3>
-        </div>
-
-        <div className="bg-[#F1FDF4] rounded-[12px] p-5 mb-4">
-          <p className="text-[14px] text-[#475467]">Daily Spend</p>
-          <p className="text-[28px] font-semibold text-[#16A34A]">
-            $4,409
-          </p>
-          <p className="text-[13px] text-[#475467] mb-2">
-            Cap: $11,800/day
-          </p>
-
-          <div className="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden mb-1">
-            <div
-              className="h-full bg-[#22C55E]"
-              style={{ width: "37.4%" }}
-            />
+      <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
+        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+          <div className="flex items-center gap-2 mb-6">
+            <img src={dollarIcon} alt="" />
+            <h3 className="text-[20px] text-[#0A0A0A]">Cost Overview</h3>
           </div>
 
-          <p className="text-[13px] text-[#475467]">
-            37.4% utilization
-          </p>
+          <div className="bg-[#F1FDF4] rounded-[12px] p-5 mb-4">
+            <p className="text-[14px] text-[#475467]">Daily Spend</p>
+            <p className="text-[28px] font-semibold text-[#16A34A]">$4,409</p>
+            <p className="text-[13px] text-[#475467] mb-2">Cap: $11,800/day</p>
+
+            <div className="w-full h-2 bg-[#E5E7EB] rounded-full overflow-hidden mb-1">
+              <div className="h-full bg-[#22C55E]" style={{ width: "37.4%" }} />
+            </div>
+
+            <p className="text-[13px] text-[#475467]">37.4% utilization</p>
+          </div>
+
+          <div className="bg-[#EFF6FF] rounded-[12px] p-5">
+            <p className="text-[14px] text-[#475467]">Monthly Projection</p>
+            <p className="text-[28px] font-semibold text-[#2563EB]">$132,270</p>
+            <p className="text-[13px] text-[#475467]">Cap: $329,000/month</p>
+          </div>
         </div>
 
-        <div className="bg-[#EFF6FF] rounded-[12px] p-5">
-          <p className="text-[14px] text-[#475467]">
-            Monthly Projection
-          </p>
-          <p className="text-[28px] font-semibold text-[#2563EB]">
-            $132,270
-          </p>
-          <p className="text-[13px] text-[#475467]">
-            Cap: $329,000/month
-          </p>
+        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+          <div className="flex items-center gap-2 mb-6">
+            <img src={alertIcon} alt="" />
+            <h3 className="text-[20px] text-[#0A0A0A]">Risk Alerts</h3>
+          </div>
+
+          <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-[12px] p-5 mb-4">
+            <p className="text-[16px] font-medium text-[#B42318] mb-2">
+              2 High-Risk Automations
+            </p>
+            <ul className="text-[14px] text-[#B42318] space-y-1 list-disc pl-4">
+              <li>Referral Reward Processing - Abuse alert</li>
+              <li>Support Ticket AI Triage - Anomaly alert</li>
+            </ul>
+          </div>
+
+          <button className="flex items-center gap-2 bg-[#C5313F] text-white px-4 h-10 rounded-lg text-[14px]">
+            <img src={warningIcon} alt="" />
+            Review High-Risk
+          </button>
         </div>
       </div>
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
-        <div className="flex items-center gap-2 mb-6">
-          <img src={alertIcon} alt="" />
-          <h3 className="text-[20px] text-[#0A0A0A]">Risk Alerts</h3>
-        </div>
+      <AutomationGovernancePage />
 
-        <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-[12px] p-5 mb-4">
-          <p className="text-[16px] font-medium text-[#B42318] mb-2">
-            2 High-Risk Automations
-          </p>
-          <ul className="text-[14px] text-[#B42318] space-y-1 list-disc pl-4">
-            <li>Referral Reward Processing - Abuse alert</li>
-            <li>Support Ticket AI Triage - Anomaly alert</li>
-          </ul>
-        </div>
-
-        <button className="flex items-center gap-2 bg-[#C5313F] text-white px-4 h-10 rounded-lg text-[14px]">
-          <img src={warningIcon} alt="" />
-          Review High-Risk
-        </button>
-      </div>
-    </div>
-
-    <AutomationGovernancePage />
-
-    <RetryPolicyAndDLQSection />
-
+      <RetryPolicyAndDLQSection />
     </MainLayout>
   );
 };

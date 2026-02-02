@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
@@ -7,6 +9,7 @@ import AuditChart from "../../components/audit-component/AuditChart";
 import ComprehensiveAuditLogging from "../../components/audit-component/AuditLogging";
 import RetentionAndComplianceSection from "../../components/audit-component/RetentionAndComplianceSection";
 import AuditTabs from "../../components/audit-component/AuditTabs";
+import OpenAuditCaseModal from "../../components/audit-component/OpenAuditCaseModal";
 
 const auditStats = [
   {
@@ -31,6 +34,7 @@ const auditStats = [
   },
 ];
 const Audits = () => {
+  const [openAudit, setOpenAudit] = useState(false);
   return (
     <MainLayout>
       <PageHeader
@@ -40,7 +44,7 @@ const Audits = () => {
           {
             label: "Open Audit Case",
             icon: fileIcon,
-            onClick: () => console.log("Open Audit Case"),
+            onClick: () => setOpenAudit(true),
           },
           {
             label: "Export Report",
@@ -50,6 +54,10 @@ const Audits = () => {
           },
         ]}
       />
+
+      {openAudit && (
+  <OpenAuditCaseModal onClose={() => setOpenAudit(false)} />
+)}
 
       <SummaryCards items={auditStats} title="Compliance Dashboard" />
 

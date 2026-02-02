@@ -4,6 +4,7 @@ import locationIcon from "../../assets/locationicon.svg";
 import ArrowUpRight from "../../assets/upsidecharticon.svg";
 import ArrowDownRight from "../../assets/downsidecharticon.svg";
 import { WarningTriangleIcon } from "../../assets/icons/icons";
+import ApproveHighRiskPayoutModal from "./ApproveHighRiskPayoutModal";
 
 const CITY_DATA = [
   {
@@ -168,6 +169,7 @@ const statusBadge = {
 export default function RevenueGrossMargin() {
   const [mode, setMode] = useState("vertical");
   const data = mode === "city" ? CITY_DATA : VERTICAL_DATA;
+  const [openReview, setOpenReview] = useState(false);
 
   return (
     <>
@@ -350,7 +352,7 @@ export default function RevenueGrossMargin() {
                 </div>
 
                 {p.status === "flagged" && (
-                  <button className="px-4 py-2 rounded-lg bg-[#101828] text-white text-[14px]">
+                  <button onClick={() => setOpenReview(true)} className="px-4 py-2 rounded-lg bg-[#101828] text-white text-[14px]">
                     Review & Approve
                   </button>
                 )}
@@ -382,6 +384,11 @@ export default function RevenueGrossMargin() {
               )}
             </div>
           ))}
+
+          <ApproveHighRiskPayoutModal
+  open={openReview}
+  onClose={() => setOpenReview(false)}
+/>
         </div>
       </div>
     </>

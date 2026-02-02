@@ -6,8 +6,10 @@ import {
   ShieldIcon,
 } from "../../assets/icons/icons";
 import folderIcon from "../../assets/foldericon.svg";
+import { Download, CheckCircle } from "lucide-react";
 import linkIcon from "../../assets/linkicon.svg";
 import Select from "../common/Select";
+import CommonAuditActionModal from "./CommonAuditActionModal";
 
 const TABS = [
   { key: "audit-search", label: "Audit Search" },
@@ -344,6 +346,7 @@ export default function AuditTabs() {
   const [actionCode, setActionCode] = useState(null);
   const [riskLevel, setRiskLevel] = useState(null);
   const [timeWindow, setTimeWindow] = useState(null);
+  const [modalType, setModalType] = useState(null);
 
   return (
     <div className="w-full mb-5">
@@ -665,11 +668,19 @@ export default function AuditTabs() {
               {item.actions && (
                 <div className="flex gap-3">
                   {item.actions.includes("export") && (
-                    <button className="border px-4 py-2 rounded-lg text-sm">
+                    <button
+                      onClick={() => setModalType("export")}
+                      className="border px-4 py-2 rounded-lg text-sm flex items-center gap-2"
+                    > <Download className="w-4 h-4" />
                       Export Evidence
                     </button>
                   )}
-                  <button className="bg-black text-white px-4 py-2 rounded-lg text-sm">
+
+                  <button
+                    onClick={() => setModalType("close")}
+                    className="bg-black text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2"
+                  >
+                    <CheckCircle className="w-4 h-4" />
                     Close Case
                   </button>
                 </div>
@@ -677,6 +688,13 @@ export default function AuditTabs() {
             </div>
           ))}
         </div>
+      )}
+
+      {modalType && (
+        <CommonAuditActionModal
+          type={modalType}
+          onClose={() => setModalType(null)}
+        />
       )}
 
       {activeTab === "compliance" && (

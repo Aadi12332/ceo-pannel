@@ -7,6 +7,7 @@ import {
   FileDocumentIcon,
   ElectricIcon,
 } from "../../assets/icons/icons";
+import WorkflowActionModal from "./WorkflowActionModal";
 
 const messagingData = [
   {
@@ -292,6 +293,15 @@ const workflows = [
 
 export default function AutomationGovernancePage() {
   const [activeTab, setActiveTab] = useState("workflows");
+  const [openModal, setOpenModal] = useState(false);
+const [modalType, setModalType] = useState(null);
+
+const handleActionClick = (action) => {
+  if (["Approve Publish", "Cost Caps", "Audit"].includes(action)) {
+    setModalType(action);
+    setOpenModal(true);
+  }
+};
 
   const tabs = [
     {
@@ -435,6 +445,7 @@ export default function AutomationGovernancePage() {
                   {w.actions.map((a) => (
                     <button
                       key={a}
+                      onClick={() => handleActionClick(a)}
                       className={`px-4 py-2 rounded-lg text-[14px] ${
                         a === "Approve Publish" || a === "Rollback"
                           ? "bg-black text-white"
@@ -447,8 +458,15 @@ export default function AutomationGovernancePage() {
                 </div>
               </div>
             ))}
+             {openModal && (
+  <WorkflowActionModal
+    type={modalType}
+    onClose={() => setOpenModal(false)}
+  />
+)}
           </div>
         )}
+
 
         {activeTab === "cost" && (
           <div className="space-y-6 bg-white rounded-2xl p-6">

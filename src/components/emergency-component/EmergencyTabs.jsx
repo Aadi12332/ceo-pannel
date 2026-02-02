@@ -1,8 +1,16 @@
 "use client";
 import { useState } from "react";
-import { ShieldIcon, SuccessIcon, WarningTriangleIcon } from "../../assets/icons/icons";
+import {
+  ShieldIcon,
+  SuccessIcon,
+  WarningTriangleIcon,
+  FileDocumentIcon,
+  FreezeIcon,
+} from "../../assets/icons/icons";
 import killSwitchesIcon from "../../assets/killswitchicon.svg";
 import runtimeIcon from "../../assets/runtimeicon.svg";
+import { EyeIcon, LockIcon, ClockIcon, Pause, PlayCircle, XCircle } from "lucide-react";
+import CriticalActionModal from "./CriticalActionModal";
 
 const TABS = [
   "Kill Switches",
@@ -14,6 +22,7 @@ const TABS = [
 
 export default function EmergencyDashboard() {
   const [activeTab, setActiveTab] = useState("Kill Switches");
+  const [actionType, setActionType] = useState(null);
 
   return (
     <div className="space-y-5 mb-5">
@@ -31,16 +40,36 @@ export default function EmergencyDashboard() {
         ))}
       </div>
 
-      {activeTab === "Kill Switches" && <KillSwitches />}
-      {activeTab === "Incidents" && <Incidents />}
-      {activeTab === "Integrations" && <Integrations />}
-      {activeTab === "Emergency Controls" && <EmergencyControls />}
-      {activeTab === "Postmortems" && <Postmortems />}
+      {activeTab === "Kill Switches" && (
+        <KillSwitches actionType={actionType} setActionType={setActionType} />
+      )}
+      {activeTab === "Incidents" && (
+        <Incidents actionType={actionType} setActionType={setActionType} />
+      )}
+      {activeTab === "Integrations" && (
+        <Integrations actionType={actionType} setActionType={setActionType} />
+      )}
+      {activeTab === "Emergency Controls" && (
+        <EmergencyControls
+          actionType={actionType}
+          setActionType={setActionType}
+        />
+      )}
+      {activeTab === "Postmortems" && (
+        <Postmortems actionType={actionType} setActionType={setActionType} />
+      )}
+
+      {actionType && (
+        <CriticalActionModal
+          type={actionType}
+          onClose={() => setActionType(null)}
+        />
+      )}
     </div>
   );
 }
 
-function KillSwitches() {
+function KillSwitches({ actionType, setActionType }) {
   const sections = [
     {
       title: "$ Payout Controls",
@@ -193,7 +222,7 @@ function KillSwitches() {
       <div className="bg-white border rounded-2xl p-5 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
-            👁️
+            <EyeIcon className="text-gray-500 w-5" />
           </div>
 
           <div>
@@ -205,8 +234,13 @@ function KillSwitches() {
           </div>
         </div>
 
-        <button className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm">
-          🔒 Enable Safe Mode
+        <button
+          onClick={() => {
+            setActionType("safeMode");
+          }}
+          className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2 text-sm"
+        >
+          <LockIcon className="w-5 text-white" /> Enable Safe Mode
         </button>
       </div>
       {sections.map((section, i) => (
@@ -269,7 +303,10 @@ function KillSwitches() {
                   ))}
                 </div>
 
-                <button className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+                <button
+                  onClick={() => setActionType("killSwitch")}
+                  className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2"
+                >
                   <img src={killSwitchesIcon} alt="" />
                   🔴 Activate Kill Switch
                 </button>
@@ -282,7 +319,7 @@ function KillSwitches() {
   );
 }
 
-function Incidents() {
+function Incidents({ actionType, setActionType }) {
   const incidents = [
     {
       id: "INC-2024-089",
@@ -314,6 +351,7 @@ function Incidents() {
       ],
       footer: "Postmortem due: 12/26/2024 • Owner: Alex Chen (CTO)",
       style: "bg-orange-50 border-orange-300",
+      btnText: "",
     },
     {
       id: "INC-2024-088",
@@ -345,6 +383,7 @@ function Incidents() {
       ],
       footer: "Postmortem complete • Prevention policy: POL-INT-012",
       style: "bg-white",
+      btnText: "",
     },
     {
       id: "INC-2024-087",
@@ -376,6 +415,7 @@ function Incidents() {
       ],
       footer: "Postmortem due: 12/23/2024 • Owner: Sarah Johnson (CEO)",
       style: "bg-red-50 border-red-300",
+      btnText: "Require Policy",
     },
   ];
 
@@ -458,8 +498,10 @@ function Incidents() {
             <p className="text-sm font-medium mb-2">Timeline:</p>
             <div className="space-y-4">
               {item.timeline.map((t, j) => (
-                <div key={j} className="flex gap-3">
-                  <div className="mt-1 text-gray-500">⏱️</div>
+                <div key={j} className="flex gap-3 items-start">
+                  <div className=" text-gray-500">
+                    <ClockIcon className="w-4 text-gray-500" />
+                  </div>
 
                   <div>
                     <p className="text-sm text-gray-700 font-medium">
@@ -474,14 +516,26 @@ function Incidents() {
           </div>
 
           <div
-            className={`${item.status === "resolved" ? "bg-green-50 border border-green-200 text-[#1B5E20]" : "bg-yellow-50 border border-yellow-200 text-[#894B00]"} rounded-lg px-3 py-2 text-sm flex items-center gap-2`}
+            className={`${item.status === "resolved" ? "bg-green-50 border border-green-200 text-[#1B5E20]" : "bg-yellow-50 border border-yellow-200 text-[#894B00]"} rounded-lg px-3 py-2 text-sm flex items-center justify-between gap-2`}
           >
-            {item.status === "resolved" ? (
-              <SuccessIcon width={14} />
-            ) : (
-              <WarningTriangleIcon color="#894B00" width={14} />
+            <div className="flex items-center gap-2">
+              {item.status === "resolved" ? (
+                <SuccessIcon width={14} />
+              ) : (
+                <WarningTriangleIcon color="#894B00" width={14} />
+              )}
+              {item.footer}
+            </div>
+
+            {item.btnText && (
+              <button
+                onClick={() => setActionType("requirePolicy")}
+                className="inline-flex items-center gap-2 border border-gray-300 rounded-lg px-2 py-1 bg-white text-black"
+              >
+                <FileDocumentIcon color="black" width={16} />
+                {item.btnText}
+              </button>
             )}
-            {item.footer}
           </div>
         </div>
       ))}
@@ -489,7 +543,7 @@ function Incidents() {
   );
 }
 
-function Integrations() {
+function Integrations({ actionType, setActionType }) {
   const stats = [
     { label: "4 Operational", cls: "bg-green-100 text-green-700" },
     { label: "1 Degraded", cls: "bg-yellow-100 text-yellow-700" },
@@ -598,13 +652,18 @@ function Integrations() {
               </div>
 
               <button
-                className={`px-4 py-2 rounded-lg text-sm ${
+                onClick={
+                  item.status !== "disabled"
+                    ? () => setActionType("disableIntegration")
+                    : undefined
+                }
+                className={`px-4 py-2 rounded-lg text-sm flex items-center gap-2 ${
                   item.status === "disabled"
                     ? "bg-black text-white"
                     : "bg-red-600 text-white"
                 }`}
               >
-                {item.status === "disabled" ? "Enable" : "Disable"}
+                {item.status === "disabled" ? <><PlayCircle className="text-white w-4" /> Enable</> : <><XCircle className="text-white w-4" /> Disable</>}
               </button>
             </div>
 
@@ -647,7 +706,7 @@ function Integrations() {
   );
 }
 
-function EmergencyControls() {
+function EmergencyControls({ actionType, setActionType }) {
   const controls = [
     {
       title: "Payouts",
@@ -656,6 +715,7 @@ function EmergencyControls() {
       lastChanged: "12/20/2024, 8:00:00 PM",
       changedBy: "Sarah Johnson (CEO)",
       action: "Freeze Payouts",
+      actionicon: <FreezeIcon className="text-white" width={16} />,
       bg: "bg-white",
       border: "border-gray-200",
     },
@@ -665,6 +725,7 @@ function EmergencyControls() {
       desc: "Automated workflows and triggers",
       lastChanged: "12/30/2025, 2:59:49 PM",
       action: "Pause All Automation",
+      actionicon: <Pause className="text-white w-4" />,
       bg: "bg-orange-50",
       border: "border-orange-300",
     },
@@ -674,6 +735,7 @@ function EmergencyControls() {
       desc: "New user and provider registration",
       lastChanged: "12/15/2024, 1:30:00 PM",
       action: "Lock Onboarding",
+      actionicon: <LockIcon className="text-white" width={16} />,
       bg: "bg-white",
       border: "border-gray-200",
     },
@@ -683,6 +745,7 @@ function EmergencyControls() {
       desc: "Active promotional campaigns",
       lastChanged: "12/10/2024, 5:30:00 PM",
       action: "Pause Promotions",
+      actionicon: <Pause className="text-white w-4" />,
       bg: "bg-white",
       border: "border-gray-200",
     },
@@ -737,12 +800,26 @@ function EmergencyControls() {
             </p>
 
             {item.changedBy && (
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-gray-600">
                 Changed by: {item.changedBy}
               </p>
             )}
 
-            <button className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm">
+            <button
+              onClick={() => {
+                if (item.action === "Pause Promotions") {
+                  setActionType("pausePromotions");
+                }
+                if (item.action === "Freeze Payouts") {
+                  setActionType("freezePayouts");
+                }
+                if (item.action === "Lock Onboarding") {
+                  setActionType("lockOnboarding");
+                }
+              }}
+              className="bg-red-600 text-white px-4 py-2 rounded-lg text-sm mt-5 flex items-center gap-2"
+            >
+              {item.actionicon}
               {item.action}
             </button>
           </div>
@@ -780,7 +857,7 @@ function EmergencyControls() {
   );
 }
 
-function Postmortems() {
+function Postmortems({ actionType, setActionType }) {
   const postmortems = [
     {
       id: "INC-2024-089",

@@ -1,5 +1,7 @@
 "use client"
 import React, { useMemo, useState } from "react"
+import EvidenceModal from "./EvidenceModal"
+import ApprovalActionModal from "./ApprovalActionModal"
 
 const TABS = [
   { key: "All", label: "All (8)" },
@@ -143,6 +145,11 @@ const DATA = [
 
 export default function ApprovalQueue() {
   const [activeTab, setActiveTab] = useState("All")
+const [openEvidence, setOpenEvidence] = useState(false);
+const [actionType, setActionType] = useState(null);
+
+const openModal = (type) => setActionType(type);
+const closeModal = () => setActionType(null);
 
   const filtered = useMemo(() => {
     if (activeTab === "All") return DATA
@@ -230,7 +237,7 @@ export default function ApprovalQueue() {
                   </span>
                 )}
               </div>
-              <button className="text-blue-600 font-medium">
+              <button onClick={() => setOpenEvidence(true)} className="text-blue-600 font-medium">
                 View Evidence →
               </button>
               </div>
@@ -244,27 +251,42 @@ export default function ApprovalQueue() {
 
 
             <div className="flex flex-wrap gap-3">
-              <button className="bg-black text-white px-5 py-2 rounded-lg">
-                Approve
-              </button>
-              <button className="bg-red-600 text-white px-5 py-2 rounded-lg">
-                Reject
-              </button>
-              <button className="border px-5 py-2 rounded-lg">
-                Request Revision
-              </button>
-              <button className="border px-5 py-2 rounded-lg">
-                Delegate
-              </button>
-              <button className="border px-5 py-2 rounded-lg">
-                Escalate
-              </button>
-              <button className="border px-5 py-2 rounded-lg">
-                Open Audit Case
-              </button>
-            </div>
+  <button onClick={() => openModal("approve")} className="bg-black text-white px-5 py-2 rounded-lg">
+    Approve
+  </button>
+
+  <button onClick={() => openModal("reject")} className="bg-red-600 text-white px-5 py-2 rounded-lg">
+    Reject
+  </button>
+
+  <button onClick={() => openModal("revision")} className="border px-5 py-2 rounded-lg">
+    Request Revision
+  </button>
+
+  <button onClick={() => openModal("delegate")} className="border px-5 py-2 rounded-lg">
+    Delegate
+  </button>
+
+  <button onClick={() => openModal("escalate")} className="border px-5 py-2 rounded-lg">
+    Escalate
+  </button>
+
+  <button onClick={() => openModal("audit")} className="border px-5 py-2 rounded-lg">
+    Open Audit Case
+  </button>
+</div>
           </div>
         ))}
+        
+<EvidenceModal
+  open={openEvidence}
+  onClose={() => setOpenEvidence(false)}
+/>
+
+{actionType && (
+  <ApprovalActionModal type={actionType} onClose={closeModal} />
+)}
+
       </div>
     </div>
   )

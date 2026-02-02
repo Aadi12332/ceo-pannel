@@ -155,13 +155,12 @@ const PolicyTabsPage = () => {
   const [policyOpen, setPolicyOpen] = useState(false);
   const [policyImpactOpen, setPolicyImpactOpen] = useState(false);
   const [rollbackOpen, setRollbackOpen] = useState(false);
-  // const [exceptionOpen, setExceptionOpen] = useState(false);
 
   const actionHandlers = {
     Edit: () => setPolicyOpen(true),
     Simulate: () => setPolicyImpactOpen(true),
-    Rollback: () => setRollbackOpen(true),
-    // "Issue Exception": () => setExceptionOpen(true),
+    // Rollback: () => setRollbackOpen(true),
+    "Issue Exception": () => setRollbackOpen(true),
   };
 
   return (
@@ -723,9 +722,6 @@ const PolicyTabsPage = () => {
         />
       )}
 
-      {/* {exceptionOpen && (
-        <IssueExceptionModal onClose={() => setExceptionOpen(false)} />
-      )} */}
     </div>
   );
 };

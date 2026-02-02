@@ -1,14 +1,18 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import PageHeader from "../../components/common/Heading";
 import QuickActions from "../../components/common/QuickAction";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
-import alertIcon from "../../assets/sidebaricon/auditicon.svg";
+import alertIcon from "../../assets/darkshieldicon.svg";
 import pauseIcon from "../../assets/freezeicon.svg";
-import approvalIcon from "../../assets/sidebaricon/policiesicon.svg";
-import cityIcon from "../../assets/exporticon.svg";
+import approvalIcon from "../../assets/darkfileicon.svg";
+import exportIcon from "../../assets/exporticon.svg";
 import FinanceChart from "../../components/financial-component/FinanceChart";
 import RevenueGrossMargin from "../../components/financial-component/RevenueGrossMargin";
 import ChargebackAndFraudSection from "../../components/financial-component/ChargebackAndFraudSection";
+import BudgetCeilingModal from "../../components/financial-component/BudgetCeilingModal";
+import RequestCFOReportModal from "../../components/financial-component/RequestCFOReportModal";
 
 const mtd = [
   {
@@ -106,6 +110,9 @@ const financeStats = [
 ];
 
 const Financial = () => {
+  const navigate = useNavigate();
+  const [openBudget, setOpenBudget] = useState(false);
+  const [openRequestCFO, setOpenRequestCFO] = useState(false);
   const Section = ({ title, data }) => (
     <div className="flex-1">
       <h3 className="text-[18px] text-[#0A0A0A] mb-4">{title}</h3>
@@ -160,21 +167,19 @@ const Financial = () => {
             label: "Set Budget Cap",
             command: "Lorem Ipsum is simply dummy text",
             icon: alertIcon,
-            filter: true,
-            onClick: () => console.log("Open Alert"),
+            onClick: () => setOpenBudget(true),
           },
           {
             label: "Request CFO Report",
             command: "Lorem Ipsum is simply dummy text",
             icon: approvalIcon,
-            filter: true,
-            onClick: () => console.log("Open Approval"),
+            onClick: () => setOpenRequestCFO(true),
           },
           {
             label: "Export Data",
             command: "Lorem Ipsum is simply dummy text",
-            icon: cityIcon,
-            onClick: () => console.log("City Readiness"),
+            icon: exportIcon,
+            onClick: () => navigate("/approvals"),
           },
           {
             label: "Emergency Freeze",
@@ -185,6 +190,12 @@ const Financial = () => {
           },
         ]}
       />
+
+      
+
+<BudgetCeilingModal open={openBudget} onClose={() => setOpenBudget(false)} />
+<RequestCFOReportModal open={openRequestCFO} onClose={() => setOpenRequestCFO(false)} />
+
 
       <FinanceChart />
 

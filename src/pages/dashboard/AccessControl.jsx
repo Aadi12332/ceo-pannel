@@ -1,12 +1,16 @@
+
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
-import fileIcon from "../../assets/fileicon.svg";
-import exportIcon from "../../assets/exporticon.svg";
+import fileIcon from "../../assets/userplusicon.svg";
+import exportIcon from "../../assets/sidebaricon/policiesicon.svg";
 import AccessChart from "../../components/access-control-component/AccessChart";
 import EmployeeAuditLog from "../../components/access-control-component/EmployeeAuditLog";
 import AccessAndReview from "../../components/access-control-component/AccessAndReview";
 import GovernanceTabs from "../../components/access-control-component/GovernanceTabs";
+import GrantTempAccessModal from "../../components/access-control-component/GrantTempAccessModal";
+import RequestAccessReviewModal from "../../components/access-control-component/RequestAccessReviewModal";
 
 const auditStats = [
   {
@@ -32,6 +36,9 @@ const auditStats = [
 ];
 
 const AccessControl = () => {
+  const [openGrantAccess, setOpenGrantAccess] = useState(false);
+  const [openReview, setOpenReview] = useState(false);
+
   return (
     <MainLayout>
       <PageHeader
@@ -41,16 +48,25 @@ const AccessControl = () => {
           {
             label: "Grant Temp Access",
             icon: fileIcon,
-            onClick: () => console.log("Grant Temp Access"),
+            onClick: () => setOpenGrantAccess(true),
           },
           {
             label: "Request Review",
             icon: exportIcon,
-            filter: true,
-            onClick: () => console.log("Request Review"),
+            onClick: () => setOpenReview(true),
           },
         ]}
       />
+
+      <GrantTempAccessModal
+  open={openGrantAccess}
+  onClose={() => setOpenGrantAccess(false)}
+/>
+
+<RequestAccessReviewModal
+  open={openReview}
+  onClose={() => setOpenReview(false)}
+/>
 
       <SummaryCards items={auditStats} title="Access Control Dashboard" />
 

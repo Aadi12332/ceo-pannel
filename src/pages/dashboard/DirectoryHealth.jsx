@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
@@ -8,6 +10,9 @@ import folderIcon from "../../assets/fileicon.svg";
 import sendIcon from "../../assets/alertcircleicon.svg";
 import dashboardIcon from "../../assets/alertcircleicon.svg";
 import riskIcon from "../../assets/alertcircleicon.svg";
+import OpenBlockerModal from "../../components/directory-component/OpenBlockerModal";
+import ExecutiveUpdateModal from "../../components/directory-component/ExecutiveUpdateModal";
+import OpenDirectoryDashboardModal from "../../components/directory-component/OpenDirectoryDashboardModal";
 
 const blockers = [
   {
@@ -198,6 +203,10 @@ const toneMap = {
   },
 };
 const DirectoryHealth = () => {
+  const [showBlocker, setShowBlocker] = useState(false);
+  const [openExecUpdate, setOpenExecUpdate] = useState(false);
+  const [openDirectory, setOpenDirectory] = useState(false);
+
   return (
     <MainLayout>
       <PageHeader
@@ -254,7 +263,7 @@ const DirectoryHealth = () => {
                   )}
                 </div>
 
-                <button className="flex items-center gap-2 bg-[#0A0A0A] text-white px-4 h-9 rounded-lg text-[14px]">
+                <button onClick={() => setShowBlocker(true)} className="flex items-center gap-2 bg-[#0A0A0A] text-white px-4 h-9 rounded-lg text-[14px]">
                   <img src={folderIcon} alt="" className="w-5" />
                   Open Blocker
                 </button>
@@ -293,6 +302,11 @@ const DirectoryHealth = () => {
               <p className="text-[14px] text-[#344054]">{item.description}</p>
             </div>
           ))}
+
+<OpenBlockerModal
+  open={showBlocker}
+  onClose={() => setShowBlocker(false)}
+/>
         </div>
       </div>
 
@@ -370,11 +384,11 @@ const DirectoryHealth = () => {
               </div>
 
               <div className="space-y-2">
-                <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
+                <button onClick={() => setOpenExecUpdate(true)} className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
                   <img src={sendIcon} alt="" className="w-4 h-4" />
                   Send Target
                 </button>
-                <button className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
+                <button   onClick={() => setOpenDirectory(true)} className="w-full flex items-center justify-center gap-2 border rounded-lg py-2 bg-white">
                   <img src={dashboardIcon} alt="" className="w-4 h-4" />
                   Open Dashboard
                 </button>
@@ -382,6 +396,14 @@ const DirectoryHealth = () => {
             </div>
           );
         })}
+        <ExecutiveUpdateModal
+  open={openExecUpdate}
+  onClose={() => setOpenExecUpdate(false)}
+/>
+<OpenDirectoryDashboardModal
+  open={openDirectory}
+  onClose={() => setOpenDirectory(false)}
+/>
       </div>
 
       <SLADashboard />

@@ -1,3 +1,5 @@
+
+import { useState } from "react";
 import PageHeader from "../../components/common/Heading";
 import SummaryCards from "../../components/common/SummaryCard";
 import MainLayout from "../../components/layout/MainLayout";
@@ -6,6 +8,7 @@ import warningIcon from "../../assets/warningicon.svg";
 import EmergencyChart from "../../components/emergency-component/EmergencyChart";
 import IncidentResponseTimeline from "../../components/emergency-component/IncidentResponseTimeline";
 import EmergencyDashboard from "../../components/emergency-component/EmergencyTabs";
+import CreateIncidentModal from "../../components/emergency-component/CreateIncidentModal";
 
 const policyStats = [
   {
@@ -30,6 +33,7 @@ const policyStats = [
   },
 ];
 const Emergency = () => {
+  const [incidentopen, setIncidentOpen] = useState(false);
   return (
     <MainLayout>
       <PageHeader
@@ -39,10 +43,12 @@ const Emergency = () => {
           {
             label: "Create Incident",
             icon: plusIcon,
-            onClick: () => console.log("Create Incident"),
+            onClick: () => setIncidentOpen(true),
           },
         ]}
       />
+
+      {incidentopen && <CreateIncidentModal onClose={() => setIncidentOpen(false)} />}
 
       <div className="border border-[#FFA2A2] bg-[#FEF2F2] rounded-[10px] p-4 flex items-start gap-3 mb-5">
         <img src={warningIcon} alt="" className="w-5 h-5 mt-0.5" />
