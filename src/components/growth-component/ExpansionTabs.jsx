@@ -23,7 +23,8 @@ export default function ExpansionTabs() {
 
   return (
     <div className="mb-5">
-      <div className="mb-5 flex items-center gap-2 bg-[#F3F4F6] rounded-full p-1">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+        <div className="mb-5 flex items-center gap-2 bg-[#F3F4F6] rounded-full p-1 min-w-[992px]">
         {[
           { key: "city", label: "City Readiness", icon: MapPin },
           { key: "gates", label: "Expansion Gates", icon: Lock },
@@ -44,6 +45,7 @@ export default function ExpansionTabs() {
             </button>
           );
         })}
+      </div>
       </div>
 
       <div className=" bg-white rounded-xl p-6">
@@ -373,7 +375,7 @@ function CityCard({
 
   return (
     <div className={`rounded-xl border p-5 ${bg}`}>
-      <div className="flex justify-between mb-5">
+      <div className="flex justify-between mb-5 sm:flex-row flex-col gap-5">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <MapPin className="w-4 h-4 text-[#155DFC]" />
@@ -408,7 +410,7 @@ function CityCard({
         </div>
       </div>
 
-      <div className="grid grid-cols-5 gap-4 mb-4">
+      <div className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-4 mb-4">
         <div className="rounded-lg bg-white p-4 border">
           <p className="text-xs text-[#475467] mb-2">Permits</p>
           <ul className="space-y-1 text-sm">

@@ -162,7 +162,7 @@ const GlobalToolRegistry = () => {
             </div>
           </div>
 
-          <div className="bg-[#EDF4FF] rounded-[12px] p-5 max-w-[50%]">
+          <div className="bg-[#EDF4FF] rounded-[12px] p-5 md:max-w-[50%]">
             <h3 className="text-[18px] text-[#0A0A0A] mb-1">Google Meet</h3>
             <p className="text-[14px] text-[#0A0A0A] mb-4">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -195,7 +195,7 @@ const GlobalToolRegistry = () => {
             </div>
           </div>
 
-          <div className="border border-[#0000001A] rounded-[12px] p-5 max-w-[50%]">
+          <div className="border border-[#0000001A] rounded-[12px] p-5 md:max-w-[50%]">
             <div className="flex items-start gap-3 mb-4">
               <img src={bellIcon} alt="" className="w-5 h-5 mt-1" />
               <div>

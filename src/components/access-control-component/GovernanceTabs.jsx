@@ -25,7 +25,8 @@ export default function GovernanceTabs() {
 
   return (
     <>
-      <div className="mb-5 flex gap-3 rounded-full bg-gray-100 p-1">
+    <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+      <div className="mb-5 flex gap-3 rounded-full bg-gray-100 p-1 min-w-[992px]">
         {tabs.map((t) => (
           <button
             key={t.key}
@@ -35,6 +36,7 @@ export default function GovernanceTabs() {
             {t.label}
           </button>
         ))}
+      </div>
       </div>
       <div className="rounded-xl bg-white p-6 mb-5">
         {tab === "org" && (

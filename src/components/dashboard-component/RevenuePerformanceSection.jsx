@@ -172,9 +172,9 @@ const RevenuePerformanceSection = ({ id }) => {
   ];
   return (
     <div className="space-y-5 mb-5">
-      <div className="flex gap-5">
-        <div className="flex flex-1">
-          <div className="bg-white rounded-l-lg lg:rounded-l-[14px] border border-[#0000001A] p-6 w-full">
+      <div className="flex gap-5 lg:flex-row flex-col">
+        <div className="flex flex-1 sm:flex-row flex-col gap-5 sm:gap-0">
+          <div className="bg-white rounded-l-lg rounded-lg sm:round-[unset] sm:rounded-l-[14px] border border-[#0000001A] p-6 w-full">
             <div className="flex justify-between mb-4">
               <h3 className="text-[20px]">Total Revenue</h3>
               <div className="flex items-center gap-7">
@@ -291,7 +291,7 @@ const RevenuePerformanceSection = ({ id }) => {
             </div>
           </div>
 
-          <div className="bg-white rounded-r-lg lg:rounded-r-[14px] border border-[#0000001A] p-6 flex flex-col items-center w-[500px]">
+          <div className="bg-white rounded-r-lg rounded-lg sm:round-[unset] sm:rounded-r-[14px] border border-[#0000001A] p-6 flex flex-col items-center sm:w-[500px]">
             <div className="flex justify-between w-full mb-2">
               <h3 className="text-[20px]">Performance</h3>
               <span>
@@ -343,7 +343,7 @@ const RevenuePerformanceSection = ({ id }) => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 min-w-[320px]">
           <div className="flex justify-between mb-4">
             <h3 className="text-[20px]">Most Popular Products</h3>
             <div className="relative inline-block" ref={dotsRef}>

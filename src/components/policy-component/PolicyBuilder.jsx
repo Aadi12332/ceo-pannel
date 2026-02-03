@@ -165,7 +165,8 @@ const PolicyTabsPage = () => {
 
   return (
     <div className="mb-5 space-y-6">
-      <div className="bg-[#ECECF0] rounded-full p-1 flex gap-1 w-full">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+        <div className="bg-[#ECECF0] rounded-full p-1 flex gap-1 w-full min-w-[992px]">
         {TABS.map((tab) => (
           <button
             key={tab.key}
@@ -181,6 +182,7 @@ const PolicyTabsPage = () => {
             {tab.label}
           </button>
         ))}
+      </div>
       </div>
 
       {active === "policies" && (

@@ -305,7 +305,7 @@ const Communication = () => {
             <div key={index}>
               {!isSelected && (
                 <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 flex flex-col gap-4">
-                  <div className="flex justify-between items-start gap-6">
+                  <div className="flex justify-between items-start gap-6 sm:flex-row flex-col-reverse">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="text-[18px] font-semibold text-[#0A0A0A]">
@@ -388,7 +388,7 @@ const Communication = () => {
               {isSelected && (
                 <div className="space-y-6">
                   <div className="bg-white rounded-[14px] border border-[#0000001A] p-6">
-                    <div className="flex justify-between items-start mb-4">
+                    <div className="flex justify-between items-start mb-4 md:flex-row flex-col gap-5">
                       <button
                         onClick={() => setSelectedDiscussion(null)}
                         className="flex items-center gap-2 text-sm text-[#475467]"
@@ -397,7 +397,7 @@ const Communication = () => {
                         Back to List
                       </button>
 
-                      <div className="flex items-end gap-3">
+                      <div className="flex items-end gap-3 flex-wrap">
                         <button
                           onClick={() => setConversionType("APPROVAL")}
                           className="flex items-center gap-2 px-4 h-9 rounded-lg border border-[#E5E7EB] text-sm"

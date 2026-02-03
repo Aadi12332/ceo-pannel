@@ -55,17 +55,17 @@ const Header = ({ onMenuClick }) => {
           />
         </svg>
 
-        <div className="flex items-center bg-[#EEF4FF] rounded-full px-4 py-3 w-full xl:w-[322px] max-w-[322px]  ">
+        <div className="flex items-center bg-[#EEF4FF] rounded-full sm:px-4 px-2 sm:py-3 py-1.5 w-full xl:w-[322px] max-w-[322px]  ">
           <img src={searchIcon} alt="Search" className="w-5 h-5 mr-3" />
           <input
             type="text"
             placeholder="Search"
-            className="bg-transparent text-base outline-none text-[#0E1E38] font-medium placeholder:text-[#6B7280] w-full"
+            className="bg-transparent sm:text-base text-sm outline-none text-[#0E1E38] font-medium placeholder:text-[#6B7280] w-full"
           />
         </div>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex items-center sm:gap-6 gap-2">
         <button className="relative" onClick={() => setChatModalOpen(true)}>
           <img src={chatIcon} alt="Chat" className="min-w-6 w-6 h-6" />
         </button>
@@ -79,14 +79,14 @@ const Header = ({ onMenuClick }) => {
           <img
             src={avatar}
             alt="Profile"
-            className="w-14 h-14 min-w-14 rounded-full object-cover"
+            className="sm:w-14 sm:h-14 w-10 h-10 sm:min-w-14 min-w-10 rounded-full object-cover"
           />
           <Select
             placeholder="Role"
             options={roles}
             value={role}
             onChange={setRole}
-            inputClassName="!bg-transparent !text-[20px] !gap-8 !px-0 !text-[#1E1E1E] !h-[unset] !min-w-[100px]"
+            inputClassName="!bg-transparent sm:!text-[20px] !text-sm sm:!gap-8 !gap-3 !px-0 !text-[#1E1E1E] !h-[unset] sm:!min-w-[100px] !min-w-[60px]"
             listItemClassName="!px-3"
             listParentClassName="!max-h-[unset] !w-[150px] !right-0"
           />

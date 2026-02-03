@@ -40,7 +40,7 @@ const FilterBar = ({
           </div>
         )}
 
-        <div className="flex items-end gap-4">
+        <div className="flex items-end gap-4 flex-wrap">
           {filters.map((filter, index) => (
             <div
               key={index}
@@ -59,7 +59,7 @@ const FilterBar = ({
                 options={filter.options}
                 value={filter.value}
                 onChange={filter.onChange}
-                inputClassName="!h-10 2xl:!w-[232px] xl:!w-[180px] !w-[150px] !px-3 !text-[14px] !text-[#0A0A0A] !bg-[#F3F3F5] !rounded-lg"
+                inputClassName="!h-10 2xl:!w-[232px] xl:!w-[180px] sm:!w-[150px] !w-[170px] !px-3 !text-[14px] !text-[#0A0A0A] !bg-[#F3F3F5] !rounded-lg"
                 listItemClassName="!text-[14px] !px-3 !py-1.5"
                 listParentClassName="!max-h-[260px]"
               />
@@ -68,7 +68,7 @@ const FilterBar = ({
         </div>
       {
         results && (
-          <span className="text-[12px] text-[#0A0A0A] border border-[#0000001A] px-2 py-1 rounded-lg -mt-9">
+          <span className="text-[12px] text-[#0A0A0A] border border-[#0000001A] px-2 py-1 rounded-lg md:-mt-9 mt-3">
             {results}
           </span>
         )

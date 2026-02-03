@@ -1,6 +1,6 @@
 const PageHeader = ({ title, description, filter, actions = [] }) => {
   return (
-    <div className="w-full flex lg:flex-row flex-col lg:items-center justify-between gap-5 mb-5">
+    <div className="w-full flex xl:flex-row flex-col xl:items-center justify-between gap-5 mb-5">
       <div>
         <h1 className="text-[28px] font-bold text-[#0A0A0A]">{title}</h1>
 
@@ -10,12 +10,12 @@ const PageHeader = ({ title, description, filter, actions = [] }) => {
       </div>
 
       {actions.length > 0 && (
-        <div className="flex items-center gap-4">
+        <div className="flex items-center sm:gap-4 gap-2">
           {actions.map((action, index) => (
             <button
               key={index}
               onClick={action.onClick}
-              className={`flex items-center gap-2 px-5 lg:h-[62px] h-12 min-w-max rounded-lg text-[18px] font-medium transition
+              className={`flex items-center gap-2 sm:px-5 px-2 lg:h-[62px] sm:h-12 h-10 min-w-max rounded-lg text-[15px] sm:text-[18px] font-medium transition
                 ${
                   action.variant === "secondary"
                     ? "bg-white border border-[#0E1E38] text-[#0E1E38]"
@@ -26,7 +26,7 @@ const PageHeader = ({ title, description, filter, actions = [] }) => {
                 <img
                   src={action.icon}
                   alt=""
-                  className={`w-7 h-7 ${action.filter ? "filter invert" : ""}`}
+                  className={`sm:w-7 w-4 h-7 ${action.filter ? "filter invert" : ""}`}
                 />
               )}
               {action.label}

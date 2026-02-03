@@ -20,6 +20,7 @@ import Users from "../components/global-component/Users";
 import AddNewMerchants from "../components/global-component/AddNewMerchants";
 import AddNewUser from "../components/global-component/AddNewUser";
 import OederDetailPage from "../components/global-component/OederDetailPage";
+import AddNewEmployee from "../components/access-control-component/AddNewEmployee";
 
 const AppRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const AppRoutes = () => {
       <Route path="/send-mass-email" element={<SendMassEmail />} />
       <Route path="/merchants" element={<Merchants />} />
       <Route path="/add-new-merchant" element={<AddNewMerchants />} />
+      <Route path="/add-new-employee" element={<AddNewEmployee />} />
       <Route path="/add-new-user" element={<AddNewUser />} />
       <Route path="/order-detail" element={<OederDetailPage />} />
       <Route path="/users" element={<Users />} />
