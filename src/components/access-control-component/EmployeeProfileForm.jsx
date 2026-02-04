@@ -25,49 +25,49 @@ export default function EmployeeProfileForm({ isEdit, setIsEdit }) {
   return (
     <div className="">
       <div className="relative pb-6">
-        <div className="grid grid-cols-2 gap-5 bg-white rounded-xl p-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-xl lg:p-6 p-3 rounded-lg">
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Full Name
             </label>
             <input
-              className="w-full h-[61px] mt-1 px-3 text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
+              className="w-full sm:h-[61px] h-12 mt-1 px-3 text-base sm:text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
               placeholder="Enter"
             />
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Email Address
             </label>
             <input
-              className="w-full h-[61px] mt-1 px-3 text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
+              className="w-full sm:h-[61px] h-12 mt-1 px-3 text-base sm:text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
               placeholder="Enter"
             />
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Password
             </label>
             <input
-              className="w-full h-[61px] mt-1 px-3 text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
+              className="w-full sm:h-[61px] h-12 mt-1 px-3 text-base sm:text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
               placeholder="Enter"
             />
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Confirm Password
             </label>
             <input
-              className="w-full h-[61px] mt-1 px-3 text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
+              className="w-full sm:h-[61px] h-12 mt-1 px-3 text-base sm:text-[18px] rounded-lg border border-[#D0D5DD] focus:outline-none"
               placeholder="Enter"
             />
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Assign Role
             </label>
             <Select
@@ -87,14 +87,14 @@ export default function EmployeeProfileForm({ isEdit, setIsEdit }) {
                 { value: "GSD", label: "Growth Strategy Director (GSD)" },
                 { value: "AAD", label: "Admin & Accounts Director (AAD)" },
               ]}
-              inputClassName="!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
+              inputClassName="!h-12 sm:!h-[61px] !mt-1 !rounded-lg !px-3 !text-base sm:!text-[18px] !bg-white !border !border-[#D0D5DD]"
               listItemClassName="!px-3 !text-sm"
               listParentClassName=""
             />
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Tools Permission
             </label>
             <Select
@@ -111,7 +111,7 @@ export default function EmployeeProfileForm({ isEdit, setIsEdit }) {
                 { label: "Email Access", value: "Email Access" },
                 { label: "Push Notification", value: "Push Notification" },
               ]}
-              inputClassName="!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
+              inputClassName="!h-12 sm:!h-[61px] !mt-1 !rounded-lg !px-3 !text-base sm:!text-[18px] !bg-white !border !border-[#D0D5DD]"
               listItemClassName="!px-3 !text-sm"
               listParentClassName=""
             />
@@ -124,10 +124,10 @@ export default function EmployeeProfileForm({ isEdit, setIsEdit }) {
               Role Details
             </h2>
 
-            <div className="bg-white rounded-xl border border-[#D0D5DD] p-6">
+            <div className="bg-white lg:rounded-xl rounded-lg border border-[#D0D5DD] lg:p-6 p-3">
               <h3 className="text-lg font-medium mb-3">Description</h3>
               <textarea
-                className="w-full h-32 rounded-lg border border-[#D0D5DD] p-4 text-sm resize-none outline-none focus:outline-none focus-visible:outline-none"
+                className="w-full min-h-32 rounded-lg border border-[#D0D5DD] sm:p-4 p-2.5 text-sm outline-none focus:outline-none focus-visible:outline-none"
                 defaultValue="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
               />
             </div>
@@ -139,16 +139,16 @@ export default function EmployeeProfileForm({ isEdit, setIsEdit }) {
               <p className="text-sm text-gray-500">Permission Assignments</p>
             </div>
 
-            <div className="bg-white rounded-xl border border-[#D0D5DD]">
-              <div className="px-6 py-4 border-b border-[#D0D5DD]">
+            <div className="bg-white lg:rounded-xl rounded-lg border border-[#D0D5DD]">
+              <div className="lg:px-6 px-3 lg:py-4 py-2 border-b border-[#D0D5DD]">
                 <h3 className="text-lg font-medium">Permission Assignments</h3>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:p-6 p-3">
                 {departments.map((item, index) => (
                   <div
                     key={item.name}
-                    className="border border-[#D0D5DD] rounded-lg p-4"
+                    className="border border-[#D0D5DD] rounded-lg lg:p-4 p-2"
                   >
                     <p className="font-medium text-[#101828] mb-2">
                       {item.name}

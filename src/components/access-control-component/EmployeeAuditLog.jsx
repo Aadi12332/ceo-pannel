@@ -146,7 +146,7 @@ export default function EmployeeAuditLog() {
 
   return (
     <>
-      <div className="rounded-xl border border-[#0000001A] bg-white p-6 mb-5">
+      <div className="lg:rounded-xl rounded-lg border border-[#0000001A] bg-white lg:p-6 p-3 mb-5">
         <div className="mb-6 flex items-center justify-start gap-3">
           <img src={employeeicon} alt="" className="invert" />
           <div>
@@ -158,7 +158,7 @@ export default function EmployeeAuditLog() {
           </div>
         </div>
 
-        <div className="mb-4 flex items-center gap-3">
+        <div className="mb-4 flex sm:items-center gap-3 sm:flex-row flex-col">
           <div className="flex items-center gap-2 rounded-lg bg-gray-100 px-3 py-2 flex-1 h-12">
             <img src={searchicon} alt="" />
             <input
@@ -166,13 +166,13 @@ export default function EmployeeAuditLog() {
               className="w-full bg-transparent text-sm outline-none"
             />
           </div>
-          <button className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white">
+          <button className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white max-w-[250px]">
             <img src={plusicon} alt="" /> Add New Employee
           </button>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
+        <div className="overflow-x-auto w-[calc(100vw-46px)] lg:w-full rounded-xl scroll-hide">
+          <table className="w-full text-left min-w-[992px]">
             <thead>
               <tr className="border-b text-sm text-gray-600">
                 <th className="py-3">Employee Details</th>
@@ -215,7 +215,7 @@ export default function EmployeeAuditLog() {
         </div>
       </div>
       <div className="space-y-5">
-        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
           <h3 className="text-[20px] text-[#0A0A0A] mb-4">
             Recent Access Revocations
           </h3>
@@ -224,10 +224,10 @@ export default function EmployeeAuditLog() {
             {revocations.map((item, i) => (
               <div
                 key={i}
-                className="flex justify-between items-start bg-[#FAFAFA] rounded-lg p-4"
+                className="flex justify-between items-start bg-[#FAFAFA] rounded-lg lg:p-4 p-2.5 sm:flex-row flex-col gap-1"
               >
                 <div className="flex gap-3">
-                  <div className="w-9 h-9 flex items-center justify-center bg-[#FEE2E2] rounded-lg">
+                  <div className="w-9 h-9 min-w-9 flex items-center justify-center bg-[#FEE2E2] rounded-lg">
                     <img src={revokeIcon} alt="" className="w-5 h-5" />
                   </div>
                   <div>
@@ -238,14 +238,14 @@ export default function EmployeeAuditLog() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[14px] text-[#667085]">{item.time}</span>
+                <span className="text-[14px] text-[#667085] pl-12 sm:pl-0">{item.time}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div className="grid xl:grid-cols-3 grid-cols-1 gap-6">
-          <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
             <h3 className="text-[18px] text-[#0A0A0A] mb-4">
               Role Distribution
             </h3>
@@ -268,7 +268,7 @@ export default function EmployeeAuditLog() {
             </div>
           </div>
 
-          <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
             <h3 className="text-[18px] text-[#0A0A0A] mb-4">Access Patterns</h3>
 
             <div className="space-y-3">
@@ -281,7 +281,7 @@ export default function EmployeeAuditLog() {
             </div>
           </div>
 
-          <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
             <h3 className="text-[18px] text-[#0A0A0A] mb-4">
               Compliance Status
             </h3>

@@ -218,8 +218,8 @@ const DirectoryHealth = () => {
 
       <DirectoryChart />
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3 mb-5">
+        <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
           <div className="flex items-center gap-2">
             <img src={alertIcon} alt="" />
             <h3 className="text-[20px] text-[#0A0A0A]">Top Blockers Queue</h3>
@@ -234,13 +234,13 @@ const DirectoryHealth = () => {
           {blockers.map((item) => (
             <div
               key={item.id}
-              className={`rounded-[12px] border p-5 ${
+              className={`lg:rounded-[12px] rounded-lg border lg:p-5 p-2.5 ${
                 item.highlight
                   ? "bg-[#FEF2F2] border-[#FDA29B]"
                   : "bg-white border-[#0000001A]"
               }`}
             >
-              <div className="flex justify-between gap-4 mb-3">
+              <div className="flex justify-between gap-4 mb-3 sm:flex-row flex-col-reverse">
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="px-2 py-1 bg-[#F2F4F7] rounded text-[13px]">
                     {item.id}
@@ -263,7 +263,7 @@ const DirectoryHealth = () => {
                   )}
                 </div>
 
-                <button onClick={() => setShowBlocker(true)} className="flex items-center gap-2 bg-[#0A0A0A] text-white px-4 h-9 rounded-lg text-[14px]">
+                <button onClick={() => setShowBlocker(true)} className="flex items-center w-fit gap-2 bg-[#0A0A0A] text-white px-4 h-9 rounded-lg text-[14px]">
                   <img src={folderIcon} alt="" className="w-5" />
                   Open Blocker
                 </button>
@@ -316,7 +316,7 @@ const DirectoryHealth = () => {
           return (
             <div
               key={i}
-              className={`rounded-[16px] border p-5 flex flex-col justify-between ${tone.card}`}
+              className={`lg:rounded-[16px] rounded-lg border lg:p-5 p-2.5 flex flex-col justify-between ${tone.card}`}
             >
               <div>
                 <div className="flex justify-between items-start mb-4">

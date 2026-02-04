@@ -2,12 +2,12 @@
 
 export default function RoadmapMilestones() {
   return (
-    <div className="rounded-xl bg-white p-6 mb-5">
+    <div className="lg:rounded-xl rounded-lg bg-white lg:p-6 p-3 mb-5">
       <h2 className="mb-6 text-xl font-semibold">
         Roadmap Milestones & Quarterly OKRs (Read-Only)
       </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:gap-6 gap-3 md:grid-cols-2">
         <MilestoneCard
           title="Launch NYC Market"
           owner="GSD"
@@ -49,7 +49,7 @@ export default function RoadmapMilestones() {
         />
       </div>
 
-      <div className="mt-8 rounded-xl bg-blue-50 px-5 py-4 text-blue-700">
+      <div className="mt-8 lg:rounded-xl rounded-lg bg-blue-50 sm:px-5 p-2.5 sm:py-4 text-blue-700">
         <span className="font-medium">Note:</span> Milestones are read-only for CEO view. Updates are submitted via GSD approvals and managed by respective directory owners.
       </div>
     </div>
@@ -71,14 +71,14 @@ function MilestoneCard({ title, owner, status, progress, target }) {
       : "bg-red-600"
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
+    <div className="lg:rounded-xl rounded-lg border border-gray-200 bg-white sm:p-5 p-2.5">
       <div className="flex items-start justify-between">
         <div>
           <p className="text-lg font-medium">{title}</p>
           <p className="text-sm text-gray-600">Owner: {owner}</p>
         </div>
         <span
-          className={`rounded-full border px-3 py-1 text-xs ${statusStyles[status]}`}
+          className={`rounded-full border px-3 py-1 text-xs min-w-max ${statusStyles[status]}`}
         >
           {status}
         </span>

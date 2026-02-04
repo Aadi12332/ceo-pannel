@@ -126,10 +126,12 @@ export default function ChatModal({ onClose,chatModalOpen }) {
 const chatRef = useRef(null);
 const [search, setSearch] = useState("")
   const [active, setActive] = useState(chats[0]);
+  const [activeChat, setActiveChat] = useState(false);
   const [text, setText] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [joinModalOpen, setJoinModalOpen] = useState(false);
   const [instantMeetOpen, setInstantMeetOpen] = useState(false);
+  const [createDiscussionOpen, setCreateDiscussionOpen] = useState(true);
 
 useEffect(() => {
   if (!chatRef.current) return
@@ -158,7 +160,7 @@ const filteredChats = chats.filter((c) => {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex justify-center items-center" onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()} className="max-w-[1100px] w-[95%] h-[600px] bg-white rounded-2xl overflow-hidden flex">
-        <div className="w-[340px] border-r bg-white">
+        <div className={`md:w-[340px] w-full border-r bg-white ${activeChat ? "hidden" : ""}`}>
           <div className="flex items-center justify-between gap-3 relative p-4 cursor-pointer">
             <div onClick={onClose}>
               <img
@@ -245,12 +247,12 @@ const filteredChats = chats.filter((c) => {
 
             {instantMeetOpen && (
               <div className="fixed inset-0 z-50 flex justify-center items-center">
-                <div className="p-5 bg-[#0F172B] rounded-2xl max-w-[1100px] w-[95%] h-[682px]">
-                  <div className="bg-[linear-gradient(135deg,#8B0836_0%,#A50036_50%,#A3004C_100%)] relative rounded-xl h-[574px]">
+                <div className="lg:p-5 p-3 bg-[#0F172B] lg:rounded-2xl rounded-lg max-w-[1100px] w-[95%] h-[682px]">
+                  <div className="bg-[linear-gradient(135deg,#8B0836_0%,#A50036_50%,#A3004C_100%)] relative lg:rounded-xl rounded-lg h-[530px] md:h-[574px]">
                     <div className="absolute top-4 left-4">
                       <button
                         className="w-10 h-10 bg-white rounded-full flex items-center justify-center"
-                        onClick={() => setInstantMeetOpen(false)}
+                        onClick={() => {setInstantMeetOpen(false);setCreateDiscussionOpen(true)}}
                       >
                         <img src={backarrowicon} alt="" />
                       </button>
@@ -269,9 +271,12 @@ const filteredChats = chats.filter((c) => {
                       </div>
                     </div>
 
+                    {
+                      createDiscussionOpen &&
                     <div className="absolute left-4 bottom-4">
                       <div className="relative w-[280px] bg-white rounded-xl p-3">
-                        <img
+                        <img 
+                          onClick={() => setCreateDiscussionOpen(false)}
                           src={plusIcon}
                           className="absolute top-4 right-4 w-5 cursor-pointer rotate-45 invert"
                         />
@@ -319,15 +324,16 @@ const filteredChats = chats.filter((c) => {
                         </div>
                       </div>
                     </div>
+                    }
                   </div>
-                  <div className="flex items-center h-[88px]">
-                    <div className="flex items-center gap-4 text-sm text-white">
+                  <div className="flex items-center justify-center h-[139px] md:h-[88px] gap-3 md:flex-row flex-col">
+                    <div className="flex items-center lg:gap-4 gap-2.5 text-sm text-white">
                       <span>10:44 AM</span>
                       <span className="opacity-50">|</span>
                       <span>vim-xzay-gnn</span>
                     </div>
 
-                    <div className="flex-1 flex justify-center items-center gap-6">
+                    <div className="md:flex-1 flex justify-center items-center lg:gap-6 gap-2.5">
                       <MoreVertical className="text-white w-5 cursor-pointer" />
                       <Mic className="text-white w-5 cursor-pointer" />
                       <img src={videoofficon} className="w-10 cursor-pointer" />
@@ -339,7 +345,7 @@ const filteredChats = chats.filter((c) => {
                       <img src={mikeofficon} className="w-10 cursor-pointer" onClick={() => setInstantMeetOpen(false)} />
                     </div>
 
-                    <div className="flex items-center gap-5 text-white">
+                    <div className="flex items-center lg:gap-5 gap-2.5 text-white">
                       <Settings className="w-5 cursor-pointer" />
                       <div className="relative">
                         <Users className="w-5 cursor-pointer" />
@@ -372,7 +378,7 @@ const filteredChats = chats.filter((c) => {
             {filteredChats.map((c) => (
               <div
                 key={c.id}
-                onClick={() => setActive(c)}
+                onClick={() => {setActive(c);setActiveChat(true)}}
                 className={`px-4 py-3 cursor-pointer flex justify-between hover:bg-gray-100 ${
                   active.id === c.id && "bg-gray-100"
                 }`}
@@ -415,9 +421,11 @@ const filteredChats = chats.filter((c) => {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col">
+        <div className={`flex-1 md:flex flex-col ${activeChat ? "" : "hidden"}`}>
           <div className="flex justify-between items-center px-2 py-4 border-b bg-[#F0F2F5] border-[#E5E7EB]">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center sm:gap-3 gap-1.5">
+              <img src={backarrowicon} className="cursor-pointer sm:w-10 w-6" onClick={() => setActiveChat(false)} />
+
               <div className="w-10 h-10 min-w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                 {active.imgsrc ? (
                   <img
@@ -433,21 +441,21 @@ const filteredChats = chats.filter((c) => {
               </div>
 
               <div>
-                <div className="font-semibold">{active.name}</div>
+                <div className="font-semibold sm:text-base text-sm">{active.name}</div>
                 <div className="text-xs text-gray-500">online</div>
               </div>
             </div>
 
-            <div className="flex gap-5">
-              <img src={videoIcon} className="w-5" />
-              <img src={callIcon} className="w-5" />
-              <img src={searchIcon} className="w-5" />
-              <img src={threeDotIcon} className="w-5" />
+            <div className="flex sm:gap-5 gap-2">
+              <img src={videoIcon} className="sm:w-5 w-4" />
+              <img src={callIcon} className="sm:w-5 w-4" />
+              <img src={searchIcon} className="sm:w-5 w-4" />
+              <img src={threeDotIcon} className="sm:w-5 w-4" />
             </div>
           </div>
 
           <div ref={chatRef}
-            className="flex-1 p-2 overflow-y-auto bg-cover bg-center scroll-hide"
+            className="flex-1 p-2 overflow-y-auto bg-cover bg-center scroll-hide h-[455px]"
             style={{
               backgroundImage: `url(${chatBg})`,
             }}

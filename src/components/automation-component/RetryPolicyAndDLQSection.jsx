@@ -17,13 +17,13 @@ export default function RetryPolicyAndDLQSection() {
   ]
 
   return (
-    <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+    <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
       <h2 className="text-[20px] font-semibold mb-6">
         Retry Policy & Dead-Letter Queue
       </h2>
 
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-[#F9FAFB] rounded-xl p-5">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+        <div className="bg-[#F9FAFB] lg:rounded-xl rounded-lg lg:p-5 p-2.5">
           <h3 className="text-[18px] font-medium mb-4">
             Retry Configuration
           </h3>
@@ -41,7 +41,7 @@ export default function RetryPolicyAndDLQSection() {
           </div>
         </div>
 
-        <div className="bg-[#FFF5F5] border border-[#FECACA] rounded-xl p-5">
+        <div className="bg-[#FFF5F5] border border-[#FECACA] lg:rounded-xl rounded-lg lg:p-5 p-2.5">
           <div className="flex items-center gap-2 mb-4">
             <HexagonWarningIcon color="#E7000B" width={16} />
             <h3 className="text-[18px] font-medium">

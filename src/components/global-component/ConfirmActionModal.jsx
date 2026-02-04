@@ -5,7 +5,7 @@ const ConfirmActionModal = ({ open, type, onClose, onConfirm, viewApplication })
     <div className="fixed inset-0 z-50 flex items-center justify-center !mt-0">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="bg-white w-[420px] rounded-2xl p-8 text-center z-50">
+      <div className="bg-white max-w-[420px] w-[96%] lg:rounded-2xl rounded-lg lg:p-8 p-3 text-center z-50">
         <div className="w-20 h-20 rounded-full bg-red-600 mx-auto flex items-center justify-center text-white text-lg font-semibold">
           LOGO
         </div>

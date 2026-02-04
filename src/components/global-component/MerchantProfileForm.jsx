@@ -54,7 +54,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
 
     return (
       <div>
-        <label className="text-[20px] text-[#000000CC] font-semibold">
+        <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
           {label}
         </label>
 
@@ -128,9 +128,9 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="pt-20 grid grid-cols-2 gap-5 bg-white rounded-b-xl p-6">
+        <div className="pt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-b-xl rounded-b-lg lg:p-6 p-3">
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Merchant Type
             </label>
             <Select
@@ -149,7 +149,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Business Name
             </label>
             <input
@@ -159,7 +159,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Email Address
             </label>
             <input
@@ -169,7 +169,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Phone Number
             </label>
 
@@ -205,12 +205,12 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mt-5 bg-white p-6 rounded-xl">
-          <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 bg-white lg:p-6 p-3 lg:rounded-xl rounded-lg">
+          <p className="lg:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
             Tell Us About The Business
           </p>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               How Many Branches Do You Have?
             </label>
             <input
@@ -220,7 +220,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               How Many Employees Do You Have?
             </label>
             <input
@@ -230,7 +230,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               How Many Days Do You Open?
             </label>
             <input
@@ -240,12 +240,12 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mt-5 bg-white p-6 rounded-xl">
-          <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 bg-white lg:p-6 p-3 lg:rounded-xl rounded-lg">
+          <p className="lg:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
             Add The Office Address
           </p>
-          <div className="col-span-2">
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+          <div className="lg:col-span-2">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Address
             </label>
             <input
@@ -255,7 +255,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Street Name
             </label>
             <input
@@ -265,7 +265,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Street Number
             </label>
             <input
@@ -275,7 +275,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               City
             </label>
             <input
@@ -285,7 +285,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Country
             </label>
             <input
@@ -295,7 +295,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               State
             </label>
             <input
@@ -305,7 +305,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Zip Code
             </label>
             <input
@@ -315,13 +315,13 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 mt-5 bg-white p-6 rounded-xl">
-          <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 bg-white lg:p-6 p-3 lg:rounded-xl rounded-lg">
+          <p className="lg:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
             Upload Business Documents
           </p>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Owner’s Name
             </label>
             <input
@@ -331,7 +331,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Business Type
             </label>
             <Select
@@ -372,12 +372,12 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           )}
         </div>
 
-        <div className="grid grid-cols-2 gap-5 bg-white rounded-xl p-6 mt-5">
-          <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 mt-5">
+          <p className="sm:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
             Which Services They Need
           </p>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Services
             </label>
             <Select
@@ -395,7 +395,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
             />
           </div>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               3rd Party
             </label>
             <Select
@@ -415,12 +415,12 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5 bg-white rounded-xl p-6 mt-5">
-          <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 mt-5">
+          <p className="sm:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
             Order Method
           </p>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Mobile App
             </label>
             <Select
@@ -442,7 +442,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
             />
           </div>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Tablet
             </label>
             <Select
@@ -466,12 +466,12 @@ export default function MerchantProfileForm({ isView, isEdit }) {
         </div>
 
         <div className="space-y-5 mt-5">
-          <div className="bg-white rounded-xl border p-6">
-            <h2 className="text-[24px] font-medium text-[#1E1E1E] mb-4">
+          <div className="bg-white lg:rounded-xl rounded-lg border lg:p-6 p-3">
+            <h2 className="sm:text-[24px] text-xl font-medium text-[#1E1E1E] mb-4">
               Marketing Plan
             </h2>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {marketingPlans.map((item) => {
                 const active = marketingPlan === item.value;
 
@@ -479,7 +479,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
                   <div
                     key={item.value}
                     onClick={() => setMarketingPlan(item.value)}
-                    className={`cursor-pointer rounded-lg border p-4 transition
+                    className={`cursor-pointer rounded-lg border lg:p-4 p-2.5 transition
                   ${
                     active
                       ? "bg-[#0E1E38] text-white border-[#0E1E38]"
@@ -500,15 +500,15 @@ export default function MerchantProfileForm({ isView, isEdit }) {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl border p-6">
-            <h2 className="text-[24px] font-medium text-[#1E1E1E] mb-4">
+          <div className="bg-white lg:rounded-xl rounded-lg border lg:p-6 p-3">
+            <h2 className="sm:text-[24px] text-xl font-medium text-[#1E1E1E] mb-4 flex sm:items-center sm:flex-row flex-col gap-2">
               Subscription Plan{" "}
-              <span className="text-[#0E1E38] text-base">
+              <span className="text-[#0E1E38] sm:text-base text-xs">
                 (subscriptions ends in 6 months)
               </span>
             </h2>
 
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {subscriptionPlans.map((item) => {
                 const active = subscriptionPlan === item.value;
 
@@ -516,15 +516,22 @@ export default function MerchantProfileForm({ isView, isEdit }) {
                   <div
                     key={item.value}
                     onClick={() => setSubscriptionPlan(item.value)}
-                    className={`cursor-pointer rounded-lg border p-4 transition flex justify-between items-start
+                    className={`cursor-pointer rounded-lg border lg:p-4 p-2.5 transition flex justify-between items-start
                   ${
                     active
                       ? "bg-[#0E1E38] text-white border-[#0E1E38]"
                       : "bg-white text-[#101828] border-[#D0D5DD]"
                   }`}
                   >
-                    <div>
-                      <p className="text-lg font-semibold">{item.title}</p>
+                    <div className="w-full">
+                     <div className="flex items-center gap-2 w-full justify-between mb-3">
+                       <p className="text-lg font-semibold">{item.title}</p>
+                      {item.badge && (
+                      <span className="text-xs bg-[#22C55E] text-white px-2 py-1 rounded-full min-w-max">
+                        {item.badge}
+                      </span>
+                    )}
+                     </div>
                       <p
                         className={`text-sm ${
                           active ? "text-[#E4E7EC]" : "text-[#475467]"
@@ -533,12 +540,6 @@ export default function MerchantProfileForm({ isView, isEdit }) {
                         {item.desc}
                       </p>
                     </div>
-
-                    {item.badge && (
-                      <span className="text-xs bg-[#22C55E] text-white px-2 py-1 rounded-full">
-                        {item.badge}
-                      </span>
-                    )}
                   </div>
                 );
               })}

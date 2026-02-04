@@ -59,7 +59,7 @@ const RetentionAndComplianceSection = () => {
   return (
     <div className="space-y-6">
       {/* Retention Policies */}
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
         <div className="flex items-center gap-2 mb-6">
           <img src={lockIcon} className="w-5 h-5" />
           <h2 className="text-[18px] font-semibold">
@@ -100,7 +100,7 @@ const RetentionAndComplianceSection = () => {
       </div>
 
       {/* Active Compliance Risks */}
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
         <h2 className="text-[18px] font-semibold mb-6">
           Active Compliance Risks
         </h2>

@@ -65,7 +65,7 @@ export default function NotificationsSidebar({ open, onClose }) {
         >
           <div className="flex items-center justify-between px-5 py-4 border-b">
             <h2 className="text-lg font-semibold">Notifications</h2>
-            <X className="w-5 h-5 cursor-pointer" onClick={handleClose} />
+            <X className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" onClick={handleClose} />
           </div>
 
           <div className="flex-1 p-4 overflow-y-auto">
@@ -147,13 +147,13 @@ function NotificationModal({ data, onClose }) {
     <div className="fixed inset-0 z-[999] flex items-center justify-center">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="bg-white max-w-[859px] w-[95%] rounded-2xl shadow-xl relative pb-5">
-        <div className="flex items-center justify-between pb-3 border-b border-[#0E1E38] p-5">
+      <div className="bg-white max-w-[859px] w-[95%] lg:rounded-2xl rounded-lg shadow-xl relative lg:pb-5 pb-3">
+        <div className="flex items-center justify-between pb-3 border-b border-[#0E1E38] lg:p-5 p-3">
           <h2 className="text-lg font-semibold">{data.title}</h2>
           <X className="cursor-pointer" onClick={onClose} />
         </div>
 
-        <p className="text-sm text-gray-600 p-5 pb-0">{data.description}</p>
+        <p className="text-sm text-gray-600 lg:p-5 p-3 pb-0">{data.description}</p>
 
         {!data.deletable && (
           <div className="p-5 pt-2 pb-0">

@@ -11,7 +11,7 @@ const CreateDiscussionModal = ({ open, onClose }) => {
         onClick={onClose}
       />
 
-      <div className="relative bg-white w-[560px] rounded-xl p-6">
+      <div className="relative bg-white max-w-[560px] w-[96%] max-h-[96vh] overflow-y-auto rounded-lg lg:rounded-xl lg:p-6 p-3">
         <div className="flex justify-between items-start mb-2">
           <h2 className="text-lg font-semibold text-[#0A0A0A]">
             Create New Discussion
@@ -25,7 +25,7 @@ const CreateDiscussionModal = ({ open, onClose }) => {
           Discussions do NOT create approvals or tasks.
         </p>
 
-        <div className="space-y-4">
+        <div className="sm:space-y-4 space-y-2">
           <div>
             <label className="text-sm font-medium block mb-1">
               Title <span className="text-red-500">*</span>
@@ -46,7 +46,7 @@ const CreateDiscussionModal = ({ open, onClose }) => {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium block mb-1">
                 Topic

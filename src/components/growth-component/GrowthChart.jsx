@@ -30,7 +30,7 @@ const growthVelocityData = [
 export default function GrowthCharts() {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-5 mb-5">
-      <div className="bg-white rounded-xl border border-[#0000001A] p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[22px] text-[#0A0A0A] mb-6">
           Expansion Ready Markets
         </h3>
@@ -62,7 +62,7 @@ export default function GrowthCharts() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl border border-[#0000001A] p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[22px] text-[#0A0A0A] mb-6">
           Growth Velocity Trend
         </h3>

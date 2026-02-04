@@ -422,7 +422,7 @@ function Incidents({ actionType, setActionType }) {
   return (
     <div className="bg-white border rounded-2xl p-6 space-y-5">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">Active & Recent Incidents</h2>
+        <h2 className="sm:text-xl text-sm font-semibold">Active & Recent Incidents</h2>
         <div className="flex gap-2">
           <span className="px-3 py-1 text-xs rounded-full bg-red-100 text-red-700">
             1 Active
@@ -610,7 +610,7 @@ function Integrations({ actionType, setActionType }) {
   return (
     <div className="bg-white border rounded-2xl p-6 space-y-5">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">Integration Status</h2>
+        <h2 className="sm:text-xl text-sm font-semibold">Integration Status</h2>
         <div className="flex gap-2">
           {stats.map((s, i) => (
             <span key={i} className={`px-3 py-1 rounded-full text-sm ${s.cls}`}>
@@ -772,13 +772,13 @@ function EmergencyControls({ actionType, setActionType }) {
 
   return (
     <div className="bg-white border rounded-2xl p-6 space-y-6">
-      <h2 className="text-xl font-semibold">Emergency Controls State</h2>
+      <h2 className="sm:text-xl text-sm font-semibold">Emergency Controls State</h2>
 
       <div className="grid grid-cols-2 gap-4">
         {controls.map((item, i) => (
           <div
             key={i}
-            className={`rounded-xl border p-5 ${item.bg} ${item.border}`}
+            className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${item.bg} ${item.border}`}
           >
             <div className="flex items-center gap-2 mb-1">
               <h3 className="font-semibold">{item.title}</h3>
@@ -901,7 +901,7 @@ function Postmortems({ actionType, setActionType }) {
 
   return (
     <div className="bg-white border rounded-2xl p-6 space-y-5">
-      <h2 className="text-xl font-semibold">Postmortem Tracker</h2>
+      <h2 className="sm:text-xl text-sm font-semibold">Postmortem Tracker</h2>
 
       {postmortems.map((item) => (
         <div key={item.id} className={`border rounded-xl p-5 ${item.bg}`}>

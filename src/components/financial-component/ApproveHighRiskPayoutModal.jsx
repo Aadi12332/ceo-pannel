@@ -10,9 +10,9 @@ export default function ApproveHighRiskPayoutModal({ open, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-xl p-6 relative w-[96%] max-w-[512px] max-h-[96vh] overflow-auto"
+        className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 relative w-[96%] max-w-[512px] max-h-[96vh] overflow-auto"
       >
-        <button onClick={onClose} className="absolute top-4 right-4">
+        <button onClick={onClose} className="absolute lg:top-4 top-3 lg:right-4 right-3">
           <X />
         </button>
 
@@ -44,7 +44,7 @@ export default function ApproveHighRiskPayoutModal({ open, onClose }) {
           </div>
 
           <div className="flex items-center gap-2 mt-3 text-orange-700 text-sm">
-            <AlertTriangle className="w-4 h-4" />
+            <AlertTriangle className="w-4 h-4 min-w-4" />
             <span>
               <b>Flag Reason:</b> Unusually high payout amount – 3× average
             </span>

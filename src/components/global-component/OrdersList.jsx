@@ -41,23 +41,23 @@ export default function OrdersList() {
       {orders.map((order, i) => (
         <div
           key={i}
-          className="bg-white rounded-xl border border-[#E5E7EB] overflow-hidden"
+          className="bg-white lg:rounded-xl rounded-lg border border-[#E5E7EB] overflow-hidden"
         >
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]">
-            <div className="flex gap-16">
+          <div className="flex sm:flex-row flex-col gap-3 sm:items-center justify-between lg:px-6 px-3 lg:py-4 py-2 border-b border-[#E5E7EB]">
+            <div className="flex lg:gap-16 gap-5">
               <div>
                 <p className="text-xs text-[#667085] uppercase mb-1.5">Order placed</p>
-                <p className="font-medium text-[#101828]">{order.date}</p>
+                <p className="text-sm sm:text-base font-medium text-[#101828]">{order.date}</p>
               </div>
 
               <div>
                 <p className="text-xs text-[#667085] uppercase mb-1.5">Total</p>
-                <p className="font-medium text-[#101828]">{order.total}</p>
+                <p className="text-sm sm:text-base font-medium text-[#101828]">{order.total}</p>
               </div>
 
               <div>
                 <p className="text-xs text-[#667085] uppercase mb-1.5">Ship to</p>
-                <p className="font-medium text-[#101828]">{order.shipTo}</p>
+                <p className="text-sm sm:text-base font-medium text-[#101828]">{order.shipTo}</p>
               </div>
             </div>
 
@@ -81,9 +81,9 @@ export default function OrdersList() {
                   </div>
 
                   {open && (
-                    <div className="absolute right-0 mt-3 w-[260px] bg-white rounded-xl shadow-lg border border-[#E5E7EB] p-4 z-50">
+                    <div className="absolute right-0 mt-3 sm:w-[260px] w-[200px] bg-white rounded-xl shadow-lg border border-[#E5E7EB] sm:p-4 p-2 z-50">
                       <ul className="space-y-3 text-[#101828] relative">
-                        <div className="absolute -top-5 -right-2">
+                        <div className="absolute sm:-top-5 sm:-right-2 -top-4 -right-1">
                           <XCircle
                             className="w-6 h-6 cursor-pointer text-[#000]"
                             onClick={() => setOpen(false)}
@@ -103,7 +103,7 @@ export default function OrdersList() {
             </div>
           </div>
 
-          <div className="flex justify-between px-6 py-6">
+          <div className="flex gap-3 justify-between lg:p-6 p-3 sm:flex-row flex-col">
             <div>
               <h3 className="text-lg font-semibold text-[#101828]">
                 {order.statusTitle}
@@ -111,17 +111,17 @@ export default function OrdersList() {
               <p className="text-[#667085]">{order.statusDesc}</p>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <button onClick={() => navigate("/order-detail")} className="px-10 h-11 rounded-full border border-[#101828] font-medium">
+            <div className="flex sm:flex-col gap-3">
+              <button onClick={() => navigate("/order-detail")} className="sm:px-10 px-2 sm:h-11 h-8 sm:text-base text-sm rounded-full w-fit border border-[#101828] font-medium">
                 View details
               </button>
-              <button className="px-10 h-11 rounded-full border border-[#101828] font-medium">
+              <button className="sm:px-10 px-2 sm:h-11 h-8 sm:text-base text-sm rounded-full w-fit border border-[#101828] font-medium">
                 Cancel this order
               </button>
             </div>
           </div>
 
-          <div className="flex gap-6 px-6 pb-6">
+          <div className="flex sm:flex-row flex-col gap-6 sm:px-6 px-3 mt-10 sm:mt-0 pb-6">
             <img
               src={yellowdress}
               className="w-[120px] h-[150px] rounded-lg object-cover"

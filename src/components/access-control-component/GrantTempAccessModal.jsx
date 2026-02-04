@@ -16,9 +16,9 @@ export default function GrantTempAccessModal({ open, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white w-[96%] max-w-[596px] max-h-[96vh] overflow-auto rounded-xl p-6 relative"
+        className="bg-white w-[96%] max-w-[596px] max-h-[96vh] overflow-auto scroll-hide lg:rounded-xl rounded-lg lg:p-6 p-3 relative"
       >
-        <button onClick={onClose} className="absolute top-4 right-4">
+        <button onClick={onClose} className="absolute lg:top-4 top-3 lg:right-4 right-3">
           <X />
         </button>
 

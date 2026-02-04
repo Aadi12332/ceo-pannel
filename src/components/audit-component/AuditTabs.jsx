@@ -509,7 +509,7 @@ export default function AuditTabs() {
       {activeTab === "sensitive-reads" && (
         <div className="space-y-5 rounded-xl bg-white p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Sensitive Reads Report</h2>
+            <h2 className="sm:text-xl text-sm font-semibold">Sensitive Reads Report</h2>
             <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs">
               3 High-Risk
             </span>
@@ -586,7 +586,7 @@ export default function AuditTabs() {
       {activeTab === "audit-cases" && (
         <div className="space-y-5 rounded-xl bg-white p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Open Audit Cases</h2>
+            <h2 className="sm:text-xl text-sm font-semibold">Open Audit Cases</h2>
             <div className="flex gap-2 text-xs">
               <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700">
                 1 Open
@@ -700,7 +700,7 @@ export default function AuditTabs() {
       {activeTab === "compliance" && (
         <div className="space-y-5 rounded-xl bg-white p-6">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Compliance Checklist</h2>
+            <h2 className="sm:text-xl text-sm font-semibold">Compliance Checklist</h2>
             <div className="flex gap-2 text-xs">
               <span className="px-3 py-1 rounded-full bg-green-100 text-green-700">
                 5 Compliant

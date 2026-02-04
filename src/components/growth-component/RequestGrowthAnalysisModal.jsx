@@ -16,7 +16,7 @@ export default function RequestGrowthAnalysisModal({ open, onClose }) {
         onClick={onClose}
       />
 
-      <div className="relative w-[96%] max-w-[595px] bg-white rounded-xl p-6">
+      <div className="relative w-[96%] max-w-[595px] max-h-[96vh] overflow-auto scroll-hide bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <div className="flex items-start justify-between mb-2">
           <h2 className="text-xl font-semibold text-[#101828]">
             Request Growth Analysis
@@ -45,7 +45,7 @@ export default function RequestGrowthAnalysisModal({ open, onClose }) {
                 { label: "Market Expansion", value: "market" },
                 { label: "User Adoption", value: "user" }
               ]}
-              inputClassName="!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
+              inputClassName="!h-12 !text-sm sm:!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
               listItemClassName="!px-3 !text-sm"
               listParentClassName=""
             />
@@ -64,7 +64,7 @@ export default function RequestGrowthAnalysisModal({ open, onClose }) {
                 { label: "Region", value: "region" },
                 { label: "Global", value: "global" }
               ]}
-              inputClassName="!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
+              inputClassName="!h-12 !text-sm sm:!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
               listItemClassName="!px-3 !text-sm"
               listParentClassName=""
             />
@@ -83,7 +83,7 @@ export default function RequestGrowthAnalysisModal({ open, onClose }) {
                 { label: "Medium", value: "medium" },
                 { label: "High", value: "high" }
               ]}
-              inputClassName="!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
+              inputClassName="!h-12 !text-sm sm:!h-[61px] !mt-1 !rounded-lg !px-3 !text-[18px] !bg-white !border !border-[#D0D5DD]"
               listItemClassName="!px-3 !text-sm"
               listParentClassName=""
             />

@@ -8,8 +8,8 @@ export default function CityLaunchGateModal({ mode, onClose }) {
 
   return (
     <div onClick={onClose} className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div onClick={(e) => e.stopPropagation()} className="bg-white max-w-[720px] w-[96%] max-h-[96vh] overflow-y-auto scroll-hide rounded-xl p-6 relative">
-        <button onClick={onClose} className="absolute right-5 top-5">
+      <div onClick={(e) => e.stopPropagation()} className="bg-white max-w-[720px] w-[96%] max-h-[96vh] overflow-y-auto scroll-hide lg:rounded-xl rounded-lg lg:p-6 p-3 relative">
+        <button onClick={onClose} className="absolute lg:right-5 lg:top-5 right-3 top-3">
           <X />
         </button>
 
@@ -20,7 +20,7 @@ export default function CityLaunchGateModal({ mode, onClose }) {
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>
 
-        <div className="border rounded-lg p-4 mb-5">
+        <div className="border rounded-lg sm:p-4 p-2.5 mb-5">
           <h3 className="font-medium mb-3">
             {isApprove
               ? "New York City - Readiness Snapshot"
@@ -87,9 +87,9 @@ export default function CityLaunchGateModal({ mode, onClose }) {
           />
         </div>
 
-        <div className="flex items-center gap-3 justify-end">
+        <div className="flex items-center sm:gap-3 gap-1.5 justify-end">
           <button
-            className={`h-11 px-6 rounded-lg text-white flex-1 ${
+            className={`h-11 sm:px-6 px-2.5 rounded-lg text-white flex-1 ${
               isApprove ? "bg-black" : "bg-red-600"
             }`}
           >
@@ -99,7 +99,7 @@ export default function CityLaunchGateModal({ mode, onClose }) {
           </button>
           <button
             onClick={onClose}
-            className="h-11 px-6 rounded-lg border flex-1"
+            className="h-11 sm:px-6 px-2.5 rounded-lg border sm:flex-1"
           >
             Cancel
           </button>

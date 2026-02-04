@@ -10,7 +10,7 @@ const AssignedToolsModal = ({ open, onClose }) => {
         onClick={onClose}
       />
 
-      <div className="relative w-[520px] bg-white rounded-xl p-6">
+      <div className="relative max-w-[520px] w-[96%] max-h-[96vh] overflow-y-auto bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <div className="flex justify-between items-start mb-1">
           <div>
             <h2 className="text-lg font-semibold text-[#0A0A0A]">
@@ -27,7 +27,7 @@ const AssignedToolsModal = ({ open, onClose }) => {
         <div className="mt-5 space-y-5">
           <div>
             <p className="text-sm font-medium mb-2">Assigned Tools</p>
-            <div className="border border-[#E5E7EB] rounded-lg p-4 space-y-3">
+            <div className="border border-[#E5E7EB] rounded-lg lg:p-4 p-2.5 space-y-3">
               {[
                 "Google Meet",
                 "WhatsApp",
@@ -51,7 +51,7 @@ const AssignedToolsModal = ({ open, onClose }) => {
 
           <div>
             <p className="text-sm font-medium mb-2">Not Assigned Tools</p>
-            <div className="border border-[#E5E7EB] rounded-lg p-4 space-y-3">
+            <div className="border border-[#E5E7EB] rounded-lg lg:p-4 p-2.5 space-y-3">
               {[
                 { label: "Google Earth", checked: true },
                 { label: "Call Access", checked: true },

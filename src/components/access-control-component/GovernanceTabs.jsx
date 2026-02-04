@@ -11,6 +11,7 @@ import {
   EyeIcon,
 } from "../../assets/icons/icons";
 import keyicon from "../../assets/keyicon.svg";
+import { CheckIcon } from "lucide-react";
 
 export default function GovernanceTabs() {
   const [tab, setTab] = useState("org");
@@ -25,7 +26,7 @@ export default function GovernanceTabs() {
 
   return (
     <>
-    <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+    <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-full">
       <div className="mb-5 flex gap-3 rounded-full bg-gray-100 p-1 min-w-[992px]">
         {tabs.map((t) => (
           <button
@@ -38,7 +39,7 @@ export default function GovernanceTabs() {
         ))}
       </div>
       </div>
-      <div className="rounded-xl bg-white p-6 mb-5">
+      <div className="lg:rounded-xl rounded-lg bg-white lg:p-6 p-3 mb-5">
         {tab === "org" && (
           <div className="space-y-8">
             <h2 className="text-lg font-semibold">
@@ -130,7 +131,7 @@ export default function GovernanceTabs() {
 
         {tab === "permissions" && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
               <h2 className="text-lg font-semibold">
                 High-Risk Tool Access Review
               </h2>
@@ -189,7 +190,7 @@ export default function GovernanceTabs() {
 
         {tab === "temp" && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
               <h2 className="text-lg font-semibold">
                 Temporary Access Requests - Expiry & Auto-Revoke
               </h2>
@@ -315,7 +316,7 @@ export default function GovernanceTabs() {
 
         {tab === "alerts" && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
               <h2 className="flex items-center gap-2 text-lg font-semibold">
                 <WarningTriangleIcon /> Anomalous Access Alerts
               </h2>
@@ -352,7 +353,7 @@ export default function GovernanceTabs() {
               desc="Database queries at 2:30 AM on weekend"
             />
 
-            <div className="rounded-xl border border-orange-300 bg-orange-50 p-4 text-sm">
+            <div className="lg:rounded-xl rounded-lg border border-orange-300 bg-orange-50 lg:p-4 p-2.5 text-sm">
               <p className="mb-2 flex items-center gap-2 font-medium">
                 <ShieldIcon color="#F54900" width={16} /> Anomaly Detection
                 Rules
@@ -388,7 +389,7 @@ function Section({ title, items, variant = "default" }) {
         {items.map((i) => (
           <div
             key={i.name}
-            className={`rounded-xl border p-4 ${
+            className={`lg:rounded-xl rounded-lg border lg:p-4 p-2.5 ${
               variant === "executive"
                 ? "border-blue-300 bg-blue-50"
                 : "border-gray-200 bg-white"
@@ -437,8 +438,8 @@ function RiskCard({ title, level, user, by, date, scope, expires }) {
   };
 
   return (
-    <div className={`rounded-xl border p-5 ${levelStyles[level]}`}>
-      <div className="flex items-start justify-between">
+    <div className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${levelStyles[level]}`}>
+      <div className="flex items-start justify-between gap-3 flex-col sm:flex-row">
         <div className="flex items-center gap-2">
           <ShieldIcon color="#DC2626" width={18} height={18} />
           <p className="font-medium">{title}</p>
@@ -507,8 +508,8 @@ function TempCard({
   };
 
   return (
-    <div className={`rounded-xl border p-5 ${styles[status]}`}>
-      <div className="flex items-start justify-between">
+    <div className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${styles[status]}`}>
+      <div className="flex items-start justify-between gap-3 flex-wrap">
         <div className="flex items-center gap-2">
           <span className="rounded bg-gray-100 px-2 py-1 text-xs">{id}</span>
           <span
@@ -521,10 +522,10 @@ function TempCard({
         {status === "pending" && (
           <div className="flex gap-2">
             <button className="flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm text-white">
-              ✓ Approve
+              <CheckIcon width={14} height={14} color="white" /> Approve
             </button>
             <button className="flex items-center gap-2 rounded-lg border px-4 py-2 text-sm">
-              ⦸ Deny
+              <FreezeIcon width={14} height={14} color="black" /> Deny
             </button>
           </div>
         )}
@@ -580,9 +581,9 @@ function ToolCard({ id, name, level, users, approvers, scope, expiry }) {
   };
 
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-5">
-      <div className="flex items-start justify-between">
-        <div className="flex items-center gap-3">
+    <div className="lg:rounded-xl rounded-lg border border-gray-200 bg-white sm:p-5 p-2.5">
+      <div className="flex items-start justify-between gap-3 flex-wrap">
+        <div className="flex items-center gap-3 flex-wrap">
           <div className="flex items-center gap-3">
             <img src={keyicon} alt="" />
             <span className="flex items-center gap-2 rounded-lg bg-gray-100 px-2 py-1 text-xs">
@@ -599,7 +600,7 @@ function ToolCard({ id, name, level, users, approvers, scope, expiry }) {
           </span>
         </div>
 
-        <div className="text-right">
+        <div className="sm:text-right">
           <p className="text-lg font-semibold text-blue-600">{users}</p>
           <p className="text-xs text-gray-500">Active Users</p>
         </div>
@@ -655,10 +656,10 @@ function AlertCard({ id, title, level, user, detected, desc }) {
   };
 
   return (
-    <div className={`rounded-xl border flex items-start gap-3 p-5 ${styles[level]}`}>
+    <div className={`lg:rounded-xl rounded-lg border flex md:flex-row flex-col items-start gap-3 lg:p-5 p-3 ${styles[level]}`}>
         <div className="flex-1">
-            <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
+            <div className="flex items-start justify-between gap-3 flex-wrap">
+                <div className="flex items-center gap-3 flex-wrap">
                 <div className="flex items-center gap-2">
                     <WarningTriangleIcon
                     width={14}
@@ -672,7 +673,7 @@ function AlertCard({ id, title, level, user, detected, desc }) {
                     }
                     />
 
-                    <span className="flex items-center gap-2 rounded bg-white px-2 py-1 text-xs border">
+                    <span className="flex items-center min-w-max gap-2 rounded bg-white px-2 py-1 text-xs border">
                     {id}
                     </span>
                 </div>

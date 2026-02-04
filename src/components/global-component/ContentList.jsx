@@ -42,7 +42,7 @@ const posts = [
 export default function ContentGrid({contentType}) {
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-6 gap-2">
         {posts.map((item) => (
           <div key={item.id} className="relative h-[230px] rounded-2xl overflow-hidden">
             <img src={item.image} className="w-full h-full object-cover" />
@@ -92,7 +92,7 @@ export default function ContentGrid({contentType}) {
         <button className="w-9 h-9 rounded-lg border flex items-center justify-center">
           <ChevronLeft className="w-4 h-4" />
         </button>
-        <button className="w-9 h-9 rounded-lg bg-[#0E1E38] text-white">
+        <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg bg-[#0E1E38] text-white">
           1
         </button>
         <button className="w-9 h-9 rounded-lg border">2</button>

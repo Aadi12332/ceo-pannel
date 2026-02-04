@@ -10,16 +10,16 @@ const UserRequestModal = ({ open, onClose }) => {
         onClick={onClose}
       />
 
-      <div className="relative bg-white max-w-[672px] w-[96%] rounded-2xl border border-[#E5E7EB]">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]">
+      <div className="relative bg-white max-w-[672px] w-[96%] lg:rounded-2xl rounded-lg border border-[#E5E7EB]">
+        <div className="flex items-center justify-between lg:px-6 px-2.5 lg:py-4 py-2.5 border-b border-[#E5E7EB]">
           <h3 className="text-[18px] font-medium text-[#0A0A0A]">
             User Request
           </h3>
           <X className="cursor-pointer text-[#475467]" onClick={onClose} />
         </div>
 
-        <div className="px-6 py-4 space-y-1.5">
-          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-6 text-[18px] text-[#475467]">
+        <div className="lg:px-6 px-2.5 lg:py-4 py-2.5 space-y-1.5">
+          <div className="bg-[#F9FAFB] border border-[#E5E7EB] lg:rounded-xl rounded-lg lg:p-6 p-2.5 text-[18px] text-[#475467]">
             <p className="text-[14px] font-medium text-[#101828] mb-3">CTO</p>
             <p className="text-[12px] text-[#4A5565]">• Name: Omar Curtis</p>
             <p className="text-[12px] text-[#4A5565]">• Email: omar.curtis@gmail.com</p>
@@ -28,24 +28,24 @@ const UserRequestModal = ({ open, onClose }) => {
             <p className="text-[12px] text-[#4A5565]">• Time: 11:00 AM</p>
           </div>
 
-          <div className="bg-[#F9FAFB] border border-[#E5E7EB] rounded-xl p-6 text-[12px] text-[#4A5565]">
+          <div className="bg-[#F9FAFB] border border-[#E5E7EB] lg:rounded-xl rounded-lg lg:p-6 p-2.5 text-[12px] text-[#4A5565]">
             Omar Curtis wants to use the AI Tool
           </div>
         </div>
 
-        <div className="flex justify-end gap-2 px-6 py-4 border-t border-[#E5E7EB]">
+        <div className="flex justify-end sm:gap-2 gap-1 lg:px-6 px-2.5 lg:py-4 py-2.5 border-t border-[#E5E7EB]">
           <button
             onClick={onClose}
-            className="px-3 h-10 rounded-lg border border-[#D0D5DD] text-[16px] text-[#0A0A0A]"
+            className="px-3 h-10 rounded-lg border border-[#D0D5DD] text-sm sm:text-[16px] text-[#0A0A0A]"
           >
             Cancel
           </button>
 
-          <button className="px-3 h-10 rounded-lg bg-[#D92D20] text-white text-[16px]">
+          <button className="px-3 h-10 rounded-lg bg-[#D92D20] text-white text-sm sm:text-[16px]">
             Reject Request
           </button>
 
-          <button className="px-3 h-10 rounded-lg bg-[#4CA64C] text-white text-[16px]">
+          <button className="px-3 h-10 rounded-lg bg-[#4CA64C] text-white text-sm sm:text-[16px]">
             Approve Request
           </button>
         </div>

@@ -19,19 +19,19 @@ function AccessControlOverview() {
   ];
 
   return (
-    <div className="rounded-xl border border-[#] bg-white p-6">
-      <div className="mb-6 flex items-center justify-between">
+    <div className="lg:rounded-xl rounded-lg border border-[#] bg-white lg:p-6 p-3">
+      <div className="lg:mb-6 mb-3 flex lg:items-center justify-between lg:flex-row flex-col gap-3">
         <h2 className="text-lg font-semibold">Access Control Overview</h2>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <select className="rounded-lg border px-3 py-2 text-sm">
             <option>Active</option>
           </select>
           <button
              onClick={() =>
-    navigate("/add-new-employee", {
-      state: { edit: false },
-    })
-  }
+                navigate("/add-new-employee", {
+                  state: { edit: false },
+                })
+              }
             className="flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm text-white"
           >
             <img src={plusicon} alt="" className="w-5" /> Add New Employee
@@ -39,7 +39,7 @@ function AccessControlOverview() {
         </div>
       </div>
 
-      <div className="mb-4 flex items-center gap-3">
+      <div className="mb-4 flex lg:items-center gap-3 lg:flex-row flex-col">
         <div className="flex flex-1 items-center gap-2 rounded-lg border px-3 py-2">
           <img src={searchicon} alt="" />
           <input
@@ -47,7 +47,8 @@ function AccessControlOverview() {
             placeholder="Search by users, roles, or permissions..."
           />
         </div>
-        <button className="flex items-center gap-4 rounded-lg border px-4 py-2 text-sm">
+        <div className="flex items-center gap-3 flex-wrap">
+          <button className="flex items-center gap-4 rounded-lg border px-4 py-2 text-sm">
           Filter by User <FilterIcon className="w-4" />
         </button>
         <button className="flex items-center gap-4 rounded-lg border px-4 py-2 text-sm">
@@ -56,10 +57,11 @@ function AccessControlOverview() {
         <button className="flex items-center gap-4 rounded-lg border px-4 py-2 text-sm">
           Filter by Permission <FilterIcon className="w-4" />
         </button>
+        </div>
       </div>
 
-      <div className="overflow-x-auto rounded-xl border">
-        <table className="w-full text-left">
+      <div className="overflow-auto w-[calc(100vw-46px)] lg:w-full rounded-xl border scroll-hide">
+        <table className="w-full text-left min-w-[992px]">
           <thead className="border-b">
             <tr className="text-sm text-gray-600">
               <th className="px-4 py-3">
@@ -114,18 +116,18 @@ function AccessControlOverview() {
         </table>
       </div>
 
-      <div className="mt-4 flex items-center justify-between text-sm text-gray-600">
+      <div className="mt-4 flex gap-3 items-center justify-between text-sm text-gray-600">
         <span>1–10 of 1,247</span>
-        <div className="flex items-center gap-2">
-          <button className="rounded h-10 w-10 border p-2">
+        <div className="flex items-center sm:gap-2 gap-1">
+          <button className="rounded sm:h-10 sm:w-10 h-8 w-8 border p-2">
             <img src={downArrowIcon} alt="arrow" className="rotate-90" />
           </button>
-          <button className="rounded h-10 w-10 bg-slate-900 px-3 py-1 text-white">
+          <button className="rounded sm:h-10 sm:w-10 h-8 w-8 bg-slate-900 px-3 py-1 text-white">
             1
           </button>
-          <button className="rounded h-10 w-10 border px-3 py-1">2</button>
-          <button className="rounded h-10 w-10 border px-3 py-1">3</button>
-          <button className="rounded h-10 w-10 border p-2">
+          <button className="rounded sm:h-10 sm:w-10 h-8 w-8 border px-3 py-1">2</button>
+          <button className="rounded sm:h-10 sm:w-10 h-8 w-8 border px-3 py-1">3</button>
+          <button className="rounded sm:h-10 sm:w-10 h-8 w-8 border p-2">
             <img src={downArrowIcon} alt="arrow" className="-rotate-90" />
           </button>
         </div>
@@ -203,13 +205,13 @@ function QuarterlyAccessReviewWorkflow() {
   ];
 
   return (
-    <div className="rounded-2xl border bg-white p-6">
+    <div className="lg:rounded-2xl rounded-lg border bg-white lg:p-6 p-3">
       <h2 className="mb-6 text-lg font-semibold">
         Quarterly Access Review Workflow
       </h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {items.map((i) => (
-          <div key={i.title} className="rounded-xl border p-4">
+          <div key={i.title} className="lg:rounded-xl rounded-lg border lg:p-4 p-2.5">
             <div className="mb-2 flex items-center justify-between">
               <div>
                 <p className="font-medium">{i.title}</p>

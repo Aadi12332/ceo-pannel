@@ -173,7 +173,7 @@ export default function RevenueGrossMargin() {
 
   return (
     <>
-      <div className="bg-white rounded-xl border border-[#E5E7EB] p-6 mb-5">
+      <div className="bg-white rounded-lg lg:rounded-xl border border-[#E5E7EB] lg:p-6 p-3 mb-5">
         <h2 className="text-[20px] font-semibold mb-5">
           Revenue & Gross Margin
         </h2>
@@ -204,9 +204,9 @@ export default function RevenueGrossMargin() {
           {data.map((item) => (
             <div
               key={item.name}
-              className="border border-[#E5E7EB] rounded-xl px-6 py-4 flex items-center justify-between"
+              className="border border-[#E5E7EB] rounded-xl lg:px-6 px-3 lg:py-4 py-2 flex md:items-center justify-between gap-5 flex-wrap"
             >
-              <div className="flex-1">
+              <div className="flex-1 min-w-[200px]">
                 <p className="font-medium mb-1">{item.name}</p>
                 <p className="text-[#475467] text-[14px]">Revenue</p>
                 <p className="font-semibold">{item.revenue}</p>
@@ -241,8 +241,8 @@ export default function RevenueGrossMargin() {
           ))}
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6 mb-5">
-        <div className="flex items-center justify-between mb-5">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3 mb-5">
+        <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
           <h2 className="text-[20px] font-semibold">Refunds Analysis</h2>
 
           <div className="flex gap-2">
@@ -262,7 +262,7 @@ export default function RevenueGrossMargin() {
             return (
               <div
                 key={item.id}
-                className={`rounded-xl border p-5 ${
+                className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${
                   isDenied
                     ? "bg-[#FEF2F2] border-[#FCA5A5]"
                     : "border-[#E5E7EB]"
@@ -279,7 +279,7 @@ export default function RevenueGrossMargin() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
                   <div>
                     <p className="text-[#475467] text-[14px] mb-1">Amount</p>
                     <p className="font-semibold">{item.amount}</p>
@@ -313,8 +313,8 @@ export default function RevenueGrossMargin() {
           })}
         </div>
       </div>
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6 mb-5">
-        <div className="flex items-center justify-between mb-5">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3 mb-5">
+        <div className="flex items-center justify-between mb-5 gap-3 flex-wrap">
           <h2 className="text-[20px] font-semibold">Payout Exposure</h2>
 
           <div className="flex gap-2">
@@ -334,9 +334,9 @@ export default function RevenueGrossMargin() {
           {payouts.map((p) => (
             <div
               key={p.id}
-              className={`rounded-xl border p-5 ${cardStyles[p.status]}`}
+              className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${cardStyles[p.status]}`}
             >
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
                 <div className="flex items-center gap-3">
                   <span className="px-3 py-1 rounded-md text-[13px] bg-white border">
                     {p.id}
@@ -358,7 +358,7 @@ export default function RevenueGrossMargin() {
                 )}
               </div>
 
-              <div className="grid grid-cols-3 gap-6 mb-4">
+              <div className="grid sm:grid-cols-3 grid-cols-1 gap-6 mb-4">
                 <div>
                   <p className="text-[#475467] text-[14px] mb-1">Provider</p>
                   <p className="font-medium text-[#7A271A]">{p.provider}</p>
@@ -376,9 +376,11 @@ export default function RevenueGrossMargin() {
               </div>
 
               {p.reason && (
-                <div className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#FFF3E0] text-[#9A3412] text-[14px]">
-                  <WarningTriangleIcon color="#F54900" />
+                <div className="flex items-center gap-2 lg:px-4 px-2.5 lg:py-3 py-2 rounded-lg bg-[#FFF3E0] text-[#9A3412] text-[14px] flex-wrap">
+                  <div className="flex items-center gap-2">
+                    <WarningTriangleIcon color="#F54900" />
                   <span className="font-extrabold">Flag Reason:</span>
+                  </div>
                   <span>{p.reason}</span>
                 </div>
               )}

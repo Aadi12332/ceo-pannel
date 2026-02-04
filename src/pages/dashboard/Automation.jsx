@@ -63,8 +63,8 @@ const Automation = () => {
 
       <AutomationChart />
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
-        <div className="flex items-center justify-between mb-6">
+      <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3 mb-5">
+        <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
           <div className="flex items-center gap-3">
             <img src={shieldIcon} alt="" className="w-5 h-5" />
             <h2 className="text-[20px] text-[#0A0A0A]">
@@ -91,7 +91,7 @@ const Automation = () => {
           </button>
         </div>
 
-        <div className="bg-[#F9FAFB] rounded-[14px] p-6 flex items-center justify-between">
+        <div className="bg-[#F9FAFB] lg:rounded-[14px] rounded-lg lg:p-6 p-2.5 flex items-center gap-3 justify-between">
           <div>
             <span className="inline-block bg-[#DCFCE7] text-[#166534] text-[16px] font-medium px-4 py-2 rounded-[10px] mb-3">
               NORMAL
@@ -104,19 +104,19 @@ const Automation = () => {
 
           <div className="text-right">
             <p className="text-[32px] font-semibold text-[#2F5BFF]">3</p>
-            <p className="text-[16px] text-[#475467]">Active Workflows</p>
+            <p className="text-[16px] text-[#475467] mt-2">Active Workflows</p>
           </div>
         </div>
       </div>
 
       <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
-        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
           <div className="flex items-center gap-2 mb-6">
             <img src={dollarIcon} alt="" />
             <h3 className="text-[20px] text-[#0A0A0A]">Cost Overview</h3>
           </div>
 
-          <div className="bg-[#F1FDF4] rounded-[12px] p-5 mb-4">
+          <div className="bg-[#F1FDF4] lg:rounded-[12px] rounded-lg p-2.5 lg:p-5 mb-4">
             <p className="text-[14px] text-[#475467]">Daily Spend</p>
             <p className="text-[28px] font-semibold text-[#16A34A]">$4,409</p>
             <p className="text-[13px] text-[#475467] mb-2">Cap: $11,800/day</p>
@@ -128,20 +128,20 @@ const Automation = () => {
             <p className="text-[13px] text-[#475467]">37.4% utilization</p>
           </div>
 
-          <div className="bg-[#EFF6FF] rounded-[12px] p-5">
+          <div className="bg-[#EFF6FF] lg:rounded-[12px] rounded-lg p-2.5 lg:p-5">
             <p className="text-[14px] text-[#475467]">Monthly Projection</p>
             <p className="text-[28px] font-semibold text-[#2563EB]">$132,270</p>
             <p className="text-[13px] text-[#475467]">Cap: $329,000/month</p>
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
           <div className="flex items-center gap-2 mb-6">
             <img src={alertIcon} alt="" />
             <h3 className="text-[20px] text-[#0A0A0A]">Risk Alerts</h3>
           </div>
 
-          <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-[12px] p-5 mb-4">
+          <div className="bg-[#FEF2F2] border border-[#FECACA] rounded-lg lg:rounded-[12px] lg:p-5 p-2.5 mb-4">
             <p className="text-[16px] font-medium text-[#B42318] mb-2">
               2 High-Risk Automations
             </p>

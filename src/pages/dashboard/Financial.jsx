@@ -199,7 +199,7 @@ const Financial = () => {
 
       <FinanceChart />
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
+      <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3 mb-5">
         <h2 className="text-[20px] text-[#0A0A0A] mb-6">Budget vs Actual</h2>
 
         <div className="flex flex-col lg:flex-row gap-10">

@@ -11,9 +11,9 @@ export default function OpenBlockerModal({ open, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white w-[96%] max-w-[596px] max-h-[96vh] overflow-auto rounded-xl p-6 relative"
+        className="bg-white w-[96%] max-w-[596px] max-h-[96vh] overflow-auto scroll-hide lg:rounded-xl rounded-lg lg:p-6 p-3 relative"
       >
-        <button onClick={onClose} className="absolute top-4 right-4">
+        <button onClick={onClose} className="absolute lg:top-4 top-3 lg:right-4 right-3">
           <X />
         </button>
 
@@ -21,8 +21,8 @@ export default function OpenBlockerModal({ open, onClose }) {
           Open Blocker Case
         </h2>
 
-        <div className="border border-red-200 bg-red-50 rounded-lg p-4 mb-5">
-          <div className="flex items-center gap-2 mb-2">
+        <div className="border border-red-200 bg-red-50 rounded-lg lg:p-4 p-2.5 mb-5">
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className="text-xs px-2 py-1 bg-white rounded border">
               BLK-001
             </span>

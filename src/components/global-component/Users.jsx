@@ -99,7 +99,7 @@ export default function Merchants() {
     <MainLayout>
       <div className="mb-5">
         <div
-          className="flex items-center gap-5 mb-1 cursor-pointer"
+          className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer"
           onClick={() => {
             if (viewApplication) {
               navigate("/users");
@@ -110,8 +110,8 @@ export default function Merchants() {
             }
           }}
         >
-          <ChevronLeft className="w-5 h-5 cursor-pointer" />
-          <h1 className="text-xl font-semibold">
+          <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
+          <h1 className="sm:text-xl text-sm font-semibold">
             <span className="text-gray-500">
               {viewApplication ? "Users" : "Global Tool Registry"}
             </span>{" "}
@@ -126,22 +126,22 @@ export default function Merchants() {
         </p>
       </div>
       <div className="bg-[#EEF4FF] space-y-5">
-        <div className="flex items-center justify-between gap-3 h-10">
+        <div className="flex items-center justify-between flex-wrap gap-3 lg:h-10">
           <h2 className="text-[20px] font-semibold text-[#101828]">
             {viewApplication
               ? "All Influencer's Request"
               : "Under Review Users"}
           </h2>
 
-            <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+            <div className="flex items-center gap-3 flex-wrap">
+              <button className="flex items-center gap-2 bg-[#0E1E38] text-white sm:px-4 px-2 h-10 rounded-lg">
                 <FileDown className="w-4 h-4" />
                 Export PDF
               </button>
 
               <button
                 onClick={() => setViewApplication(true)}
-                className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg"
+                className="flex items-center gap-2 bg-[#0E1E38] text-white sm:px-4 px-2 h-10 rounded-lg"
               >
                 <Eye className="w-4 h-4 text-white" />
                 View New Applications
@@ -149,15 +149,15 @@ export default function Merchants() {
 
               <button onClick={() => navigate("/add-new-user", {
                           state: { adduser: true },
-                        })} className="flex items-center gap-2 bg-[#0E1E38] text-white px-4 h-10 rounded-lg">
+                        })} className="flex items-center gap-2 bg-[#0E1E38] text-white sm:px-4 px-2 h-10 rounded-lg">
                 <Plus className="w-4 h-4" />
                 Add New User
               </button>
             </div>
         </div>
 
-        <div className="flex items-center justify-between gap-4">
-          <div className="relative w-[360px]">
+        <div className="flex items-center justify-between gap-4 flex-wrap">
+          <div className="relative max-w-[360px] w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-[#667085]" />
             <input
               placeholder="Search by Name, Email, Phone"
@@ -182,8 +182,8 @@ export default function Merchants() {
           )}
         </div>
 
-        <div className="bg-white rounded-[14px] border border-[#D0D5DD] overflow-hidden">
-          <table className="w-full text-[15px]">
+        <div className="bg-white rounded-[14px] border border-[#D0D5DD] w-[calc(100vw-24px)] overflow-auto scroll-hide lg:w-full">
+          <table className="w-full text-[15px] min-w-[1150px]">
             <thead>
               <tr className="border-b border-[#D0D5DD]">
                 {[
@@ -197,7 +197,7 @@ export default function Merchants() {
                 ].filter(Boolean).map((label) => (
                   <th
                     key={label}
-                    className="px-5 py-4 text-left font-semibold text-[#101828]"
+                    className="sm:px-5 px-2.5 sm:py-4 py-4 text-left font-semibold text-[#101828]"
                   >
                     <div className="flex items-center gap-2">
                       {label}
@@ -214,21 +214,21 @@ export default function Merchants() {
                   key={row.id}
                   className="border-b border-[#D0D5DD] last:border-none"
                 >
-                  <td className="px-5 py-5 font-medium text-[#667085]">
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4  font-medium text-[#667085]">
                     {row.id}
                   </td>
 
-                  <td className="px-5 py-5 text-[#101828]">{row.title}</td>
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4  text-[#101828]">{row.title}</td>
 
-                  <td className="px-5 py-5 text-[#475467]">{row.content}</td>
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4  text-[#475467]">{row.content}</td>
 
-                  <td className="px-5 py-5 text-[#101828]">{row.phone}</td>
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4  text-[#101828]">{row.phone}</td>
 
                   {!viewApplication && (
-                    <td className="px-5 py-5 text-[#101828]">{row.orders}</td>
+                    <td className="sm:px-5 px-2.5 sm:py-4 py-4  text-[#101828]">{row.orders}</td>
                   )}
 
-                  <td className="px-5 py-5">
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4 ">
                     <span
                       className={`px-4 py-1.5 rounded-full text-sm font-medium ${statusStyles[row.status]}`}
                     >
@@ -236,7 +236,7 @@ export default function Merchants() {
                     </span>
                   </td>
 
-                  <td className="px-5 py-5">
+                  <td className="sm:px-5 px-2.5 sm:py-4 py-4 ">
                    <RowActionMenu
                       viewApplication={viewApplication}
                       onView={() =>
@@ -288,23 +288,23 @@ export default function Merchants() {
         <div className="flex items-center justify-end gap-3 text-sm text-[#667085]">
           <span>1–10 of 1,247</span>
 
-          <button className="w-9 h-9 rounded-lg border border-[#D0D5DD] flex items-center justify-center">
+          <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg border border-[#D0D5DD] flex items-center justify-center">
             <ChevronLeft className="w-4 h-4" />
           </button>
 
-          <button className="w-9 h-9 rounded-lg bg-[#0E1E38] text-white">
+          <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg bg-[#0E1E38] text-white">
             1
           </button>
 
-          <button className="w-9 h-9 rounded-lg border border-[#D0D5DD]">
+          <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg border border-[#D0D5DD]">
             2
           </button>
 
-          <button className="w-9 h-9 rounded-lg border border-[#D0D5DD]">
+          <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg border border-[#D0D5DD]">
             3
           </button>
 
-          <button className="w-9 h-9 rounded-lg border border-[#D0D5DD] flex items-center justify-center">
+          <button className="sm:w-9 sm:h-9 w-8 h-8 rounded-lg border border-[#D0D5DD] flex items-center justify-center">
             <ChevronRight className="w-4 h-4" />
           </button>
         </div>

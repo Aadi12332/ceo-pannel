@@ -165,7 +165,7 @@ const PolicyTabsPage = () => {
 
   return (
     <div className="mb-5 space-y-6">
-      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-full">
         <div className="bg-[#ECECF0] rounded-full p-1 flex gap-1 w-full min-w-[992px]">
         {TABS.map((tab) => (
           <button
@@ -186,7 +186,7 @@ const PolicyTabsPage = () => {
       </div>
 
       {active === "policies" && (
-        <div className="space-y-5 bg-white rounded-xl p-6 mb-5">
+        <div className="space-y-5 bg-white lg:rounded-xl lg:p-6 p-3 rounded-lg mb-5">
           <h2 className="text-[20px] font-semibold">Policy Rules by Group</h2>
 
           <div className="flex gap-2 flex-wrap">
@@ -302,7 +302,7 @@ const PolicyTabsPage = () => {
             Policy Builder – Create Rules, Not Paragraphs
           </h2>
 
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
             <div>
               <label className="text-[14px] font-medium block mb-1">
                 Policy Name

@@ -325,7 +325,8 @@ const handleActionClick = (action) => {
   return (
     <div className="bg-[#EEF4FF] mb-5">
       <div className="">
-        <div className="bg-[#ECECF0] rounded-full p-1 flex gap-2 mb-5">
+        <div className="w-[calc(100vw-24px)] overflow-auto scroll-hide">
+          <div className="bg-[#ECECF0] rounded-full p-1 flex gap-2 mb-5 min-w-[992px] w-full">
           {tabs.map((tab) => {
             const active = activeTab === tab.key;
             return (
@@ -341,16 +342,17 @@ const handleActionClick = (action) => {
             );
           })}
         </div>
+        </div>
 
         {activeTab === "workflows" && (
-          <div className="space-y-6 bg-white rounded-2xl p-6">
+          <div className="space-y-6 bg-white lg:rounded-2xl lg:p-6 p-3 rounded-lg">
             <h2 className="text-[20px] font-semibold">
               Automation Registry – Full Governance Control
             </h2>
 
             {workflows.map((w) => (
               <div
-                className={`flex items-start gap-3 rounded-xl border border-[#0000001A] p-6 flex-1 ${
+                className={`flex lg:flex-row flex-col items-start gap-3 lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3 flex-1 ${
                   w.theme === "red"
                     ? "border-[#FFC9C9] bg-[#FEF2F2]"
                     : w.theme === "blue"
@@ -360,11 +362,11 @@ const handleActionClick = (action) => {
               >
                 <div
                   key={w.id}
-                  className={`rounded-xl border border-[#0000001A] p-6 flex-1`}
+                  className={`lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3 flex-1 w-full`}
                 >
                   <div className="flex justify-between mb-4">
                     <div>
-                      <div className="flex items-center gap-2 mb-1">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
                         <span className="text-[13px] bg-[#F2F4F7] px-2 py-0.5 rounded">
                           {w.id}
                         </span>
@@ -386,8 +388,8 @@ const handleActionClick = (action) => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className="bg-[#F9FAFB] rounded-xl p-4">
+                  <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 mb-4">
+                    <div className="bg-[#F9FAFB] rounded-xl sm:p-4 p-2 md:col-span-1 col-span-2">
                       <p className="text-[14px] text-[#475467]">Owner</p>
                       <p className="font-medium">{w.owner}</p>
                       <p className="text-[14px] text-[#475467] mt-2">
@@ -398,7 +400,7 @@ const handleActionClick = (action) => {
                       <p>{w.version}</p>
                     </div>
 
-                    <div className="bg-[#F0FDF4] rounded-xl p-4">
+                    <div className="bg-[#F0FDF4] rounded-xl sm:p-4 p-2">
                       <p className="text-[14px] text-[#475467]">Cost / Day</p>
                       <p className="font-semibold text-green-600">
                         {w.costDay}
@@ -422,7 +424,7 @@ const handleActionClick = (action) => {
                       <p className="text-[12px] mt-1">{w.usage} of daily cap</p>
                     </div>
 
-                    <div className="bg-[#FFF7ED] rounded-xl p-4">
+                    <div className="bg-[#FFF7ED] rounded-xl sm:p-4 p-2">
                       <p className="text-[14px]"> Triggers (24h): </p>
                       <p className="font-medium text-sm mb-2">{w.triggers}</p>
                       <p className="text-[14px]">Error Rate: </p>
@@ -441,7 +443,7 @@ const handleActionClick = (action) => {
                     </span>
                   </div>
                 </div>
-                <div className="flex flex-col gap-2">
+                <div className="flex lg:flex-col flex-row flex-wrap gap-2 ">
                   {w.actions.map((a) => (
                     <button
                       key={a}
@@ -469,7 +471,7 @@ const handleActionClick = (action) => {
 
 
         {activeTab === "cost" && (
-          <div className="space-y-6 bg-white rounded-2xl p-6">
+          <div className="space-y-6 bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3">
             <h2 className="text-[20px] font-semibold">
               Top Cost Drivers (Daily Spend)
             </h2>
@@ -477,7 +479,7 @@ const handleActionClick = (action) => {
             {drivers.map((item) => (
               <div
                 key={item.id}
-                className="flex justify-between items-center border border-[#0000001A] border-[#EAECF0] rounded-xl p-5"
+                className="flex justify-between items-center border border-[#0000001A] border-[#EAECF0] lg:rounded-xl rounded-lg lg:p-5 p-2.5"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-9 h-9 rounded bg-[#E0ECFF] text-blue-700 flex items-center justify-center font-semibold">
@@ -498,7 +500,7 @@ const handleActionClick = (action) => {
               </div>
             ))}
 
-            <div className="bg-[#F0F6FF] rounded-xl p-6 flex justify-between items-center">
+            <div className="bg-[#F0F6FF] lg:rounded-xl rounded-lg lg:p-6 p-2.5 flex justify-between items-center">
               <div>
                 <p className="font-medium">Total Daily Automation Cost</p>
                 <p className="text-[14px] text-[#475467]">
@@ -511,7 +513,7 @@ const handleActionClick = (action) => {
         )}
 
         {activeTab === "simulation" && (
-          <div className="space-y-6 bg-white rounded-2xl p-6">
+          <div className="space-y-6 bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3">
             <h2 className="text-[20px] font-semibold">
               Simulation & Shadow Mode Results
             </h2>
@@ -519,7 +521,7 @@ const handleActionClick = (action) => {
             {data.map((item, idx) => (
               <div
                 key={idx}
-                className="border border-[#D6BCFA] bg-[#FAF5FF] rounded-xl p-6"
+                className="border border-[#D6BCFA] bg-[#FAF5FF] lg:rounded-xl rounded-lg lg:p-6 p-2.5"
               >
                 <div className="flex justify-between mb-4">
                   <p className="font-semibold">{item.title}</p>
@@ -528,7 +530,7 @@ const handleActionClick = (action) => {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-6 mb-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-4">
                   <div>
                     <p className="text-[14px] text-[#475467]">
                       Est. Cost / Day
@@ -550,7 +552,7 @@ const handleActionClick = (action) => {
                 </div>
 
                 {item.violations && (
-                  <div className="mb-4 rounded-lg border border-[#0000001A] border-red-200 bg-red-50 p-4 text-red-600 text-[14px] space-y-1">
+                  <div className="mb-4 rounded-lg border border-[#0000001A] border-red-200 bg-red-50 lg:p-4 p-2.5 text-red-600 text-[14px] space-y-1">
                     <p className="font-semibold">Policy Violations:</p>
                     {item.violations.map((v, i) => (
                       <p key={i}>{v}</p>
@@ -558,7 +560,7 @@ const handleActionClick = (action) => {
                   </div>
                 )}
 
-                <div className="bg-blue-50 p-3 rounded-lg text-[14px] flex items-center justify-between">
+                <div className="bg-blue-50 p-3 rounded-lg text-[14px] flex items-center justify-between flex-wrap gap-3">
                   <p>
                     <span className="font-semibold">Recommended Action: </span>
                     Approve for gradual rollout
@@ -573,7 +575,7 @@ const handleActionClick = (action) => {
               </div>
             ))}
 
-            <div className="bg-[#F9FAFB] rounded-xl p-6">
+            <div className="bg-[#F9FAFB] lg:rounded-xl rounded-lg lg:p-6 p-2.5">
               <p className="font-semibold mb-3">Gradual Rollout Strategy</p>
               <div className="flex items-center gap-3 mb-3 text-[14px]">
                 <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700">
@@ -601,7 +603,7 @@ const handleActionClick = (action) => {
         )}
 
         {activeTab === "messaging" && (
-          <div className="space-y-6 bg-white rounded-2xl p-6">
+          <div className="space-y-6 bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3">
             <h2 className="text-[20px] font-semibold">
               Messaging Templates & Delivery Metrics
             </h2>
@@ -609,7 +611,7 @@ const handleActionClick = (action) => {
             {messagingData.map((m) => (
               <div
                 key={m.title}
-                className="border border-[#E5E7EB] rounded-xl px-6 py-5"
+                className="border border-[#E5E7EB] rounded-lg lg:rounded-xl lg:px-6 px-3 lg:py-5 py-2.5"
               >
                 <div className="flex items-center gap-3 mb-2">
                   <div className="">{m.icon}</div>
@@ -632,8 +634,7 @@ const handleActionClick = (action) => {
                   Used by: {m.usedBy}
                 </p>
 
-                {/* Metrics */}
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid md:grid-cols-4 grid-cols-2 gap-6">
                   <div>
                     <p className="text-[14px] text-[#475467] mb-1">
                       Delivery Rate
@@ -663,8 +664,7 @@ const handleActionClick = (action) => {
               </div>
             ))}
 
-            {/* Footer */}
-            <div className="bg-[#F0F6FF] rounded-xl px-6 py-5 flex justify-between items-center">
+            <div className="bg-[#F0F6FF] rounded-lg lg:rounded-xl lg:px-6 px-3 lg:py-5 py-2.5 flex justify-between items-center">
               <div>
                 <p className="font-medium">Total Messages (24h)</p>
                 <p className="text-[14px] text-[#475467]">

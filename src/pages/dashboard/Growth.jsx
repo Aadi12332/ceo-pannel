@@ -5,15 +5,13 @@ import MainLayout from "../../components/layout/MainLayout";
 import fileIcon from "../../assets/sidebaricon/policiesicon.svg";
 import dollorIcon from "../../assets/sidebaricon/financialicon.svg";
 import GrowthChart from "../../components/growth-component/GrowthChart";
-import checkIcon from "../../assets/checkedarrowicon.svg";
-import blockIcon from "../../assets/freezeicon.svg";
-import playIcon from "../../assets/pauseicon.svg";
-import pauseIcon from "../../assets/pauseicon.svg";
 import RoadmapMilestones from "../../components/growth-component/RoadmapMilestones";
 import StrategicAlertsSection from "../../components/growth-component/StrategicAlertsSection";
 import ExpansionTabs from "../../components/growth-component/ExpansionTabs";
 import RequestGrowthAnalysisModal from "../../components/growth-component/RequestGrowthAnalysisModal";
 import PricingChangeModal from "../../components/growth-component/PricingChangeModal";
+import { PlayIcon, CheckCircle, PauseIcon } from "lucide-react";
+import { FreezeIcon } from "../../assets/icons/icons";
 
 const auditStats = [
   {
@@ -43,28 +41,28 @@ const items = [
     label: "Ready to Launch",
     value: 3,
     description: "Cities passed all 4 gates",
-    icon: checkIcon,
+    icon: <CheckCircle className="w-5 text-[#16A34A]" />,
     valueColor: "text-[#16A34A]",
   },
   {
     label: "Blocked",
     value: 2,
     description: "Cities below readiness threshold",
-    icon: blockIcon,
+    icon: <FreezeIcon color="#DC2626" className="w-5" />,
     valueColor: "text-[#DC2626]",
   },
   {
     label: "Active",
     value: 1,
     description: "Cities in operation",
-    icon: playIcon,
+    icon: <PlayIcon className="w-5 text-[#2563EB]" />,
     valueColor: "text-[#2563EB]",
   },
   {
     label: "Paused",
     value: 0,
     description: "Cities temporarily halted",
-    icon: pauseIcon,
+    icon: <PauseIcon className="w-5 text-[#EA580C]" />,
     valueColor: "text-[#EA580C]",
   },
 ];
@@ -102,15 +100,15 @@ const Growth = () => {
       />
       <SummaryCards items={auditStats} title="Strategic Dashboard" />
 
-      <div className="grid xl:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-5 mb-5">
+      <div className="grid xl:grid-cols-4 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 sm:gap-5 gap-2 mb-5">
         {items.map((item, index) => (
           <div
             key={index}
-            className="bg-white rounded-[16px] border border-[#0000001A] p-6"
+            className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <img src={item.icon} alt="" className="w-5 h-5" />
-              <p className="text-[16px] text-[#0A0A0A]">{item.label}</p>
+            <div className="flex items-center sm:gap-3 gap-1.5 mb-4">
+              {item.icon}
+              <p className="sm:text-[16px] text-sm text-[#0A0A0A]">{item.label}</p>
             </div>
 
             <p className={`text-[32px] font-semibold mb-2 ${item.valueColor}`}>

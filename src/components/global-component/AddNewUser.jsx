@@ -30,22 +30,22 @@ console.log({viewApplication,isView,isEdit},"viewApplication==========")
     <MainLayout>
       <div className="mb-5">
         {!activeTab && <div
-          className="flex items-center gap-5 mb-1 cursor-pointer"
+          className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer"
           onClick={() => navigate("/users")}
         >
-          <ChevronLeft className="w-5 h-5 cursor-pointer" />
-          <h1 className="text-xl font-semibold flex items-center gap-2">
+          <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
+          <h1 className="sm:text-xl text-sm font-semibold flex items-center gap-2">
             <span className="text-gray-500">Users</span>  <span className="text-gray-500">&gt;</span>
             {isView ? " View User" : isEdit ? " Edit User" : " Add New User"}
           </h1>
         </div>}
 
         {activeTab &&  <div
-          className="flex items-center gap-5 mb-1 cursor-pointer"
+          className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer"
           onClick={() => navigate("/users")}
         >
-          <ChevronLeft className="w-5 h-5 cursor-pointer" />
-          <h1 className="text-xl font-semibold flex items-center gap-2">
+          <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
+          <h1 className="sm:text-xl text-sm font-semibold flex items-center gap-2">
             <span className="text-gray-500">Users</span> <span className="text-gray-500">&gt;</span>
             {isView ? <span className="text-gray-500">View</span> : isEdit ? <span className="text-gray-500">Edit</span> : <span className="text-gray-500">Add New User</span>}
             {activeTab && <span className="text-gray-500">&gt;</span>}
@@ -67,9 +67,9 @@ console.log({viewApplication,isView,isEdit},"viewApplication==========")
         </p>
       </div>
       <div className="space-y-5">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-3 flex-wrap">
           {!activeTab && (
-            <h2 className="text-[20px] font-semibold text-[#101828] flex items-center gap-3">
+            <h2 className="sm:text-[20px] text-lg font-semibold text-[#101828] flex items-center sm:gap-3 gap-1.5">
               {viewApplication ? "Influencer's Application" : isView
                 ? " View This User Account"
                 : isEdit
@@ -180,10 +180,10 @@ console.log({viewApplication,isView,isEdit},"viewApplication==========")
           )}
 
         {!viewApplication && !isAddUser && (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center sm:gap-3 gap-1">
               <button
                 onClick={() => setActiveTab("content")}
-                className={`text-white text-base rounded-lg px-3 h-10 ${
+                className={`text-white text-sm sm:text-base rounded-lg sm:px-3 px-2 h-10 ${
                   activeTab === "content" ? "bg-[#0E1E38]" : "bg-[#0E1E3880]"
                 }`}
               >
@@ -192,7 +192,7 @@ console.log({viewApplication,isView,isEdit},"viewApplication==========")
 
               <button
                 onClick={() => setActiveTab("orders")}
-                className={`text-white text-base rounded-lg px-3 h-10 ${
+                className={`text-white text-sm sm:text-base rounded-lg sm:px-3 px-2 h-10 ${
                   activeTab === "orders" ? "bg-[#0E1E38]" : "bg-[#0E1E3880]"
                 }`}
               >
@@ -201,7 +201,7 @@ console.log({viewApplication,isView,isEdit},"viewApplication==========")
 
               <button
                 onClick={() => setActiveTab("followers")}
-                className={`text-white text-base rounded-lg px-3 h-10 ${
+                className={`text-white text-sm sm:text-base rounded-lg sm:px-3 px-2 h-10 ${
                   activeTab === "followers" ? "bg-[#0E1E38]" : "bg-[#0E1E3880]"
                 }`}
               >

@@ -9,7 +9,7 @@ export default function SLADashboard() {
     { role: "CMO", name: "Jessica Lee", response: "18h / 12h target", progress: 100, status: "breached" },
     { role: "GSD", name: "Tom Rodriguez", response: "10h / 12h target", progress: 80, status: "meeting" },
     { role: "LPD", name: "Emma Wilson", response: "72h / 48h target", progress: 100, status: "breached" },
-    { role: "Automation", name: "Automation Team", response: "0.5h / 1h target", progress: 50, status: "meeting" }
+    { role: "COO", name: "Automation Team", response: "0.5h / 1h target", progress: 50, status: "meeting" }
   ]
 
   const cities = [
@@ -56,12 +56,12 @@ export default function SLADashboard() {
 
   return (
     <div className="space-y-5">
-      <div className="rounded-2xl border bg-white p-6">
+      <div className="lg:rounded-2xl rounded-lg border bg-white lg:p-6 p-3">
         <h2 className="mb-4 text-lg font-semibold">SLA Performance Summary</h2>
         <div className="space-y-3">
           {slaData.map(item => (
-            <div key={item.name} className="flex items-center justify-between rounded-xl bg-gray-50 p-4">
-              <div className="flex items-center gap-4">
+            <div key={item.name} className="flex sm:flex-row flex-col gap-10 sm:gap-3 sm:items-center justify-between lg:rounded-xl rounded-lg bg-gray-50 sm:p-4 p-2.5">
+              <div className="flex items-center sm:gap-4 gap-2">
                 <span className="rounded-full border px-3 py-1 text-xs">{item.role}</span>
                 <div>
                   <p className="font-medium">{item.name}</p>
@@ -69,14 +69,14 @@ export default function SLADashboard() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="h-2 w-32  bg-gray-200">
+                <div className="h-2 sm:w-32 w-full bg-gray-200">
                   <div
                     className={`h-2  ${item.status === "breached" ? "bg-red-500" : "bg-green-500"}`}
                     style={{ width: `${item.progress}%` }}
                   />
                 </div>
                 <span
-                  className={` px-3 py-1 text-xs min-w-[80px] border border-[#0000001A] rounded-lg text-center ${
+                  className={`sm:px-3 px-1.5 py-1 text-xs min-w-[80px] border border-[#0000001A] rounded-lg text-center ${
                     item.status === "breached"
                       ? "bg-red-100 text-red-600"
                       : "bg-green-100 text-green-600"
@@ -90,16 +90,16 @@ export default function SLADashboard() {
         </div>
       </div>
 
-      <div className="rounded-2xl border bg-white p-6">
+      <div className="lg:rounded-2xl rounded-lg border bg-white lg:p-6 p-3">
         <h2 className="mb-4 flex items-center gap-2 text-lg font-semibold">
-          <LocationIcon />
+          <span className="inline-block min-w-5"><LocationIcon width={16} /></span>
           City Readiness & Operational Load Heatmap
         </h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {cities.map(city => (
             <div
               key={city.city}
-              className={`rounded-xl border p-4 ${
+              className={`lg:rounded-xl rounded-lg border lg:p-4 p-2.5 ${
                 city.status === "blocked"
                   ? "border-red-300 bg-red-50"
                   : city.status === "at risk"

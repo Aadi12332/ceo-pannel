@@ -99,8 +99,8 @@ const GlobalToolRegistry = () => {
 
       <SummaryCards items={auditStats} title="Global Tool Dashboard" />
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6 mb-5">
-        <div className="flex items-center gap-3 mb-6">
+      <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3 mb-5">
+        <div className="flex items-start gap-3 mb-6">
           <img src={toolsicon} alt="" className="w-6 h-6 mt-1" />
           <div>
             <h2 className="text-[20px] text-[#0A0A0A]">Tools Access</h2>
@@ -115,7 +115,7 @@ const GlobalToolRegistry = () => {
           {toolsData.map((item, index) => (
             <div
               key={index}
-              className="bg-[#F2F7FF] border border-[#B9D0FF] rounded-[12px] p-4"
+              className="bg-[#F2F7FF] border border-[#B9D0FF] lg:rounded-[12px] rounded-lg lg:p-4 p-2.5"
             >
               <div className="flex justify-between items-start mb-2">
                 <div>
@@ -123,14 +123,14 @@ const GlobalToolRegistry = () => {
                   <p className="text-[14px] text-[#475467]">{item.role}</p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex sm:gap-2 gap-1">
                   <button
                     onClick={() => setAssignedToolsOpen(true)}
-                    className="text-[12px] px-3 py-1 rounded-full border border-[#E5E7EB] text-[#0A0A0A] bg-white"
+                    className="text-[12px] sm:px-3 px-1.5 py-1 rounded-full border border-[#E5E7EB] text-[#0A0A0A] bg-white"
                   >
                     view details
                   </button>
-                  <span className="text-[12px] px-3 py-1 rounded-full bg-[#FDECEC] text-[#D92D20]">
+                  <span className="text-[12px] sm:px-3 px-1.5 py-1 rounded-full bg-[#FDECEC] text-[#D92D20]">
                     admin
                   </span>
                 </div>
@@ -150,9 +150,9 @@ const GlobalToolRegistry = () => {
       />
 
       <div className="flex flex-col gap-5">
-        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+        <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3">
           <div className="flex items-start gap-3 mb-6">
-            <img src={toolsIcon} alt="" className="w-6 h-6" />
+            <img src={toolsIcon} alt="" className="w-6 h-6 mt-1" />
             <div>
               <h2 className="text-[20px] text-[#0A0A0A]">All Tools</h2>
               <p className="text-[14px] text-[#667085]">
@@ -162,7 +162,7 @@ const GlobalToolRegistry = () => {
             </div>
           </div>
 
-          <div className="bg-[#EDF4FF] rounded-[12px] p-5 md:max-w-[50%]">
+          <div className="bg-[#EDF4FF] rounded-lg lg:rounded-[12px] lg:p-5 p-2.5 md:max-w-[50%]">
             <h3 className="text-[18px] text-[#0A0A0A] mb-1">Google Meet</h3>
             <p className="text-[14px] text-[#0A0A0A] mb-4">
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -183,9 +183,9 @@ const GlobalToolRegistry = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+        <div className="bg-white lg:rounded-[16px] rounded-lg border border-[#0000001A] lg:p-6 p-3">
           <div className="flex items-start gap-3 mb-6">
-            <img src={toolsIcon} alt="" className="w-6 h-6" />
+            <img src={toolsIcon} alt="" className="w-6 h-6 mt-1" />
             <div>
               <h2 className="text-[20px] text-[#0A0A0A]">Tools Requests</h2>
               <p className="text-[14px] text-[#667085]">
@@ -195,7 +195,7 @@ const GlobalToolRegistry = () => {
             </div>
           </div>
 
-          <div className="border border-[#0000001A] rounded-[12px] p-5 md:max-w-[50%]">
+          <div className="border border-[#0000001A] rounded-lg lg:rounded-[12px] lg:p-5 p-2.5 md:max-w-[50%]">
             <div className="flex items-start gap-3 mb-4">
               <img src={bellIcon} alt="" className="w-5 h-5 mt-1" />
               <div>
@@ -207,7 +207,7 @@ const GlobalToolRegistry = () => {
               </div>
             </div>
 
-            <div className="bg-[#EDF4FF] rounded-[10px] p-4 flex items-center justify-between">
+            <div className="bg-[#EDF4FF] rounded-lg lg:rounded-[10px] lg:p-4 p-2.5 flex items-center justify-between">
               <div>
                 <p className="text-[16px] text-[#0A0A0A]">AI Tool</p>
                 <p className="text-[14px] text-[#667085]">

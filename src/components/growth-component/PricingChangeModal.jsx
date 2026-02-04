@@ -13,9 +13,9 @@ export default function PricingChangeModal({ open, onClose }) {
         onClick={onClose}
       />
 
-      <div className="relative w-[96%] max-w-[595px] max-h-[96vh] overflow-y-auto scroll-hide bg-white rounded-xl p-6">
+      <div className="relative w-[96%] max-w-[595px] max-h-[96vh] overflow-y-auto scroll-hide bg-white lg:rounded-xl lg:p-6 p-3 rounded-lg">
         <div className="flex items-start justify-between mb-2">
-          <h2 className="text-xl font-semibold">
+          <h2 className="sm:text-xl text-sm font-semibold">
             Approve Pricing/Commission Change
           </h2>
           <X className="cursor-pointer" onClick={onClose} />
@@ -50,7 +50,7 @@ export default function PricingChangeModal({ open, onClose }) {
             <label className="text-sm font-medium">Proposed By (GSD)</label>
             <input
               placeholder="Tom Rodriguez (Sales VP)"
-              className="w-full h-[48px] mt-1 px-3 rounded-lg border focus:outline-none border-[#D0D5DD]"
+              className="w-full h-[48px] mt-1 px-3 rounded-lg border text-sm focus:outline-none border-[#D0D5DD]"
             />
           </div>
 
@@ -59,7 +59,7 @@ export default function PricingChangeModal({ open, onClose }) {
               <label className="text-sm font-medium">Current Value</label>
               <input
                 placeholder="e.g., $15.00"
-                className="w-full h-[48px] mt-1 px-3 rounded-lg border focus:outline-none bg-[#F9FAFB] border-[#D0D5DD]"
+                className="w-full h-[48px] mt-1 px-3 rounded-lg border text-sm focus:outline-none bg-[#F9FAFB] border-[#D0D5DD]"
               />
             </div>
 
@@ -67,7 +67,7 @@ export default function PricingChangeModal({ open, onClose }) {
               <label className="text-sm font-medium">Proposed Value</label>
               <input
                 placeholder="e.g., $17.00"
-                className="w-full h-[48px] mt-1 px-3 rounded-lg border focus:outline-none bg-[#F9FAFB] border-[#D0D5DD]"
+                className="w-full h-[48px] mt-1 px-3 rounded-lg border text-sm focus:outline-none bg-[#F9FAFB] border-[#D0D5DD]"
               />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function PricingChangeModal({ open, onClose }) {
             <textarea
               rows={4}
               placeholder="Why is this change needed? What is the expected impact?..."
-              className="w-full mt-1 px-3 py-2 rounded-lg border border-[#D0D5DD]"
+              className="w-full mt-1 px-3 py-2 rounded-lg border text-sm focus:outline-none border-[#D0D5DD]"
             />
           </div>
 
@@ -85,7 +85,7 @@ export default function PricingChangeModal({ open, onClose }) {
             <label className="text-sm font-medium">Revenue Impact Estimate</label>
             <input
               placeholder="e.g., +$250K ARR"
-              className="w-full h-[48px] mt-1 px-3 rounded-lg border focus:outline-none border-[#D0D5DD]"
+              className="w-full h-[48px] mt-1 px-3 rounded-lg border text-sm focus:outline-none border-[#D0D5DD]"
             />
           </div>
 
@@ -98,12 +98,12 @@ export default function PricingChangeModal({ open, onClose }) {
         <div className="flex justify-end gap-3 mt-6">
           <button
             onClick={onClose}
-            className="px-6 h-11 rounded-lg border border-[#D0D5DD]"
+            className="sm:px-6 px-2.5 h-11 rounded-lg border border-[#D0D5DD]"
           >
             Cancel
           </button>
 
-          <button className="px-6 h-11 rounded-lg bg-[#0E1E38] text-white">
+          <button className="sm:px-6 px-2.5 h-11 rounded-lg bg-[#0E1E38] text-white">
             Approve & Route to CFO
           </button>
         </div>

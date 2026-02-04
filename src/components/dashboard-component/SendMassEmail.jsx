@@ -45,9 +45,9 @@ export default function SendMassEmail() {
   return (
     <MainLayout>
       <div className="mb-5">
-        <div className="flex items-center gap-5 mb-1 cursor-pointer" onClick={()=>navigate("/dashboard")}>
-          <ChevronLeft className="w-5 h-5 cursor-pointer" />
-          <h1 className="text-xl font-semibold">
+        <div className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer" onClick={()=>navigate("/dashboard")}>
+          <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
+          <h1 className="sm:text-xl text-sm font-semibold">
             <span className="text-gray-500">My Dashboard</span> &gt; Send Mass
             Email
           </h1>
@@ -58,7 +58,7 @@ export default function SendMassEmail() {
           industry.
         </p>
 
-        <div className="bg-white rounded-xl border p-4">
+        <div className="bg-white lg:rounded-xl rounded-lg border lg:p-4 p-2.5">
           <div className="grid grid-cols-12 gap-6">
             <div className="col-span-2">
               <label className="block text-[20px] text-[#232323] font-medium mb-2">Send To</label>

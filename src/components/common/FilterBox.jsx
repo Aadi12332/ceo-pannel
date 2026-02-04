@@ -10,7 +10,7 @@ const FilterBar = ({
   results
 }) => {
   return (
-    <div className="w-full bg-white lg:rounded-[14px] rounded-lg border border-[#0000001A] mb-5 p-6 flex items-center gap-3 flex-wrap justify-between">
+    <div className="w-full bg-white lg:rounded-[14px] rounded-lg border border-[#0000001A] mb-5 lg:p-6 p-3 flex items-center gap-3 flex-wrap justify-between">
       <div className="flex items-center xl:gap-6 gap-3 flex-wrap">
         {label &&
           <div className="flex items-center gap-2 text-[#0A0A0A] text-[14px]">

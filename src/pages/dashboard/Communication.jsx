@@ -179,7 +179,7 @@ const Communication = () => {
       />
 
       <div className="space-y-6 mb-5">
-        <div className="border border-[#7DA7FF] rounded-[16px] p-6 bg-white">
+        <div className="border border-[#7DA7FF] rounded-lg lg:rounded-[16px] lg:p-6 p-3 bg-white">
           <div className="flex items-center gap-2 mb-4">
             <img src={settingblueicon} alt="" className="w-5 h-5" />
             <h3 className="text-[18px] text-[#0A0A0A]">
@@ -200,7 +200,7 @@ const Communication = () => {
             ].map((item, index) => (
               <label
                 key={index}
-                className="flex items-center gap-3 text-[#1E1E1E] text-[16px] cursor-pointer"
+                className="flex items-center gap-3 text-[#1E1E1E] text-sm sm:text-[16px] cursor-pointer"
               >
                 <input
                   type="checkbox"
@@ -213,7 +213,7 @@ const Communication = () => {
           </div>
         </div>
 
-        <div className="border border-[#7DA7FF] rounded-[16px] p-6 bg-white">
+        <div className="border border-[#7DA7FF] rounded-lg lg:rounded-[16px] lg:p-6 p-3 bg-white">
           <div className="flex items-center gap-2 mb-6">
             <img src={chatBorderIcon} alt="" className="w-5 h-5" />
             <h3 className="text-[18px] text-[#0A0A0A]">
@@ -221,8 +221,8 @@ const Communication = () => {
             </h3>
           </div>
 
-          <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
-            <div className="bg-[#EEF4FF] rounded-[14px] p-4">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:gap-6 gap-3">
+            <div className="bg-[#EEF4FF] rounded-lg lg:rounded-[14px] p-3 lg:p-4">
               <div className="flex items-center gap-2 mb-3">
                 <p className="text-[16px] text-[#0A0A0A]">
                   ❌ What Discussion CANNOT Do
@@ -236,7 +236,7 @@ const Communication = () => {
               </ul>
             </div>
 
-            <div className="bg-[#EEF4FF] rounded-[14px] p-4">
+            <div className="bg-[#EEF4FF] rounded-lg lg:rounded-[14px] p-3 lg:p-4">
               <div className="flex items-center gap-2 mb-3">
                 <p className="text-[16px] text-[#0A0A0A]">
                   ✅ What Discussion CAN Do
@@ -250,7 +250,7 @@ const Communication = () => {
               </ul>
             </div>
 
-            <div className="bg-[#EEF4FF] rounded-[14px] p-4">
+            <div className="bg-[#EEF4FF] rounded-lg lg:rounded-[14px] p-3 lg:p-4">
               <div className="flex items-center gap-2 mb-3">
                 <p className="text-[16px] text-[#0A0A0A]">🔄 Conversion Flow</p>
               </div>
@@ -304,7 +304,7 @@ const Communication = () => {
           return (
             <div key={index}>
               {!isSelected && (
-                <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 flex flex-col gap-4">
+                <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 flex flex-col gap-4">
                   <div className="flex justify-between items-start gap-6 sm:flex-row flex-col-reverse">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 flex-wrap">
@@ -387,7 +387,7 @@ const Communication = () => {
 
               {isSelected && (
                 <div className="space-y-6">
-                  <div className="bg-white rounded-[14px] border border-[#0000001A] p-6">
+                  <div className="bg-white lg:rounded-[14px] rounded-lg border border-[#0000001A] lg:p-6 p-3">
                     <div className="flex justify-between items-start mb-4 md:flex-row flex-col gap-5">
                       <button
                         onClick={() => setSelectedDiscussion(null)}
@@ -490,7 +490,7 @@ const Communication = () => {
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-[14px] border border-[#0000001A] p-6">
+                  <div className="bg-white lg:rounded-[14px] rounded-lg border border-[#0000001A] lg:p-6 p-3">
                     <h3 className="flex items-center gap-2 text-[18px] font-semibold mb-6 text-[#0A0A0A]">
                       <MessageCircle className="w-5 h-5" />
                       Discussion Thread ({selectedDiscussion.comments} comments)
@@ -525,7 +525,7 @@ const Communication = () => {
                       ].map((msg, i) => (
                         <div
                           key={i}
-                          className="flex gap-3 border border-[#E5E7EB] rounded-lg p-4 bg-[#F9FAFB]"
+                          className="flex lg:gap-3 gap-1.5 border border-[#E5E7EB] rounded-lg lg:p-4 p-2.5 bg-[#F9FAFB]"
                         >
                           <div className="w-9 h-9 rounded-md bg-[#EEF4FF] flex items-center justify-center">
                             <User className="w-5 h-5 text-[#2563EB]" />

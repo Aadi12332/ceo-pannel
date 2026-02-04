@@ -66,8 +66,8 @@ export default function ChargebackAndFraudSection() {
   const [visible, setVisible] = useState(false);
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-6">
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-6">
+        <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
           <h3 className="text-[18px] font-semibold mb-4">Chargeback Trends</h3>
 
           <div className="border rounded-xl p-4 mb-4">
@@ -112,7 +112,7 @@ export default function ChargebackAndFraudSection() {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+        <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
           <h3 className="text-[18px] font-semibold mb-6">
             Top Chargeback Reasons
           </h3>
@@ -139,17 +139,17 @@ export default function ChargebackAndFraudSection() {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
         <h3 className="text-[18px] font-semibold mb-5 flex items-center gap-3">
           <ShieldIcon color="#F54900" />
           Fraud Risk Summary
         </h3>
 
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
           {fraudCards.map((item) => (
             <div
               key={item.title}
-              className={`border ${item.border} ${item.bg} rounded-xl p-4`}
+              className={`border ${item.border} ${item.bg} rounded-lg lg:rounded-xl lg:p-4 p-2.5`}
             >
               <div className="flex justify-between mb-2">
                 <p className="font-medium">{item.title}</p>
@@ -177,12 +177,12 @@ export default function ChargebackAndFraudSection() {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border border-[#E5E7EB] lg:p-6 p-3">
         <h3 className="text-[18px] font-semibold mb-4">
           Sensitivity Controls & Data Export
         </h3>
 
-        <div className="bg-[#F9FAFB] rounded-lg p-4 mb-4 flex justify-between items-center">
+        <div className="bg-[#F9FAFB] rounded-lg sm:p-4 p-2.5 mb-4 flex justify-between items-center">
           <div>
             <p className="font-medium">PII Visibility</p>
             <p className="text-[14px] text-[#475467]">
@@ -206,10 +206,10 @@ export default function ChargebackAndFraudSection() {
 
         <textarea
           placeholder="e.g., Board meeting presentation, quarterly audit review..."
-          className="w-full border border-[#00000000] rounded-lg px-4 py-2 mb-4 text-[14px] bg-[#F3F3F5] h-[100px] focus:outline-none"
+          className="w-full border border-[#00000000] rounded-lg sm:px-4 px-2.5 py-2 mb-4 text-[14px] bg-[#F3F3F5] h-[100px] focus:outline-none"
         />
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 flex-wrap">
           <button className="px-4 py-2 rounded-lg border border-[#D0D5DD] text-[14px]">
             Reveal PII
           </button>

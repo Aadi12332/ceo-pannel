@@ -30,7 +30,7 @@ const complianceRateData = [
 const DirectoryChart = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">
           Overall Health Score Trend
         </h3>
@@ -66,7 +66,7 @@ const DirectoryChart = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-[16px] border border-[#0000001A] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[16px] border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">
           Budget Compliance Trend
         </h3>

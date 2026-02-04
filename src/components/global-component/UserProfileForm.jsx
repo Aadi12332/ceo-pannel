@@ -35,7 +35,7 @@ export default function MerchantProfileForm({
 
     return (
       <div>
-        <label className="text-[20px] text-[#000000CC] font-semibold">
+        <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
           {label}
         </label>
 
@@ -81,7 +81,7 @@ export default function MerchantProfileForm({
 
     return (
       <div>
-        <p className="text-[18px] font-semibold text-[#101828] mb-2">{label}</p>
+        <p className="sm:text-[18px] text-base font-semibold text-[#101828] mb-2">{label}</p>
 
         <input
           ref={inputRef}
@@ -149,9 +149,9 @@ export default function MerchantProfileForm({
           </div>
         </div>
 
-        <div className="pt-14 grid grid-cols-2 gap-5 bg-white rounded-b-xl p-6">
-          <div className="col-span-2 lg:!max-w-[49%] mx-auto w-full">
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+        <div className="pt-14 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white rounded-b-xl lg:p-6 p-3">
+          <div className="sm:col-span-2 lg:!max-w-[49%] mx-auto w-full">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               User Type
             </label>
             <Select
@@ -169,7 +169,7 @@ export default function MerchantProfileForm({
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               First Name
             </label>
             <input
@@ -178,7 +178,7 @@ export default function MerchantProfileForm({
             />
           </div>
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Last Name
             </label>
             <input
@@ -188,7 +188,7 @@ export default function MerchantProfileForm({
           </div>
 
           <div className="mb-4 relative">
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Date of Birth
             </label>
 
@@ -219,7 +219,7 @@ export default function MerchantProfileForm({
           </div>
 
           <div>
-            <label className="text-[20px] text-[#000000CC] font-semibold">
+            <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Phone Number
             </label>
 
@@ -256,14 +256,14 @@ export default function MerchantProfileForm({
         </div>
 
         {!isAddUser && (
-          <div className="grid grid-cols-2 gap-5 mt-5 bg-white p-6 rounded-xl">
-            <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 bg-white lg:p-6 p-3 lg:rounded-xl rounded-lg">
+            <p className="sm:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E]">
               Upload Documents
             </p>
 
             <div>
               <div className="w-full">
-                <label className="text-[20px] text-[#000000CC] font-semibold">
+                <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                   Identity Verification{" "}
                   <span className="text-sm">
                     (upload any of the following documents)
@@ -288,7 +288,7 @@ export default function MerchantProfileForm({
 
             <div>
               <div className="w-full">
-                <label className="text-[20px] text-[#000000CC] font-semibold">
+                <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                   Tax Information{" "}
                   <span className="text-sm">(required for earning)</span>
                 </label>
@@ -317,15 +317,15 @@ export default function MerchantProfileForm({
         )}
 
         {!isAddUser && (
-          <div className="grid grid-cols-2 gap-5 mt-5 bg-white p-6 rounded-xl">
-            <p className="col-span-2 text-[24px] font-medium text-[#1E1E1E]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 bg-white lg:p-6 p-3 lg:rounded-xl rounded-lg">
+            <p className="sm:col-span-2 sm:text-[24px] text-xl font-medium text-[#1E1E1E] sm:flex-row flex-col gap-3 flex">
               Add Your Bank Account Details{" "}
               <span className="text-sm">
                 (To receive payments, you’ll need to link your bank account.)
               </span>
             </p>
-            <div className="col-span-2">
-              <label className="text-[20px] text-[#000000CC] font-semibold">
+            <div className="sm:col-span-2">
+              <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                 Bank Name
               </label>
               <input
@@ -335,7 +335,7 @@ export default function MerchantProfileForm({
             </div>
 
             <div>
-              <label className="text-[20px] text-[#000000CC] font-semibold">
+              <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                 Account Number
               </label>
               <input
@@ -345,7 +345,7 @@ export default function MerchantProfileForm({
             </div>
 
             <div>
-              <label className="text-[20px] text-[#000000CC] font-semibold">
+              <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                 Account Type
               </label>
               <input
@@ -355,7 +355,7 @@ export default function MerchantProfileForm({
             </div>
 
             <div>
-              <label className="text-[20px] text-[#000000CC] font-semibold">
+              <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                 Account Holder’s Name
               </label>
               <input
@@ -365,7 +365,7 @@ export default function MerchantProfileForm({
             </div>
 
             <div>
-              <label className="text-[20px] text-[#000000CC] font-semibold">
+              <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
                 Routing Number
               </label>
               <input
@@ -377,8 +377,8 @@ export default function MerchantProfileForm({
         )}
 
         {!isAddUser && (
-          <div className="bg-white rounded-xl border border-[#E5E7EB] p-6 mt-5">
-            <h2 className="text-[22px] font-semibold text-[#101828] mb-5">
+          <div className="bg-white lg:rounded-xl rounded-lg border border-[#E5E7EB] lg:p-6 p-3 mt-5">
+            <h2 className="sm:text-[24px] text-xl font-semibold text-[#101828] mb-5 flex flex-col sm:flex-row gap-3">
               Upload Business Documents{" "}
               <span className="text-sm text-[#475467]">
                 (If applying as a company or agency. For brands or agencies
@@ -399,13 +399,13 @@ export default function MerchantProfileForm({
             <div className="flex justify-end gap-4 !mt-10">
               <button
                 onClick={() => navigate("/users")}
-                className="px-8 h-[61px] rounded-lg border bg-white border-red-500 text-red-500"
+                className="sm:px-8 px-3 h-[61px] rounded-lg border bg-white border-red-500 text-red-500"
               >
                 Cancel
               </button>
               <button
                 onClick={() => navigate("/users")}
-                className="px-8 h-[61px] rounded-lg bg-[#0E1E38] text-white"
+                className="sm:px-8 px-3 h-[61px] rounded-lg bg-[#0E1E38] text-white"
               >
                 Save
               </button>
@@ -417,7 +417,7 @@ export default function MerchantProfileForm({
             <div className="flex justify-end gap-4 !mt-10">
               <button
                 onClick={() => setOpenIssue(true)}
-                className="px-8 h-[61px] rounded-lg border bg-white border-red-500 text-red-500"
+                className="sm:px-8 px-3 h-[61px] rounded-lg border bg-white border-red-500 text-red-500"
               >
                 Send Issue
               </button>
@@ -425,7 +425,7 @@ export default function MerchantProfileForm({
                 onClick={() => {
                   setConfirmType("REJECT");
                 }}
-                className="px-8 h-[61px] rounded-lg border border-red-500 bg-red-500 text-white"
+                className="sm:px-8 px-3 h-[61px] rounded-lg border border-red-500 bg-red-500 text-white"
               >
                 Reject
               </button>
@@ -433,7 +433,7 @@ export default function MerchantProfileForm({
                 onClick={() => {
                   setConfirmType("APPROVE");
                 }}
-                className="px-8 h-[61px] rounded-lg bg-green-500 text-white"
+                className="sm:px-8 px-3 h-[61px] rounded-lg bg-green-500 text-white"
               >
                 Approve
               </button>

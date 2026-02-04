@@ -23,7 +23,7 @@ export default function ExpansionTabs() {
 
   return (
     <div className="mb-5">
-      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)]">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-full">
         <div className="mb-5 flex items-center gap-2 bg-[#F3F4F6] rounded-full p-1 min-w-[992px]">
         {[
           { key: "city", label: "City Readiness", icon: MapPin },
@@ -48,7 +48,7 @@ export default function ExpansionTabs() {
       </div>
       </div>
 
-      <div className=" bg-white rounded-xl p-6">
+      <div className=" bg-white lg:rounded-xl lg:p-6 p-3 rounded-lg">
         {tab === "city" && (
           <div className="space-y-4">
             <h2 className="text-lg font-semibold">
@@ -286,7 +286,7 @@ export default function ExpansionTabs() {
               review="15%"
             />
 
-            <div className="rounded-xl bg-purple-50 p-4 text-sm flex flex-col gap-3">
+            <div className="lg:rounded-xl rounded-lg bg-purple-50 lg:p-4 p-2.5 text-sm flex flex-col gap-3">
               <p className="font-medium text-[#0A0A0A] text-[18px] flex items-center gap-2">
                 <ElectricIcon color="#9810FA" width={16} />
                 AI Governance Summary
@@ -374,10 +374,10 @@ function CityCard({
   const [mode, setMode] = useState("approve");
 
   return (
-    <div className={`rounded-xl border p-5 ${bg}`}>
+    <div className={`lg:rounded-xl rounded-lg border lg:p-5 p-2.5 ${bg}`}>
       <div className="flex justify-between mb-5 sm:flex-row flex-col gap-5">
         <div>
-          <div className="flex items-center gap-2 mb-1">
+          <div className="flex items-center gap-2 mb-1 flex-wrap">
             <MapPin className="w-4 h-4 text-[#155DFC]" />
             <p className="font-semibold">{name}</p>
 
@@ -410,8 +410,8 @@ function CityCard({
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 gap-4 mb-4">
-        <div className="rounded-lg bg-white p-4 border">
+      <div className="grid lg:grid-cols-5 sm:grid-cols-3 grid-cols-2 sm:gap-4 gap-2 mb-4">
+        <div className="rounded-lg bg-white sm:p-4 p-2.5 border">
           <p className="text-xs text-[#475467] mb-2">Permits</p>
           <ul className="space-y-1 text-sm">
             {["Food Service", "Business", "Health"].map((p) => (
@@ -525,13 +525,13 @@ function GateCard({ city, score, status, reason }) {
 
   return (
     <div
-      className={`rounded-xl border p-4 ${
+      className={`lg:rounded-xl rounded-lg border lg:p-4 p-2.5 ${
         isAllowed ? "bg-green-50 border-green-300" : "bg-red-50 border-red-300"
       }`}
     >
-      <div className="flex justify-between items-start mb-2">
+      <div className="flex sm:flex-row flex-col gap-3 justify-between items-start mb-2">
         <div className="space-y-2">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-xs font-medium border rounded px-2 py-0.5 bg-white">
               {gateMap[city]}
             </span>
@@ -556,7 +556,7 @@ function GateCard({ city, score, status, reason }) {
           <p className="text-sm text-gray-600">Policy Pack: AEPS-LAUNCH-001</p>
         </div>
 
-        <div className="text-right">
+        <div className="sm:text-right">
           <p
             className={`text-3xl font-bold ${
               isAllowed ? "text-green-600" : "text-red-600"
@@ -583,7 +583,7 @@ function MetricBlock({ title, data }) {
   const negative = data.d.startsWith("-");
 
   return (
-    <div className="rounded bg-gray-50 p-3">
+    <div className="rounded-lg bg-gray-50 lg:p-3 p-2">
       <p className="text-xs text-gray-500 mb-2">{title}</p>
       <p className="text-sm">
         Control: <span className="font-medium">{data.c}</span>
@@ -671,10 +671,10 @@ function ExperimentCard({
   }[title];
 
   return (
-    <div className="rounded-xl border p-4">
+    <div className="lg:rounded-xl rounded-lg border lg:p-4 p-2.5">
       <div className="flex justify-between mb-3">
         <div className="space-y-1">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap mb-5 lg:mb-0">
             <span className="text-xs border rounded px-2 py-0.5">
               {metaMap.id}
             </span>
@@ -693,7 +693,7 @@ function ExperimentCard({
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-3 text-sm mb-4">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 text-sm mb-4">
         <MetricBlock title="Cohort Retention" data={metaMap.retention} />
         <MetricBlock
           title="CAC (Customer Acquisition Cost)"
@@ -749,10 +749,10 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
   };
 
   return (
-    <div className={`rounded-xl border p-4 ${bg}`}>
-      <div className="flex justify-between items-start mb-4">
+    <div className={`lg:rounded-xl rounded-lg border lg:p-4 p-2.5 ${bg}`}>
+      <div className="flex justify-between items-start mb-4 sm:flex-row flex-col gap-3">
         <div className="space-y-1">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="text-sm">🔌</span>
 
             <p className="font-medium">{name}</p>
@@ -775,7 +775,7 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
           </div>
         </div>
 
-        <div className="text-right">
+        <div className="sm:text-right">
           <p
             className={`text-3xl font-bold ${
               level === "critical"
@@ -817,7 +817,7 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
         </div>
       </div>
 
-      <div className="rounded bg-blue-50 border border-blue-200 p-3 text-sm text-blue-700">
+      <div className="rounded-lg bg-blue-50 border border-blue-200 lg:p-3 p-2.5 text-sm text-blue-700">
         <span className="font-[900]">Mitigation Plan:</span> {plan}
       </div>
     </div>
@@ -827,7 +827,7 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
 function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
   if (disabled) {
     return (
-      <div className="rounded-xl border p-4 bg-gray-50 text-gray-600">
+      <div className="lg:rounded-xl rounded-lg border lg:p-4 p-2.5 bg-gray-50 text-gray-600">
         <div className="flex items-center gap-2 mb-2">
           <img
             src={brainicon}
@@ -850,7 +850,7 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
   }
 
   return (
-    <div className="rounded-xl border p-4">
+    <div className="lg:rounded-xl rounded-lg border lg:p-4 p-2.5">
       <div className="flex items-center gap-2 mb-4">
         <img src={brainicon} alt="" />
         <div>
@@ -861,13 +861,13 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-4 gap-3 text-sm mb-4">
-        <div className="rounded bg-gray-50 p-3 text-center">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm mb-4">
+        <div className="rounded-lg bg-gray-50 p-3 text-center">
           <p className="text-xs text-gray-500">Usage Hours</p>
           <p className="font-semibold">{hours.toLocaleString()}</p>
         </div>
 
-        <div className="rounded bg-green-50 p-3 text-center">
+        <div className="rounded-lg bg-green-50 p-3 text-center">
           <p className="text-xs text-gray-500">Cost Savings</p>
           <p className="font-semibold text-green-600">{savings}</p>
         </div>
@@ -883,7 +883,7 @@ function AICard({ name, hours, savings, tasks, accuracy, review, disabled }) {
         </div>
       </div>
 
-      <div className="rounded bg-orange-50 border border-orange-200 p-3 text-sm text-[#9F2D00]">
+      <div className="rounded-lg bg-orange-50 border border-orange-200 lg:p-3 p-2.5 text-sm text-[#9F2D00]">
         <span className="font-bold">Human Review Rate:</span> {review} of AI
         outputs are reviewed by humans (assistive only, not autonomous).
       </div>

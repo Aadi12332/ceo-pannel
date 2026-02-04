@@ -158,7 +158,7 @@ const closeModal = () => setActionType(null);
 
   return (
     <div className="w-full p-6 space-y-6 bg-white rounded-xl mb-5">
-      <h2 className="text-xl font-semibold">Approval Queue by Category</h2>
+      <h2 className="sm:text-xl text-sm font-semibold">Approval Queue by Category</h2>
 
       <div className="flex gap-2 bg-gray-100 p-1 rounded-full w-full">
         {TABS.map(t => (

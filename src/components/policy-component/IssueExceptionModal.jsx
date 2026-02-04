@@ -17,7 +17,7 @@ export default function IssueExceptionModal({ rollbackOpen, onClose }) {
 
       <div className="relative bg-white w-[560px] max-h-[95vh] overflow-y-auto rounded-2xl p-6">
         <div className="flex items-start justify-between mb-1">
-          <h2 className="text-xl font-semibold">Issue Exception Token</h2>
+          <h2 className="sm:text-xl text-sm font-semibold">Issue Exception Token</h2>
           <X className="cursor-pointer" onClick={onClose} />
         </div>
 

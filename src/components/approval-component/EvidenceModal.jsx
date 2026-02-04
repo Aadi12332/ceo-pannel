@@ -34,7 +34,7 @@ export default function EvidenceModal({ open, onClose }) {
           </div>
 
           <X
-            className="w-5 h-5 cursor-pointer"
+            className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer"
             onClick={onClose}
           />
         </div>

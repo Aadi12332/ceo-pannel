@@ -62,7 +62,7 @@ export default function StrategicAlertsSection() {
 
   return (
     <div className="space-y-5">
-      <div className="bg-white rounded-xl border border-[#0000001A] p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3">
         <h2 className="text-[20px] text-[#0A0A0A] mb-6">
           Strategic Alerts & Recommendations
         </h2>
@@ -71,7 +71,7 @@ export default function StrategicAlertsSection() {
           {strategicAlerts.map((item, idx) => (
             <div
               key={idx}
-              className="border border-[#E5E7EB] rounded-xl p-5"
+              className="border border-[#E5E7EB] lg:rounded-xl rounded-lg lg:p-5 p-2.5"
             >
               <div className="flex items-center gap-3 mb-2">
                 <h3 className="text-[16px] font-medium text-[#0A0A0A]">
@@ -98,7 +98,7 @@ export default function StrategicAlertsSection() {
                 Market: {item.market}
               </p>
 
-              <div className="bg-[#EFF6FF] text-[#1D4ED8] text-[14px] px-4 py-2 rounded">
+              <div className="bg-[#EFF6FF] text-[#1D4ED8] text-[14px] lg:px-4 px-2 py-2 rounded-lg">
                 <span className="font-medium">Recommended Action:</span>{" "}
                 {item.action}
               </div>
@@ -111,7 +111,7 @@ export default function StrategicAlertsSection() {
         {summaryCards.map((card, idx) => (
           <div
             key={idx}
-            className="bg-white rounded-xl border border-[#0000001A] p-6"
+            className="bg-white lg:rounded-xl rounded-lg border border-[#0000001A] lg:p-6 p-3"
           >
             <h3 className="text-[18px] text-[#0A0A0A] mb-4">
               {card.title}
