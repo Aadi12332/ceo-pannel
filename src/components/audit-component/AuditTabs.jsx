@@ -350,7 +350,8 @@ export default function AuditTabs() {
 
   return (
     <div className="w-full mb-5">
-      <div className="flex gap-3 bg-[#F4F6F8] rounded-full p-1 mb-5 w-full">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-auto">
+        <div className="flex gap-3 bg-[#F4F6F8] rounded-full p-1 mb-5 w-full min-w-[800px] lg:min-w-[600px]">
         {TABS.map((tab) => (
           <button
             key={tab.key}
@@ -363,10 +364,11 @@ export default function AuditTabs() {
           </button>
         ))}
       </div>
+      </div>
 
       {activeTab === "audit-search" && (
         <div className="space-y-5 mb-5">
-          <div className="bg-white rounded-2xl border p-6">
+          <div className="bg-white rounded-lg lg:rounded-2xl border p-3 lg:p-6">
             <h2 className="text-xl font-semibold mb-5">
               Advanced Audit Search
             </h2>
@@ -459,10 +461,11 @@ export default function AuditTabs() {
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl border p-6">
+          <div className="bg-white rounded-lg lg:rounded-2xl border p-3 lg:p-6">
             <h2 className="text-xl font-semibold mb-4">Search Results</h2>
 
-            <table className="w-full text-sm">
+            <div className="overflow-auto scroll-hide w-[calc(100vw-44px)] lg:w-auto">
+              <table className="w-full text-[14px] min-w-[800px] lg:min-w-[600px] text-sm">
               <thead className="border-b text-gray-600">
                 <tr>
                   <th className="py-3 text-left">Who</th>
@@ -501,13 +504,14 @@ export default function AuditTabs() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+              </table>
+            </div>
           </div>
         </div>
       )}
 
       {activeTab === "sensitive-reads" && (
-        <div className="space-y-5 rounded-xl bg-white p-6">
+        <div className="space-y-5 rounded-lg lg:rounded-xl bg-white lg:p-6 p-3">
           <div className="flex justify-between items-center">
             <h2 className="sm:text-xl text-sm font-semibold">Sensitive Reads Report</h2>
             <span className="px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-xs">
@@ -519,7 +523,7 @@ export default function AuditTabs() {
             {sensitiveReads.map((item) => (
               <div
                 key={item.id}
-                className={`rounded-xl p-5 space-y-4 ${item.container}`}
+                className={`rounded-lg lg:rounded-xl p-2.5 lg:p-5 space-y-4 ${item.container}`}
               >
                 <div className="flex items-center gap-3">
                   <EyeIcon color="#F54900" width={20} />
@@ -560,7 +564,7 @@ export default function AuditTabs() {
             ))}
           </div>
 
-          <div className="bg-[#EFF6FF] rounded-xl p-5 text-sm text-gray-700">
+          <div className="bg-[#EFF6FF] rounded-lg lg:rounded-xl lg:p-5 p-2.5 text-sm text-gray-700">
             <h3 className="font-semibold text-[#0A0A0A] text-[18px] mb-2">
               Enhanced Audit Requirements
             </h3>
@@ -584,8 +588,8 @@ export default function AuditTabs() {
       )}
 
       {activeTab === "audit-cases" && (
-        <div className="space-y-5 rounded-xl bg-white p-6">
-          <div className="flex justify-between items-center">
+        <div className="space-y-5 rounded-lg lg:rounded-xl bg-white lg:p-6 p-3">
+          <div className="flex justify-between items-center gap-3 flex-wrap">
             <h2 className="sm:text-xl text-sm font-semibold">Open Audit Cases</h2>
             <div className="flex gap-2 text-xs">
               <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700">
@@ -603,11 +607,11 @@ export default function AuditTabs() {
           {cases.map((item) => (
             <div
               key={item.id}
-              className={`border rounded-xl p-6 space-y-4 ${
+              className={`border rounded-lg lg:rounded-xl lg:p-6 p-2.5 space-y-4 ${
                 item.container || "bg-white"
               }`}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 flex-wrap">
                 <img src={folderIcon} alt="" />
                 <span className="text-sm text-[#0A0A0A] px-2 py-1 bg-[#F3F4F6] rounded-lg">
                   {item.id}
@@ -698,10 +702,10 @@ export default function AuditTabs() {
       )}
 
       {activeTab === "compliance" && (
-        <div className="space-y-5 rounded-xl bg-white p-6">
-          <div className="flex justify-between items-center">
+        <div className="space-y-5 rounded-lg lg:rounded-xl bg-white lg:p-6 p-3">
+          <div className="flex justify-between items-center gap-3 flex-wrap">
             <h2 className="sm:text-xl text-sm font-semibold">Compliance Checklist</h2>
-            <div className="flex gap-2 text-xs">
+            <div className="flex gap-2 text-xs flex-wrap">
               <span className="px-3 py-1 rounded-full bg-green-100 text-green-700">
                 5 Compliant
               </span>
@@ -724,9 +728,9 @@ export default function AuditTabs() {
               {group.items.map((item, i) => (
                 <div
                   key={i}
-                  className={`rounded-xl p-5 space-y-3 ${item.container}`}
+                  className={`lg:rounded-xl rounded-lg lg:p-5 p-2.5 space-y-3 ${item.container}`}
                 >
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <h3 className="font-medium">{item.title}</h3>
                     <span
                       className={`text-xs px-2 py-0.5 rounded-full ${item.statusColor}`}

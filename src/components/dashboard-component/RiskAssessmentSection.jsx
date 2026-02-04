@@ -29,7 +29,7 @@ const RiskAssessmentSection = () => {
     <div className="space-y-5 mb-5">
       <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5">
         {riskCards.map((r, i) => (
-          <div key={i} className="bg-white rounded-lg lg:rounded-[14px] p-5">
+          <div key={i} className="bg-white rounded-lg lg:rounded-[14px] lg:p-5 p-3">
             <div className="flex items-center gap-2 mb-4">
               <img src={r.icon} className="w-5 h-5" />
               <span className="font-medium">{r.title}</span>
@@ -52,7 +52,7 @@ const RiskAssessmentSection = () => {
       </div>
 
       <div className="grid xl:grid-cols-3 grid-cols-1 gap-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
           <div className="flex justify-between items-center mb-5">
             <div className="flex items-center gap-2">
               <img src={alertIcon} className="w-5 h-5" />
@@ -61,7 +61,7 @@ const RiskAssessmentSection = () => {
             <span className="px-3 py-1 text-[12px] bg-red-500 text-white rounded-full">2 Open</span>
           </div>
 
-          <div className="bg-[#F2F4F7] rounded-lg p-4 grid grid-cols-2 gap-4 mb-5">
+          <div className="bg-[#F2F4F7] rounded-lg sm:p-4 p-2.5 grid grid-cols-2 gap-4 mb-5">
             <div>
               <div className="text-[#667085] text-[13px]">Total Open</div>
               <div className="flex items-center gap-2 mt-1">
@@ -77,17 +77,17 @@ const RiskAssessmentSection = () => {
           </div>
 
           <div className="space-y-4">
-            <div className="border rounded-lg p-4 flex items-center gap-3">
+            <div className="border rounded-lg lg:p-4 p-2.5 flex items-center gap-3">
               <span className="px-2 py-0.5 text-[12px] bg-red-500 text-white rounded-full">Sev1</span>
               <span className="flex-1">0 incidents</span>
               <span className="text-[#667085] text-[13px]">N/A</span>
             </div>
-            <div className="border rounded-lg p-4 flex items-center gap-3">
+            <div className="border rounded-lg lg:p-4 p-2.5 flex items-center gap-3">
               <span className="px-2 py-0.5 text-[12px] bg-orange-500 text-white rounded-full">Sev2</span>
               <span className="flex-1">1 incidents</span>
               <span className="text-[#667085] text-[13px]">2h 15m</span>
             </div>
-            <div className="border rounded-lg p-4 flex items-center gap-3">
+            <div className="border rounded-lg lg:p-4 p-2.5 flex items-center gap-3">
               <span className="px-2 py-0.5 text-[12px] bg-yellow-500 text-white rounded-full">Sev3</span>
               <span className="flex-1">1 incidents</span>
               <span className="text-[#667085] text-[13px]">45m</span>
@@ -99,7 +99,7 @@ const RiskAssessmentSection = () => {
           </button>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
           <div className="flex justify-between items-center mb-5">
             <div className="flex items-center gap-2">
               <img src={approveIcon} className="w-5 h-5" />
@@ -108,7 +108,7 @@ const RiskAssessmentSection = () => {
             <span className="px-3 py-1 text-[12px] bg-red-500 text-white rounded-full">28 Pending</span>
           </div>
 
-          <div className="bg-[#F2F4F7] rounded-lg p-4 grid grid-cols-2 gap-4 mb-5">
+          <div className="bg-[#F2F4F7] rounded-lg sm:p-4 p-2.5 grid grid-cols-2 gap-4 mb-5">
             <div>
               <div className="text-[#667085] text-[13px]">Total Pending</div>
               <div className="font-medium mt-1">28</div>
@@ -121,7 +121,7 @@ const RiskAssessmentSection = () => {
 
           <div className="space-y-4">
             {approvals.map((a, i) => (
-              <div key={i} className="border rounded-lg p-4 flex justify-between items-center">
+              <div key={i} className="border rounded-lg lg:p-4 p-2.5 flex justify-between items-center">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className={`px-2 py-0.5 text-[11px] text-white rounded-full ${a.color}`}>
@@ -142,7 +142,7 @@ const RiskAssessmentSection = () => {
         </div>
 
         <div className="space-y-5">
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="flex items-center gap-2 mb-5">
               <img src={dollarIcon} className="w-5 h-5" />
               <h3 className="text-[18px] font-medium">Financial Snapshot</h3>
@@ -178,7 +178,7 @@ const RiskAssessmentSection = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="flex items-center gap-2 mb-5">
               <img src={dollarIcon} className="w-5 h-5" />
               <h3 className="text-[18px] font-medium">Global Spend vs Budget</h3>

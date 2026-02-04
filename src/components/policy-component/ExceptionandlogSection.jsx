@@ -69,15 +69,15 @@ const StatusIcon = ({ status }) => {
 const ExceptionAndLogsSection = () => {
   return (
     <div className="space-y-5 mb-5">
-      <div className="bg-white rounded-2xl p-6">
+      <div className="bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3">
         <h3 className="text-[18px] font-medium mb-4">
           Active Exception Tokens
         </h3>
 
         <div className="space-y-4">
           {exceptionTokens.map((data) => (
-            <div className="bg-[#FFFCED] border border-[#FDE68A] rounded-2xl p-6 relative">
-              <div className="flex items-center justify-between mb-5">
+            <div className="bg-[#FFFCED] border border-[#FDE68A] lg:rounded-2xl rounded-lg lg:p-6 p-3 relative">
+              <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
                 <div className="flex items-center gap-3">
                   <img src={exceptionIcon} alt="" />
                   <span className="px-3 py-1 text-[14px] font-medium rounded-lg bg-[#FEF3C7] text-[#0A0A0A]">
@@ -89,7 +89,7 @@ const ExceptionAndLogsSection = () => {
                   </span>
                 </div>
 
-                <button className="flex items-center gap-2 bg-[#C7363F] text-white px-4 py-2 rounded-xl text-[14px]">
+                <button className="flex items-center gap-2 bg-[#C7363F] text-white lg:px-4 px-2.5 py-2 rounded-xl text-[14px]">
                   <ErrorIcon color="#fff" width={16} /> Revoke
                 </button>
               </div>
@@ -128,7 +128,7 @@ const ExceptionAndLogsSection = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl p-6">
+      <div className="bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3">
         <h3 className="text-[18px] font-medium mb-4">
           Recent Enforcement Logs
         </h3>
@@ -137,7 +137,7 @@ const ExceptionAndLogsSection = () => {
           {enforcementLogs.map((log, i) => (
             <div
               key={i}
-              className="flex justify-between items-center bg-[#F9FAFB] rounded-lg px-4 py-3"
+              className="flex justify-between sm:items-center bg-[#F9FAFB] rounded-lg lg:px-4 px-2.5 py-3 sm:flex-row flex-col gap-3"
             >
               <div className="flex items-center gap-3">
                 <StatusIcon status={log.status} />
@@ -152,7 +152,7 @@ const ExceptionAndLogsSection = () => {
                 </div>
               </div>
 
-              <div className="text-[13px] text-[#667085]">{log.time}</div>
+              <div className="text-[13px] text-[#667085] pl-[33px] sm:pl-0">{log.time}</div>
             </div>
           ))}
         </div>

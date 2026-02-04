@@ -189,7 +189,7 @@ const cities = [
 
 const ExecutiveDashboardSection = ({ id }) => {
   const Card = ({ title, children, className = "" }) => (
-    <div className={`bg-white rounded-lg lg:rounded-[14px] p-5 ${className}`}>
+    <div className={`bg-white rounded-lg lg:rounded-[14px] lg:p-5 p-3 ${className}`}>
       <h3 className="text-[18px] font-semibold mb-4">{title}</h3>
       {children}
     </div>
@@ -283,8 +283,8 @@ const ExecutiveDashboardSection = ({ id }) => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
-        <div className="flex justify-between items-center mb-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
+        <div className="flex justify-between items-center mb-6 gap-3 flex-wrap">
           <div className="flex items-center gap-2">
             <LocationIcon color="#155DFC" />
             <h3 className="text-[18px] font-medium">City Readiness Heatmap</h3>
@@ -306,7 +306,7 @@ const ExecutiveDashboardSection = ({ id }) => {
           {cities.map((c, i) => (
             <div
               key={i}
-              className={`rounded-lg lg:rounded-[14px] border p-4 ${c.border} ${c.statusColor.replace("text", "bg").replace("700", "50")}`}
+              className={`rounded-lg lg:rounded-[14px] border lg:p-4 p-2.5 ${c.border} ${c.statusColor.replace("text", "bg").replace("700", "50")}`}
             >
               <div className="flex justify-between mb-3">
                 <div className="flex items-center gap-2">

@@ -14,13 +14,7 @@ import { ErrorIcon } from "../../assets/icons/icons";
 import CreatePolicyModal from "./CreatePolicyModal";
 import PolicyImpactModal from "./PolicyImpactModal";
 import IssueExceptionModal from "./IssueExceptionModal";
-import {
-  SquarePen,
-  Play,
-  RotateCcw,
-  Ticket,
-  Upload
-} from "lucide-react"
+import { SquarePen, Play, RotateCcw, Ticket, Upload } from "lucide-react";
 
 const actionIcons = {
   Edit: SquarePen,
@@ -28,7 +22,7 @@ const actionIcons = {
   Rollback: RotateCcw,
   "Issue Exception": Ticket,
   Publish: Upload,
-}
+};
 
 const TABS = [
   { key: "policies", label: "Policies", icon: policiesIcon },
@@ -166,23 +160,23 @@ const PolicyTabsPage = () => {
   return (
     <div className="mb-5 space-y-6">
       <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-full">
-        <div className="bg-[#ECECF0] rounded-full p-1 flex gap-1 w-full min-w-[992px]">
-        {TABS.map((tab) => (
-          <button
-            key={tab.key}
-            onClick={() => setActive(tab.key)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-[14px] flex-1 justify-center transition
+        <div className="bg-[#ECECF0] rounded-full p-1 flex gap-1 w-full min-w-[1092px]">
+          {TABS.map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActive(tab.key)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-[14px] flex-1 justify-center transition
               ${
                 active === tab.key
                   ? "bg-white text-[#101828]"
                   : "text-[#475467]"
               }`}
-          >
-            <img src={tab.icon} className="w-4 h-4" />
-            {tab.label}
-          </button>
-        ))}
-      </div>
+            >
+              <img src={tab.icon} className="w-4 h-4" />
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {active === "policies" && (
@@ -216,9 +210,9 @@ const PolicyTabsPage = () => {
           {policies.map((p) => (
             <div
               key={p.code}
-              className="bg-white border rounded-xl p-5 space-y-4"
+              className="bg-white border rounded-xl lg:p-5 p-2.5 space-y-4"
             >
-              <div className="flex justify-between">
+              <div className="flex justify-between sm:flex-row flex-col gap-3">
                 <div>
                   <div className="flex gap-2 items-center">
                     <h3 className="font-semibold">{p.title}</h3>
@@ -245,7 +239,7 @@ const PolicyTabsPage = () => {
                   </p>
                 </div>
 
-                <div className="text-right">
+                <div className="sm:text-right">
                   <p className="text-blue-600 text-[20px] font-semibold">
                     {p.enforcements}
                   </p>
@@ -276,19 +270,19 @@ const PolicyTabsPage = () => {
                 {p.actions.map((action) => {
                   const Icon = actionIcons[action];
                   return (
-                  <button
-                    key={action}
-                    onClick={actionHandlers[action]}
-                    className={`px-3 py-1.5 text-sm border rounded-md flex items-center gap-2 ${
-                      action === "Publish"
-                        ? "bg-gray-900 text-white"
-                        : "bg-white"
-                    }`}
-                  >
-                    {Icon && <Icon className="w-4 h-4" />}
-                    {action}
-                  </button>
-                )
+                    <button
+                      key={action}
+                      onClick={actionHandlers[action]}
+                      className={`px-3 py-1.5 text-sm border rounded-md flex items-center gap-2 ${
+                        action === "Publish"
+                          ? "bg-gray-900 text-white"
+                          : "bg-white"
+                      }`}
+                    >
+                      {Icon && <Icon className="w-4 h-4" />}
+                      {action}
+                    </button>
+                  );
                 })}
               </div>
             </div>
@@ -297,7 +291,7 @@ const PolicyTabsPage = () => {
       )}
 
       {active === "builder" && (
-        <div className="bg-white rounded-xl p-6 space-y-5 mb-5">
+        <div className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 space-y-5 mb-5">
           <h2 className="text-[20px] font-semibold">
             Policy Builder – Create Rules, Not Paragraphs
           </h2>
@@ -339,7 +333,7 @@ const PolicyTabsPage = () => {
             </div>
           </div>
 
-          <div className="border rounded-xl p-5 bg-[#FAF5FF] border-purple-200">
+          <div className="border rounded-lg lg:rounded-xl lg:p-5 p-2.5 bg-[#FAF5FF] border-purple-200">
             <h4 className="font-medium mb-3 flex items-center gap-2">
               <span className="w-3 h-3 rounded-full border-4 border-purple-500" />
               Policy Scope
@@ -366,10 +360,10 @@ const PolicyTabsPage = () => {
             </div>
           </div>
 
-          <div className="border rounded-xl p-5 border-blue-200 bg-[#F8FAFF]">
+          <div className="border rounded-lg lg:rounded-xl lg:p-5 p-2.5 border-blue-200 bg-[#F8FAFF]">
             <h4 className="font-medium mb-4">Policy Conditions (IF)</h4>
 
-            <div className="flex gap-3 items-center mb-3">
+            <div className="flex gap-3 items-center mb-3 flex-wrap">
               <span className="text-blue-600 font-medium min-w-[120px]">
                 IF
               </span>
@@ -406,7 +400,7 @@ const PolicyTabsPage = () => {
             </button>
           </div>
 
-          <div className="border rounded-xl p-5 bg-[#FFF7ED] border-orange-200">
+          <div className="border rounded-lg lg:rounded-xl lg:p-5 p-2.5 bg-[#FFF7ED] border-orange-200">
             <h4 className="font-medium mb-2">Policy Outcome (THEN)</h4>
 
             <label className="text-[14px] font-medium block mb-1">Action</label>
@@ -434,7 +428,7 @@ const PolicyTabsPage = () => {
 
           <div>
             <h4 className="font-medium mb-2">Policy Preview</h4>
-            <div className="bg-[#0B1220] text-white rounded-xl p-4 font-mono text-[14px]">
+            <div className="bg-[#0B1220] text-white rounded-lg lg:rounded-xl p-4 font-mono text-[14px]">
               <span className="text-blue-400">IF</span>{" "}
               <span className="text-purple-400">[field]</span>{" "}
               <span className="text-yellow-400">==</span>{" "}
@@ -462,7 +456,7 @@ const PolicyTabsPage = () => {
       )}
 
       {active === "simulator" && (
-        <div className="bg-white rounded-xl p-6 space-y-4">
+        <div className="bg-white rounded-lg lg:rounded-xl p-3 lg:p-6 space-y-4">
           <h2 className="text-[20px] font-semibold">
             Policy Simulation – Test Before You Deploy
           </h2>
@@ -487,12 +481,12 @@ const PolicyTabsPage = () => {
 
       {active === "workflow" && (
         <>
-          <div className="bg-white rounded-xl p-6 space-y-5 mb-5">
+          <div className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 space-y-5 mb-5">
             <h2 className="text-[20px] font-semibold">
               Publishing Workflow – Draft → Review → Approved → Active
             </h2>
 
-            <div className="flex items-center justify-between bg-[#F9FAFB] rounded-xl px-6 py-5">
+            <div className="flex items-center justify-between bg-[#F9FAFB] rounded-lg lg:rounded-xl px-3 lg:px-6 py-5">
               {workflowSteps.map((step, index) => (
                 <div>
                   <div key={step.label} className="flex items-center gap-4">
@@ -514,7 +508,7 @@ const PolicyTabsPage = () => {
             </div>
 
             <div className="space-y-5">
-              <div className="border rounded-xl p-6 space-y-4">
+              <div className="border rounded-lg lg:rounded-xl lg:p-6 p-3 space-y-4">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium">Draft Policies</h3>
                   <span className="px-3 py-1 text-sm rounded-full bg-gray-100">
@@ -522,10 +516,10 @@ const PolicyTabsPage = () => {
                   </span>
                 </div>
 
-                <div className="border rounded-lg p-4 flex justify-between items-center">
+                <div className="border rounded-lg lg:p-4 p-2.5 flex justify-between sm:items-center sm:flex-row flex-col gap-3">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="px-2 py-1 text-sm rounded bg-gray-100">
+                    <div className="flex sm:items-center gap-3 sm:flex-row flex-col">
+                      <span className="px-2 py-1 text-sm rounded bg-gray-100 inline-block w-fit">
                         AEPS-APPROVAL-001
                       </span>
                       <span className="font-medium">
@@ -537,13 +531,13 @@ const PolicyTabsPage = () => {
                     </p>
                   </div>
 
-                  <button className="px-4 py-2 bg-[#101828] text-white rounded-lg text-sm flex items-center gap-2">
+                  <button className="px-4 py-2 bg-[#101828] text-white rounded-lg text-sm flex items-center gap-2 w-fit">
                     ➤ Submit for Review
                   </button>
                 </div>
               </div>
 
-              <div className="border rounded-xl p-6 space-y-4">
+              <div className="border rounded-lg lg:rounded-xl lg:p-6 p-3 space-y-4">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium">Review Policies</h3>
                   <span className="px-3 py-1 text-sm rounded-full bg-yellow-100 text-yellow-800">
@@ -551,10 +545,10 @@ const PolicyTabsPage = () => {
                   </span>
                 </div>
 
-                <div className="border rounded-lg p-4 flex justify-between items-center">
+                <div className="border rounded-lg lg:p-4 p-2.5 flex justify-between sm:items-center sm:flex-row flex-col gap-3">
                   <div>
-                    <div className="flex items-center gap-3">
-                      <span className="px-2 py-1 text-sm rounded bg-gray-100">
+                    <div className="flex sm:items-center gap-3 sm:flex-row flex-col">
+                      <span className="px-2 py-1 text-sm rounded bg-gray-100 inline-block w-fit">
                         AEPS-NYC-001
                       </span>
                       <span className="font-medium">NYC City Launch Gate</span>
@@ -575,7 +569,7 @@ const PolicyTabsPage = () => {
                 </div>
               </div>
 
-              <div className="border rounded-xl p-6 space-y-4">
+              <div className="border rounded-lg lg:rounded-xl lg:p-6 p-3 space-y-4">
                 <div className="flex justify-between items-center">
                   <h3 className="text-lg font-medium">Active Policies</h3>
                   <span className="px-3 py-1 text-sm rounded-full bg-green-100 text-green-700">
@@ -607,11 +601,11 @@ const PolicyTabsPage = () => {
                 ].map((p) => (
                   <div
                     key={p.code}
-                    className="border rounded-lg p-4 flex justify-between items-center"
+                    className="border rounded-lg lg:p-4 p-2.5 flex justify-between sm:items-center sm:flex-row flex-col gap-3"
                   >
                     <div>
-                      <div className="flex items-center gap-3">
-                        <span className="px-2 py-1 text-sm rounded bg-gray-100">
+                      <div className="flex sm:items-center gap-3 sm:flex-row flex-col">
+                        <span className="px-2 py-1 text-sm rounded bg-gray-100 inline-block w-fit">
                           {p.code}
                         </span>
                         <span className="font-medium">{p.title}</span>
@@ -621,7 +615,7 @@ const PolicyTabsPage = () => {
                       </p>
                     </div>
 
-                    <button className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm flex items-center gap-2">
+                    <button className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm flex items-center gap-2 w-fit">
                       <ErrorIcon color="#fff" width={16} /> Archive
                     </button>
                   </div>
@@ -629,7 +623,7 @@ const PolicyTabsPage = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl p-6 mb-5">
+          <div className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 mb-5">
             <h2 className="text-[18px] font-semibold mb-4">
               Policy Rollback – One-Click Revert to Previous Version
             </h2>
@@ -651,56 +645,58 @@ const PolicyTabsPage = () => {
       )}
 
       {active === "audit" && (
-        <div className="bg-white rounded-xl p-6">
+        <div className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3">
           <h2 className="text-[20px] font-semibold mb-6">Policy Audit Trail</h2>
 
-          <table className="w-full text-[14px]">
-            <thead className="text-left text-[#667085]">
-              <tr>
-                <th className="p-2">Who</th>
-                <th className="p-2">What</th>
-                <th className="p-2">Why</th>
-                <th className="p-2">When</th>
-                <th className="p-2">Result</th>
-                <th className="p-2">Risk</th>
-              </tr>
-            </thead>
+          <div className="overflow-auto scroll-hide w-[calc(100vw-44px)] lg:w-auto">
+            <table className="w-full text-[14px] min-w-[800px] lg:min-w-[600px]">
+              <thead className="text-left text-[#667085]">
+                <tr>
+                  <th className="p-2">Who</th>
+                  <th className="p-2">What</th>
+                  <th className="p-2">Why</th>
+                  <th className="p-2">When</th>
+                  <th className="p-2">Result</th>
+                  <th className="p-2">Risk</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {auditTrailData.map((item, index) => (
-                <tr key={index} className="border-t">
-                  <td className="p-2">{item.who}</td>
-                  <td className="p-2">{item.what}</td>
-                  <td className="p-2">{item.why}</td>
-                  <td className="p-2">{item.when}</td>
+              <tbody>
+                {auditTrailData.map((item, index) => (
+                  <tr key={index} className="border-t">
+                    <td className="p-2">{item.who}</td>
+                    <td className="p-2">{item.what}</td>
+                    <td className="p-2">{item.why}</td>
+                    <td className="p-2">{item.when}</td>
 
-                  <td className="p-2">
-                    <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
-                      {item.result}
-                    </span>
-                  </td>
+                    <td className="p-2">
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-700">
+                        {item.result}
+                      </span>
+                    </td>
 
-                  <td className="p-2">
-                    <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium
+                    <td className="p-2">
+                      <span
+                        className={`px-2 py-1 rounded-full text-xs font-medium
                 ${
                   item.risk === "high"
                     ? "bg-orange-100 text-orange-600"
                     : "bg-yellow-100 text-yellow-600"
                 }
               `}
-                    >
-                      {item.risk}
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+                      >
+                        {item.risk}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
-      {policyOpen && 
+      {policyOpen && (
         <CreatePolicyModal
           title="Edit New Policy Rule"
           subtitle="Edit policy conditions and create a new version"
@@ -708,14 +704,14 @@ const PolicyTabsPage = () => {
           policyOpen={policyOpen}
           onClose={() => setPolicyOpen(false)}
         />
-      }
+      )}
 
-      {policyImpactOpen && 
+      {policyImpactOpen && (
         <PolicyImpactModal
           policyImpactOpen={policyImpactOpen}
           onClose={() => setPolicyImpactOpen(false)}
         />
-      }
+      )}
 
       {rollbackOpen && (
         <IssueExceptionModal
@@ -723,7 +719,6 @@ const PolicyTabsPage = () => {
           onClose={() => setRollbackOpen(false)}
         />
       )}
-
     </div>
   );
 };

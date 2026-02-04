@@ -77,7 +77,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               </div>
               <p
                 title="CEO Governance & Control Tower"
-                className="text-[24px] font-semibold text-white mt-1 px-6 line-clamp-1"
+                className="sm:text-[24px] text-[20px] font-semibold text-white mt-1 px-6 line-clamp-1"
               >
                 CEO Governance & Control Tower
               </p>

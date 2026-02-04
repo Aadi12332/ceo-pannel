@@ -5,7 +5,7 @@ import { ChevronLeft, Trash2 } from "lucide-react";
 import Select from "../common/Select";
 
 export default function SendMassEmail() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [sendTo, setSendTo] = useState("all");
   const [group, setGroup] = useState("Restaurants");
   const [individual, setIndividual] = useState("");
@@ -45,7 +45,10 @@ export default function SendMassEmail() {
   return (
     <MainLayout>
       <div className="mb-5">
-        <div className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer" onClick={()=>navigate("/dashboard")}>
+        <div
+          className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer"
+          onClick={() => navigate("/dashboard")}
+        >
           <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
           <h1 className="sm:text-xl text-sm font-semibold">
             <span className="text-gray-500">My Dashboard</span> &gt; Send Mass
@@ -60,8 +63,10 @@ export default function SendMassEmail() {
 
         <div className="bg-white lg:rounded-xl rounded-lg border lg:p-4 p-2.5">
           <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-2">
-              <label className="block text-[20px] text-[#232323] font-medium mb-2">Send To</label>
+            <div className="lg:col-span-2 sm:col-span-4 col-span-12">
+              <label className="block text-[20px] text-[#232323] font-medium mb-2">
+                Send To
+              </label>
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => setSendTo("all")}
@@ -83,7 +88,7 @@ export default function SendMassEmail() {
               </div>
             </div>
 
-            <div className="col-span-3">
+            <div className="lg:col-span-3 sm:col-span-4 col-span-6">
               <label className="block text-[20px] text-[#232323] font-medium mb-2">
                 To Whom Would You Send
               </label>
@@ -106,7 +111,7 @@ export default function SendMassEmail() {
               />
             </div>
 
-            <div className="col-span-3">
+            <div className="lg:col-span-3 sm:col-span-4 col-span-6">
               <label className="block text-[20px] text-[#232323] font-medium mb-2">
                 Select The Individual
               </label>
@@ -131,7 +136,7 @@ export default function SendMassEmail() {
               </div>
             </div>
 
-            <div className="col-span-4">
+            <div className="lg:col-span-4 sm:col-span-6 col-span-12">
               <label className="block text-[20px] text-[#232323] font-medium mb-2">
                 Notification Title
               </label>
@@ -143,7 +148,7 @@ export default function SendMassEmail() {
               />
             </div>
 
-            <div className="col-span-4 col-start-9">
+            <div className="lg:col-span-4 sm:col-span-6 col-span-12 lg:col-start-9">
               <label className="block text-[20px] text-[#232323] font-medium mb-2">
                 Notification Content
               </label>
@@ -169,43 +174,53 @@ export default function SendMassEmail() {
           </div>
         </div>
       </div>
-      <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-        <div className="grid grid-cols-12 bg-[#0E1E38] text-white text-sm font-medium rounded-t-xl">
-          <div className="col-span-3 px-4 py-3 font-bold">NOTIFICATION TITLE</div>
-          <div className="col-span-4 px-4 py-3 font-bold">NOTIFICATION CONTENT</div>
-          <div className="col-span-2 px-4 py-3 font-bold">NOTIFICATION STATUS</div>
-          <div className="col-span-2 px-4 py-3 font-bold">DATE</div>
-          <div className="col-span-1 px-4 py-3 font-bold">ACTION</div>
-        </div>
-
-        <div className="min-h-[150px]">
-          {history.map((row, index) => (
-            <div
-              key={row.id}
-              className={`grid grid-cols-12 text-sm items-center border-b border-[#E5E7EB] ${
-                index !== history.length - 1 ? "" : ""
-              }`}
-            >
-              <div className="col-span-3 border-r px-4 py-3">{row.title}</div>
-
-              <div className="col-span-4 border-r px-4 py-3 text-gray-500 truncate">
-                {row.content}
-              </div>
-
-              <div className="col-span-2 border-r px-4 py-3">{row.status}</div>
-
-              <div className="col-span-2 border-r px-4 py-3">{row.date}</div>
-
-              <div className="col-span-1 px-4 py-3 flex justify-start">
-                <Trash2
-                  className="w-5 h-5 text-red-500 cursor-pointer"
-                  onClick={() =>
-                    setHistory((prev) => prev.filter((x) => x.id !== row.id))
-                  }
-                />
-              </div>
+      <div className="bg-white rounded-xl overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-full shadow-sm">
+        <div className="lg:min-w-[650px] min-w-[900px]">
+          <div className="grid grid-cols-12 bg-[#0E1E38] text-white text-sm font-medium rounded-t-xl">
+            <div className="col-span-3 px-4 py-3 font-bold">
+              NOTIFICATION TITLE
             </div>
-          ))}
+            <div className="col-span-4 px-4 py-3 font-bold">
+              NOTIFICATION CONTENT
+            </div>
+            <div className="col-span-2 px-4 py-3 font-bold">
+              NOTIFICATION STATUS
+            </div>
+            <div className="col-span-2 px-4 py-3 font-bold">DATE</div>
+            <div className="col-span-1 px-4 py-3 font-bold">ACTION</div>
+          </div>
+
+          <div className="min-h-[150px]">
+            {history.map((row, index) => (
+              <div
+                key={row.id}
+                className={`grid grid-cols-12 text-sm items-center border-b border-[#E5E7EB] ${
+                  index !== history.length - 1 ? "" : ""
+                }`}
+              >
+                <div className="col-span-3 border-r px-4 py-3">{row.title}</div>
+
+                <div className="col-span-4 border-r px-4 py-3 text-gray-500 truncate">
+                  {row.content}
+                </div>
+
+                <div className="col-span-2 border-r px-4 py-3">
+                  {row.status}
+                </div>
+
+                <div className="col-span-2 border-r px-4 py-3">{row.date}</div>
+
+                <div className="col-span-1 px-4 py-3 flex justify-start">
+                  <Trash2
+                    className="w-5 h-5 text-red-500 cursor-pointer"
+                    onClick={() =>
+                      setHistory((prev) => prev.filter((x) => x.id !== row.id))
+                    }
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="p-4">

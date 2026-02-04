@@ -1,7 +1,7 @@
-"use client"
-import React, { useMemo, useState } from "react"
-import EvidenceModal from "./EvidenceModal"
-import ApprovalActionModal from "./ApprovalActionModal"
+"use client";
+import React, { useMemo, useState } from "react";
+import EvidenceModal from "./EvidenceModal";
+import ApprovalActionModal from "./ApprovalActionModal";
 
 const TABS = [
   { key: "All", label: "All (8)" },
@@ -10,8 +10,8 @@ const TABS = [
   { key: "Automation", label: "Automation (1)" },
   { key: "Tech", label: "Tech (2)" },
   { key: "Legal", label: "Legal (1)" },
-  { key: "Expansion", label: "Expansion (1)" }
-]
+  { key: "Expansion", label: "Expansion (1)" },
+];
 
 const DATA = [
   {
@@ -29,7 +29,7 @@ const DATA = [
     exposure: "$8,500",
     risk: 72,
     requested: "Dec 22, 02:00 PM",
-    simulation: "Fraud probability: 12% (Low risk)"
+    simulation: "Fraud probability: 12% (Low risk)",
   },
   {
     id: 2,
@@ -44,7 +44,7 @@ const DATA = [
     actionCode: "rbac.role.assign_admin",
     policy: "POL-SEC-007 v1.8",
     risk: 85,
-    requested: "Dec 22, 11:30 AM"
+    requested: "Dec 22, 11:30 AM",
   },
   {
     id: 3,
@@ -52,8 +52,7 @@ const DATA = [
     title: "Automation Budget Increase",
     priority: "high",
     priorityColor: "bg-orange-100 text-orange-700",
-    description:
-      "Increase marketing automation budget from $50K to $75K/month",
+    description: "Increase marketing automation budget from $50K to $75K/month",
     requester: "Lisa Anderson (CMO)",
     department: "Marketing",
     actionCode: "automation.budget.increase",
@@ -61,7 +60,7 @@ const DATA = [
     exposure: "$25,000",
     risk: 68,
     requested: "Dec 21, 07:30 PM",
-    simulation: "Projected ROI: 240% over 6 months"
+    simulation: "Projected ROI: 240% over 6 months",
   },
   {
     id: 4,
@@ -76,7 +75,7 @@ const DATA = [
     policy: "POL-TECH-005 v3.2",
     risk: 91,
     requested: "Dec 22, 02:30 PM",
-    simulation: "Estimated downtime: 15 minutes"
+    simulation: "Estimated downtime: 15 minutes",
   },
   {
     id: 5,
@@ -84,8 +83,7 @@ const DATA = [
     title: "Market Expansion - Austin",
     priority: "high",
     priorityColor: "bg-orange-100 text-orange-700",
-    description:
-      "Approve market expansion into Austin, TX - $2.4M investment",
+    description: "Approve market expansion into Austin, TX - $2.4M investment",
     requester: "David Wilson (COO)",
     department: "Strategy",
     actionCode: "expansion.market.approve",
@@ -93,7 +91,7 @@ const DATA = [
     exposure: "$2,400,000",
     risk: 55,
     requested: "Dec 20, 03:30 PM",
-    simulation: "Market readiness: 94%, ROI: 18 months"
+    simulation: "Market readiness: 94%, ROI: 18 months",
   },
   {
     id: 6,
@@ -107,7 +105,7 @@ const DATA = [
     actionCode: "legal.contract.approve_dpa",
     policy: "POL-LEG-004 v2.0",
     risk: 45,
-    requested: "Dec 21, 04:30 PM"
+    requested: "Dec 21, 04:30 PM",
   },
   {
     id: 7,
@@ -123,7 +121,7 @@ const DATA = [
     policy: "POL-TECH-008 v1.5",
     risk: 78,
     requested: "Dec 20, 09:30 PM",
-    simulation: "Infrastructure cost increase: $12K/month"
+    simulation: "Infrastructure cost increase: $12K/month",
   },
   {
     id: 8,
@@ -139,33 +137,35 @@ const DATA = [
     policy: "POL-FIN-009 v1.2",
     exposure: "$45,000",
     risk: 62,
-    requested: "Dec 22, 03:45 PM"
-  }
-]
+    requested: "Dec 22, 03:45 PM",
+  },
+];
 
 export default function ApprovalQueue() {
-  const [activeTab, setActiveTab] = useState("All")
-const [openEvidence, setOpenEvidence] = useState(false);
-const [actionType, setActionType] = useState(null);
+  const [activeTab, setActiveTab] = useState("All");
+  const [openEvidence, setOpenEvidence] = useState(false);
+  const [actionType, setActionType] = useState(null);
 
-const openModal = (type) => setActionType(type);
-const closeModal = () => setActionType(null);
+  const openModal = (type) => setActionType(type);
+  const closeModal = () => setActionType(null);
 
   const filtered = useMemo(() => {
-    if (activeTab === "All") return DATA
-    return DATA.filter(i => i.category === activeTab)
-  }, [activeTab])
+    if (activeTab === "All") return DATA;
+    return DATA.filter((i) => i.category === activeTab);
+  }, [activeTab]);
 
   return (
-    <div className="w-full p-6 space-y-6 bg-white rounded-xl mb-5">
-      <h2 className="sm:text-xl text-sm font-semibold">Approval Queue by Category</h2>
+    <div className="w-full lg:p-6 p-3 space-y-6 bg-white rounded-lg lg:rounded-xl mb-5">
+      <h2 className="sm:text-xl text-sm font-semibold">
+        Approval Queue by Category
+      </h2>
 
-      <div className="flex gap-2 bg-gray-100 p-1 rounded-full w-full">
-        {TABS.map(t => (
+      <div className="flex flex-wrap gap-2 bg-gray-100 p-1 lg:rounded-full w-full">
+        {TABS.map((t) => (
           <button
             key={t.key}
             onClick={() => setActiveTab(t.key)}
-            className={`px-4 py-1.5 text-sm rounded-full flex justify-center items-center flex-1 ${
+            className={`px-4 py-1.5 text-sm min-w-max rounded-full flex justify-center items-center md:flex-1 !w-fit ${
               activeTab === t.key
                 ? "bg-white shadow text-black"
                 : "text-gray-600"
@@ -177,14 +177,14 @@ const closeModal = () => setActionType(null);
       </div>
 
       <div className="space-y-5">
-        {filtered.map(item => (
+        {filtered.map((item) => (
           <div
             key={item.id}
-            className="bg-white border rounded-2xl p-6 space-y-5"
+            className="bg-white border lg:rounded-2xl rounded-lg lg:p-6 p-3 space-y-5"
           >
             <div className="flex justify-between items-start">
               <div className="space-y-1">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center sm:gap-3 gap-1 flex-wrap">
                   <h3 className="text-lg font-semibold">{item.title}</h3>
                   <span
                     className={`text-xs px-2 py-0.5 rounded-full ${item.priorityColor}`}
@@ -203,7 +203,7 @@ const closeModal = () => setActionType(null);
               </div>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
               <div>
                 <div className="text-gray-500">Requester</div>
                 <div className="font-medium">{item.requester}</div>
@@ -226,68 +226,85 @@ const closeModal = () => setActionType(null);
               </div>
             </div>
 
-            <div className=" bg-gray-50 rounded-lg px-4 py-3 text-sm">
-              <div className="flex justify-between items-center rounded-lg">
-                <div className="flex items-center gap-6 text-gray-600">
-                <span>2 attachments</span>
-                <span>2 audit refs</span>
-                {item.simulation && (
-                  <span className="text-blue-600">
-                    Simulation available
-                  </span>
-                )}
+            <div className=" bg-gray-50 rounded-lg sm:px-4 px-2 py-3 text-sm ">
+              <div className="flex justify-between items-center rounded-lg gap-3 flex-wrap">
+                <div className="flex items-center gap-6 text-gray-600 flex-wrap">
+                  <span>2 attachments</span>
+                  <span>2 audit refs</span>
+                  {item.simulation && (
+                    <span className="text-blue-600">Simulation available</span>
+                  )}
+                </div>
+                <button
+                  onClick={() => setOpenEvidence(true)}
+                  className="text-blue-600 font-medium"
+                >
+                  View Evidence →
+                </button>
               </div>
-              <button onClick={() => setOpenEvidence(true)} className="text-blue-600 font-medium">
-                View Evidence →
-              </button>
-              </div>
-            {item.simulation && (
-              <div className="text-sm text-gray-700">
-                <span className="font-medium">Simulation:</span>{" "}
-                {item.simulation}
-              </div>
-            )}
+              {item.simulation && (
+                <div className="text-sm text-gray-700">
+                  <span className="font-medium">Simulation:</span>{" "}
+                  {item.simulation}
+                </div>
+              )}
             </div>
 
-
             <div className="flex flex-wrap gap-3">
-  <button onClick={() => openModal("approve")} className="bg-black text-white px-5 py-2 rounded-lg">
-    Approve
-  </button>
+              <button
+                onClick={() => openModal("approve")}
+                className="bg-black text-white px-5 py-2 rounded-lg"
+              >
+                Approve
+              </button>
 
-  <button onClick={() => openModal("reject")} className="bg-red-600 text-white px-5 py-2 rounded-lg">
-    Reject
-  </button>
+              <button
+                onClick={() => openModal("reject")}
+                className="bg-red-600 text-white px-5 py-2 rounded-lg"
+              >
+                Reject
+              </button>
 
-  <button onClick={() => openModal("revision")} className="border px-5 py-2 rounded-lg">
-    Request Revision
-  </button>
+              <button
+                onClick={() => openModal("revision")}
+                className="border px-5 py-2 rounded-lg"
+              >
+                Request Revision
+              </button>
 
-  <button onClick={() => openModal("delegate")} className="border px-5 py-2 rounded-lg">
-    Delegate
-  </button>
+              <button
+                onClick={() => openModal("delegate")}
+                className="border px-5 py-2 rounded-lg"
+              >
+                Delegate
+              </button>
 
-  <button onClick={() => openModal("escalate")} className="border px-5 py-2 rounded-lg">
-    Escalate
-  </button>
+              <button
+                onClick={() => openModal("escalate")}
+                className="border px-5 py-2 rounded-lg"
+              >
+                Escalate
+              </button>
 
-  <button onClick={() => openModal("audit")} className="border px-5 py-2 rounded-lg">
-    Open Audit Case
-  </button>
-</div>
+              <button
+                onClick={() => openModal("audit")}
+                className="border px-5 py-2 rounded-lg"
+              >
+                Open Audit Case
+              </button>
+            </div>
           </div>
         ))}
-        
-<EvidenceModal
-  open={openEvidence}
-  onClose={() => setOpenEvidence(false)}
-/>
 
-{actionType && (
-  <ApprovalActionModal type={actionType} onClose={closeModal} />
-)}
+        <EvidenceModal
+          open={openEvidence}
+          onClose={() => setOpenEvidence(false)}
+        />
 
+        {actionType && (
+          <ApprovalActionModal type={actionType} onClose={closeModal} />
+        )}
       </div>
     </div>
-  )
+  );
 }

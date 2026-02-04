@@ -50,7 +50,7 @@ export default function ComprehensiveAuditLogging() {
   ]
 
   return (
-    <div className="border-[1.6px] border-[#8EC5FF] rounded-[20px] p-6 bg-white mb-5">
+    <div className="border-[1.6px] border-[#8EC5FF] rounded-lg lg:rounded-[20px] lg:p-6 p-3 bg-white mb-5">
       <div className="flex items-center gap-3 mb-6">
         <img src={dbIcon} alt="" className="w-6 h-6" />
         <h3 className="text-[20px] text-[#0A0A0A]">
@@ -58,7 +58,7 @@ export default function ComprehensiveAuditLogging() {
         </h3>
       </div>
 
-      <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mb-6">
+      <div className="grid xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 gap-4 mb-6">
         {stats.map((item, index) => (
           <div
             key={index}

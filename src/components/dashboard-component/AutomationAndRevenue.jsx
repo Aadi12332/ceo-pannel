@@ -99,7 +99,7 @@ const AutomationAndRevenue = () => {
 
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-5 mb-5">
-      <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
         <div className="flex items-center gap-2 mb-6">
           <img src={boltIcon} className="w-5 h-5" />
           <h3 className="text-[20px] font-semibold">Automation Snapshot</h3>
@@ -127,12 +127,12 @@ const AutomationAndRevenue = () => {
 
         <div className="mb-6">
           <div className="text-[#667085] mb-3">Automation Costs</div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-[#F2F4F7] rounded-lg p-4">
+          <div className="grid grid-cols-2 sm:gap-4 gap-2">
+            <div className="bg-[#F2F4F7] rounded-lg lg:p-4 p-2.5">
               <div className="text-[#667085] text-[14px] mb-1">Today</div>
               <div className="text-[18px] font-semibold">$3,456.78</div>
             </div>
-            <div className="bg-[#F2F4F7] rounded-lg p-4">
+            <div className="bg-[#F2F4F7] rounded-lg lg:p-4 p-2.5">
               <div className="text-[#667085] text-[14px] mb-1">MTD</div>
               <div className="text-[18px] font-semibold">$89,234.56</div>
             </div>
@@ -145,7 +145,7 @@ const AutomationAndRevenue = () => {
             {workflows.map((w, i) => (
               <div
                 key={i}
-                className="border rounded-lg p-4 flex justify-between items-center"
+                className="border rounded-lg lg:p-4 p-2.5 flex justify-between gap-3 sm:items-center sm:flex-row flex-col"
               >
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -167,13 +167,13 @@ const AutomationAndRevenue = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
         <div className="flex items-center gap-2 mb-6">
           <img src={dollarIcon} className="w-5 h-5" />
           <h3 className="text-[20px] font-semibold">Revenue by Vertical</h3>
         </div>
 
-        <div className="bg-[#F2F4F7] rounded-lg p-4 grid grid-cols-3 gap-4 mb-6">
+        <div className="bg-[#F2F4F7] rounded-lg lg:p-4 p-2.5 grid grid-cols-3 gap-4 mb-6">
           <div>
             <div className="text-[#667085] text-[14px]">Today</div>
             <div className="text-[20px] font-semibold">$887K</div>
@@ -192,7 +192,7 @@ const AutomationAndRevenue = () => {
           {verticals.map((v, i) => (
             <div
               key={i}
-              className="border rounded-lg p-4 flex justify-between items-start"
+              className="border rounded-lg lg:p-4 p-2.5 flex justify-between items-start"
             >
               <div>
                 <div className="flex items-center gap-2 mb-2">

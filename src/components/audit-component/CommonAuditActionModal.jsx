@@ -14,23 +14,23 @@ export default function CommonAuditActionModal({ type, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-xl p-6 relative w-[96%] max-w-[596px] max-h-[96vh] overflow-auto"
+        className="bg-white rounded-lg lg:rounded-xl p-2.5 lg:p-6 relative w-[96%] max-w-[596px] max-h-[96vh] overflow-auto"
       >
         <button onClick={onClose} className="absolute lg:top-4 top-3 lg:right-4 right-3">
           <X />
         </button>
 
-        <h2 className="text-[18px] font-bold font-[Arial] mb-4">
+        <h2 className="text-[18px] font-bold font-[Arial] sm:mb-4 mb-3">
           {isExport ? "Request Evidence Pack Export" : "Close Audit Case"}
         </h2>
 
         {isExport && (
           <>
-            <div className="mb-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-700">
+            <div className="sm:mb-4 mb-3 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-blue-700">
               <b>Note:</b> Export requires CEO + Legal approval for this evidence type.
             </div>
 
-            <div className="mb-4 rounded-lg bg-[#F9FAFB] p-4">
+            <div className="sm:mb-4 mb-3 rounded-lg bg-[#F9FAFB] sm:p-4 p-2.5">
               <p className="font-medium mb-2">Evidence Pack Contents</p>
               <ul className="text-sm space-y-1">
                 <li className="flex items-center gap-2"><FileDocumentIcon width={16} color="black" /> governance_controls.pdf</li>
@@ -43,7 +43,7 @@ export default function CommonAuditActionModal({ type, onClose }) {
               Export Purpose (Required)
             </label>
             <textarea
-              className="w-full h-24 rounded-lg bg-[#F2F4F7] p-3 outline-none mb-4"
+              className="w-full h-24 rounded-lg bg-[#F2F4F7] p-3 outline-none sm:mb-4 mb-3"
               placeholder="Why is this evidence being exported?..."
             />
 
@@ -51,11 +51,11 @@ export default function CommonAuditActionModal({ type, onClose }) {
               Export Scope
             </label>
             <textarea
-              className="w-full h-24 rounded-lg bg-[#F2F4F7] p-3 outline-none mb-4"
+              className="w-full h-24 rounded-lg bg-[#F2F4F7] p-3 outline-none sm:mb-4 mb-3"
               placeholder="What specific data is included?..."
             />
 
-            <div className="rounded-lg bg-green-50 border border-green-200 p-3 text-sm mb-6">
+            <div className="rounded-lg bg-green-50 border border-green-200 p-3 text-sm sm:mb-6 mb-3">
               <p className="font-medium mb-1">Export Bundle Will Include:</p>
               <ul className="list-disc ml-5 space-y-1">
                 <li>Policies (current + history)</li>

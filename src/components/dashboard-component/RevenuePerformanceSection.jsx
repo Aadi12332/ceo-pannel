@@ -172,9 +172,9 @@ const RevenuePerformanceSection = ({ id }) => {
   ];
   return (
     <div className="space-y-5 mb-5">
-      <div className="flex gap-5 lg:flex-row flex-col">
+      <div className="flex gap-5 xl:flex-row flex-col">
         <div className="flex flex-1 sm:flex-row flex-col gap-5 sm:gap-0">
-          <div className="bg-white rounded-l-lg rounded-lg sm:round-[unset] sm:rounded-l-[14px] border border-[#0000001A] p-6 w-full">
+          <div className="bg-white rounded-l-lg rounded-lg sm:round-[unset] sm:rounded-l-[14px] border border-[#0000001A] lg:p-6 p-3 w-full">
             <div className="flex justify-between mb-4">
               <h3 className="text-[20px]">Total Revenue</h3>
               <div className="flex items-center gap-7">
@@ -291,7 +291,7 @@ const RevenuePerformanceSection = ({ id }) => {
             </div>
           </div>
 
-          <div className="bg-white rounded-r-lg rounded-lg sm:round-[unset] sm:rounded-r-[14px] border border-[#0000001A] p-6 flex flex-col items-center sm:w-[500px]">
+          <div className="bg-white rounded-r-lg rounded-lg sm:round-[unset] sm:rounded-r-[14px] border border-[#0000001A] lg:p-6 p-3 flex flex-col items-center sm:w-[500px]">
             <div className="flex justify-between w-full mb-2">
               <h3 className="text-[20px]">Performance</h3>
               <span>
@@ -343,7 +343,7 @@ const RevenuePerformanceSection = ({ id }) => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 min-w-[320px]">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 min-w-[320px]">
           <div className="flex justify-between mb-4">
             <h3 className="text-[20px]">Most Popular Products</h3>
             <div className="relative inline-block" ref={dotsRef}>
@@ -401,9 +401,9 @@ const RevenuePerformanceSection = ({ id }) => {
           </div>
         </div>
       </div>
-      <div className="grid xl:grid-cols-3 grid-cols-1 gap-5">
+      <div className="grid xl:grid-cols-3 grid-cols-1 gap-y-5 xl:gap-x-5">
         <div
-          className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6"
+          className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3"
           id={id}
         >
           <div className="flex justify-between items-center mb-6">
@@ -450,8 +450,7 @@ const RevenuePerformanceSection = ({ id }) => {
           </div>
         </div>
 
-        {/* ---------------- Top Alerts ---------------- */}
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 col-span-2">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 col-span-2">
           <div className="flex justify-between items-center mb-6">
             <div className="flex items-center gap-2">
               <img src={alertIcon} className="w-5" />
@@ -465,7 +464,7 @@ const RevenuePerformanceSection = ({ id }) => {
 
           <div className="space-y-4 h-[450px] overflow-auto scroll-hide">
             {alerts.map((alert, i) => (
-              <div key={i} className="border border-[#E5E7EB] rounded-lg p-4">
+              <div key={i} className="border border-[#E5E7EB] rounded-lg lg:p-4 p-2.5">
                 <div className="flex items-center gap-2 mb-2">
                   <span
                     className={`px-3 py-1 rounded-full text-[12px] text-white ${

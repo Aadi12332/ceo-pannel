@@ -10,7 +10,7 @@ export default function SendIssueModal({ open, onClose }) {
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div onClick={(e)=>e.stopPropagation()} className="w-[520px] bg-white rounded-2xl p-6 relative">
+      <div onClick={(e)=>e.stopPropagation()} className="w-[520px] bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3 relative">
         <button
           onClick={onClose}
           className="absolute right-5 top-5"

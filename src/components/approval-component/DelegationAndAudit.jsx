@@ -59,7 +59,7 @@ const riskColor = {
 export default function DelegationAndAudit() {
   return (
     <div className="space-y-5">
-      <div className="bg-white border rounded-xl p-6">
+      <div className="bg-white border rounded-lg lg:rounded-xl p-3 lg:p-6">
         <h2 className="text-xl font-semibold mb-6">
           Delegation & Escalation Rules
         </h2>
@@ -95,11 +95,11 @@ export default function DelegationAndAudit() {
         </div>
       </div>
 
-      <div className="bg-white border rounded-xl p-6">
+      <div className="bg-white border rounded-lg lg:rounded-xl p-3 lg:p-6">
         <h2 className="text-xl font-semibold mb-4">Approval Audit Trail</h2>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+        <div className="overflow-auto scroll-hide w-[calc(100vw-44px)] lg:w-auto">
+          <table className="w-full text-[14px] min-w-[900px] lg:min-w-[600px] text-sm">
             <thead className="border-b text-left text-gray-600">
               <tr>
                 <th className="py-3">Who</th>

@@ -26,7 +26,8 @@ export default function EmergencyDashboard() {
 
   return (
     <div className="space-y-5 mb-5">
-      <div className="flex gap-2 bg-[#F3F4F6] p-1 rounded-full w-full">
+      <div className="overflow-auto scroll-hide w-[calc(100vw-24px)] lg:w-auto">
+        <div className="flex gap-3 bg-[#F4F6F8] rounded-full p-1 mb-5 w-full min-w-[800px] lg:min-w-[600px]">
         {TABS.map((tab) => (
           <button
             key={tab}
@@ -38,6 +39,7 @@ export default function EmergencyDashboard() {
             {tab}
           </button>
         ))}
+      </div>
       </div>
 
       {activeTab === "Kill Switches" && (
@@ -219,7 +221,7 @@ function KillSwitches({ actionType, setActionType }) {
 
   return (
     <div className="space-y-5">
-      <div className="bg-white border rounded-2xl p-5 flex items-center justify-between">
+      <div className="bg-white border rounded-lg lg:rounded-2xl lg:p-5 p-2.5 flex sm:items-center flex-wrap gap-3 justify-between">
         <div className="flex items-center gap-4">
           <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center">
             <EyeIcon className="text-gray-500 w-5" />
@@ -244,13 +246,13 @@ function KillSwitches({ actionType, setActionType }) {
         </button>
       </div>
       {sections.map((section, i) => (
-        <div key={i} className="bg-white border rounded-2xl p-6">
+        <div key={i} className="bg-white border rounded-lg lg:rounded-2xl lg:p-6 p-3">
           <h2 className="text-xl font-semibold mb-4">{section.title}</h2>
 
           <div className="space-y-5">
             {section.items.map((item, j) => (
-              <div key={j} className="border rounded-xl p-5 bg-white">
-                <div className="flex items-center gap-2 mb-1">
+              <div key={j} className="border rounded-lg lg:rounded-xl lg:p-5 p-2.5 bg-white">
+                <div className="flex items-center gap-2 mb-3 flex-wrap">
                   <h3 className="font-semibold">{item.name}</h3>
                   <span className="px-2 py-0.5 text-xs rounded-full bg-green-100 text-green-700">
                     {item.status}
@@ -262,7 +264,7 @@ function KillSwitches({ actionType, setActionType }) {
 
                 <p className="text-sm text-gray-600 mb-4">{item.desc}</p>
 
-                <div className="flex items-center gap-3 text-sm text-gray-600 mb-4">
+                <div className="flex items-center gap-3 text-sm text-gray-600 mb-4 flex-wrap">
                   <div className="flex items-center gap-1">
                     <ShieldIcon color="#4A5565" width={16} />
                     <span className="tracking-wide">
@@ -282,7 +284,7 @@ function KillSwitches({ actionType, setActionType }) {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-4 bg-gray-50 rounded-lg p-4 mb-4">
+                <div className="grid lg:grid-cols-4 grid-cols-2 gap-3 bg-gray-50 rounded-lg p-4 mb-4">
                   {item.metrics.map((m, k) => (
                     <div key={k} className="text-center">
                       <p className="text-xs text-gray-500">{m.label}</p>
@@ -420,7 +422,7 @@ function Incidents({ actionType, setActionType }) {
   ];
 
   return (
-    <div className="bg-white border rounded-2xl p-6 space-y-5">
+    <div className="bg-white border rounded-lg lg:rounded-2xl lg:p-6 p-3 space-y-5">
       <div className="flex justify-between items-center">
         <h2 className="sm:text-xl text-sm font-semibold">Active & Recent Incidents</h2>
         <div className="flex gap-2">
@@ -608,7 +610,7 @@ function Integrations({ actionType, setActionType }) {
   ];
 
   return (
-    <div className="bg-white border rounded-2xl p-6 space-y-5">
+    <div className="bg-white border rounded-lg lg:rounded-2xl lg:p-6 p-3 space-y-5">
       <div className="flex items-center justify-between">
         <h2 className="sm:text-xl text-sm font-semibold">Integration Status</h2>
         <div className="flex gap-2">
@@ -771,10 +773,10 @@ function EmergencyControls({ actionType, setActionType }) {
   ];
 
   return (
-    <div className="bg-white border rounded-2xl p-6 space-y-6">
+    <div className="bg-white border rounded-lg lg:rounded-2xl lg:p-6 p-3 space-y-6">
       <h2 className="sm:text-xl text-sm font-semibold">Emergency Controls State</h2>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 sm:gap-4 gap-2">
         {controls.map((item, i) => (
           <div
             key={i}
@@ -900,7 +902,7 @@ function Postmortems({ actionType, setActionType }) {
   ];
 
   return (
-    <div className="bg-white border rounded-2xl p-6 space-y-5">
+    <div className="bg-white border rounded-lg lg:rounded-2xl lg:p-6 p-3 space-y-5">
       <h2 className="sm:text-xl text-sm font-semibold">Postmortem Tracker</h2>
 
       {postmortems.map((item) => (

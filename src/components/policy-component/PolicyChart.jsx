@@ -33,7 +33,7 @@ const PolicyTrends = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
       
-      <div className="bg-white rounded-lg border border-[#0000001A] lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg border border-[#0000001A] lg:rounded-[14px] lg:p-6 p-3">
         <h3 className="text-[20px] font-medium text-[#1E1E1E] mb-4">
           Active Policies Trend
         </h3>
@@ -54,7 +54,7 @@ const PolicyTrends = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg border border-[#0000001A] lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg border border-[#0000001A] lg:rounded-[14px] lg:p-6 p-3">
         <h3 className="text-[20px] font-medium text-[#1E1E1E] mb-4">
           Policy Violations Trend
         </h3>

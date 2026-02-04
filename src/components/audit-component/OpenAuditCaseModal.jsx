@@ -8,7 +8,7 @@ export default function OpenAuditCaseModal({ onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-xl p-6 relative overflow-auto w-[96%] max-w-[596px] max-h-[96vh]"
+        className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 relative overflow-auto w-[96%] max-w-[596px] max-h-[96vh]"
       >
         <button onClick={onClose} className="absolute lg:top-4 top-3 lg:right-4 right-3">
           <X />

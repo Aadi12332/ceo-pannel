@@ -30,12 +30,12 @@ const CreateReportModal = ({ open, onClose }) => {
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-[999] bg-black/40 flex items-center justify-center">
-      <div onClick={(e) => e.stopPropagation()} className="bg-white w-full max-w-[720px] rounded-2xl shadow-xl overflow-hidden">
-        <div className="px-6 py-4 border-b border-[#E5E7EB]">
+      <div onClick={(e) => e.stopPropagation()} className="bg-white w-[96%] max-h-[96vh] overflow-auto scroll-hide max-w-[720px] rounded-lg lg:rounded-2xl">
+        <div className="lg:px-6 px-3 lg:py-4 py-2 border-b border-[#E5E7EB]">
           <h2 className="text-[18px] text-[#101828]">Create Report</h2>
         </div>
 
-        <div className="p-6 space-y-5">
+        <div className="lg:p-6 p-3 space-y-5">
           <div>
             <label className="block text-[14px] text-[#4A5565] mb-1">Report Type</label>
             <Select
@@ -49,7 +49,7 @@ const CreateReportModal = ({ open, onClose }) => {
             />
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 sm:gap-4 gap-2">
             <div className="relative">
               <label className="text-[14px] text-[#4A5565] mb-1 block">Date From *</label>
 
@@ -165,7 +165,7 @@ const CreateReportModal = ({ open, onClose }) => {
           </div>
         </div>
 
-        <div className="px-6 py-4 border-t flex justify-end gap-3">
+        <div className="lg:px-6 px-3 lg:py-4 py-2 border-t flex justify-end gap-3">
           <button
             onClick={onClose}
             className="px-5 py-2 rounded-xl border border-[#E5E7EB] !text-[#101828] text-base"

@@ -7,7 +7,7 @@ const StatsCards = ({ stats = [] }) => {
         return (
           <div
             key={index}
-            className="bg-white border border-[#0000001A] rounded-lg lg:rounded-[20px] py-6 px-4 flex items-center gap-4"
+            className="bg-white border border-[#0000001A] rounded-lg lg:rounded-[20px] lg:py-6 py-3 lg:px-4 px-3 flex items-center gap-4"
           >
             <div
               className="w-14 h-14 rounded-full flex items-center justify-center"

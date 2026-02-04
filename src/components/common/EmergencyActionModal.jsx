@@ -5,10 +5,10 @@ const EmergencyActionModal = ({ open, onClose, data }) => {
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div onClick={(e) => e.stopPropagation()} className="bg-white max-w-[524px] w-full rounded-xl shadow-xl p-6 relative">
+      <div onClick={(e) => e.stopPropagation()} className="bg-white max-w-[524px] w-[96%] max-h-[96vh] overflow-auto scroll-hide rounded-lg lg:rounded-xl lg:p-6 p-3 relative">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 text-xl text-[#0A0A0A]"
+          className="absolute lg:right-4 lg:top-4 right-2 top-2 text-xl text-[#0A0A0A]"
         >
           ×
         </button>

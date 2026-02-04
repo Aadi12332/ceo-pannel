@@ -7,7 +7,7 @@ export default function PolicyImpactModal({ policyImpactOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center !mt-0">
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
 
-      <div className="relative bg-white w-[560px] max-h-[95vh] overflow-y-auto rounded-2xl p-6">
+      <div className="relative bg-white w-[96%] max-w-[560px] max-h-[95vh] scroll-hide overflow-auto rounded-lg lg:rounded-2xl lg:p-6 p-3">
         <div className="flex items-start justify-between mb-1">
           <h2 className="text-[18px] font-bold text-[#0A0A0A]">Policy Impact Simulation</h2>
           <X className="cursor-pointer" onClick={onClose} />

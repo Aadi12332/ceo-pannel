@@ -59,10 +59,10 @@ const PolicyPackSelector = ({
   const options = optionsMap[activeTab] || [];
 
   return (
-    <div className="w-full bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] px-6 py-6 mb-5">
+    <div className="w-full bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 mb-5">
       <h2 className="text-[20px] text-[#0A0A0A] mb-6">{title}</h2>
 
-      <div className="flex items-center gap-3 flex-wrap mb-4">
+      <div className="flex items-center sm:gap-3 gap-1.5 flex-wrap mb-4">
         {tabs.map((tab) => {
           const isActive = tab.value === activeTab;
           const styles = tabStyles[tab.value] || {};

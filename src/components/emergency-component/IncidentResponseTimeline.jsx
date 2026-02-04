@@ -63,7 +63,7 @@ const resultStyle = {
 export default function IncidentResponseTimeline() {
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-2xl border p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border p-3 lg:p-6">
         <h2 className="text-xl font-semibold mb-6">
           Incident Response Timeline – Payment Gateway Outage
         </h2>
@@ -87,7 +87,7 @@ export default function IncidentResponseTimeline() {
               </div>
 
               <div className="flex-1">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start sm:flex-row flex-col">
                   <div>
                     <p className="font-medium">
                       {item.role} •{" "}
@@ -109,12 +109,13 @@ export default function IncidentResponseTimeline() {
         </div>
       </div>
 
-      <div className="bg-white rounded-2xl border p-6">
+      <div className="bg-white rounded-lg lg:rounded-2xl border p-3 lg:p-6">
         <h2 className="text-xl font-semibold mb-4">
           Emergency Actions Audit Trail
         </h2>
 
-        <table className="w-full text-sm">
+        <div className="overflow-auto scroll-hide w-[calc(100vw-48px)] lg:w-auto">
+          <table className="w-full min-w-[800px] lg:min-w-[600px] text-sm">
           <thead className="border-b text-gray-600">
             <tr>
               <th className="py-3 text-left">Who</th>
@@ -154,6 +155,7 @@ export default function IncidentResponseTimeline() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

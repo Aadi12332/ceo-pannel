@@ -156,18 +156,18 @@ function NotificationModal({ data, onClose }) {
         <p className="text-sm text-gray-600 lg:p-5 p-3 pb-0">{data.description}</p>
 
         {!data.deletable && (
-          <div className="p-5 pt-2 pb-0">
+          <div className="lg:p-5 p-3 pt-2 pb-0">
             <textarea
               placeholder="Enter your reply..."
-              className="w-full border rounded-xl p-3 h-32 outline-none"
+              className="w-full border lg:rounded-xl rounded-lg p-3 h-32 outline-none"
             />
 
-            <div className="flex justify-end gap-3 mt-4">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100">
+            <div className="flex justify-end sm:gap-3 gap-1 mt-4">
+              <button className="flex items-center gap-2 sm:px-4 px-2 py-2 rounded-lg bg-gray-100">
                 <Paperclip size={16} /> Attach Document
               </button>
 
-              <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0F172A] text-white" onClick={onClose}>
+              <button className="flex items-center gap-2 sm:px-4 px-2 py-2 rounded-lg bg-[#0F172A] text-white" onClick={onClose}>
                 <Send size={16} /> Send Reply
               </button>
             </div>

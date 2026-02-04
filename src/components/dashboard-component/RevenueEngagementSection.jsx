@@ -103,7 +103,7 @@ const RevenueEngagementSection = () => {
   return (
     <div className="space-y-5 mb-5">
       <div className="grid xl:grid-cols-2 grid-cols-1 gap-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
           <h3 className="text-[18px] font-medium">
             Revenue Trend (Last 30 Days)
           </h3>
@@ -111,8 +111,8 @@ const RevenueEngagementSection = () => {
             Revenue generated over the past week
           </p>
 
-          <div className="flex items-center">
-            <div className="w-1/2 h-[260px]">
+          <div className="flex items-center sm:flex-row flex-col gap-3">
+            <div className="sm:w-1/2 h-[260px] w-full">
               <ResponsiveContainer>
                 <PieChart>
                   <Pie
@@ -130,8 +130,8 @@ const RevenueEngagementSection = () => {
               </ResponsiveContainer>
             </div>
 
-            <div className="w-1/2 space-y-3 text-[14px]">
-              <div className="text-center text-[22px] font-semibold">981.6</div>
+            <div className="sm:w-1/2 w-full space-y-3 text-[14px]">
+              <div className="text-center sm:text-[24px] text-[20px] font-semibold">981.6</div>
               {donutData.map((d, i) => (
                 <div key={i} className="flex justify-between">
                   <span style={{ color: d.color }}>{d.name}</span>
@@ -142,7 +142,7 @@ const RevenueEngagementSection = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
           <div className="flex items-center justify-between mb-4 gap-3">
             <div>
               <h3 className="text-[18px] font-medium">
@@ -200,7 +200,7 @@ const RevenueEngagementSection = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
         <div className="flex items-center justify-between gap-3 mb-5">
           <div>
             <h3 className="text-[18px] font-medium">Engagement Performance</h3>

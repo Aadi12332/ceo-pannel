@@ -3,7 +3,7 @@ const QuickActions = ({ title, actions }) => {
   const isFilter = actions.filter((action) => action.filter === true);
 
   return (
-    <div className="w-full bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 mb-5">
+    <div className="w-full bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 mb-5">
       {title && (
         <h2 className="text-[20px] text-[#0A0A0A] mb-8">
           {title}
@@ -13,8 +13,8 @@ const QuickActions = ({ title, actions }) => {
       <div
         className={`${
           isFourItems
-            ? "grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
-            : "grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
+            ? "grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-4 gap-2"
+            : "grid 2xl:grid-cols-6 xl:grid-cols-6 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 sm:gap-4 gap-2"
         }`}
       >
         {actions.map((action, index) => {

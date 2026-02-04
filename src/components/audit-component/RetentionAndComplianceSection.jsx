@@ -71,7 +71,7 @@ const RetentionAndComplianceSection = () => {
           {retentionItems.map((item, i) => (
             <div
               key={i}
-              className="border border-[#E5E7EB] rounded-xl p-4 flex justify-between"
+              className="border border-[#E5E7EB] lg:rounded-xl rounded-lg lg:p-4 p-2.5 flex justify-between"
             >
               <div>
                 <p className="font-medium text-[15px]">{item.title}</p>
@@ -109,7 +109,7 @@ const RetentionAndComplianceSection = () => {
           {risks.map((risk, i) => (
             <div
               key={i}
-              className="border border-[#E5E7EB] rounded-xl p-4"
+              className="border border-[#E5E7EB] lg:rounded-xl rounded-lg lg:p-4 p-2.5"
             >
               <div className="flex justify-between mb-2">
                 <p className="font-medium">{risk.title}</p>

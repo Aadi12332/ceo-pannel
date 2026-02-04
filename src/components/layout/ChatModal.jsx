@@ -247,8 +247,8 @@ const filteredChats = chats.filter((c) => {
 
             {instantMeetOpen && (
               <div className="fixed inset-0 z-50 flex justify-center items-center">
-                <div className="lg:p-5 p-3 bg-[#0F172B] lg:rounded-2xl rounded-lg max-w-[1100px] w-[95%] h-[682px]">
-                  <div className="bg-[linear-gradient(135deg,#8B0836_0%,#A50036_50%,#A3004C_100%)] relative lg:rounded-xl rounded-lg h-[530px] md:h-[574px]">
+                <div className="lg:p-5 p-3 bg-[#0F172B] lg:rounded-2xl rounded-lg max-w-[1100px] w-[95%] md:h-[682px] h-[600px]">
+                  <div className="bg-[linear-gradient(135deg,#8B0836_0%,#A50036_50%,#A3004C_100%)] relative lg:rounded-xl rounded-lg h-[470px] md:h-[574px]">
                     <div className="absolute top-4 left-4">
                       <button
                         className="w-10 h-10 bg-white rounded-full flex items-center justify-center"
@@ -326,14 +326,14 @@ const filteredChats = chats.filter((c) => {
                     </div>
                     }
                   </div>
-                  <div className="flex items-center justify-center h-[139px] md:h-[88px] gap-3 md:flex-row flex-col">
+                  <div className="flex items-center justify-center h-[117px] md:h-[88px] gap-3 md:flex-row flex-col">
                     <div className="flex items-center lg:gap-4 gap-2.5 text-sm text-white">
                       <span>10:44 AM</span>
                       <span className="opacity-50">|</span>
                       <span>vim-xzay-gnn</span>
                     </div>
 
-                    <div className="md:flex-1 flex justify-center items-center lg:gap-6 gap-2.5">
+                    <div className="md:flex-1 flex justify-center items-center lg:gap-6 gap-3.5">
                       <MoreVertical className="text-white w-5 cursor-pointer" />
                       <Mic className="text-white w-5 cursor-pointer" />
                       <img src={videoofficon} className="w-10 cursor-pointer" />
@@ -345,7 +345,7 @@ const filteredChats = chats.filter((c) => {
                       <img src={mikeofficon} className="w-10 cursor-pointer" onClick={() => setInstantMeetOpen(false)} />
                     </div>
 
-                    <div className="flex items-center lg:gap-5 gap-2.5 text-white">
+                    <div className="flex items-center lg:gap-5 gap-4 text-white">
                       <Settings className="w-5 cursor-pointer" />
                       <div className="relative">
                         <Users className="w-5 cursor-pointer" />

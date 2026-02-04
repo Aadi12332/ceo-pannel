@@ -439,7 +439,7 @@ const Communication = () => {
                       </div>
                     </div>
 
-                    <h2 className="text-[22px] font-semibold text-[#0A0A0A]">
+                    <h2 className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A]">
                       {selectedDiscussion.title}
                     </h2>
 

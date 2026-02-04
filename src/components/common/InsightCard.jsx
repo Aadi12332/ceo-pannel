@@ -4,7 +4,7 @@ const InsightCards = ({ items = [] }) => {
       {items.map((item, index) => (
         <div
           key={index}
-          className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6 flex flex-col justify-between min-h-[150px]"
+          className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3 flex flex-col justify-between min-h-[150px]"
         >
           <div className="flex items-center gap-2">
             {item.icon && (

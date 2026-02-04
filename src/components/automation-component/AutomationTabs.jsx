@@ -325,7 +325,7 @@ const handleActionClick = (action) => {
   return (
     <div className="bg-[#EEF4FF] mb-5">
       <div className="">
-        <div className="w-[calc(100vw-24px)] overflow-auto scroll-hide">
+        <div className="w-[calc(100vw-24px)] lg:w-full overflow-auto scroll-hide">
           <div className="bg-[#ECECF0] rounded-full p-1 flex gap-2 mb-5 min-w-[992px] w-full">
           {tabs.map((tab) => {
             const active = activeTab === tab.key;
@@ -507,7 +507,7 @@ const handleActionClick = (action) => {
                   Monthly projection: $122,010
                 </p>
               </div>
-              <p className="text-[22px] font-semibold text-blue-600">$4,067</p>
+              <p className="sm:text-[24px] text-[20px] font-semibold text-blue-600">$4,067</p>
             </div>
           </div>
         )}
@@ -672,7 +672,7 @@ const handleActionClick = (action) => {
                 </p>
               </div>
 
-              <p className="text-[22px] font-semibold text-blue-600">8,130</p>
+              <p className="sm:text-[24px] text-[20px] font-semibold text-blue-600">8,130</p>
             </div>
           </div>
         )}

@@ -108,7 +108,7 @@ export default function CriticalActionModal({ type, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-xl p-6 w-[96%] max-w-[512px] max-h-[96vh] overflow-auto relative"
+        className="bg-white rounded-lg lg:rounded-xl p-3 lg:p-6 w-[96%] max-w-[512px] max-h-[96vh] overflow-auto relative"
       >
         <button onClick={onClose} className="absolute top-5 right-5">
           <X className="text-gray-500 w-5" />

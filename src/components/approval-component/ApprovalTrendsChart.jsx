@@ -32,7 +32,7 @@ const approvalRateData = [
 const ApprovalTrends = () => {
   return (
     <div className="grid xl:grid-cols-2 grid-cols-1 gap-6 mb-5">
-      <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">
           Pending Approvals Trend
         </h3>
@@ -78,7 +78,7 @@ const ApprovalTrends = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
         <h3 className="text-[20px] text-[#0A0A0A] mb-6">Approval Rate Trend</h3>
 
         <div className="h-[260px]">

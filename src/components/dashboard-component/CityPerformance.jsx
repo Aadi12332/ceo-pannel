@@ -45,7 +45,7 @@ const CityPerformance = () => {
   const revenueOptions = ["Daily", "Weekly", "Monthly", "Quarterly", "Yearly"];
   return (
     <div className="grid lg:grid-cols-2 gap-5 mb-5">
-      <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+      <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
         <div className="flex justify-between items-center mb-6">
           <h3 className="text-[20px] font-semibold">City Performance</h3>
           <div className="relative inline-block" ref={dotsRef}>
@@ -142,51 +142,51 @@ const CityPerformance = () => {
       </div>
 
       <div className="grid gap-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
-            <h3 className="text-[20px] font-semibold text-[#1E1E1E] mb-2">Profit/Burn Rate</h3>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">335000</div>
+        <div className="grid grid-cols-2 sm:gap-4 gap-2">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
+            <h3 className="sm:text-[20px] text-base font-semibold text-[#1E1E1E] mb-2">Profit/Burn Rate</h3>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">335000</div>
           </div>
 
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
-            <h3 className="text-[20px] font-semibold text-[#1E1E1E] mb-2">Platform Uptime</h3>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">99,9%</div>
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
+            <h3 className="sm:text-[20px] text-base font-semibold text-[#1E1E1E] mb-2">Platform Uptime</h3>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">99,9%</div>
           </div>
 
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <h3 className="text-[20px] font-semibold text-[#1E1E1E]">Alerts</h3>
           </div>
 
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6 flex items-center gap-3">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3 flex items-center gap-3">
             <InfoCircleIcon color="#1E1E1E" width={20} height={20} />
             <span className="text-[20px] font-semibold text-[#1E1E1E]">API failure detected</span>
           </div>
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[20px] font-semibold text-[#1E1E1E] mb-1">New York</div>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">+$600K</div>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">+$600K</div>
           </div>
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[20px] font-semibold text-[#1E1E1E] mb-1">Les Angeles</div>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">$525K</div>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">$525K</div>
           </div>
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[20px] font-semibold text-[#1E1E1E] mb-1">Chicago</div>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">$200K</div>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">$200K</div>
           </div>
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[20px] font-semibold text-[#1E1E1E] mb-1">Houston</div>
-            <div className="text-[40px] text-[#1E1E1E] font-bold">$145K</div>
+            <div className="sm:text-[40px] text-[32px] text-[#1E1E1E] font-bold">$145K</div>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+        <div className="grid grid-cols-2 sm:gap-4 gap-2">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[16px] font-medium mb-1">
               Total Target Revenue
             </div>
             <div className="text-[36px] font-bold">$1,470K</div>
           </div>
-          <div className="bg-white rounded-lg lg:rounded-[14px] p-6">
+          <div className="bg-white rounded-lg lg:rounded-[14px] lg:p-6 p-3">
             <div className="text-[16px] font-medium mb-1">
               Total Revenue from Cities
             </div>

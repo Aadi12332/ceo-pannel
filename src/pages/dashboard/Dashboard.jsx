@@ -183,7 +183,7 @@ const strategicStats = [
 
 const Card = ({ item }) => (
   <div
-    className={`border rounded-lg lg:rounded-[14px] p-4 ${
+    className={`border rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 ${
       item.warn
         ? "border-yellow-400 bg-yellow-50"
         : item.highlight
@@ -198,7 +198,7 @@ const Card = ({ item }) => (
       </p>
     </div>
 
-    <p className="text-[24px] font-semibold text-[#0A0A0A] mb-1">
+    <p className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A] mb-1">
       {item.value}
     </p>
 
@@ -368,7 +368,7 @@ const opsStats = [
 
 const StatCard = ({ item }) => (
   <div
-    className={`border rounded-lg lg:rounded-[14px] p-4 ${
+    className={`border rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 ${
       item.tone === "good"
         ? "border-green-400 bg-green-50"
         : item.tone === "warn"
@@ -383,7 +383,7 @@ const StatCard = ({ item }) => (
       </p>
     </div>
 
-    <p className="text-[24px] font-semibold text-[#0A0A0A] mb-1">
+    <p className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A] mb-1">
       {item.value}
     </p>
 
@@ -747,16 +747,16 @@ const Dashboard = () => {
       <StatsCards stats={statsData} />
 
       <div className="space-y-5 mb-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] text-[#0A0A0A] mb-6">
             10-Second Executive Summary
           </h2>
 
-          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-2 lg:gap-4 gap-2">
             {executiveSummary.map((item, i) => (
               <div
                 key={i}
-                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] p-4 text-center"
+                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 text-center"
               >
                 <img src={item.icon} alt="" className="mx-auto mb-3" />
                 <p className="text-[16px] text-[#0A0A0A] mb-1">{item.title}</p>
@@ -766,21 +766,21 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] text-[#0A0A0A] mb-6">
             Company Size & Reach
           </h2>
 
-          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-2 lg:gap-4 gap-2">
             {companyStats.map((item, i) => (
               <div
                 key={i}
-                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] p-4"
+                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5"
               >
                 <img src={item.icon} alt="" className="mb-3" />
                 <p className="text-[14px] text-[#667085] mb-1">{item.label}</p>
                 <div className="flex items-center gap-2">
-                  <span className="text-[22px] font-semibold text-[#0A0A0A]">
+                  <span className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A]">
                     {item.value}
                   </span>
                   <span className="text-[14px] text-green-600">
@@ -792,16 +792,16 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] text-[#0A0A0A] mb-6">
             Risk, Trust, Compliance & Security
           </h2>
 
-          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-2 lg:gap-4 gap-2">
             {riskStats.map((item, i) => (
               <div
                 key={i}
-                className={`rounded-lg lg:rounded-[14px] border p-4 ${
+                className={`rounded-lg lg:rounded-[14px] border lg:p-4 p-2.5 ${
                   item.tone === "good"
                     ? "border-green-300 bg-green-50"
                     : "border-yellow-300 bg-yellow-50"
@@ -810,7 +810,7 @@ const Dashboard = () => {
                 <img src={item.icon} alt="" className="mb-3" />
                 <p className="text-[14px] text-[#475467] mb-1">{item.label}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-[22px] font-semibold text-[#0A0A0A]">
+                  <span className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A]">
                     {item.value}
                   </span>
                   <span
@@ -832,24 +832,24 @@ const Dashboard = () => {
       </div>
 
       <div className="space-y-5 mb-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] text-[#0A0A0A] mb-6">
             Money & Financial Health
           </h2>
 
-          <div className="grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-6 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {moneyStats.map((item, i) => (
               <StatCard key={i} item={item} />
             ))}
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] text-[#0A0A0A] mb-6">
             Operations, Automation & System Health
           </h2>
 
-          <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {opsStats.map((item, i) => (
               <StatCard key={i} item={item} />
             ))}
@@ -858,36 +858,36 @@ const Dashboard = () => {
       </div>
 
       <div className="space-y-5 mb-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] mb-6 flex items-center gap-2">
             <img src={growthIcon} alt="" /> Growth & Momentum
           </h2>
 
-          <div className="grid xl:grid-cols-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {growthStats.map((item, i) => (
               <Card key={i} item={item} />
             ))}
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] mb-6 flex items-center gap-2">
             <img src={adIcon} alt="" /> Content, Marketing & Brand
           </h2>
 
-          <div className="grid xl:grid-cols-7 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-7 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {contentStats.map((item, i) => (
               <Card key={i} item={item} />
             ))}
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] mb-6 flex items-center gap-2">
             <img src={okrIcon} alt="" /> Strategic Health (Board-Level)
           </h2>
 
-          <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-5 lg:grid-cols-3 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {strategicStats.map((item, i) => (
               <Card key={i} item={item} />
             ))}
@@ -896,17 +896,17 @@ const Dashboard = () => {
       </div>
 
       <div className="space-y-5 mb-5">
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] mb-6 flex items-center gap-2">
             <img src={peopleIcon} alt="" />
             People, Partners & Ecosystem
           </h2>
 
-          <div className="grid xl:grid-cols-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4">
+          <div className="grid xl:grid-cols-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
             {peopleStats.map((item, i) => (
               <div
                 key={i}
-                className={`p-4 rounded-lg lg:rounded-[14px] border ${
+                className={`lg:p-4 p-2.5 rounded-lg lg:rounded-[14px] border ${
                   item.danger
                     ? "border-red-400 bg-red-50"
                     : item.highlight
@@ -922,7 +922,7 @@ const Dashboard = () => {
                 </div>
 
                 <p
-                  className={`text-[22px] font-semibold ${
+                  className={`sm:text-[24px] text-[20px] font-semibold ${
                     item.danger ? "text-red-600" : "text-[#0A0A0A]"
                   }`}
                 >
@@ -939,7 +939,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] p-6">
+        <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h3 className="text-[18px] text-[#0A0A0A] mb-4">Governance Rules:</h3>
 
           <ul className="space-y-3">
