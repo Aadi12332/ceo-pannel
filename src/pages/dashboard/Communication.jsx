@@ -8,7 +8,6 @@ import settingblueicon from "../../assets/settingblueicon.svg";
 import chatBorderIcon from "../../assets/chatbordericon.svg";
 import FilterBar from "../../components/common/FilterBox";
 import Select from "../../components/common/Select";
-
 import {
   Eye,
   Building2,
@@ -22,6 +21,10 @@ import {
   Shield,
   MessageCircle,
   Send,
+  CheckCircle,
+  Globe,
+  Clock,
+  Lock,
 } from "lucide-react";
 import ChatModal from "../../components/layout/ChatModal";
 import CreateDiscussionModal from "../../components/communication-component/CreateDiscussionModal";
@@ -40,8 +43,8 @@ const discussionItems = [
     comments: 4,
     tags: ["analytics", "tools", "budget"],
     badges: [
-      { label: "in review", variant: "purple" },
-      { label: "department", variant: "default" },
+      { label: "in review", variant: "purple", icon: <Eye className="w-3 h-3 text-[#6E11B0]" />, bgclass: "bg-[#F3E8FF] border-[#DAB2FF] text-[#6E11B0]" },
+      { label: "department", variant: "default", icon: <Building2 className="w-3 h-3" />, bgclass: "border-[#0000001A]" },
     ],
   },
   {
@@ -56,8 +59,8 @@ const discussionItems = [
     comments: 4,
     tags: ["remote-work", "policy", "hr"],
     badges: [
-      { label: "clarified", variant: "green" },
-      { label: "company", variant: "default" },
+      { label: "clarified", variant: "green", icon: <CheckCircle className="w-3 h-3 text-[#016630]" />, bgclass: "bg-[#DCFCE7] border-[#7BF1A8] text-[#016630]" },
+      { label: "company", variant: "default", icon: <Globe className="w-3 h-3" />, bgclass: "border-[#0000001A]" },
     ],
   },
   {
@@ -72,8 +75,8 @@ const discussionItems = [
     comments: 3,
     tags: ["budget", "finance", "engineering", "urgent"],
     badges: [
-      { label: "waiting response", variant: "yellow" },
-      { label: "private", variant: "default" },
+      { label: "waiting response", variant: "yellow", icon: <Clock className="w-3 h-3 text-[#894B00]" />, bgclass: "bg-[#FEF9C2] border-[#FFDF20] text-[#894B00]" },
+      { label: "private", variant: "default", icon: <Lock className="w-3 h-3" />, bgclass: "border-[#0000001A]" },
     ],
   },
   {
@@ -88,9 +91,9 @@ const discussionItems = [
     comments: 4,
     tags: ["ai", "automation", "support", "approved"],
     badges: [
-      { label: "converted to approval", variant: "orange" },
-      { label: "department", variant: "default" },
-      { label: "APPROVAL APR-045", variant: "purple" },
+      { label: "converted to approval", variant: "orange", icon: <ArrowRight className="w-3 h-3 text-[#9F2D00]" />, bgclass: "bg-[#FFEDD4] border-[#FFB86A] text-[#9F2D00]" },
+      { label: "department", variant: "default", icon: <Building2 className="w-3 h-3" />, bgclass: "border-[#0000001A]" },
+      { label: "APPROVAL APR-045", variant: "purple", icon: <ArrowRight className="w-3 h-3 text-[#6E11B0]" />, bgclass: "bg-[#F3E8FF] border-[#DAB2FF] text-[#6E11B0]" },
     ],
   },
   {
@@ -105,8 +108,8 @@ const discussionItems = [
     comments: 2,
     tags: ["roadmap", "strategy", "q1-2025"],
     badges: [
-      { label: "open", variant: "blue" },
-      { label: "company", variant: "default" },
+      { label: "open", variant: "blue", icon: <MessageCircle className="w-3 h-3 text-[#193CB8]" />, bgclass: "bg-[#DBEAFE] border-[#8EC5FF] text-[#193CB8]" },
+      { label: "company", variant: "default", icon: <Globe className="w-3 h-3" />, bgclass: "border-[#0000001A]" },
     ],
   },
 ];
@@ -315,12 +318,9 @@ const Communication = () => {
                         {item.badges?.map((badge, i) => (
                           <span
                             key={i}
-                            className={`text-[12px] px-2 py-0.5 rounded-full border ${
-                              badge.variant === "purple"
-                                ? "bg-[#F3E8FF] text-[#7C3AED] border-[#E9D5FF]"
-                                : "bg-white text-[#1E1E1E] border-[#E5E7EB]"
-                            }`}
+                            className={`text-[12px] flex items-center gap-2 px-2 py-0.5 rounded-lg border ${badge.bgclass}`}
                           >
+                            {badge.icon}
                             {badge.label}
                           </span>
                         ))}
@@ -335,7 +335,6 @@ const Communication = () => {
                       onClick={() => setSelectedDiscussion(item)}
                       className="flex items-center gap-2 px-4 h-9 rounded-lg border border-[#E5E7EB] text-[14px] text-[#0A0A0A] hover:bg-gray-50"
                     >
-                      <Eye className="w-4 h-4" />
                       View Details
                     </button>
                   </div>
@@ -367,7 +366,7 @@ const Communication = () => {
                     </span>
 
                     <span className="flex items-center gap-1">
-                      <MessageSquare className="w-4 h-4" />
+                      <MessageCircle className="w-4 h-4" />
                       {item.comments} comments
                     </span>
                   </div>
@@ -376,7 +375,7 @@ const Communication = () => {
                     {item.tags?.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 text-[12px] rounded-full border border-[#E5E7EB] bg-[#F9FAFB] text-[#1E1E1E]"
+                        className="px-3 py-1 text-[12px] rounded-lg border border-[#0000001A] bg-[#F3F4F6] text-[#1E1E1E]"
                       >
                         {tag}
                       </span>
@@ -391,7 +390,7 @@ const Communication = () => {
                     <div className="flex justify-between items-start mb-4 md:flex-row flex-col gap-5">
                       <button
                         onClick={() => setSelectedDiscussion(null)}
-                        className="flex items-center gap-2 text-sm text-[#475467]"
+                        className="flex items-center gap-2 text-sm text-[#475467] border border-[#0000001A] px-4 h-9 rounded-lg"
                       >
                         <ArrowLeft className="w-4 h-4" />
                         Back to List
@@ -448,9 +447,7 @@ const Communication = () => {
                         <span
                           key={i}
                           className={`px-2 py-0.5 rounded-full text-xs border ${
-                            b.variant === "purple"
-                              ? "bg-[#F3E8FF] text-[#7C3AED] border-[#E9D5FF]"
-                              : "bg-white border-[#E5E7EB]"
+                            b.bgclass
                           }`}
                         >
                           {b.label}
@@ -536,7 +533,7 @@ const Communication = () => {
                               <span className="text-sm font-medium text-[#0A0A0A]">
                                 {msg.name}
                               </span>
-                              <span className="px-2 py-0.5 text-xs rounded-full border border-[#E5E7EB] text-[#475467]">
+                              <span className="px-2 py-0.5 text-xs rounded-lg border border-[#0000001A] text-[#475467]">
                                 {msg.role}
                               </span>
                               <span className="text-xs text-[#667085]">

@@ -11,17 +11,27 @@ import {
   EyeIcon,
 } from "../../assets/icons/icons";
 import keyicon from "../../assets/keyicon.svg";
-import { CheckIcon } from "lucide-react";
+import {
+  Network,
+  Key,
+  Clock,
+  Shield,
+  AlertTriangle,
+  CheckIcon,
+  Clock4Icon,
+  RefreshCwIcon,
+  CheckCircle
+} from "lucide-react";
 
 export default function GovernanceTabs() {
   const [tab, setTab] = useState("org");
 
   const tabs = [
-    { key: "org", label: "Org Chart" },
-    { key: "permissions", label: "Permissions" },
-    { key: "temp", label: "Temp Access" },
-    { key: "tools", label: "Tool Governance" },
-    { key: "alerts", label: "Anomalies" },
+    { key: "org", label: "Org Chart", icon: <Network className="w-4 text-[#0A0A0A]" /> },
+    { key: "permissions", label: "Permissions", icon: <Key className="w-4 text-[#0A0A0A]" /> },
+    { key: "temp", label: "Temp Access", icon: <Clock className="w-4 text-[#0A0A0A]" />},
+    { key: "tools", label: "Tool Governance", icon: <Shield className="w-4 text-[#0A0A0A]" /> },
+    { key: "alerts", label: "Anomalies", icon: <AlertTriangle className="w-4 text-[#0A0A0A]" /> },
   ];
 
   return (
@@ -32,8 +42,9 @@ export default function GovernanceTabs() {
           <button
             key={t.key}
             onClick={() => setTab(t.key)}
-            className={`rounded-full px-4 py-2 flex-1 text-sm ${tab === t.key ? "bg-white" : "text-gray-600"}`}
+            className={`rounded-full px-4 py-2 flex-1 flex items-center gap-1 justify-center text-sm ${tab === t.key ? "bg-white" : "text-gray-600"}`}
           >
+            {t.icon}
             {t.label}
           </button>
         ))}
@@ -381,7 +392,7 @@ function Section({ title, items, variant = "default" }) {
   return (
     <div>
       <h3 className="mb-3 flex items-center gap-2 font-medium">
-        <EmployeeIcon color="#155DFC" width={20} height={20} />
+        <EmployeeIcon color="#4A5565" width={20} height={20} />
         {title}
       </h3>
 
@@ -522,7 +533,7 @@ function TempCard({
         {status === "pending" && (
           <div className="flex gap-2">
             <button className="flex items-center gap-2 rounded-lg bg-slate-900 px-4 py-2 text-sm text-white">
-              <CheckIcon width={14} height={14} color="white" /> Approve
+              <CheckCircle width={14} height={14} color="white" /> Approve
             </button>
             <button className="flex items-center gap-2 rounded-lg border px-4 py-2 text-sm">
               <FreezeIcon width={14} height={14} color="black" /> Deny
@@ -551,11 +562,11 @@ function TempCard({
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-4 text-sm">
-        <span className="flex items-center gap-2 text-blue-600">
-          ⏱ Duration: {duration}
+        <span className="flex items-center gap-2">
+          <Clock4Icon className="w-4" /> Duration: {duration}
         </span>
         <span className="flex items-center gap-2 text-orange-600">
-          🔁 Auto-revoke: {revoke}
+          <RefreshCwIcon className="w-4" /> Auto-revoke: {revoke}
         </span>
       </div>
 
@@ -564,8 +575,8 @@ function TempCard({
       )}
 
       {status === "auto revoked" && (
-        <div className="mt-4 rounded-lg border border-purple-300 bg-purple-100 px-4 py-3 text-sm text-purple-700">
-          ✓ Access automatically revoked after expiry. Event logged in audit
+        <div className="mt-4 rounded-lg border border-purple-300 flex items-center gap-2 bg-purple-100 px-4 py-3 text-sm text-purple-700">
+          <CheckCircle width={14} height={14} /> Access automatically revoked after expiry. Event logged in audit
           trail.
         </div>
       )}

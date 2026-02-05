@@ -42,7 +42,7 @@ const OtpModal = ({ open, onClose, navigateTo }) => {
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center px-4">
+    <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center">
       <div className="bg-white lg:rounded-[50px] flex flex-col items-center rounded-[10px] w-[96%] max-w-[883px] px-16 py-10 relative">
 
         <button
@@ -56,7 +56,7 @@ const OtpModal = ({ open, onClose, navigateTo }) => {
           Enter Code
         </h2>
 
-        <div className="flex justify-center gap-4 mb-20">
+        <div className="flex justify-center sm:gap-4 gap-1 mb-20">
           {otp.map((value, index) => (
             <input
               key={index}
@@ -66,7 +66,7 @@ const OtpModal = ({ open, onClose, navigateTo }) => {
               value={value}
               onChange={(e) => handleChange(e.target.value, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="xl:w-[100px] lg:w-[70px] w-12 xl:h-[100px] lg:h-[70px] h-12 border-2 border-gray-300 rounded-xl text-center text-xl focus:border-[#0E1E38] outline-none"
+              className="xl:w-[100px] lg:w-[70px] sm:w-12 w-10 xl:h-[100px] lg:h-[70px] sm:h-12 h-10 border-2 border-gray-300 rounded-xl text-center text-xl focus:border-[#0E1E38] outline-none"
             />
           ))}
         </div>

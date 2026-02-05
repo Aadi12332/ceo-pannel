@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import { ChevronLeft, Eye, Pencil } from "lucide-react";
 import MerchantProfileForm from "./MerchantProfileForm";
+import EditIcon from "../../assets/editicon.svg";
 
 export default function AddNewMerchants() {
   const navigate = useNavigate();
@@ -57,13 +58,13 @@ export default function AddNewMerchants() {
             >
               {isView ? (
                 <>
-                  <Pencil className="w-4 h-4 text-[#667085]" />
                   Edit
+                  <img src={EditIcon} alt="" className="w-4" />
                 </>
               ) : (
                 <>
-                  <Eye className="w-4 h-4 text-[#667085]" />
                   View
+                  <Eye className="w-4 h-4 text-[#000]" />
                 </>
               )}
             </div>

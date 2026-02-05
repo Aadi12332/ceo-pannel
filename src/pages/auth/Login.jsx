@@ -66,7 +66,7 @@ const Login = () => {
               </p>
             )}
 
-            <div className="flex gap-2">
+            <div className="grid sm:grid-cols-8 grid-cols-4 gap-2">
               {roles.map((role) => {
                 const isActive = selectedRole?.key === role.key;
 

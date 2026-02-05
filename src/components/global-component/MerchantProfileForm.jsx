@@ -128,7 +128,7 @@ export default function MerchantProfileForm({ isView, isEdit }) {
           </div>
         </div>
 
-        <div className="pt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-b-xl rounded-b-lg lg:p-6 p-3">
+        <div className="!pt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white lg:rounded-b-xl rounded-b-lg lg:p-6 p-3">
           <div>
             <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               Merchant Type

@@ -1,3 +1,5 @@
+import { MapIcon, MapPin } from "lucide-react";
+
 const strategicAlerts = [
   {
     title: "Austin Market Window Closing",
@@ -78,7 +80,7 @@ export default function StrategicAlertsSection() {
                   {item.title}
                 </h3>
                 <span
-                  className={`text-[12px] px-2 py-0.5 rounded ${
+                  className={`text-[12px] px-2 py-0.5 rounded-lg border border-[#0000001a] ${
                     item.level === "high"
                       ? "bg-red-100 text-red-600"
                       : item.level === "medium"
@@ -94,7 +96,8 @@ export default function StrategicAlertsSection() {
                 {item.description}
               </p>
 
-              <p className="text-[14px] text-[#667085] mb-3">
+              <p className="text-[14px] text-[#667085] mb-3 flex items-center gap-2">
+                <MapPin className="w-4" />
                 Market: {item.market}
               </p>
 
@@ -130,11 +133,11 @@ export default function StrategicAlertsSection() {
                     </span>
                   ) : (
                     <span
-                      className={`text-[14px] font-medium ${
+                      className={`text-[14px] font-medium rounded-lg ${
                         row.highlight === "success"
-                          ? "text-green-600"
+                          ? "text-green-600 border-[#0000001a]"
                           : row.warning
-                          ? "text-yellow-700"
+                          ? "bg-yellow-100 text-yellow-700 px-1"
                           : "text-[#0A0A0A]"
                       }`}
                     >

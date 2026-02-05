@@ -94,7 +94,7 @@ function AccessControlOverview() {
                 <td>{u.email}</td>
                 <td>{u.role}</td>
                 <td>
-                  <span className="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-600">
+                  <span className="rounded-lg bg-[#E4F9FF] px-3 py-1 text-sm text-[#2BB7DC]">
                     Full Access
                   </span>
                 </td>
@@ -104,10 +104,10 @@ function AccessControlOverview() {
                     alt=""
                     className="w-5 cursor-pointer"
                       onClick={() =>
-    navigate("/add-new-employee", {
-      state: { edit: true },
-    })
-  }
+                      navigate("/add-new-employee", {
+                        state: { edit: true },
+                      })
+                    }
                   />
                 </td>
               </tr>
@@ -218,7 +218,7 @@ function QuarterlyAccessReviewWorkflow() {
                 <p className="text-sm text-gray-500">{i.owner}</p>
               </div>
               <span
-                className={`rounded-full px-3 py-1 text-xs ${i.status === "in progress" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
+                className={`rounded-lg border border-[#0000001a] px-3 py-1 text-xs ${i.status === "in progress" ? "bg-blue-100 text-blue-600" : "bg-gray-100 text-gray-600"}`}
               >
                 {i.status}
               </span>
@@ -229,9 +229,9 @@ function QuarterlyAccessReviewWorkflow() {
                 {i.done} / {i.total} accounts
               </span>
             </div>
-            <div className="h-2 rounded-full bg-gray-200">
+            <div className="h-2 bg-gray-200">
               <div
-                className="h-2 rounded-full bg-blue-600"
+                className="h-2 bg-blue-600"
                 style={{ width: `${(i.done / i.total) * 100}%` }}
               />
             </div>

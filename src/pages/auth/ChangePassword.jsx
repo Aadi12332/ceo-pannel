@@ -140,10 +140,10 @@ const ChangePassword = () => {
             </ul>
           </div>
 
-          <div className="flex gap-4 mt-16">
+          <div className="flex sm:gap-4 gap-2 mt-16">
             <button
               onClick={() => navigate(-1)}
-              className="flex-1 lg:h-[70px] h-12 border border-gray-300 rounded-xl text-[#929292] text-[20px] font-semibold hover:bg-gray-50"
+              className="flex-1 lg:min-h-[70px] min-h-12 px-2 border border-gray-300 rounded-xl text-[#929292] text-[20px] font-semibold hover:bg-gray-50"
             >
               Discard
             </button>

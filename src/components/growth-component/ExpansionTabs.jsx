@@ -15,6 +15,8 @@ import {
   Truck,
   Clock,
   Plug,
+  ArrowBigDown,
+  TrendingUp,
 } from "lucide-react";
 import CityLaunchGateModal from "./CityLaunchGateModal";
 
@@ -135,9 +137,9 @@ export default function ExpansionTabs() {
               reason="insufficient staffing (63%)"
             />
 
-            <div className="rounded-xl bg-blue-50 p-4 text-sm text-blue-900">
-              Expansion gates are automatically enforced by policy
-              AEPS-LAUNCH-001. Cities must achieve readiness score ≥ 85 to
+            <div className="rounded-xl bg-blue-50 p-4 text-sm text-blue-900 flex items-center gap-1">
+              Expansion gates are automatically enforced by policy 
+              <span className="bg-white inline-block px-1"> AEPS-LAUNCH-001 </span>. Cities must achieve readiness score ≥ 85 to
               launch.
             </div>
           </div>
@@ -191,9 +193,14 @@ export default function ExpansionTabs() {
 
         {tab === "risk" && (
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold">
+            <div className="flex items-center justify-between gap-3 flex-wrap">
+              <h2 className="text-lg font-semibold">
               Partner Risk Exposure - Dependency Score for Major Integrations
             </h2>
+            <div className="border border-[#0000001a] rounded-lg text-xs px-2 py-1 text-[#9F0712] bg-[#FFE2E2]">
+              2 Critical Dependencies
+            </div>
+            </div>
 
             <PartnerCard
               name="Stripe"
@@ -318,7 +325,7 @@ function Metric({ label, value, sub, color }) {
         {label}
       </div>
       <p className={`text-xl font-semibold ${color}`}>{value}</p>
-      {sub && <p className="text-xs text-[#667085]">{sub}</p>}
+      {sub && <p className="text-xs text-[#4A5565]">{sub}</p>}
     </div>
   );
 }
@@ -338,10 +345,16 @@ function CityCard({
 }) {
   const bg =
     status === "ready"
-      ? "bg-green-50 border-green-300"
+      ? "bg-[#DCFCE7] border-[#7BF1A8]"
       : score < 60
-        ? "bg-red-50 border-red-300"
-        : "bg-yellow-50 border-yellow-300";
+        ? "bg-[#FFE2E2] border-[#FFA2A2]"
+        : "bg-[#FEF9C2] border-[#FFDF20]";
+          const textcolor =
+    status === "ready"
+      ? "text-[#00A63E]"
+      : score < 60
+        ? "text-[#E7000B]"
+        : "text-[#D08700]";
 
   const meta = {
     "New York City": {
@@ -381,16 +394,12 @@ function CityCard({
             <MapPin className="w-4 h-4 text-[#155DFC]" />
             <p className="font-semibold">{name}</p>
 
-            <span className="text-xs bg-white border rounded-full px-2 py-0.5">
+            <span className="text-xs bg-transparent border border-[#0000001a] rounded-full px-2 py-0.5">
               {region}
             </span>
 
             <span
-              className={`text-xs rounded-full px-2 py-0.5 flex items-center gap-1 ${
-                status === "ready"
-                  ? "bg-green-100 text-green-700"
-                  : "bg-red-100 text-red-700"
-              }`}
+              className={`text-xs rounded-full px-2 py-0.5 flex items-center gap-1 bg-transparent border border-[#0000001A]`}
             >
               {status === "ready" ? (
                 <CheckCircle className="w-3 h-3" />
@@ -401,12 +410,12 @@ function CityCard({
             </span>
           </div>
 
-          <p className="text-xs text-[#667085]">Policy: AEPS-LAUNCH-001</p>
+          <p className="text-xs text-[#4A5565]">Policy: AEPS-LAUNCH-001</p>
         </div>
 
         <div className="text-right">
-          <p className="text-3xl font-bold">{score}</p>
-          <p className="text-xs text-[#667085]">Readiness Score</p>
+          <p className={`text-3xl font-bold ${textcolor} `}>{score}</p>
+          <p className="text-xs text-[#4A5565]">Readiness Score</p>
         </div>
       </div>
 
@@ -592,14 +601,15 @@ function MetricBlock({ title, data }) {
         Variant: <span className="font-medium">{data.v}</span>
       </p>
       <p
-        className={`text-sm font-medium mt-1 ${
+        className={`text-sm font-bold mt-1 flex items-center gap-1 ${
           positive
             ? "text-green-600"
             : negative
               ? "text-red-600"
-              : "text-gray-600"
+              : "text-red-600"
         }`}
       >
+        {positive ? <TrendingUp className="text-green-500 w-4" /> : <XCircle className="text-red-500 w-4" />}
         {data.d}
       </p>
     </div>
@@ -675,6 +685,7 @@ function ExperimentCard({
       <div className="flex justify-between mb-3">
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap mb-5 lg:mb-0">
+            <FlaskConical className="text-purple-700 w-4" />
             <span className="text-xs border rounded px-2 py-0.5">
               {metaMap.id}
             </span>
@@ -688,7 +699,7 @@ function ExperimentCard({
           </div>
 
           <p className="text-xs text-gray-500">
-            {metaMap.dates} &nbsp; {metaMap.cohort} &nbsp; {metaMap.confidence}
+            {metaMap.dates} &nbsp;&nbsp; {metaMap.cohort} &nbsp; {metaMap.confidence}
           </p>
         </div>
       </div>
@@ -753,16 +764,16 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
       <div className="flex justify-between items-start mb-4 sm:flex-row flex-col gap-3">
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-sm">🔌</span>
+            <Briefcase className="text-blue-700 w-4" />
 
             <p className="font-medium">{name}</p>
 
-            <span className="text-xs border rounded-full px-2 py-0.5 bg-white">
+            <span className="text-xs border border-[#0000001a] rounded-lg px-2 py-0.5 bg-white">
               {categoryMap[name]}
             </span>
 
             <span
-              className={`text-xs rounded-full px-2 py-0.5 ${
+              className={`text-xs rounded-lg px-2 border border-[#0000001a] py-0.5 ${
                 level === "critical"
                   ? "bg-red-100 text-red-700"
                   : level === "high"
@@ -811,7 +822,7 @@ function PartnerCard({ name, score, revenue, uptime, level, plan }) {
 
         <div className="">
           <p className="text-xs text-gray-500 mb-1">Status</p>
-          <span className="inline-block text-xs rounded-full px-2 py-0.5 bg-blue-100 text-blue-700">
+          <span className="inline-block text-xs rounded-lg border border-[#0000001a] px-2 py-0.5 bg-blue-100 text-blue-700">
             Mitigated
           </span>
         </div>

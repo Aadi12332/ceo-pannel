@@ -2,6 +2,8 @@ import plusicon from "../../assets/plusicon.svg";
 import searchicon from "../../assets/searchicon.svg";
 import employeeicon from "../../assets/sidebaricon/directoryicon.svg";
 import revokeIcon from "../../assets/alertcircleicon.svg";
+import { useNavigate } from "react-router-dom";
+import {UserX} from "lucide-react";
 
 const revocations = [
   {
@@ -45,6 +47,7 @@ const compliance = [
 ];
 
 export default function EmployeeAuditLog() {
+  const navigate = useNavigate();
   const employees = [
     {
       name: "Maren Donin",
@@ -166,7 +169,14 @@ export default function EmployeeAuditLog() {
               className="w-full bg-transparent text-sm outline-none"
             />
           </div>
-          <button className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white max-w-[250px]">
+          <button
+            onClick={() =>
+              navigate("/add-new-employee", {
+                state: { edit: false },
+              })
+            }
+            className="flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white max-w-[250px]"
+          >
             <img src={plusicon} alt="" /> Add New Employee
           </button>
         </div>
@@ -198,7 +208,7 @@ export default function EmployeeAuditLog() {
                   </td>
                   <td>{emp.location}</td>
                   <td>
-                    <span className="rounded-full border px-3 py-1 text-xs">
+                    <span className="rounded-full border border-gray-500 px-3 py-1 text-sm">
                       {emp.dept}
                     </span>
                   </td>
@@ -228,7 +238,7 @@ export default function EmployeeAuditLog() {
               >
                 <div className="flex gap-3">
                   <div className="w-9 h-9 min-w-9 flex items-center justify-center bg-[#FEE2E2] rounded-lg">
-                    <img src={revokeIcon} alt="" className="w-5 h-5" />
+                    <UserX className="w-5 text-red-500" />
                   </div>
                   <div>
                     <p className="text-[16px] text-[#0A0A0A]">{item.name}</p>
@@ -238,7 +248,9 @@ export default function EmployeeAuditLog() {
                     </p>
                   </div>
                 </div>
-                <span className="text-[14px] text-[#667085] pl-12 sm:pl-0">{item.time}</span>
+                <span className="text-[14px] text-[#667085] pl-12 sm:pl-0">
+                  {item.time}
+                </span>
               </div>
             ))}
           </div>
@@ -293,7 +305,7 @@ export default function EmployeeAuditLog() {
                   className="flex justify-between items-center text-[14px]"
                 >
                   <span className="text-[#475467]">{c.label}</span>
-                  <span className="px-3 py-1 rounded-full bg-[#DCFCE7] text-[#166534]">
+                  <span className="px-3 py-0.5 rounded-lg bg-[#DCFCE7] text-[#166534] border border-[#0000001a]">
                     {c.value}
                   </span>
                 </div>

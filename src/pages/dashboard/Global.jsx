@@ -12,6 +12,7 @@ import eyeIcon from "../../assets/eyeicon.svg";
 import Select from "../../components/common/Select";
 import AssignedToolsModal from "../../components/global-component/AssignedToolsModal";
 import UserRequestModal from "../../components/global-component/UserRequestModal";
+import { BellIcon, ViewIcon } from "lucide-react";
 
 const toolsData = [
   {
@@ -197,7 +198,7 @@ const GlobalToolRegistry = () => {
 
           <div className="border border-[#0000001A] rounded-lg lg:rounded-[12px] lg:p-5 p-2.5 md:max-w-[50%]">
             <div className="flex items-start gap-3 mb-4">
-              <img src={bellIcon} alt="" className="w-5 h-5 mt-1" />
+              <BellIcon className="w-5 h-5 text-[#8A38F5] mt-1" />
               <div>
                 <h4 className="text-[16px] text-[#0A0A0A]">Total Requests</h4>
                 <p className="text-[14px] text-[#667085]">
@@ -217,9 +218,8 @@ const GlobalToolRegistry = () => {
 
               <button
                 onClick={() => setUserRequestOpen(true)}
-                className="w-9 h-9 rounded-lg border border-[#0000001A] flex items-center justify-center bg-white"
               >
-                <img src={eyeIcon} alt="" className="w-5 h-5" />
+                <ViewIcon className="w-6 cursor-pointer" />
               </button>
 
               <UserRequestModal

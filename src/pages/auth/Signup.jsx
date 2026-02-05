@@ -133,7 +133,7 @@ const Signup = () => {
             <Input placeholder="Phone number (optional)" />
           </div>
 
-          <label className="flex items-center gap-3 text-[#929292] text-sm mt-6 cursor-pointer">
+          <label className="flex items-center gap-3 text-[#929292] text-sm mt-6 cursor-pointer pl-1 md:pl-0">
             <input
               type="checkbox"
               checked={agree}

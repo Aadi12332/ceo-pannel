@@ -149,7 +149,7 @@ export default function MerchantProfileForm({
           </div>
         </div>
 
-        <div className="pt-14 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white rounded-b-xl lg:p-6 p-3">
+        <div className="!pt-20 grid grid-cols-1 sm:grid-cols-2 gap-5 bg-white rounded-b-xl lg:p-6 p-3">
           <div className="sm:col-span-2 lg:!max-w-[49%] mx-auto w-full">
             <label className="sm:text-[20px] text-base text-[#000000CC] font-semibold">
               User Type

@@ -160,7 +160,7 @@ const filteredChats = chats.filter((c) => {
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex justify-center items-center" onClick={onClose}>
       <div onClick={(e) => e.stopPropagation()} className="max-w-[1100px] w-[95%] h-[600px] bg-white rounded-2xl overflow-hidden flex">
-        <div className={`md:w-[340px] w-full border-r bg-white ${activeChat ? "hidden" : ""}`}>
+        <div className={`md:w-[340px] w-full border-r bg-white ${activeChat ? "hidden md:block" : ""}`}>
           <div className="flex items-center justify-between gap-3 relative p-4 cursor-pointer">
             <div onClick={onClose}>
               <img
@@ -378,7 +378,8 @@ const filteredChats = chats.filter((c) => {
             {filteredChats.map((c) => (
               <div
                 key={c.id}
-                onClick={() => {setActive(c);setActiveChat(true)}}
+                onClick={() => {setActive(c);
+                  setActiveChat(true)}}
                 className={`px-4 py-3 cursor-pointer flex justify-between hover:bg-gray-100 ${
                   active.id === c.id && "bg-gray-100"
                 }`}
@@ -424,7 +425,7 @@ const filteredChats = chats.filter((c) => {
         <div className={`flex-1 md:flex flex-col ${activeChat ? "" : "hidden"}`}>
           <div className="flex justify-between items-center px-2 py-4 border-b bg-[#F0F2F5] border-[#E5E7EB]">
             <div className="flex items-center sm:gap-3 gap-1.5">
-              <img src={backarrowicon} className="cursor-pointer sm:w-10 w-6" onClick={() => setActiveChat(false)} />
+              <img src={backarrowicon} className="cursor-pointer sm:w-10 w-6 md:hidden" onClick={() => setActiveChat(false)} />
 
               <div className="w-10 h-10 min-w-10 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
                 {active.imgsrc ? (
