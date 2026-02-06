@@ -6,12 +6,14 @@ import bellIcon from "../../assets/notificationicon.svg";
 import avatar from "../../assets/profileimg.svg";
 import Select from "../common/Select";
 import ChatModal from "./ChatModal";
+import { useRole } from "../../routes/RoleContext";
+import { useNavigate } from "react-router-dom";
 
 const roles = [
-  { value: "CEO", label: "CEO" },
+  { value: "CEO", label: "CEO",path:"/control-tower" },
   { value: "COO", label: "COO" },
   { value: "CTO", label: "CTO" },
-  { value: "CFO", label: "CFO" },
+  { value: "CFO", label: "CFO" ,path:"/dashboard"},
   { value: "CMO", label: "CMO" },
   { value: "LPD", label: "LPD" },
   { value: "GSD", label: "GSD" },
@@ -19,10 +21,10 @@ const roles = [
 ];
 
 const Header = ({ onMenuClick }) => {
-  const [role, setRole] = useState("CEO");
+  const { role, setRole } = useRole();
   const [chatModalOpen, setChatModalOpen] = useState(false);
   const [openNotifications, setOpenNotifications] = useState(false);
-
+  const navigate=useNavigate()
   return (
     <header className="w-full bg-white p-2.5 flex items-center justify-between gap-5">
       <div className="flex gap-3 items-center">
@@ -85,7 +87,16 @@ const Header = ({ onMenuClick }) => {
             placeholder="Role"
             options={roles}
             value={role}
-            onChange={setRole}
+            onChange={(e)=>{setRole(e);
+
+              if(e==="CFO"){
+                navigate("/dashboard");
+                return
+              }else if(e==="CEO"){
+                navigate("/control-tower");
+                return
+              }
+            }}
             inputClassName="!bg-transparent sm:!text-[20px] !text-sm sm:!gap-8 !gap-3 !px-0 !text-[#1E1E1E] !h-[unset] sm:!min-w-[100px] !min-w-[60px]"
             listItemClassName="!px-3"
             listParentClassName="!max-h-[unset] !w-[150px] !right-0"

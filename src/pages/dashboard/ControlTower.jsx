@@ -21,26 +21,8 @@ import cityIcon from "../../assets/locationicon.svg";
 import MainLayout from "../../components/layout/MainLayout";
 import FilterBar from "../../components/common/FilterBox";
 import exportIcon from "../../assets/exporticon.svg";
-import trendIcon from "../../assets/alertcircleicon.svg";
-import checkIcon from "../../assets/alertcircleicon.svg";
-import serverIcon from "../../assets/alertcircleicon.svg";
-import shieldIcon from "../../assets/alertcircleicon.svg";
-import targetIcon from "../../assets/alertcircleicon.svg";
-import globeIcon from "../../assets/alertcircleicon.svg";
-import downloadIcon from "../../assets/alertcircleicon.svg";
-import pulseIcon from "../../assets/alertcircleicon.svg";
 import dollarIcon from "../../assets/greendollaricon.svg";
-import lockIcon from "../../assets/alertcircleicon.svg";
-import fraudIcon from "../../assets/alertcircleicon.svg";
-import warningIcon from "../../assets/alertcircleicon.svg";
 import userIcon from "../../assets/alertcircleicon.svg";
-import databaseIcon from "../../assets/alertcircleicon.svg";
-import percentIcon from "../../assets/alertcircleicon.svg";
-import walletIcon from "../../assets/alertcircleicon.svg";
-import clockIcon from "../../assets/alertcircleicon.svg";
-import successIcon from "../../assets/alertcircleicon.svg";
-import boltIcon from "../../assets/alertcircleicon.svg";
-import robotIcon from "../../assets/alertcircleicon.svg";
 import growthIcon from "../../assets/alertcircleicon.svg";
 import providerIcon from "../../assets/alertcircleicon.svg";
 import influencerIcon from "../../assets/alertcircleicon.svg";
@@ -64,6 +46,36 @@ import CityPerformance from "../../components/dashboard-component/CityPerformanc
 import AutomationAndRevenue from "../../components/dashboard-component/AutomationAndRevenue";
 import RiskAssessmentSection from "../../components/dashboard-component/RiskAssessmentSection";
 import RevenueEngagementSection from "../../components/dashboard-component/RevenueEngagementSection";
+import {
+  Activity,
+  CheckCircle,
+  Download,
+  Globe,
+  MapPin,
+  Server,
+  ShieldAlert,
+  Target,
+  TrendingDown,
+  TrendingUp,
+  DollarSign,
+  AlertTriangle,
+  AlertOctagon,
+  Lock,
+  UserX,
+  Database,
+  ShieldClose,
+  FileWarning,
+  Bot,
+  ClipboardList,
+  Percent,
+  Wallet,
+  Clock4Icon,
+  TriangleAlert,
+  Briefcase,
+  XCircle,
+  Zap,
+  Lightbulb,
+} from "lucide-react";
 
 const peopleStats = [
   {
@@ -183,13 +195,7 @@ const strategicStats = [
 
 const Card = ({ item }) => (
   <div
-    className={`border rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 ${
-      item.warn
-        ? "border-yellow-400 bg-yellow-50"
-        : item.highlight
-          ? "border-green-400 bg-green-50"
-          : "border-green-400 bg-green-50"
-    }`}
+    className={`border-[1.33px] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 flex flex-col justify-between border-[#7BF1A8] bg-[#F0FDF4]`}
   >
     <div className="flex items-center gap-2 mb-2">
       <img src={item.icon} alt="" className="w-6" />
@@ -198,19 +204,21 @@ const Card = ({ item }) => (
       </p>
     </div>
 
-    <p className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A] mb-1">
-      {item.value}
-    </p>
-
-    {item.change && (
-      <p
-        className={`text-[14px] ${
-          item.change.startsWith("-") ? "text-red-600" : "text-green-600"
-        }`}
-      >
-        {item.change}
+    <div>
+      <p className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A] mb-1">
+        {item.value}
       </p>
-    )}
+
+      {item.change && (
+        <p
+          className={`text-[14px] ${
+            item.change.startsWith("-") ? "text-red-600" : "text-green-600"
+          }`}
+        >
+          {item.change}
+        </p>
+      )}
+    </div>
   </div>
 );
 
@@ -220,77 +228,88 @@ const moneyStats = [
     value: "$18.7M",
     change: "+14%",
     tone: "good",
-    icon: dollarIcon,
+    status: "upside",
+    icon: <DollarSign className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Net Revenue",
     value: "$12.4M",
     change: "+11%",
     tone: "good",
-    icon: dollarIcon,
+    status: "upside",
+    icon: <DollarSign className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Platform Margin",
     value: "34.2%",
     change: "+1.2%",
     tone: "good",
-    icon: percentIcon,
+    status: "upside",
+    icon: <Percent className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Cash Balance",
     value: "$8.2M",
     change: "-5%",
     tone: "warn",
-    icon: walletIcon,
+    status: "downside",
+    icon: <Wallet className="w-4 h-4 text-[#D08700]" />,
   },
   {
     title: "Outstanding Payouts",
     value: "$1.8M",
     change: "0%",
     tone: "good",
-    icon: clockIcon,
+    status: "",
+    icon: <Clock4Icon className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Refund Liability",
     value: "$240K",
     change: "-3%",
-    tone: "warn",
-    icon: alertIcon,
+    tone: "good",
+    status: "downside",
+    icon: <TriangleAlert className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Burn Rate",
     value: "$420K / mo",
     change: "-8%",
-    tone: "warn",
-    icon: percentIcon,
+    tone: "good",
+    status: "downside",
+    icon: <TrendingDown className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Runway",
     value: "19.5 months",
     change: "-1mo",
     tone: "warn",
-    icon: clockIcon,
+    status: "downside",
+    icon: <Clock4Icon className="w-4 h-4 text-[#D08700]" />,
   },
   {
     title: "Payment Success",
     value: "98.7%",
     change: "+0.3%",
     tone: "good",
-    icon: successIcon,
+    status: "upside",
+    icon: <CheckCircle className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Settlement Delays",
     value: "3",
     change: "+2",
     tone: "warn",
-    icon: alertIcon,
+    status: "upside",
+    icon: <Clock4Icon className="w-4 h-4 text-[#D08700]" />,
   },
   {
     title: "Wallet Float",
     value: "$4.2M",
     change: "+6%",
     tone: "good",
-    icon: walletIcon,
+    status: "upside",
+    icon: <Wallet className="w-4 h-4 text-[#00A63E]" />,
   },
 ];
 
@@ -299,107 +318,128 @@ const opsStats = [
     title: "Orders / Requests",
     value: "142K",
     change: "+9%",
-    tone: "good",
-    icon: serverIcon,
+    tone: "",
+    status: "upside",
+    icon: <ClipboardList className="w-4 h-4 text-[#155DFC]" />,
   },
   {
     title: "Active Services",
     value: "8",
     change: "0",
-    tone: "neutral",
-    icon: serverIcon,
+    tone: "",
+    status: "",
+    icon: <Briefcase className="w-4 h-4 text-[#155DFC]" />,
   },
   {
     title: "Automation Health",
     value: "7 / 0 / 1",
     tone: "warn",
-    icon: robotIcon,
+    status: "",
+    icon: <Bot className="w-4 h-4 text-[#D08700]" />,
   },
   {
     title: "AI Actions Today",
     value: "8,420",
     change: "+12%",
-    tone: "good",
-    icon: boltIcon,
+    tone: "",
+    status: "upside",
+    icon: <Zap className="w-4 h-4 text-[#155DFC]" />,
   },
   {
     title: "AI Suggestions",
     value: "247",
     change: "+5%",
-    tone: "good",
-    icon: boltIcon,
+    tone: "",
+    status: "upside",
+    icon: <Lightbulb className="w-4 h-4 text-[#155DFC]" />,
   },
   {
     title: "AI Blocked",
     value: "12",
     change: "-3",
-    tone: "warn",
-    icon: shieldIcon,
+    tone: "good",
+    status: "downside",
+    icon: <ShieldAlert className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Open Issues",
     value: "18",
     change: "-5",
-    tone: "warn",
-    icon: alertIcon,
+    tone: "good",
+    status: "downside",
+    icon: <TriangleAlert className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "CEO Approvals",
     value: "5",
     change: "0",
     tone: "warn",
-    icon: successIcon,
+    status: "upside",
+    icon: <CheckCircle className="w-4 h-4 text-[#D08700]" />,
   },
   {
     title: "System Uptime",
     value: "99.8%",
     change: "0%",
     tone: "good",
-    icon: serverIcon,
+    status: "",
+    icon: <Server className="w-4 h-4 text-[#00A63E]" />,
   },
   {
     title: "Failed Txns",
     value: "124",
     change: "-8",
-    tone: "warn",
-    icon: alertIcon,
+    tone: "good",
+    status: "downside",
+    icon: <XCircle className="w-4 h-4 text-[#00A63E]" />,
   },
 ];
 
 const StatCard = ({ item }) => (
   <div
-    className={`border rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 ${
+    className={`border-[1.33px] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 flex flex-col justify-between ${
       item.tone === "good"
-        ? "border-green-400 bg-green-50"
+        ? "border-[#7BF1A8] bg-[#F0FDF4]"
         : item.tone === "warn"
-          ? "border-yellow-400 bg-yellow-50"
+          ? "border-[#FFDF20] bg-[#FEFCE8]"
           : "border-[#E5E7EB] bg-white"
     }`}
   >
     <div className="flex items-center gap-2 mb-2">
-      <img src={item.icon} alt="" />
-      <p className="text-[14px] text-[#475467] uppercase font-medium">
+      {item.icon}
+      <p className="text-[14px] text-[#4A5565] uppercase font-bold">
         {item.title}
       </p>
     </div>
 
-    <p className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A] mb-1">
-      {item.value}
-    </p>
-
-    {item.change && (
+    <div className="flex justify-between gap-2 items-start">
       <p
-        className={`text-[14px] ${
-          item.change.startsWith("+")
-            ? "text-green-600"
-            : item.change.startsWith("-")
-              ? "text-red-600"
-              : "text-[#667085]"
-        }`}
+        className={`sm:text-[24px] leading-[1] text-[20px] font-semibold ${item.tone == "good" ? "text-green-600" : item.tone == "warn" ? "text-[#D08700]" : "text-black"} mb-1`}
       >
-        {item.change}
+        {item.value}
       </p>
-    )}
+
+      {item.change && (
+        <p
+          className={`text-[14px] flex items-center gap-1 ${
+            item.change.startsWith("+")
+              ? "text-green-600"
+              : item.change.startsWith("-")
+                ? "text-red-600"
+                : "text-[#667085]"
+          }`}
+        >
+          {item.status == "upside" ? (
+            <TrendingUp className="w-4" />
+          ) : item.status == "downside" ? (
+            <TrendingDown className="w-4" />
+          ) : (
+            ""
+          )}
+          {item.change}
+        </p>
+      )}
+    </div>
   </div>
 );
 
@@ -474,36 +514,66 @@ const executiveSummary = [
   {
     title: "Growing",
     subtitle: "+12% users, +9% providers",
-    icon: trendIcon,
+    icon: <TrendingUp className="w-8 h-8 text-[#00A63E]" />,
   },
   {
     title: "Profitable",
     subtitle: "34% margin, $12.4M net",
-    icon: checkIcon,
+    icon: <CheckCircle className="w-8 h-8 text-[#00A63E]" />,
   },
   {
     title: "Healthy",
     subtitle: "99.8% uptime, 7/8 auto OK",
-    icon: serverIcon,
+    icon: <Server className="w-8 h-8 text-[#00A63E]" />,
   },
   {
     title: "Low Risk",
     subtitle: "2 incidents, 0 data breaches",
-    icon: shieldIcon,
+    icon: <ShieldAlert className="w-8 h-8 text-[#D08700]" />,
   },
   {
     title: "On Track",
     subtitle: "73% OKR, 2/3 initiatives",
-    icon: targetIcon,
+    icon: <Target className="w-8 h-8 text-[#00A63E]" />,
   },
 ];
 
 const companyStats = [
-  { label: "Cities Live", value: "23", change: "+2", icon: cityIcon },
-  { label: "Countries Live", value: "5", change: "– 0", icon: globeIcon },
-  { label: "App Downloads", value: "3.8M", change: "+18%", icon: downloadIcon },
-  { label: "MAU", value: "1.2M", change: "+10%", icon: pulseIcon },
-  { label: "DAU", value: "340K", change: "+7%", icon: pulseIcon },
+  {
+    label: "Cities Live",
+    value: "23",
+    change: "+2",
+    status: "upside",
+    icon: <MapPin className="w-4 h-4 text-[#155DFC]" />,
+  },
+  {
+    label: "Countries Live",
+    value: "5",
+    change: "– 0",
+    status: "",
+    icon: <TrendingUp className="w-4 h-4 text-[#155DFC]" />,
+  },
+  {
+    label: "App Downloads",
+    value: "3.8M",
+    change: "+18%",
+    status: "upside",
+    icon: <Download className="w-4 h-4 text-[#155DFC]" />,
+  },
+  {
+    label: "MAU",
+    value: "1.2M",
+    change: "+10%",
+    status: "upside",
+    icon: <Activity className="w-4 h-4 text-[#155DFC]" />,
+  },
+  {
+    label: "DAU",
+    value: "340K",
+    change: "+7%",
+    status: "upside",
+    icon: <Activity className="w-4 h-4 text-[#155DFC]" />,
+  },
 ];
 
 const riskStats = [
@@ -511,70 +581,80 @@ const riskStats = [
     label: "Active Incidents",
     value: 2,
     delta: "-1",
-    icon: alertIcon,
+    icon: <AlertOctagon className="w-4 h-4 text-[#D08700]" />,
+    status: "downside",
     tone: "warn",
   },
   {
     label: "Refunds Pending",
     value: 67,
     delta: "-12",
-    icon: dollarIcon,
+    icon: <DollarSign className="w-4 h-4 text-[#00A63E]" />,
+    status: "downside",
     tone: "good",
   },
   {
     label: "Policy Violations",
     value: 8,
     delta: "+3",
-    icon: warningIcon,
+    icon: <FileWarning className="w-4 h-4 text-[#D08700]" />,
+    status: "upside",
     tone: "warn",
   },
   {
     label: "Fraud Flagged",
     value: 15,
     delta: "-5",
-    icon: fraudIcon,
+    icon: <ShieldClose className="w-4 h-4 text-[#00A63E]" />,
+    status: "downside",
     tone: "good",
   },
   {
     label: "Chargebacks",
     value: 23,
     delta: "+4",
-    icon: alertIcon,
+    icon: <AlertTriangle className="w-4 h-4 text-[#D08700]" />,
+    status: "upside",
     tone: "warn",
   },
   {
     label: "Legal Complaints",
     value: 1,
     delta: "– 0",
-    icon: warningIcon,
+    icon: <FileWarning className="w-4 h-4 text-[#D08700]" />,
+    status: "",
     tone: "warn",
   },
   {
     label: "Compliance Warn",
     value: 3,
     delta: "-2",
-    icon: shieldIcon,
+    icon: <ShieldAlert className="w-4 h-4 text-[#D08700]" />,
+    status: "downside",
     tone: "warn",
   },
   {
     label: "Security Alerts",
     value: 7,
     delta: "+2",
-    icon: lockIcon,
+    icon: <Lock className="w-4 h-4 text-[#D08700]" />,
+    status: "upside",
     tone: "warn",
   },
   {
     label: "Unauth Access",
     value: 42,
     delta: "-8",
-    icon: userIcon,
+    icon: <UserX className="w-4 h-4 text-[#00A63E]" />,
+    status: "downside",
     tone: "good",
   },
   {
     label: "Data Incidents",
     value: 0,
     delta: "– 0",
-    icon: databaseIcon,
+    icon: <Database className="w-4 h-4 text-[#00A63E]" />,
+    status: "",
     tone: "good",
   },
 ];
@@ -600,7 +680,7 @@ const emergencyActionsConfig = {
   },
 };
 
-const Dashboard = () => {
+const ControlTower = () => {
   const navigate = useNavigate();
   const [city, setCity] = useState("");
   const [vertical, setVertical] = useState("");
@@ -748,7 +828,8 @@ const Dashboard = () => {
 
       <div className="space-y-5 mb-5">
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
-          <h2 className="text-[20px] text-[#0A0A0A] mb-6">
+          <h2 className="text-[20px] text-[#0A0A0A] mb-6 flex items-center gap-3">
+            <Target className="w-5 h-5 text-[#2563EB]" />
             10-Second Executive Summary
           </h2>
 
@@ -756,10 +837,10 @@ const Dashboard = () => {
             {executiveSummary.map((item, i) => (
               <div
                 key={i}
-                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 text-center"
+                className="border-[1.33px] border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5 text-center flex items-center flex-col gap-3"
               >
-                <img src={item.icon} alt="" className="mx-auto mb-3" />
-                <p className="text-[16px] text-[#0A0A0A] mb-1">{item.title}</p>
+                {item.icon}
+                <p className="text-[16px] text-[#0A0A0A]">{item.title}</p>
                 <p className="text-[14px] text-[#667085]">{item.subtitle}</p>
               </div>
             ))}
@@ -767,7 +848,8 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
-          <h2 className="text-[20px] text-[#0A0A0A] mb-6">
+          <h2 className="text-[20px] text-[#0A0A0A] mb-6 flex items-center gap-3">
+            <Globe className="w-5 h-5 text-[#155DFC]" />
             Company Size & Reach
           </h2>
 
@@ -775,15 +857,26 @@ const Dashboard = () => {
             {companyStats.map((item, i) => (
               <div
                 key={i}
-                className="border border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5"
+                className="border-[1.33px] border-[#E5E7EB] rounded-lg lg:rounded-[14px] lg:p-4 p-2.5"
               >
-                <img src={item.icon} alt="" className="mb-3" />
-                <p className="text-[14px] text-[#667085] mb-1">{item.label}</p>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 mb-1">
+                  {item.icon}
+                  <p className="text-[14px] text-[#667085]">{item.label}</p>
+                </div>
+                <div className="flex items-center lg:gap-6 gap-3">
                   <span className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A]">
                     {item.value}
                   </span>
-                  <span className="text-[14px] text-green-600">
+                  <span
+                    className={`text-[14px] flex items-center gap-2 ${item.status == "upside" ? "text-green-600" : item.status == "downside" ? "text-red-600" : "text-gray-400"}`}
+                  >
+                    {item.status == "upside" ? (
+                      <TrendingUp className="w-5" />
+                    ) : item.status == "downside" ? (
+                      <TrendingDown className="w-5" />
+                    ) : (
+                      ""
+                    )}
                     {item.change}
                   </span>
                 </div>
@@ -793,7 +886,8 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
-          <h2 className="text-[20px] text-[#0A0A0A] mb-6">
+          <h2 className="text-[20px] text-[#0A0A0A] mb-6 flex items-center gap-3">
+            <ShieldAlert className="w-5 text-red-500" />
             Risk, Trust, Compliance & Security
           </h2>
 
@@ -801,27 +895,40 @@ const Dashboard = () => {
             {riskStats.map((item, i) => (
               <div
                 key={i}
-                className={`rounded-lg lg:rounded-[14px] border lg:p-4 p-2.5 ${
+                className={`rounded-lg lg:rounded-[14px] border-[1.33px] lg:p-4 p-2.5 ${
                   item.tone === "good"
-                    ? "border-green-300 bg-green-50"
-                    : "border-yellow-300 bg-yellow-50"
+                    ? "border-[#7BF1A8] bg-[#F0FDF4]"
+                    : "border-[#FFDF20] bg-[#FEFCE8]"
                 }`}
               >
-                <img src={item.icon} alt="" className="mb-3" />
-                <p className="text-[14px] text-[#475467] mb-1">{item.label}</p>
+                <div className="flex items-center gap-2 mb-1">
+                  {item.icon}
+                  <p className="text-[14px] text-[#475467]">{item.label}</p>
+                </div>
                 <div className="flex items-center justify-between">
-                  <span className="sm:text-[24px] text-[20px] font-semibold text-[#0A0A0A]">
+                  <span
+                    className={`sm:text-[32px] text-[24px] font-semibold ${
+                      item.tone === "good" ? "text-[#00A63E]" : "text-[#D08700]"
+                    }`}
+                  >
                     {item.value}
                   </span>
                   <span
-                    className={`text-[14px] ${
+                    className={`text-[14px] flex items-center gap-2 ${
                       item.delta.startsWith("+")
-                        ? "text-green-600"
+                        ? "text-[#00A63E]"
                         : item.delta.startsWith("-")
                           ? "text-red-600"
                           : "text-[#667085]"
                     }`}
                   >
+                    {item.status == "upside" ? (
+                      <TrendingUp className="w-5" />
+                    ) : item.status == "downside" ? (
+                      <TrendingDown className="w-5" />
+                    ) : (
+                      ""
+                    )}
                     {item.delta}
                   </span>
                 </div>
@@ -833,7 +940,8 @@ const Dashboard = () => {
 
       <div className="space-y-5 mb-5">
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
-          <h2 className="text-[20px] text-[#0A0A0A] mb-6">
+          <h2 className="text-[20px] text-[#0A0A0A] mb-6 flex items-center gap-3">
+            <DollarSign className="w-5 text-[#00A63E]" />
             Money & Financial Health
           </h2>
 
@@ -845,7 +953,8 @@ const Dashboard = () => {
         </div>
 
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
-          <h2 className="text-[20px] text-[#0A0A0A] mb-6">
+          <h2 className="text-[20px] text-[#0A0A0A] mb-6 flex  items-center gap-3">
+            <Bot className="w-5 h-5 text-[#7C3AED]" />
             Operations, Automation & System Health
           </h2>
 
@@ -860,7 +969,7 @@ const Dashboard = () => {
       <div className="space-y-5 mb-5">
         <div className="bg-white rounded-lg lg:rounded-[14px] border border-[#0000001A] lg:p-6 p-3">
           <h2 className="text-[20px] mb-6 flex items-center gap-2">
-            <img src={growthIcon} alt="" /> Growth & Momentum
+            <TrendingUp className="w-5 text-[#00A63E]" /> Growth & Momentum
           </h2>
 
           <div className="grid xl:grid-cols-8 lg:grid-cols-4 sm:grid-cols-2 grid-cols-2 lg:gap-4 gap-2">
@@ -970,4 +1079,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default ControlTower;

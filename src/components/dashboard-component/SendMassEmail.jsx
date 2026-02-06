@@ -47,7 +47,7 @@ export default function SendMassEmail() {
       <div className="mb-5">
         <div
           className="text-sm sm:text-base flex items-center gap-5 mb-1 cursor-pointer"
-          onClick={() => navigate("/dashboard")}
+          onClick={() => navigate("/control-tower")}
         >
           <ChevronLeft className="sm:w-5 w-4 sm:h-5 h-4 cursor-pointer" />
           <h1 className="sm:text-xl text-sm font-semibold">

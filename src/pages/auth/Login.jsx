@@ -6,6 +6,7 @@ import illustration from "../../assets/loginimg.svg";
 import googleIcon from "../../assets/googleicon.svg";
 import facebookIcon from "../../assets/facebookicon.svg";
 import OtpModal from "../../components/modal/OtpModal";
+import { useRole } from "../../routes/RoleContext";
 
 const roles = [
   { key: "CEO", label: "Chief Executive Officer (CEO)" },
@@ -18,10 +19,22 @@ const roles = [
   { key: "AAD", label: "Admin & Accounts Director (AAD)" },
 ];
 
+const roleRouteMap = {
+  CEO: "/control-tower",
+  COO: "/operations",
+  CTO: "/platform-architecture",
+  CFO: "/dashboard",
+  CMO: "/growth",
+  LPD: "/product-design",
+  GSD: "/growth-strategy",
+  AAD: "/admin-accounts",
+};
+
 const Login = () => {
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState(null);
   const [openOtpModal, setOpenOtpModal] = useState(false);
+  const { role, setRole } = useRole();
 
   return (
     <div className="min-h-screen flex items-center justify-center xl:px-[50px] xl:py-[70px] sm:p-6 p-3">
@@ -73,14 +86,17 @@ const Login = () => {
                 return (
                   <button
                     key={role.key}
-                    onClick={() => setSelectedRole(role)}
+                    onClick={() => {
+                      setSelectedRole(role);
+                      setRole(role.key);
+                    }}
                     className={`flex justify-center items-center lg:px-2 px-1 flex-1 lg:h-[70px] h-12 lg:text-[18px] text-sm rounded-[10px] transition
-            ${
-              isActive
-                ? "bg-[#0E1E38] text-white"
-                : "bg-[#EDEDED] text-[#929292]"
-            }
-          `}
+                      ${
+                        isActive
+                          ? "bg-[#0E1E38] text-white"
+                          : "bg-[#EDEDED] text-[#929292]"
+                      }
+                    `}
                   >
                     {role.key}
                   </button>
@@ -127,7 +143,7 @@ const Login = () => {
               className={`mt-4 ${
                 !selectedRole ? "opacity-50 cursor-not-allowed" : ""
               }`}
-              onClick={() => navigate("/dashboard")}
+              onClick={() => navigate(roleRouteMap[role] || "/")}
             >
               Login
             </Button>
@@ -155,7 +171,12 @@ const Login = () => {
 
           <p className="text-center text-[18px] text-[#726D6D] mt-6">
             Need an account?{" "}
-            <span className="text-[#CF2027] cursor-pointer" onClick={() => navigate("/signup")}>Sign up</span>
+            <span
+              className="text-[#CF2027] cursor-pointer"
+              onClick={() => navigate("/signup")}
+            >
+              Sign up
+            </span>
           </p>
         </div>
       </div>
