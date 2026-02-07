@@ -12,6 +12,8 @@ import {
   Clock,
 } from "lucide-react";
 import QuickActionModal from "./QuickActionModal";
+import ActiveAlertsQuene from "./ActiveAlertsQuene";
+import RecentChangesToolsPanel from "./RecentChangesToolsPanel";
 
 const statsConfig = [
   {
@@ -73,6 +75,7 @@ const Dashboard = () => {
       <PageHeader
         title="Dashboard"
         description="Infrastructure & Platform"
+        className="!mt-0"
         actions={[
           {
             label: "Quick Actions",
@@ -86,11 +89,15 @@ const Dashboard = () => {
         onClose={() => setOpenAction(false)}
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
         {statsConfig.map((item, index) => (
           <CommonCard key={index} {...item} />
         ))}
       </div>
+
+      <ActiveAlertsQuene />
+
+      <RecentChangesToolsPanel />
     </MainLayout>
   );
 };

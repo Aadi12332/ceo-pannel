@@ -1,11 +1,11 @@
-const PageHeader = ({ title, description, filter, actions = [] }) => {
+const PageHeader = ({ title, description, filter, className, actions = [] }) => {
   return (
-    <div className="w-full flex xl:flex-row flex-col xl:items-center justify-between gap-5 mb-5">
+    <div className={`w-full flex xl:flex-row flex-col xl:items-center justify-between gap-5 mb-5`}>
       <div>
         <h1 className="text-[28px] font-bold text-[#0A0A0A]">{title}</h1>
 
         {description && (
-          <p className="text-[16px] text-[#4A5565] mt-2.5">{description}</p>
+          <p className={`text-[16px] text-[#4A5565] md:mt-2.5 ${className}`}>{description}</p>
         )}
       </div>
 

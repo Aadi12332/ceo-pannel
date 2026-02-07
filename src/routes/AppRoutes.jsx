@@ -27,6 +27,10 @@ import PlatformArchitecture from "../pages/cfo-pages/platform-architecture/Platf
 import ProductEngineering from "../pages/cfo-pages/product-engineering/ProductEngineering";
 import ApiIntegrations from "../pages/cfo-pages/api-integrations/ApiIntegrations";
 import DevOpsInfrastructure from "../pages/cfo-pages/devops-infrastructure/DevOpsInfrastructure";
+import ViewActionQuene from "../pages/cfo-pages/dashboard/ViewActionQuene";
+import ViewRecentChange from "../pages/cfo-pages/dashboard/ViewRecentChange";
+import ViewRiskRegister from "../pages/cfo-pages/platform-architecture/ViewRiskRegister";
+import ViewCapacity from "../pages/cfo-pages/platform-architecture/ViewCapacity";
 
 const AppRoutes = () => {
   return (
@@ -56,6 +60,10 @@ const AppRoutes = () => {
         <Route path="/emergency" element={<Emergency />} />
 
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/view-action-quene" element={<ViewActionQuene />} />
+        <Route path="/view-recent-change" element={<ViewRecentChange />} />
+        <Route path="/view-risk-register" element={<ViewRiskRegister />} />
+        <Route path="/view-capacity" element={<ViewCapacity />} />
         <Route path="/platform-architecture" element={<PlatformArchitecture />} />
         <Route path="/product-engineering" element={<ProductEngineering />} />
         <Route path="/api-integrations" element={<ApiIntegrations />} />
