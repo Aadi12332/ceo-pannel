@@ -11,6 +11,7 @@ import {
   DollarSign,
   Clock,
 } from "lucide-react";
+import DeploymentOverview from "./DeploymentOverview";
 
 const statsConfig = [
   {
@@ -71,20 +72,11 @@ const DevOpsInfrastructure = () => {
     <MainLayout>
       <PageHeader
         title="DevOps & Infrastructure"
-        description="Infrastructure & Platform"
-        actions={[
-          {
-            label: "Quick Actions",
-            onClick: () => setOpenAction(true),
-          },
-        ]}
+        description="Infrastructure & Realibility"
+        className="!mt-0"
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {statsConfig.map((item, index) => (
-          <CommonCard key={index} {...item} />
-        ))}
-      </div>
+      <DeploymentOverview />
     </MainLayout>
   );
 };

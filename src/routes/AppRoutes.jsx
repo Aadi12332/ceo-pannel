@@ -31,6 +31,8 @@ import ViewActionQuene from "../pages/cfo-pages/dashboard/ViewActionQuene";
 import ViewRecentChange from "../pages/cfo-pages/dashboard/ViewRecentChange";
 import ViewRiskRegister from "../pages/cfo-pages/platform-architecture/ViewRiskRegister";
 import ViewCapacity from "../pages/cfo-pages/platform-architecture/ViewCapacity";
+import ViewHealth from "../pages/cfo-pages/api-integrations/ViewHealth";
+import ViewDeployment from "../pages/cfo-pages/devops-infrastructure/ViewDeployment";
 
 const AppRoutes = () => {
   return (
@@ -64,6 +66,8 @@ const AppRoutes = () => {
         <Route path="/view-recent-change" element={<ViewRecentChange />} />
         <Route path="/view-risk-register" element={<ViewRiskRegister />} />
         <Route path="/view-capacity" element={<ViewCapacity />} />
+        <Route path="/view-health" element={<ViewHealth />} />
+        <Route path="/view-development" element={<ViewDeployment />} />
         <Route path="/platform-architecture" element={<PlatformArchitecture />} />
         <Route path="/product-engineering" element={<ProductEngineering />} />
         <Route path="/api-integrations" element={<ApiIntegrations />} />
