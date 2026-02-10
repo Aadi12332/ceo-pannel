@@ -1,5 +1,7 @@
 import { Clock, Activity, XCircle, CheckCircle } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DeploymentApprovalModal from "./DeploymentApprovalModal";
 
 const kpiCards = [
   {
@@ -84,6 +86,9 @@ const pipelineData = [
     status: "Success",
     stage: "Canary 5%",
     duration: "6m 32s",
+    triggeredBy: "CI Auto",
+    deployedAt: "20 Jan, 16:40",
+    action: true,
   },
   {
     id: "#4581",
@@ -94,6 +99,9 @@ const pipelineData = [
     status: "Running",
     stage: "Full Deploy",
     duration: "--",
+    triggeredBy: "Release Mgr",
+    deployedAt: "--",
+    action: true,
   },
   {
     id: "#4579",
@@ -104,6 +112,9 @@ const pipelineData = [
     status: "Failed",
     stage: "Integration Tests",
     duration: "4m 12s",
+    triggeredBy: "Developer",
+    deployedAt: "20 Jan, 15:20",
+    action: true,
   },
   {
     id: "#4578",
@@ -114,6 +125,9 @@ const pipelineData = [
     status: "Success",
     stage: "Build",
     duration: "2m 05s",
+    triggeredBy: "CI Auto",
+    deployedAt: "--",
+    action: true,
   },
   {
     id: "#4576",
@@ -124,16 +138,24 @@ const pipelineData = [
     status: "Rolled Back",
     stage: "Post-Deploy Check",
     duration: "9m 10s",
+    triggeredBy: "Release Mgr",
+    deployedAt: "19 Jan, 22:10",
+    action: true,
   },
 ];
 
 export default function DeploymentOverview() {
   const navigate = useNavigate();
+  const [openApproval, setOpenApproval] = useState(false);
+  const [decision, setDecision] = useState("approve");
   return (
-    <div className="space-y-8">
+    <div className="space-y-5 mb-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {kpiCards.map((k, i) => (
-          <div key={i} className="bg-white rounded-xl p-5 flex justify-between items-center">
+          <div
+            key={i}
+            className="bg-white rounded-xl p-5 flex justify-between items-center"
+          >
             <div>
               <p className="text-sm text-gray-500">{k.title}</p>
               <p className="text-2xl font-semibold mt-1">{k.value}</p>
@@ -191,8 +213,8 @@ export default function DeploymentOverview() {
           </button>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="min-w-[1100px] w-full text-sm">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] scroll-hide">
+          <table className="min-w-[1600px] w-full text-sm">
             <thead className="border-b">
               <tr className="text-left text-gray-500">
                 <th className="py-3">Build ID</th>
@@ -203,6 +225,9 @@ export default function DeploymentOverview() {
                 <th>Status</th>
                 <th>Stage</th>
                 <th>Duration</th>
+                <th>Triggered By</th>
+                <th>Deployed At</th>
+                <th className="text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -222,12 +247,30 @@ export default function DeploymentOverview() {
                   </td>
                   <td>{r.stage}</td>
                   <td>{r.duration}</td>
+                  <td>{r.triggeredBy}</td>
+                  <td>{r.deployedAt}</td>
+                  <td className="text-right">
+                    {r.action && (
+                      <button
+                        onClick={() => setOpenApproval(true)}
+                        className="px-4 py-2 bg-[#0E1E38] text-white rounded-lg"
+                      >
+                        Approve
+                      </button>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
       </div>
+      <DeploymentApprovalModal
+        open={openApproval}
+        onClose={() => setOpenApproval(false)}
+        decision={decision}
+        setDecision={setDecision}
+      />
     </div>
   );
 }

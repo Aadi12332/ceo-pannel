@@ -12,6 +12,7 @@ import {
   Clock,
 } from "lucide-react";
 import DeploymentOverview from "./DeploymentOverview";
+import AutoscalingAndBudget from "./AutoscalingAndBudget";
 
 const statsConfig = [
   {
@@ -77,6 +78,9 @@ const DevOpsInfrastructure = () => {
       />
 
       <DeploymentOverview />
+
+      <AutoscalingAndBudget />
+
     </MainLayout>
   );
 };

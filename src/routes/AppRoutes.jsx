@@ -33,6 +33,11 @@ import ViewRiskRegister from "../pages/cfo-pages/platform-architecture/ViewRiskR
 import ViewCapacity from "../pages/cfo-pages/platform-architecture/ViewCapacity";
 import ViewHealth from "../pages/cfo-pages/api-integrations/ViewHealth";
 import ViewDeployment from "../pages/cfo-pages/devops-infrastructure/ViewDeployment";
+import SecurityPrivacy from "../pages/cfo-pages/security-privacy/SecurityPrivacy";
+import ViewAccessReview from "../pages/cfo-pages/security-privacy/ViewAccessReview";
+import DataEngineering from "../pages/cfo-pages/data-engineering/DataEngineering";
+import AiMlEngineering from "../pages/cfo-pages/ai-ml-engineering/AiMlEngineering";
+import EngineeringQa from "../pages/cfo-pages/engineering-qa/EngineeringQa";
 
 const AppRoutes = () => {
   return (
@@ -68,14 +73,15 @@ const AppRoutes = () => {
         <Route path="/view-capacity" element={<ViewCapacity />} />
         <Route path="/view-health" element={<ViewHealth />} />
         <Route path="/view-development" element={<ViewDeployment />} />
+        <Route path="/view-access-review" element={<ViewAccessReview />} />
         <Route path="/platform-architecture" element={<PlatformArchitecture />} />
         <Route path="/product-engineering" element={<ProductEngineering />} />
         <Route path="/api-integrations" element={<ApiIntegrations />} />
         <Route path="/devops-infrastructure" element={<DevOpsInfrastructure />} />
-        <Route path="/security-privacy" element={<DevOpsInfrastructure />} />
-        <Route path="/data-engineering" element={<DevOpsInfrastructure />} />
-        <Route path="/ai-ml-engineering" element={<DevOpsInfrastructure />} />
-        <Route path="/engineering-qa" element={<DevOpsInfrastructure />} />
+        <Route path="/security-privacy" element={<SecurityPrivacy />} />
+        <Route path="/data-engineering" element={<DataEngineering />} />
+        <Route path="/ai-ml-engineering" element={<AiMlEngineering />} />
+        <Route path="/engineering-qa" element={<EngineeringQa />} />
         <Route path="/release-change-management" element={<DevOpsInfrastructure />} />
         <Route path="/incident-response" element={<DevOpsInfrastructure />} />
         <Route path="/product-registration" element={<DevOpsInfrastructure />} />
