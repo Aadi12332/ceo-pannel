@@ -157,7 +157,7 @@ const menuItemsCFO = [
   },
   {
     label: "Technical Incident Response",
-    path: "/incident-response",
+    path: "/technical-incident-response",
     icon: <AlertTriangle />,
   },
   {
@@ -167,7 +167,7 @@ const menuItemsCFO = [
   },
   {
     label: "Product Versioning & Release Control",
-    path: "/product-versioning",
+    path: "/product-versioning-release-control",
     icon: <ClipboardCheck />,
   },
   {

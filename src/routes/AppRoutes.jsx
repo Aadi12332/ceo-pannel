@@ -38,6 +38,14 @@ import ViewAccessReview from "../pages/cfo-pages/security-privacy/ViewAccessRevi
 import DataEngineering from "../pages/cfo-pages/data-engineering/DataEngineering";
 import AiMlEngineering from "../pages/cfo-pages/ai-ml-engineering/AiMlEngineering";
 import EngineeringQa from "../pages/cfo-pages/engineering-qa/EngineeringQa";
+import ReleaseChangeManagement from "../pages/cfo-pages/release-change-management/ReleaseChangeManagement";
+import TechnicalIncidentResponse from "../pages/cfo-pages/technical-incident-response/TechnicalIncidentResponse";
+import IncidentDetails from "../pages/cfo-pages/technical-incident-response/IncidentDetails";
+import ProductRegistry from "../pages/cfo-pages/product-registry/ProductRegistry";
+import ProductDetails from "../pages/cfo-pages/product-registry/ProductDetails";
+import ProductVersioningReleaseControl from "../pages/cfo-pages/product-versioning-release-control/ProductVersioningReleaseControl";
+import ProductVersionDetails from "../pages/cfo-pages/product-versioning-release-control/ProductVersionDetails";
+import CreateVersion from "../pages/cfo-pages/product-versioning-release-control/CreateVersion";
 
 const AppRoutes = () => {
   return (
@@ -82,10 +90,14 @@ const AppRoutes = () => {
         <Route path="/data-engineering" element={<DataEngineering />} />
         <Route path="/ai-ml-engineering" element={<AiMlEngineering />} />
         <Route path="/engineering-qa" element={<EngineeringQa />} />
-        <Route path="/release-change-management" element={<DevOpsInfrastructure />} />
-        <Route path="/incident-response" element={<DevOpsInfrastructure />} />
-        <Route path="/product-registration" element={<DevOpsInfrastructure />} />
-        <Route path="/product-versioning" element={<DevOpsInfrastructure />} />
+        <Route path="/release-change-management" element={<ReleaseChangeManagement />} />
+        <Route path="/technical-incident-response" element={<TechnicalIncidentResponse />} />
+        <Route path="/incident-details" element={<IncidentDetails />} />
+        <Route path="/product-registration" element={<ProductRegistry />} />
+        <Route path="/product-details" element={<ProductDetails />} />
+        <Route path="/product-versioning-release-control" element={<ProductVersioningReleaseControl />} />
+        <Route path="/product-version-details" element={<ProductVersionDetails />} />
+        <Route path="/create-version" element={<CreateVersion />} />
         <Route path="/product-capability" element={<DevOpsInfrastructure />} />
         <Route path="/change-impact-risk" element={<DevOpsInfrastructure />} />
         <Route path="/product-lifecycle" element={<DevOpsInfrastructure />} />
