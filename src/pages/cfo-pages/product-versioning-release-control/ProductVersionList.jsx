@@ -191,7 +191,6 @@ export default function ProductVersionList() {
             value={Type}
             onChange={(value) => {
               setType(value);
-              setIsEdit(true);
             }}
             options={[
               { value: "Draft", label: "Draft" },

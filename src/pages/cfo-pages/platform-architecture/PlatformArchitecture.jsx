@@ -16,7 +16,7 @@ const PlatformArchitecture = () => {
       <PageHeader
         title="Platform Architecture"
         description="System structure and scalability control"
-        className="!mt-0"
+        className="!mt-1"
       />
 
       <ServiceDomainMap />

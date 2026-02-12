@@ -75,7 +75,7 @@ const Dashboard = () => {
       <PageHeader
         title="Dashboard"
         description="Infrastructure & Platform"
-        className="!mt-0"
+        className="!mt-1"
         actions={[
           {
             label: "Quick Actions",

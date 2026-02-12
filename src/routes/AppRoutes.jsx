@@ -46,6 +46,16 @@ import ProductDetails from "../pages/cfo-pages/product-registry/ProductDetails";
 import ProductVersioningReleaseControl from "../pages/cfo-pages/product-versioning-release-control/ProductVersioningReleaseControl";
 import ProductVersionDetails from "../pages/cfo-pages/product-versioning-release-control/ProductVersionDetails";
 import CreateVersion from "../pages/cfo-pages/product-versioning-release-control/CreateVersion";
+import ProductCapabilityDependencyControl from "../pages/cfo-pages/product-capability-dependency-control/ProductVersioningReleaseControl";
+import ChangeImpactRiskControl from "../pages/cfo-pages/change-impact-risk-control/ChangeImpactRiskControl";
+import ChangeImpactDetails from "../pages/cfo-pages/change-impact-risk-control/ChangeImpactDetails";
+import ScoreRiskDetails from "../pages/cfo-pages/change-impact-risk-control/ScoreRiskDetails";
+import ProductLifecycleManagement from "../pages/cfo-pages/product-lifecycle-management/ProductLifecycleManagement";
+import ProductLifecycleDetails from "../pages/cfo-pages/product-lifecycle-management/product-lifecycle-details";
+import ExperimentationFeatureGovernance from "../pages/cfo-pages/experimentation-feature-governance/ExperimentationFeatureGovernance";
+import ExperimentationDetails from "../pages/cfo-pages/experimentation-feature-governance/ExperimentationDetails";
+import DecisionDetails from "../pages/cfo-pages/experimentation-feature-governance/DecisionDetails";
+import CreateExperimentation from "../pages/cfo-pages/experimentation-feature-governance/CreateExperimentation";
 
 const AppRoutes = () => {
   return (
@@ -98,17 +108,23 @@ const AppRoutes = () => {
         <Route path="/product-versioning-release-control" element={<ProductVersioningReleaseControl />} />
         <Route path="/product-version-details" element={<ProductVersionDetails />} />
         <Route path="/create-version" element={<CreateVersion />} />
-        <Route path="/product-capability" element={<DevOpsInfrastructure />} />
-        <Route path="/change-impact-risk" element={<DevOpsInfrastructure />} />
-        <Route path="/product-lifecycle" element={<DevOpsInfrastructure />} />
-        <Route path="/experimentation-governance" element={<DevOpsInfrastructure />} />
-        <Route path="/product-security-privacy" element={<DevOpsInfrastructure />} />
-        <Route path="/product-data-analytics" element={<DevOpsInfrastructure />}/>
-        <Route path="/monetization-revenue" element={<DevOpsInfrastructure />} />
-        <Route path="/compliance-legal" element={<DevOpsInfrastructure />} />
+        <Route path="/product-capability-dependency-control" element={<ProductCapabilityDependencyControl />} />
+        <Route path="/change-impact-risk-control" element={<ChangeImpactRiskControl />} />
+        <Route path="/change-impact-details" element={<ChangeImpactDetails />} />
+        <Route path="/score-risk-details" element={<ScoreRiskDetails />} />
+        <Route path="/product-lifecycle-management" element={<ProductLifecycleManagement />} />
+        <Route path="/product-lifecycle-details" element={<ProductLifecycleDetails />} />
+        <Route path="/experimentation-feature-governance" element={<ExperimentationFeatureGovernance />} />
+        <Route path="/experimentation-details" element={<ExperimentationDetails />} />
+        <Route path="/create-experimentation" element={<CreateExperimentation />} />
+        <Route path="/decision-details" element={<DecisionDetails />} />
+        <Route path="/product-security-privacy-governance" element={<DevOpsInfrastructure />} />
+        <Route path="/product-data-analytics-governance" element={<DevOpsInfrastructure />}/>
+        <Route path="/monetization-revenue-logic" element={<DevOpsInfrastructure />} />
+        <Route path="/compliance-legal-readiness" element={<DevOpsInfrastructure />} />
         <Route path="/product-operational-readiness" element={<DevOpsInfrastructure />} />
-        <Route path="/documentation-knowledge" element={<DevOpsInfrastructure />} />
-        <Route path="/product-global" element={<DevOpsInfrastructure />} />
+        <Route path="/documentation-knowledge-management" element={<DevOpsInfrastructure />} />
+        <Route path="/product-level-global" element={<DevOpsInfrastructure />} />
 
 
       </Routes>

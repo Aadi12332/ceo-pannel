@@ -15,7 +15,7 @@ const SecurityPrivacy = () => {
       <PageHeader
         title="Security & Privacy"
         description="Keeping Your Data Safe and Private"
-        className="!mt-0"
+        className="!mt-1"
       />
 
       <PIIMaskingRulesEditor />

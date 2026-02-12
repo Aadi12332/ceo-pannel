@@ -54,7 +54,6 @@ const CreateVersion = () => {
                     value={type}
                     onChange={(value) => {
                       setType(value);
-                      setIsEdit(true);
                     }}
                     options={[
                       { value: "Draft", label: "Draft" },

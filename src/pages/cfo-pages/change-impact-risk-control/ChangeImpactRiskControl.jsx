@@ -2,26 +2,24 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout";
 import PageHeader from "../../../components/common/Heading";
-import ActiveIncidents from "./ActiveIncidents";
-
-const TechnicalIncidentResponse = () => {
+import ChangeImpact from "./ChangeImpact";
+const ChangeImpactRiskControl = () => {
   const navigate = useNavigate();
-const [openMonitor, setOpenMonitor] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <MainLayout>
       <PageHeader
-        title="Technical Incident Response"
-        description="End-to-End Incident Lifecycle Management"
+        title="Change Impact & Risk Control"
+        description="Approve risky product changes with consistent scoring and clear audit trails."
         className="!mt-1"
       />
 
-      <ActiveIncidents />
-
-
+      <ChangeImpact />
 
     </MainLayout>
+
   );
 };
 
-export default TechnicalIncidentResponse;
+export default ChangeImpactRiskControl;

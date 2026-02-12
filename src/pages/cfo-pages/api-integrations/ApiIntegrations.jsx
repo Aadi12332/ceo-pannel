@@ -23,7 +23,7 @@ const ApiIntegrations = () => {
       <PageHeader
         title="Api Integrations"
         description="All System Connections in One Place"
-        className="!mt-0"
+        className="!mt-1"
       />
 
       <IntegrationHealth />

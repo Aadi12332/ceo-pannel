@@ -2,26 +2,21 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../../components/layout/MainLayout";
 import PageHeader from "../../../components/common/Heading";
-import ActiveIncidents from "./ActiveIncidents";
-
-const TechnicalIncidentResponse = () => {
+import ProductList from "./ProductList";
+const ProductLifecycleManagement = () => {
   const navigate = useNavigate();
-const [openMonitor, setOpenMonitor] = useState(false);
 
   return (
     <MainLayout>
       <PageHeader
-        title="Technical Incident Response"
-        description="End-to-End Incident Lifecycle Management"
+        title="Product Lifecycle Management"
+        description="State by product — jump into health, deprecation planning, or retirement confirmation."
         className="!mt-1"
       />
 
-      <ActiveIncidents />
-
-
-
+      <ProductList />
     </MainLayout>
   );
 };
 
-export default TechnicalIncidentResponse;
+export default ProductLifecycleManagement;

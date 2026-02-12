@@ -172,42 +172,42 @@ const menuItemsCFO = [
   },
   {
     label: "Product Capability & Dependency Control",
-    path: "/product-capability",
+    path: "/product-capability-dependency-control",
     icon: <Boxes />,
   },
   {
     label: "Change Impact & Risk Control",
-    path: "/change-impact-risk",
+    path: "/change-impact-risk-control",
     icon: <Sliders />,
   },
   {
     label: "Product Lifecycle Management",
-    path: "/product-lifecycle",
+    path: "/product-lifecycle-management",
     icon: <RefreshCcw />,
   },
   {
     label: "Experimentation & Feature Governance",
-    path: "/experimentation-governance",
+    path: "/experimentation-feature-governance",
     icon: <FlaskConical />,
   },
   {
     label: "Product Security & Privacy Governance",
-    path: "/product-security-privacy",
+    path: "/product-security-privacy-governance",
     icon: <ShieldCheck />,
   },
   {
     label: "Product Data & Analytics Governance",
-    path: "/product-data-analytics",
+    path: "/product-data-analytics-governance",
     icon: <BarChart3 />,
   },
   {
     label: "Monetization & Revenue Logic",
-    path: "/monetization-revenue",
+    path: "/monetization-revenue-logic",
     icon: <Wallet />,
   },
   {
     label: "Compliance & Legal Readiness",
-    path: "/compliance-legal",
+    path: "/compliance-legal-readiness",
     icon: <Scale />,
   },
   {
@@ -217,12 +217,12 @@ const menuItemsCFO = [
   },
   {
     label: "Documentation & Knowledge Management",
-    path: "/documentation-knowledge",
+    path: "/documentation-knowledge-management",
     icon: <FileText />,
   },
   {
     label: "Product-Level Global",
-    path: "/product-global",
+    path: "/product-level-global",
     icon: <Globe />,
   },
 ];

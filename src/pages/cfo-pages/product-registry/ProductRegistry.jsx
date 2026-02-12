@@ -14,7 +14,7 @@ const ProductRegistry = () => {
       <PageHeader
         title="Product Registry"
         description="Manage and track all product lifecycles"
-        className="!mt-0"
+        className="!mt-1"
         actions={[
           {
             label: "Create Product",
