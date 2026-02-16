@@ -56,6 +56,15 @@ import ExperimentationFeatureGovernance from "../pages/cfo-pages/experimentation
 import ExperimentationDetails from "../pages/cfo-pages/experimentation-feature-governance/ExperimentationDetails";
 import DecisionDetails from "../pages/cfo-pages/experimentation-feature-governance/DecisionDetails";
 import CreateExperimentation from "../pages/cfo-pages/experimentation-feature-governance/CreateExperimentation";
+import ProductSecurityPrivacyGovernance from "../pages/cfo-pages/product-security-privacy-governance/ProductSecurityPrivacyGovernance";
+import SensitiveFeatureView from "../pages/cfo-pages/product-security-privacy-governance/SensitiveFeatureView";
+import PIIExposureView from "../pages/cfo-pages/product-security-privacy-governance/PIIExposureView";
+import SecurityRiskView from "../pages/cfo-pages/product-security-privacy-governance/SecurityRiskView";
+import EditPiiField from "../pages/cfo-pages/product-security-privacy-governance/EditPiiField";
+import ProductDataAnalyticsGovernance from "../pages/cfo-pages/product-data-analytics-governance/ProductDataAnalyticsGovernance";
+import AddKPI from "../pages/cfo-pages/product-data-analytics-governance/AddKPI";
+import MonetizationRevenueLogic from "../pages/cfo-pages/monetization-revenue-logic/MonetizationRevenueLogic";
+import AddMonetizationRule from "../pages/cfo-pages/monetization-revenue-logic/AddMonetizationRule";
 
 const AppRoutes = () => {
   return (
@@ -118,9 +127,15 @@ const AppRoutes = () => {
         <Route path="/experimentation-details" element={<ExperimentationDetails />} />
         <Route path="/create-experimentation" element={<CreateExperimentation />} />
         <Route path="/decision-details" element={<DecisionDetails />} />
-        <Route path="/product-security-privacy-governance" element={<DevOpsInfrastructure />} />
-        <Route path="/product-data-analytics-governance" element={<DevOpsInfrastructure />}/>
-        <Route path="/monetization-revenue-logic" element={<DevOpsInfrastructure />} />
+        <Route path="/product-security-privacy-governance" element={<ProductSecurityPrivacyGovernance />} />
+        <Route path="/sensitive-feature-view" element={<SensitiveFeatureView />} />
+        <Route path="/pii-exposure-view" element={<PIIExposureView />} />
+        <Route path="/pii-exposure-edit" element={<EditPiiField />} />
+        <Route path="/security-risk-view" element={<SecurityRiskView />} />
+        <Route path="/product-data-analytics-governance" element={<ProductDataAnalyticsGovernance />}/>
+        <Route path="/add-kpi" element={<AddKPI />}/>
+        <Route path="/monetization-revenue-logic" element={<MonetizationRevenueLogic />} />
+        <Route path="/add-monetization-rule" element={<AddMonetizationRule />} />
         <Route path="/compliance-legal-readiness" element={<DevOpsInfrastructure />} />
         <Route path="/product-operational-readiness" element={<DevOpsInfrastructure />} />
         <Route path="/documentation-knowledge-management" element={<DevOpsInfrastructure />} />

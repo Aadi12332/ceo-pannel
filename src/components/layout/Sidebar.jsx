@@ -38,13 +38,14 @@ import {
   Users,
   Lock,
   TrendingUp,
-  GitPullRequestArrow
+  GitPullRequestArrow,
 } from "lucide-react";
 
 const menuItemsCEO = [
   {
     label: "Control Tower",
     path: "/control-tower",
+    matchPaths: ["/control-tower", "/send-mass-email"],
     icon: <Home />,
   },
   {
@@ -85,6 +86,7 @@ const menuItemsCEO = [
   {
     label: "Access Control",
     path: "/access-control",
+    matchPaths: ["/access-control", "/add-new-employee"],
     icon: <Lock />,
   },
   {
@@ -95,6 +97,7 @@ const menuItemsCEO = [
   {
     label: "Global Tool Registry",
     path: "/global-tool-registry",
+    matchPaths: ["/global-tool-registry", "/merchants", "/users", "/add-new-merchant", "/add-new-user", "/order-detail"],
     icon: <Globe />,
   },
   {
@@ -108,11 +111,13 @@ const menuItemsCFO = [
   {
     label: "Dashboard",
     path: "/dashboard",
+    matchPaths: ["/dashboard", "/view-action-quene", "/view-recent-change"],
     icon: <LayoutGrid />,
   },
   {
     label: "Platform Architecture",
     path: "/platform-architecture",
+    matchPaths: ["/platform-architecture","/view-capacity", "/view-risk-register"],
     icon: <Network />,
   },
   {
@@ -123,16 +128,19 @@ const menuItemsCFO = [
   {
     label: "API & Integrations",
     path: "/api-integrations",
+    matchPaths: ["/api-integrations", "/view-health"],
     icon: <Plug />,
   },
   {
     label: "DevOps & Infrastructure",
     path: "/devops-infrastructure",
+    matchPaths: ["/devops-infrastructure", "/view-development"],
     icon: <Server />,
   },
   {
     label: "Security & Privacy",
     path: "/security-privacy",
+    matchPaths: ["/security-privacy", "/view-access-review"],
     icon: <Shield />,
   },
   {
@@ -158,16 +166,19 @@ const menuItemsCFO = [
   {
     label: "Technical Incident Response",
     path: "/technical-incident-response",
+    matchPaths: ["/technical-incident-response", "/incident-details"],
     icon: <AlertTriangle />,
   },
   {
     label: "Product Registration",
     path: "/product-registration",
+    matchPaths: ["/product-registration", "/product-details"],
     icon: <Package />,
   },
   {
     label: "Product Versioning & Release Control",
     path: "/product-versioning-release-control",
+    matchPaths: ["/product-versioning-release-control", "/create-version", "/product-version-details"],
     icon: <ClipboardCheck />,
   },
   {
@@ -178,31 +189,37 @@ const menuItemsCFO = [
   {
     label: "Change Impact & Risk Control",
     path: "/change-impact-risk-control",
+    matchPaths: ["/change-impact-risk-control", "/change-impact-details", "/score-risk-details"],
     icon: <Sliders />,
   },
   {
     label: "Product Lifecycle Management",
     path: "/product-lifecycle-management",
+    matchPaths: ["/product-lifecycle-management", "/product-lifecycle-details"],
     icon: <RefreshCcw />,
   },
   {
     label: "Experimentation & Feature Governance",
     path: "/experimentation-feature-governance",
+    matchPaths: ["/experimentation-feature-governance", "/create-experimentation", "/experimentation-details", "/decision-details"],
     icon: <FlaskConical />,
   },
   {
     label: "Product Security & Privacy Governance",
     path: "/product-security-privacy-governance",
+    matchPaths: ["/product-security-privacy-governance", "/sensitive-feature-view", "/pii-exposure-view","/security-risk-view"],
     icon: <ShieldCheck />,
   },
   {
     label: "Product Data & Analytics Governance",
     path: "/product-data-analytics-governance",
+    matchPaths: ["/product-data-analytics-governance", "/add-kpi"],
     icon: <BarChart3 />,
   },
   {
     label: "Monetization & Revenue Logic",
     path: "/monetization-revenue-logic",
+    matchPaths: ["/monetization-revenue-logic", "/add-monetization-rule"],
     icon: <Wallet />,
   },
   {
@@ -225,11 +242,16 @@ const menuItemsCFO = [
     path: "/product-level-global",
     icon: <Globe />,
   },
+  {
+    label: "Communication & Discussion",
+    path: "/communication-discussion",
+    icon: <GitPullRequestArrow />,
+  },
 ];
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
-const activeRef = useRef(null);
+  const activeRef = useRef(null);
   const { role } = useRole();
   const visibleItems = role === "CEO" ? menuItemsCEO : menuItemsCFO;
 
@@ -237,13 +259,13 @@ const activeRef = useRef(null);
   const handleLogout = () => {
     navigate("/");
   };
-useEffect(() => {
-  activeRef.current?.scrollIntoView({
-    behavior: "smooth",
-    block: "nearest",
-  });
-}, [location.pathname]);
 
+  useEffect(() => {
+    activeRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
+  }, [location.pathname]);
 
   return (
     <>
@@ -283,51 +305,51 @@ useEffect(() => {
 
             <nav className="h-[calc(100vh-244px)] overflow-auto scroll-hide">
               {visibleItems.map((item) => {
-                const isActive = location.pathname === item.path;
+                const isActive =
+                  (item.matchPaths &&
+                    item.matchPaths.includes(location.pathname)) ||
+                  location.pathname.startsWith(item.path);
+
                 return (
                   <NavLink
                     key={item.path}
                     to={item.path}
                     ref={isActive ? activeRef : null}
-                    className={({ isActive }) =>
-                      `relative flex items-center gap-3 px-6 py-4 transition  font-semibold
+                    className={`relative flex items-center gap-3 px-6 py-4 transition font-semibold
                       ${
                         isActive
                           ? "text-[#0E1E38] -my-7 h-[136px] first:mt-0"
                           : "text-white first:pt-10"
-                      }`
-                    }
+                      }`}
                   >
-                    {({ isActive }) => (
-                      <>
-                        {isActive && (
-                          <img
-                            src={activeSidebarImg}
-                            alt=""
-                            className="absolute left-0 right-0 top-0 bottom-0 z-0 h-[136px]"
-                          />
-                        )}
-  
-                        <div className="flex items-center gap-5 z-10">
-                          <span
-                            className={`w-5 h-5 ${isActive ? "text-[#0E1E38]" : "text-white"}`}
-                          >
-                            {item.icon}
-                          </span>
-                          <span
-                            title={item.label}
-                            className={`text-[16px] relative max-w-[200px] font-semibold line-clamp-2 ${isActive ? "text-[#0E1E38]" : "text-white"}`}
-                          >
-                            {item.label}
-                          </span>
-                        </div>
-                      </>
+                    {isActive && (
+                      <img
+                        src={activeSidebarImg}
+                        alt=""
+                        className="absolute left-0 right-0 top-0 bottom-0 z-0 h-[136px]"
+                      />
                     )}
+
+                    <div className="flex items-center gap-5 z-10">
+                      <span
+                        className={`w-5 h-5 ${
+                          isActive ? "text-[#0E1E38]" : "text-white"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                      <span
+                        title={item.label}
+                        className={`text-[16px] relative max-w-[200px] font-semibold line-clamp-2 ${
+                          isActive ? "text-[#0E1E38]" : "text-white"
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                    </div>
                   </NavLink>
-                )
-              }
-              
-              )}
+                );
+              })}
             </nav>
           </div>
 
