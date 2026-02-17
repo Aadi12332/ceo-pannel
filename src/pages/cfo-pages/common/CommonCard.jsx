@@ -26,8 +26,10 @@ const CommonCard = ({
           <p
             className={`text-sm mt-1 ${
               changeType === "positive"
-                ? "text-[#00A63E]"
-                : "text-[#CF2027]"
+                ? "text-[#00A63E]" 
+                : changeType === "negative"
+                ? "text-[#CF2027]" 
+                : "text-[#9CA3AF]"
             }`}
           >
             {change}

@@ -225,6 +225,7 @@ const menuItemsCFO = [
   {
     label: "Compliance & Legal Readiness",
     path: "/compliance-legal-readiness",
+    matchPaths: ["/compliance-legal-readiness", "/request-launch-clearance", "/regulatory-compliance"],
     icon: <Scale />,
   },
   {
@@ -235,6 +236,7 @@ const menuItemsCFO = [
   {
     label: "Documentation & Knowledge Management",
     path: "/documentation-knowledge-management",
+    matchPaths: ["/documentation-knowledge-management", "/documentation-details", "/training-tracker"],
     icon: <FileText />,
   },
   {

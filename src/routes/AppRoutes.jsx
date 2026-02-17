@@ -65,6 +65,14 @@ import ProductDataAnalyticsGovernance from "../pages/cfo-pages/product-data-anal
 import AddKPI from "../pages/cfo-pages/product-data-analytics-governance/AddKPI";
 import MonetizationRevenueLogic from "../pages/cfo-pages/monetization-revenue-logic/MonetizationRevenueLogic";
 import AddMonetizationRule from "../pages/cfo-pages/monetization-revenue-logic/AddMonetizationRule";
+import ComplianceLegalReadiness from "../pages/cfo-pages/compliance-legal-readiness/ComplianceLegalReadiness";
+import RequestLaunchClearance from "../pages/cfo-pages/compliance-legal-readiness/RequestLaunchClearance";
+import RegulatoryCompliance from "../pages/cfo-pages/compliance-legal-readiness/RegulatoryCompliance";
+import ProductOperationalReadiness from "../pages/cfo-pages/product-operational-readiness/ProductOperationalReadiness";
+import DocumentationKnowledgeManagement from "../pages/cfo-pages/documentation-knowledge-management/DocumentationKnowledgeManagement";
+import DocumentDetails from "../pages/cfo-pages/documentation-knowledge-management/DocumentDetails";
+import ProductLevelGlobal from "../pages/cfo-pages/product-level-global/ProductLevelGlobal";
+import TrainingTracker from "../pages/cfo-pages/documentation-knowledge-management/TrainingTracker";
 
 const AppRoutes = () => {
   return (
@@ -136,10 +144,14 @@ const AppRoutes = () => {
         <Route path="/add-kpi" element={<AddKPI />}/>
         <Route path="/monetization-revenue-logic" element={<MonetizationRevenueLogic />} />
         <Route path="/add-monetization-rule" element={<AddMonetizationRule />} />
-        <Route path="/compliance-legal-readiness" element={<DevOpsInfrastructure />} />
-        <Route path="/product-operational-readiness" element={<DevOpsInfrastructure />} />
-        <Route path="/documentation-knowledge-management" element={<DevOpsInfrastructure />} />
-        <Route path="/product-level-global" element={<DevOpsInfrastructure />} />
+        <Route path="/compliance-legal-readiness" element={<ComplianceLegalReadiness />} />
+        <Route path="/request-launch-clearance" element={<RequestLaunchClearance />} />
+        <Route path="/regulatory-compliance" element={<RegulatoryCompliance />} />
+        <Route path="/product-operational-readiness" element={<ProductOperationalReadiness />} />
+        <Route path="/documentation-knowledge-management" element={<DocumentationKnowledgeManagement />} />
+        <Route path="/documentation-details" element={<DocumentDetails />} />
+        <Route path="/training-tracker" element={<TrainingTracker />} />
+        <Route path="/product-level-global" element={<ProductLevelGlobal />} />
 
 
       </Routes>
