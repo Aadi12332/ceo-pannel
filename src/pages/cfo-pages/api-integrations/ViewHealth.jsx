@@ -246,7 +246,7 @@ const ViewHealth = () => {
       </div>
       <div className="bg-white lg:rounded-xl lg:p-6 rounded-lg p-3 flex flex-col">
         <SearchInput value={search} onChange={setSearch} className="!mb-5 !max-w-[320px]" placeholder="Search" />
-        <div className="overflow-auto scroll-hide max-h-[calc(100vh-270px)]">
+        <div className="w-[calc(100vw-44px)] lg:w-[unset] overflow-auto scroll-hide max-h-[calc(100vh-270px)]">
           <table className="min-w-[1100px] w-full border-collapse">
             <thead>
               <tr className="border-b text-left text-sm text-black">

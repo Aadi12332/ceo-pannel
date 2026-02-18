@@ -80,7 +80,7 @@ export default function PIIMaskingRulesEditor() {
   return (
     <div className="space-y-5 mb-5">
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <div>
             <h2 className="text-xl font-semibold">Access Review</h2>
             <p className="text-sm text-gray-500">
@@ -95,7 +95,8 @@ export default function PIIMaskingRulesEditor() {
           </button>
         </div>
 
-        <table className="w-full text-sm">
+        <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] overflow-auto scroll-hide">
+          <table className="w-full text-sm min-w-[900px]">
           <thead className="border-b text-black font-bold">
             <tr>
               <th className="text-left py-3">Principal</th>
@@ -117,10 +118,11 @@ export default function PIIMaskingRulesEditor() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
 
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <div>
             <h2 className="text-xl font-semibold">PII Masking Rules Editor</h2>
             <p className="text-sm text-gray-500">
@@ -131,8 +133,8 @@ export default function PIIMaskingRulesEditor() {
             Save Changes
           </button>
         </div>
-
-        <table className="w-full text-sm">
+<div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] overflow-auto scroll-hide">
+        <table className="w-full text-sm min-w-[1100px]">
           <thead className="border-b text-black font-bold">
             <tr>
               <th className="text-left py-3">Dataset</th>
@@ -200,6 +202,8 @@ export default function PIIMaskingRulesEditor() {
             ))}
           </tbody>
         </table>
+
+</div>
       </div>
     </div>
   );

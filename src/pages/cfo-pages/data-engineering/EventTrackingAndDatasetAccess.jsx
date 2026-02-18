@@ -104,7 +104,7 @@ export default function EventTrackingAndDatasetAccess() {
           Curated datasets for business; time-bound tokens for sensitive data.
         </p>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>

@@ -116,7 +116,7 @@ export default function PipelineHealthDataQualityWarehouse() {
           On-time, delayed, failed — with retry controls.
         </p>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>
@@ -164,7 +164,7 @@ export default function PipelineHealthDataQualityWarehouse() {
       </div>
 
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
           <div>
             <h2 className="text-xl font-semibold">Data Quality</h2>
             <p className="text-sm text-gray-500">
@@ -176,7 +176,7 @@ export default function PipelineHealthDataQualityWarehouse() {
           </button>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>
@@ -216,7 +216,7 @@ export default function PipelineHealthDataQualityWarehouse() {
           Owners, refresh schedules, and PII flags.
         </p>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>

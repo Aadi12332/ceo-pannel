@@ -168,26 +168,26 @@ const RecentChangesToolsPanel = () => {
           {recentChangesData.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 justify-between py-4 last:pb-0 first:pt-0 border-b last:border-b-0"
+              className="flex sm:flex-row flex-col sm:items-center sm:gap-2 justify-between py-4 last:pb-0 first:pt-0 border-b last:border-b-0"
             >
               <div className="flex items-center gap-3">
                 <img
                   src={item.avatar}
                   alt=""
-                  className="w-10 h-10 rounded-full"
+                  className="w-12 h-12 rounded-full"
                 />
 
                 <div>
-                  <p className="text-sm text-[#111827]">
+                  <p className="text-base text-[#1E1E1E]">
                     <span className="font-medium">{item.user}</span>{" "}
                     <span className={item.highlightClass}>{item.action}</span>{" "}
                     {item.title}
                   </p>
-                  <p className="text-sm text-[#9CA3AF]">{item.time}</p>
+                  <p className="text-sm text-[#929292]">{item.time}</p>
                 </div>
               </div>
 
-              <span className="text-sm font-medium text-blue-600 text-end">
+              <span className="text-sm font-[700] text-[#3178EC] sm:text-end ml-[60px] sm:ml-0">
                 {item.auditId}
               </span>
             </div>

@@ -138,7 +138,8 @@ const CapacityAndDependencies = () => {
           </button>
         </div>
 
-        <table className="w-full text-sm">
+        <div className="w-[calc(100vw-44px)] lg:w-[unset] overflow-auto scroll-hide">
+          <table className="w-full text-sm min-w-[600px]">
           <thead>
             <tr className="text-left border-b">
               <th className="py-3">Service</th>
@@ -182,6 +183,7 @@ const CapacityAndDependencies = () => {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
 
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
@@ -209,7 +211,7 @@ const CapacityAndDependencies = () => {
                         className={`w-2 h-2 rounded-full ${dotBg[d.status]}`}
                       />
                     </div>
-                    <div className="flex items-center justify-between gap-3">
+                    <div className="flex sm:flex-row flex-col sm:items-center justify-between sm:gap-3 gap-2">
                       <p className="text-sm text-[#6B7280]">
                         Latency:{" "}
                         <span className="text-[#1E1E1E]">{d.latency}</span>
@@ -245,7 +247,7 @@ const CapacityAndDependencies = () => {
                         <ExternalLink className="w-4 h-4 text-blue-600" />
                       </div>
                     </div>
-                    <div className="flex items-center justify-between gap-3">
+                    <div className="flex sm:flex-row flex-col sm:items-center justify-between sm:gap-3 gap-2">
                       <p className="text-sm text-[#6B7280]">
                         Latency:{" "}
                         <span className="text-[#1E1E1E]">{d.latency}</span>

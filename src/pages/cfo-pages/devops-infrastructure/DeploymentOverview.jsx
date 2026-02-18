@@ -154,7 +154,7 @@ export default function DeploymentOverview() {
         {kpiCards.map((k, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl p-5 flex justify-between items-center"
+            className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 flex justify-between items-center"
           >
             <div>
               <p className="text-sm text-gray-500">{k.title}</p>
@@ -202,7 +202,7 @@ export default function DeploymentOverview() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold">Deployment Pipeline</h2>
           <button
@@ -213,7 +213,7 @@ export default function DeploymentOverview() {
           </button>
         </div>
 
-        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] scroll-hide">
+        <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] overflow-auto scroll-hide">
           <table className="min-w-[1600px] w-full text-sm">
             <thead className="border-b">
               <tr className="text-left text-gray-500">

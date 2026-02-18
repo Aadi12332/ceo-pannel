@@ -64,7 +64,7 @@ const Mitigation = () => {
 
       <StatusUpdatesDrawer openModal={openModal} setOpenModal={setOpenModal} />
 
-      <div className="bg-white rounded-xl p-6 border border-[#0000001a] flex items-center justify-between mb-5">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center justify-between mb-5">
         <div className="flex items-center gap-4">
           <span className={`px-2 py-0.5 text-xs rounded ${sevStyle[sev]}`}>
             {sev}
@@ -81,7 +81,7 @@ const Mitigation = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl p-6 border border-[#0000001a] mb-5">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] mb-5">
         <h2 className="text-[24px] text-[#0A0A0A]">Mitigation actions</h2>
         <p className="text-[#717182] mb-6">
           Toggle, rollback, throttle, scale — with approvals & audit.

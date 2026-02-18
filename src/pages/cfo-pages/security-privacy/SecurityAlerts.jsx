@@ -43,10 +43,10 @@ export default function SecurityAlerts() {
       {alerts.map((a, i) => (
         <div
           key={i}
-          className="border border-[#F59E0B] rounded-xl p-4 flex justify-between gap-6"
+          className="border border-[#F59E0B] lg:rounded-xl rounded-lg lg:p-4 p-2 lg:flex-row flex-col flex justify-between lg:gap-6 gap-3"
         >
           <div className="flex gap-3">
-            <AlertTriangle className="w-4 h-4 text-[#B45309] mt-1" />
+            <AlertTriangle className="w-4 h-4 text-[#B45309] mt-1 min-w-4" />
 
             <div className="space-y-1">
               <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ export default function SecurityAlerts() {
             </div>
           </div>
 
-          <button className="px-4 py-2 h-fit bg-[#0E1E38] text-white rounded-lg">
+          <button className="px-4 py-2 h-fit bg-[#0E1E38] text-white rounded-lg w-fit">
             Acknowledge
           </button>
         </div>

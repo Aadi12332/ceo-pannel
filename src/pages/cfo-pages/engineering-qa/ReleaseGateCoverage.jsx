@@ -120,7 +120,7 @@ export default function ReleaseGateCoverage() {
           {gates.map((g) => (
             <div
               key={g.name}
-              className="flex items-center justify-between border-b border-[#00000033] pb-4"
+              className="flex items-center justify-between border-b border-[#00000033] pb-4 gap-3 flex-wrap"
             >
               <div>
                 <div className="flex items-center gap-2 font-medium">
@@ -164,7 +164,7 @@ export default function ReleaseGateCoverage() {
           Evidence packages to reproduce failures: video, traces, HAR, logs.
         </p>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b border-[#00000033] text-left">
               <tr>
@@ -203,7 +203,7 @@ export default function ReleaseGateCoverage() {
           Coverage by module and platform, with trends.
         </p>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b border-[#00000033] text-left">
               <tr>

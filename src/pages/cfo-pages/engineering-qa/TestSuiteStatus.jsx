@@ -109,7 +109,7 @@ export default function TestSuiteStatus() {
         ))}
       </div>
 
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-4 gap-3 flex-wrap">
         <h3 className="text-lg font-semibold">
           Flaky quarantine & stabilisation
         </h3>
@@ -118,7 +118,7 @@ export default function TestSuiteStatus() {
         </button>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
         <table className="min-w-[900px] w-full text-sm">
           <thead className="border-b text-left">
             <tr>

@@ -10,7 +10,7 @@ export default function PostReleaseMonitoringModal({ open, onClose }) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white w-[560px] max-w-[95%] rounded-xl p-6"
+        className="bg-white w-[560px] max-w-[95%] lg:rounded-xl rounded-lg lg:p-6 p-3"
       >
         <div className="flex items-start justify-between mb-6">
           <div>

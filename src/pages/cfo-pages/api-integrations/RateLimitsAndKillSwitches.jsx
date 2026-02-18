@@ -98,7 +98,7 @@ export default function RateLimitsAndKillSwitches() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
-      <div className="bg-white rounded-xl p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <h2 className="text-lg font-semibold mb-1">Rate Limits & Quotas</h2>
         <p className="text-sm text-[#B45309] mb-6">2 approaching limits</p>
 
@@ -136,7 +136,7 @@ export default function RateLimitsAndKillSwitches() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <h2 className="text-lg font-semibold mb-1">Kill Switches</h2>
         <p className="text-sm text-[#CF2027] mb-6">1 Active Kill</p>
 
@@ -147,7 +147,7 @@ export default function RateLimitsAndKillSwitches() {
               className="flex items-start justify-between gap-4 border-b pb-5 last:border-b-0"
             >
               <div className="flex-1">
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex sm:items-center items-start justify-between gap-3 mb-2 sm:mb-0">
                   <div className="flex items-center gap-2">
                     <p className="font-medium text-[#0E1E38]">{item.name}</p>
 
@@ -161,7 +161,7 @@ export default function RateLimitsAndKillSwitches() {
                       {item.active ? "Active" : "Killed"}
                     </span>
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex sm:items-center items-end gap-2 sm:flex-row flex-col">
                     {!item.active && (
                       <span className="text-sm text-[#00A63E]">
                         Request Enable
@@ -183,7 +183,7 @@ export default function RateLimitsAndKillSwitches() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-3">
+                <div className="flex sm:items-center justify-between sm:gap-3 gap-0 sm:flex-row flex-col">
                   <p className="text-sm text-gray-500 mt-1">{item.desc}</p>
 
                   <p className="text-xs text-gray-400 mt-1">{item.last}</p>

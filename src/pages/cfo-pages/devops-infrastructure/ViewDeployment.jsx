@@ -230,7 +230,7 @@ const ViewDeployment = () => {
         </h2>
       </div>
       <div className="bg-white lg:rounded-xl lg:p-6 rounded-lg p-3 flex flex-col">
-          <div className="flex items-center justify-between gap-3 !mb-5 w-full">
+          <div className="flex items-center justify-between gap-3 !mb-5 w-full flex-wrap">
           <SearchInput
             value={search}
             onChange={setSearch}
@@ -255,7 +255,7 @@ const ViewDeployment = () => {
           </div>
         </div>
         <div className="overflow-auto scroll-hide max-h-[calc(100vh-270px)]">
-          <div className="overflow-x-auto lg:w-[calc(100vw-390px)] scroll-hide">
+          <div className="w-[calc(100vw-44px)] overflow-auto scroll-hide lg:w-[calc(100vw-390px)]">
             <table className="min-w-[1600px] w-full text-sm">
               <thead className="border-b">
                 <tr className="text-left text-gray-500">

@@ -229,7 +229,7 @@ export default function SensitiveFeatureApprovals() {
         {kpiCards.map((k, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl p-5 flex justify-between items-center"
+            className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 flex justify-between items-center"
           >
             <div>
               <p className="text-sm text-gray-500">{k.title}</p>

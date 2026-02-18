@@ -155,7 +155,7 @@ export default function ProductVersionList() {
           return (
             <div
               key={index}
-              className="bg-white rounded-xl p-6 border border-[#0000001a] flex items-center justify-between"
+              className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center justify-between"
             >
               <div>
                 <p className="text-gray-500 text-sm">{item.title}</p>

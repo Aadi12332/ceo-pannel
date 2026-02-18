@@ -95,7 +95,7 @@ export default function IntegrationHealth() {
         {summary.map((s, i) => (
           <div
             key={i}
-            className="bg-white rounded-xl p-6"
+            className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3"
           >
             <p className="text-sm text-gray-500">{s.label}</p>
             <p className={`text-2xl font-semibold ${s.color}`}>
@@ -105,7 +105,7 @@ export default function IntegrationHealth() {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl p-6">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-semibold">
             Integration Health
@@ -115,7 +115,7 @@ export default function IntegrationHealth() {
           </button>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="w-[calc(100vw-44px)] lg:w-[unset] overflow-auto scroll-hide">
           <table className="min-w-[1100px] w-full border-collapse">
             <thead>
               <tr className="border-b text-left text-sm text-black">

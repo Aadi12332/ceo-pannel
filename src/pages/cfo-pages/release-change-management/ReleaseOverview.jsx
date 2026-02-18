@@ -122,7 +122,7 @@ export default function ReleaseOverview() {
         <p className="text-sm text-gray-500 mb-5">Progressive delivery</p>
 
         <div className="grid lg:grid-cols-2 gap-5">
-          <div className="border border-[#00000033] rounded-xl p-5">
+          <div className="border border-[#00000033] lg:rounded-xl rounded-lg lg:p-5 p-2">
             <div className="flex items-center gap-2 mb-2">
               <p className="font-semibold">Onboarding_revamp</p>
               <span className={`px-2 py-0.5 text-xs rounded ${flagStyle[flags.onboarding]}`}>
@@ -162,7 +162,7 @@ export default function ReleaseOverview() {
             </div>
           </div>
 
-          <div className="border border-[#00000033] rounded-xl p-5">
+          <div className="border border-[#00000033] lg:rounded-xl rounded-lg lg:p-5 p-2">
             <div className="flex items-center gap-2 mb-2">
               <p className="font-semibold">search_v3</p>
               <span className={`px-2 py-0.5 text-xs rounded ${flagStyle[flags.search]}`}>

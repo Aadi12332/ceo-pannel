@@ -79,7 +79,7 @@ export default function KeyRotationAndPrivacyRequest() {
           <span className="text-[#22C55E] font-medium">33%</span>
         </div>
 
-        <div className="flex items-center gap-2 text-sm mb-3">
+        <div className="flex items-center gap-2 text-sm mb-3 flex-wrap">
             <p>Pass: <span className="text-[#008236]">on schedule</span></p>
             <p>Due: <span className="text-[#B45309]">approaching</span></p>
             <p>Overdue: <span className="text-[#CF2027]">breach risk</span></p>
@@ -89,7 +89,7 @@ export default function KeyRotationAndPrivacyRequest() {
           <div className="h-2 bg-[#22C55E] w-[33%]" />
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] overflow-auto scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>
@@ -131,7 +131,7 @@ export default function KeyRotationAndPrivacyRequest() {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] overflow-auto scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <thead className="border-b text-left">
               <tr>

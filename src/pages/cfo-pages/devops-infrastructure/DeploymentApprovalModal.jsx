@@ -14,7 +14,7 @@ const DeploymentApprovalModal = ({
       onClick={onClose}
     >
       <div
-        className="bg-white w-[520px] rounded-xl p-6"
+        className="bg-white max-w-[520px] w-[96%] lg:rounded-xl rounded-lg lg:p-6 p-3"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">

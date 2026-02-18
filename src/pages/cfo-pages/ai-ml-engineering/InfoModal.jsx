@@ -55,7 +55,7 @@ const InfoModal = ({ type, onClose }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white w-[96%] max-w-[720px] rounded-xl p-6"
+        className="bg-white w-[96%] max-w-[720px] lg:rounded-xl rounded-lg lg:p-6 p-3"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-start justify-between mb-2">

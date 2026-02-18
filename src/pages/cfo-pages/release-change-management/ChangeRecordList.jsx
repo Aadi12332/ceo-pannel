@@ -69,7 +69,8 @@ export default function ChangeRecordList() {
     <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
       <h2 className="text-xl font-semibold">Change Record List</h2>
       <p className="text-sm text-gray-500 mb-6">
-        Linked ADR/tickets and approvals. Select a record to view actions on the right.
+        Linked ADR/tickets and approvals. Select a record to view actions on the
+        right.
       </p>
 
       <div className="space-y-6">
@@ -77,18 +78,25 @@ export default function ChangeRecordList() {
           const isOpen = openId === r.id;
 
           return (
-            <div key={r.id} className="border-b border-[#0000001a] pb-6 last:pb-0 last:border-b-0">
+            <div
+              key={r.id}
+              className="border-b border-[#0000001a] pb-6 last:pb-0 last:border-b-0"
+            >
               <div
-                className="flex items-start justify-between cursor-pointer"
+                className="flex items-start justify-between cursor-pointer flex-wrap"
                 onClick={() => setOpenId(isOpen ? null : r.id)}
               >
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
                     <span className="font-semibold">{r.id}</span>
-                    <span className={`px-2 py-0.5 text-xs rounded ${riskStyle[r.risk]}`}>
+                    <span
+                      className={`px-2 py-0.5 text-xs rounded ${riskStyle[r.risk]}`}
+                    >
                       {r.risk}
                     </span>
-                    <span className={`px-2 py-0.5 text-xs rounded ${statusStyle[r.status]}`}>
+                    <span
+                      className={`px-2 py-0.5 text-xs rounded ${statusStyle[r.status]}`}
+                    >
                       {r.status}
                     </span>
                   </div>
@@ -97,7 +105,10 @@ export default function ChangeRecordList() {
                 </div>
 
                 <div className="flex items-center gap-3 text-sm text-gray-500">
-                  <span>Service: <span className="text-black font-bold">{r.service}</span></span>
+                  <span>
+                    Service:{" "}
+                    <span className="text-black font-bold">{r.service}</span>
+                  </span>
                   {r.date && (
                     <span className="flex items-center gap-1">
                       <Calendar size={14} /> {r.date}
@@ -108,39 +119,41 @@ export default function ChangeRecordList() {
               </div>
 
               {isOpen && (
-                <div className="mt-6 border border-black/20 lg:rounded-xl lg:p-6 rounded-lg p-3 flex items-center lg:gap-12 gap-5 w-full">
+                <div className="mt-6 border border-black/20 lg:rounded-xl lg:p-6 rounded-lg p-3 flex flex-wrap items-center lg:gap-12 gap-5 w-full">
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold mb-4">Active change</h3>
+                    <h3 className="text-lg font-semibold mb-4">
+                      Active change
+                    </h3>
 
-                  <div className="flex items-center justify-between mb-2 text-sm">
-                    <span className="text-gray-500">Approval routing</span>
-                    <span>{r.progress}%</span>
-                  </div>
+                    <div className="flex items-center justify-between mb-2 text-sm">
+                      <span className="text-gray-500">Approval routing</span>
+                      <span>{r.progress}%</span>
+                    </div>
 
-                  <div className="h-2 bg-gray-200 rounded mb-4">
-                    <div
-                      className="h-2 bg-[#3B5CCC] rounded"
-                      style={{ width: `${r.progress}%` }}
-                    />
-                  </div>
+                    <div className="h-2 bg-gray-200 rounded mb-4">
+                      <div
+                        className="h-2 bg-[#3B5CCC] rounded"
+                        style={{ width: `${r.progress}%` }}
+                      />
+                    </div>
 
-                  <div className="flex items-center gap-2 mb-4 text-xs">
-                    <span className="px-2 py-1 rounded bg-[#DCFCE7] text-[#00A63E]">
-                      Release Manager
-                    </span>
-                    <span className="px-2 py-1 rounded bg-[#DCFCE7] text-[#00A63E]">
-                      SRE
-                    </span>
-                    <span className="px-2 py-1 rounded bg-[#FEF3C7] text-[#B45309]">
-                      CTO
-                    </span>
-                  </div>
+                    <div className="flex items-center gap-2 mb-4 text-xs">
+                      <span className="px-2 py-1 rounded bg-[#DCFCE7] text-[#00A63E]">
+                        Release Manager
+                      </span>
+                      <span className="px-2 py-1 rounded bg-[#DCFCE7] text-[#00A63E]">
+                        SRE
+                      </span>
+                      <span className="px-2 py-1 rounded bg-[#FEF3C7] text-[#B45309]">
+                        CTO
+                      </span>
+                    </div>
 
-                  <p className="text-sm text-gray-500">
-                    {r.progress < 100
-                      ? "Your approval is pending"
-                      : "All approvals completed"}
-                  </p>
+                    <p className="text-sm text-gray-500">
+                      {r.progress < 100
+                        ? "Your approval is pending"
+                        : "All approvals completed"}
+                    </p>
                   </div>
 
                   <div className="flex flex-col gap-5 flex-1">
@@ -149,19 +162,19 @@ export default function ChangeRecordList() {
                     </button>
 
                     <div className="flex gap-5 items-center border-t border-[#0000001a] pt-5">
-                        <button
-                      className={`flex-1 rounded-lg text-sm py-2 ${
-                        r.progress < 100
-                          ? "border-[#0000001a] border text-gray-400"
-                          : "bg-[#0E1E38] text-white"
-                      }`}
-                    >
-                      Promote to Prod
-                    </button>
+                      <button
+                        className={`flex-1 rounded-lg text-sm py-2 ${
+                          r.progress < 100
+                            ? "border-[#0000001a] border text-gray-400"
+                            : "bg-[#0E1E38] text-white"
+                        }`}
+                      >
+                        Promote to Prod
+                      </button>
 
-                    <button className="flex-1 bg-[#0E1E38] text-white rounded-lg text-sm py-2">
-                      Rollback
-                    </button>
+                      <button className="flex-1 bg-[#0E1E38] text-white rounded-lg text-sm py-2">
+                        Rollback
+                      </button>
                     </div>
                   </div>
                 </div>

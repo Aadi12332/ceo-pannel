@@ -166,8 +166,8 @@ const ViewCapacity = () => {
           className="!mb-5 !max-w-[320px]"
           placeholder="Search"
         />
-        <div className="overflow-auto scroll-hide max-h-[calc(100vh-270px)]">
-          <table className="w-full text-sm">
+        <div className="overflow-auto scroll-hide max-h-[calc(100vh-270px)] w-[calc(100vw-44px)] lg:w-[unset]">
+          <table className="w-full text-sm min-w-[600px]">
             <thead>
               <tr className="text-left border-b">
                 <th className="py-3">Service</th>

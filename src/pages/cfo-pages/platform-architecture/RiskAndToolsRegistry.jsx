@@ -212,7 +212,7 @@ const RiskAndToolsRegistry = () => {
                   {risk.title}
                 </p>
 
-                <div className="flex items-center gap-4 text-sm text-[#6B7280] mt-1">
+                <div className="flex sm:flex-row flex-col sm:items-center sm:gap-4 gap-1 text-sm text-[#6B7280] mt-1">
                   <div className="flex items-center gap-1">
                     <User className="w-4 h-4" />
                     {risk.owner}

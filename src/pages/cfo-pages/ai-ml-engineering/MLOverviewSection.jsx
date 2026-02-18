@@ -11,8 +11,8 @@ const statusStyle = {
 
 export default function MLOverviewSection() {
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="space-y-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div className="border border-[#0000001a] lg:rounded-xl rounded-lg lg:p-6 p-3 bg-white">
           <h3 className="font-semibold text-lg">Performance Snapshot</h3>
           <p className="text-sm text-gray-500 mb-4">
@@ -40,7 +40,8 @@ export default function MLOverviewSection() {
             <div>
               <h3 className="font-semibold text-lg">Monitoring + drift</h3>
               <p className="text-sm text-gray-500">
-                Gated data access, audited, with safe-mode fallback recommendations.
+                Gated data access, audited, with safe-mode fallback
+                recommendations.
               </p>
             </div>
           </div>
@@ -68,77 +69,78 @@ export default function MLOverviewSection() {
             Versioning, owners, training data lineage, and last deploy
           </p>
         </div>
-
-        <table className="min-w-[900px] w-full text-sm">
-          <thead className="border-t border-b text-black text-left">
-            <tr>
-              <th className="py-3 text-left px-4">Model</th>
-              <th>Version</th>
-              <th>Owner</th>
-              <th>Training window</th>
-              <th>Last used</th>
-              <th>Risk</th>
-              <th>Stage</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {[
-              {
-                model: "Ranking – Home Feed",
-                version: "v2.8.1",
-                owner: "ML Lead",
-                train: "2025-08 → 2025-12",
-                used: "01-20-2026, 15:14",
-                risk: "High",
-                stage: "Canary",
-              },
-              {
-                model: "Fraud Detection",
-                version: "v1.14.0",
-                owner: "Data Science",
-                train: "2025-09 → 2025-12",
-                used: "01-20-2026, 09:14",
-                risk: "High",
-                stage: "Promoted",
-              },
-              {
-                model: "Refund Assist – Eligibility",
-                version: "v0.9.3",
-                owner: "ML Lead",
-                train: "2025-10 → 2025-12",
-                used: "01-19-2026, 10:14",
-                risk: "Medium",
-                stage: "Shadow",
-              },
-              {
-                model: "Search Suggestion",
-                version: "v3.2.0",
-                owner: "MLOps/SRE",
-                train: "2025-07 → 2025-12",
-                used: "01-20-2026, 15:14",
-                risk: "Low",
-                stage: "Promoted",
-              },
-            ].map((row, i) => (
-              <tr key={i} className="border-b last:border-b-0 text-gray-500">
-                <td className="px-4 py-3">{row.model}</td>
-                <td>{row.version}</td>
-                <td>{row.owner}</td>
-                <td>{row.train}</td>
-                <td>{row.used}</td>
-                <td>
-                  <span
-                    className={`px-2 py-0.5 rounded text-xs ${riskStyle[row.risk]}`}
-                  >
-                    {row.risk}
-                  </span>
-                </td>
-                <td>{row.stage}</td>
+        <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
+          <table className="min-w-[900px] w-full text-sm">
+            <thead className="border-t border-b text-black text-left">
+              <tr>
+                <th className="py-3 text-left px-4">Model</th>
+                <th>Version</th>
+                <th>Owner</th>
+                <th>Training window</th>
+                <th>Last used</th>
+                <th>Risk</th>
+                <th>Stage</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody>
+              {[
+                {
+                  model: "Ranking – Home Feed",
+                  version: "v2.8.1",
+                  owner: "ML Lead",
+                  train: "2025-08 → 2025-12",
+                  used: "01-20-2026, 15:14",
+                  risk: "High",
+                  stage: "Canary",
+                },
+                {
+                  model: "Fraud Detection",
+                  version: "v1.14.0",
+                  owner: "Data Science",
+                  train: "2025-09 → 2025-12",
+                  used: "01-20-2026, 09:14",
+                  risk: "High",
+                  stage: "Promoted",
+                },
+                {
+                  model: "Refund Assist – Eligibility",
+                  version: "v0.9.3",
+                  owner: "ML Lead",
+                  train: "2025-10 → 2025-12",
+                  used: "01-19-2026, 10:14",
+                  risk: "Medium",
+                  stage: "Shadow",
+                },
+                {
+                  model: "Search Suggestion",
+                  version: "v3.2.0",
+                  owner: "MLOps/SRE",
+                  train: "2025-07 → 2025-12",
+                  used: "01-20-2026, 15:14",
+                  risk: "Low",
+                  stage: "Promoted",
+                },
+              ].map((row, i) => (
+                <tr key={i} className="border-b last:border-b-0 text-gray-500">
+                  <td className="px-4 py-3">{row.model}</td>
+                  <td>{row.version}</td>
+                  <td>{row.owner}</td>
+                  <td>{row.train}</td>
+                  <td>{row.used}</td>
+                  <td>
+                    <span
+                      className={`px-2 py-0.5 rounded text-xs ${riskStyle[row.risk]}`}
+                    >
+                      {row.risk}
+                    </span>
+                  </td>
+                  <td>{row.stage}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div className="border border-[#0000001a] lg:rounded-xl rounded-lg lg:p-6 p-3 bg-white overflow-x-auto">
@@ -148,6 +150,7 @@ export default function MLOverviewSection() {
             Guardrails first: violations block promotion and require review
           </p>
         </div>
+<div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
 
         <table className="min-w-[700px] w-full text-sm">
           <thead className="border-t border-b text-black text-left">
@@ -207,6 +210,7 @@ export default function MLOverviewSection() {
             ))}
           </tbody>
         </table>
+</div>
       </div>
     </div>
   );

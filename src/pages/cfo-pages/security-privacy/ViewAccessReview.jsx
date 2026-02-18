@@ -184,7 +184,7 @@ const ViewAccessReview = () => {
           </div>
         </div>
         <div className="overflow-auto scroll-hide max-h-[calc(100vh-270px)]">
-          <div className="overflow-x-auto lg:w-[calc(100vw-390px)] scroll-hide">
+          <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-44px)] scroll-hide">
             <table className="w-full text-sm min-w-[992px]">
               <thead className="border-b text-black font-bold">
                 <tr>

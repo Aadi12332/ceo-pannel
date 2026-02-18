@@ -154,7 +154,7 @@ const ViewRecentChange = () => {
         {recentChangesData.map((item, index) => (
             <div
               key={index}
-              className="flex items-center gap-2 justify-between py-4 last:pb-0 first:pt-0 border-b last:border-b-0"
+              className="flex sm:flex-row flex-col sm:items-center sm:gap-2 justify-between py-4 last:pb-0 first:pt-0 border-b last:border-b-0"
             >
               <div className="flex items-center gap-3">
                 <img
@@ -173,7 +173,7 @@ const ViewRecentChange = () => {
                 </div>
               </div>
 
-              <span className="text-sm font-[700] text-[#3178EC] text-end">
+              <span className="text-sm font-[700] text-[#3178EC] sm:text-end ml-[60px] sm:ml-0">
                 {item.auditId}
               </span>
             </div>
