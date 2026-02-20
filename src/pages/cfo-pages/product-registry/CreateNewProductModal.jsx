@@ -16,7 +16,7 @@ export default function CreateNewProductModal({ open, onClose }) {
         className="absolute inset-0 bg-black/40"
       />
 
-      <div className="relative w-full max-w-[640px] bg-white rounded-2xl p-6 z-10">
+      <div className="relative w-[96%] max-w-[640px] bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 z-10">
         
         <div className="flex items-start justify-between mb-2">
           <div>

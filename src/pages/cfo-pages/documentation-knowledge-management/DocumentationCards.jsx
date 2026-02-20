@@ -40,12 +40,12 @@ export default function DocumentationCards() {
   const navigate = useNavigate();
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
       {docsData.map((item) => (
         <div
           key={item.id}
           onClick={() => navigate("/documentation-details")}
-          className="bg-white rounded-2xl p-6 border flex flex-col justify-between border-[#0000001a] cursor-pointer hover:shadow-md transition"
+          className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border flex flex-col justify-between border-[#0000001a] cursor-pointer hover:shadow-md transition"
         >
           <div>
             <div className="flex justify-between items-start">

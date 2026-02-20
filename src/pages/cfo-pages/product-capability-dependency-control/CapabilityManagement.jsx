@@ -70,12 +70,12 @@ export default function CapabilityManagement() {
 
   return (
     <div className="space-y-5 mt-10">
-      <div className="flex gap-4">
+      <div className="flex sm:gap-4 gap-2 flex-wrap">
         {tabs.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setActiveTab(tab.key)}
-            className={`px-6 py-3 rounded-full lg:text-[18px] text-sm lg:h-[52px] h-10 items-center flex font-medium transition ${
+            className={`sm:px-6 px-2 py-3 rounded-full lg:text-[18px] text-sm lg:h-[52px] h-10 items-center flex font-medium transition ${
               activeTab === tab.key
                 ? "bg-[#0E1E38] text-white"
                 : "bg-[#fff] text-[#344054]"
@@ -88,7 +88,7 @@ export default function CapabilityManagement() {
 
       {activeTab === "registry" && (
         <div className="bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a]">
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-6 flex-wrap">
             <div className="relative sm:w-72">
               <Search
                 size={16}
@@ -118,7 +118,7 @@ export default function CapabilityManagement() {
             </div>
           </div>
 
-          <div className="overflow-auto scroll-hide h-[calc(100vh-400px)]">
+          <div className="overflow-auto scroll-hide h-[calc(100vh-400px)] lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)]">
             <table className="w-full text-sm min-w-[800px]">
               <thead>
                 <tr className="border-b border-[#0000001a] text-left">
@@ -159,8 +159,8 @@ export default function CapabilityManagement() {
       )}
 
       {activeTab === "mapping" && (
-        <div className="grid grid-cols-12 gap-5">
-          <div className="col-span-3 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a] space-y-4">
+        <div className="md:grid grid-cols-12 gap-5">
+          <div className="md:col-span-3 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a] space-y-4 mb-5 md:mb-0">
             <p className="text-sm text-gray-500 pb-2">Product</p>
             <p className="text-sm text-gray-500 border-b border-[#0000001a] pb-4">
               Select a product to manage its allowed capabilities.
@@ -178,7 +178,7 @@ export default function CapabilityManagement() {
             </div>
           </div>
 
-          <div className="col-span-9 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a]">
+          <div className="md:col-span-9 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a]">
             <div className="flex items-center gap-3 justify-between">
               <p className="text-sm text-gray-500 mb-4">
                 Product → Capability links
@@ -224,8 +224,8 @@ export default function CapabilityManagement() {
       )}
 
       {activeTab === "violation" && (
-        <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-3 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a] space-y-4">
+        <div className="md:grid grid-cols-12 gap-6">
+          <div className="col-span-3 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a] space-y-4 mb-5 md:mb-0">
             <p className="text-sm text-gray-500 pb-2">Product</p>
             <p className="text-sm text-gray-500 border-b border-[#0000001a] pb-4">
               Select a product to manage its allowed capabilities.
@@ -254,8 +254,8 @@ export default function CapabilityManagement() {
                 A violation occurs when a product enables a capability but does
                 not enable its required capabilities.
               </p>
-
-              <table className="w-full text-sm">
+<div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] overflow-auto scroll-hide">
+              <table className="w-full text-sm min-w-[600px]">
                 <thead>
                   <tr className="border-b border-[#0000001a] text-left">
                     <th className="py-3">Product</th>
@@ -275,6 +275,7 @@ export default function CapabilityManagement() {
                   </tr>
                 </tbody>
               </table>
+</div>
             </div>
           )}
 
@@ -287,7 +288,7 @@ export default function CapabilityManagement() {
               </p>
 
               
-<div className="overflow-x-auto scroll-hide">
+<div className="overflow-x-auto scroll-hide lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)]">
   <table className="min-w-[1600px] w-full text-sm">
     <thead>
       <tr className="border-b border-[#0000001a] text-left">

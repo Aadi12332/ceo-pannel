@@ -62,8 +62,8 @@ export default function ExperimentationList() {
         />
       </div>
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-3 border border-[#0000001a]">
-        <div className="max-h-[calc(100vh-275px)] overflow-auto scroll-hide">
-          <table className="min-w-[1100px] w-full text-sm">
+        <div className="max-h-[calc(100vh-275px)] overflow-auto scroll-hide lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] px-3">
+          <table className="min-w-[1100px] w-full text-sm ">
             <thead>
               <tr className="text-left border-b border-[#0000001a]">
                 <th className="py-3 px-4 font-semibold">Name</th>

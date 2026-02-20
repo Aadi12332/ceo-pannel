@@ -93,7 +93,7 @@ export default function ComplianceTabs() {
 
   return (
     <div className="space-y-6">
-      <div className="flex gap-4">
+      <div className="flex sm:gap-4 gap-2 flex-wrap">
         {["checklist", "timeline", "documents"].map((tab) => (
           <button
             key={tab}
@@ -113,13 +113,13 @@ export default function ComplianceTabs() {
         ))}
       </div>
 
-      <div className="bg-white rounded-2xl p-6 border border-[#0000001a]">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
         {activeTab === "checklist" && (
           <div className="space-y-5">
             {checklistItems.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start justify-between border-b border-[#0000001a] pb-6"
+                className="flex items-start justify-between border-b border-[#0000001a] pb-6 gap-3 flex-wrap"
               >
                 <div className="flex gap-4">
                   <input type="checkbox" className="w-5 h-5 accent-[#0E1E38]" defaultChecked={item.checked} />
@@ -160,7 +160,7 @@ export default function ComplianceTabs() {
                 key={i}
                 className="border-b border-[#0000001a] pb-6"
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-2 flex-wrap">
                   <div>
                     <p className="font-semibold text-[#111827]">
                       {item.title}

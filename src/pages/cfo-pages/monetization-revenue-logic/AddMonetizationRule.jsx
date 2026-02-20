@@ -17,7 +17,7 @@ const AddMonetizationRule = () => {
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            <ChevronLeft className="w-5 text-gray-500" />
+            <ChevronLeft className="w-5 min-w-5 text-gray-500" />
             <div>
               <h1 className="text-2xl font-semibold">
                 Paywall / feature gating editor
@@ -31,7 +31,7 @@ const AddMonetizationRule = () => {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-          <div className="xl:col-span-2 bg-white rounded-2xl p-6 border border-[#0000001a]">
+          <div className="xl:col-span-2 bg-white rounded-lg lg:rounded-xl lg:p-6 p-3 border border-[#0000001a]">
             <h2 className="text-2xl font-semibold text-[#111827]">
               Rule Configuration
             </h2>

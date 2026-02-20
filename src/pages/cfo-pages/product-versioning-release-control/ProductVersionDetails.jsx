@@ -14,7 +14,7 @@ const ProductVersionDetails = () => {
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            <ChevronLeft className="w-5 text-gray-500" />
+            <ChevronLeft className="w-5 min-w-5 text-gray-500" />
             <div>
               <h1 className="text-2xl font-semibold">Version 2.4.0</h1>
               <p className="text-sm text-gray-500">Version detail view: linked features, compliance posture, and release readiness.</p>
@@ -42,7 +42,7 @@ const ProductVersionDetails = () => {
           </div>
         </div>
 
-        <div className="border border-[#00000033] bg-[#F9FAFB] rounded-lg p-4 text-sm text-gray-700">
+        <div className="border border-[#00000033] bg-[#F9FAFB] rounded-lg lg:p-4 p-2 text-sm text-gray-700">
           Introduce subscription plan labels in-product and update enterprise contract copy for renewal alignment.
         </div>
       </div>

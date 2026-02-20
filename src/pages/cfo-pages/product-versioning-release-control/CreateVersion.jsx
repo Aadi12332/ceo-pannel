@@ -16,7 +16,7 @@ const CreateVersion = () => {
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            <ChevronLeft className="w-5 text-gray-500" />
+            <ChevronLeft className="w-5 text-gray-500 min-w-5" />
             <div>
               <h1 className="text-2xl font-semibold">Create Version</h1>
               <p className="text-sm text-gray-500">

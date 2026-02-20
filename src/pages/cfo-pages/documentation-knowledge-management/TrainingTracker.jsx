@@ -47,12 +47,12 @@ const TrainingTracker = () => {
   return (
     <MainLayout>
       <div className="space-y-5">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start gap-3 flex-wrap">
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate(-1)}
           >
-            <ChevronLeft className="w-5 text-gray-500" />
+            <ChevronLeft className="w-5 min-w-5 text-gray-500" />
             <div>
               <h1 className="text-2xl font-semibold">Training Tracker</h1>
               <p className="text-sm text-gray-500">
@@ -63,7 +63,7 @@ const TrainingTracker = () => {
           </div>
           <button
             onClick={() => setOpenAction(true)}
-            className="h-14 flex items-center gap-3 px-4 rounded-lg bg-[#0E1E38] text-white text-base font-medium"
+            className="sm:h-14 h-10 flex items-center gap-3 px-4 rounded-lg bg-[#0E1E38] text-white text-base font-medium"
           >
             <Plus />
             Add Training Material
@@ -79,7 +79,7 @@ const TrainingTracker = () => {
           />
         </div>
         <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] scroll-hide">
             <table className="min-w-[1100px] w-full text-sm">
               <thead>
                 <tr className="text-left border-b border-[#0000001a]">

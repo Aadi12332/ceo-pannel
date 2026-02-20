@@ -9,7 +9,7 @@ export function ProductApprovalModal({ open, onClose, data }) {
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div onClick={(e)=>e.stopPropagation()} className="w-full max-w-2xl bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] relative">
+      <div onClick={(e)=>e.stopPropagation()} className="w-[96%] max-w-2xl bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] relative">
         <button
           onClick={onClose}
           className="absolute right-4 top-4"

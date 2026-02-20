@@ -62,13 +62,13 @@ const ProductLifecycleDetails = () => {
 
         <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex justify-between items-start">
           <div className="w-full">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="text-xl font-semibold mb-4">Health Details</h2>
+            <div className="flex items-center justify-between gap-3 mb-4">
+              <h2 className="text-xl font-semibold">Health Details</h2>
               <span className="px-3 py-1 text-xs rounded bg-[#DCFCE7] text-[#166534]">
                 Healthy
               </span>
             </div>
-            <div className="grid grid-cols-4 gap-10 text-sm">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-sm">
               <div>
                 <p className="text-gray-500">Health score</p>
                 <p className="font-semibold text-lg">84</p>
@@ -90,12 +90,12 @@ const ProductLifecycleDetails = () => {
         </div>
 
         <div className="space-y-5">
-          <div className="flex gap-4">
+          <div className="flex sm:gap-4 gap-2 flex-wrap">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-6 h-11 rounded-full text-lg font-medium transition ${
+                className={`sm:px-6 px-4 h-11 rounded-full text-sm sm:text-lg font-medium transition ${
                   activeTab === tab.id
                     ? "bg-[#0E1E38] text-white"
                     : "bg-[#fff] text-[#344054]"
@@ -118,7 +118,8 @@ const ProductLifecycleDetails = () => {
                 <UsageRevenueChart />
               </div>
               <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
-                <table className="w-full text-sm">
+                <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] overflow-auto scroll-hide">
+                  <table className="w-full text-sm min-w-[900px]">
                   <thead>
                     <tr className="border-b border-[#0000001a] text-left">
                       <th className="py-3 font-semibold">Incident</th>
@@ -148,6 +149,7 @@ const ProductLifecycleDetails = () => {
                     ))}
                   </tbody>
                 </table>
+                </div>
               </div>
             </>
           )}
@@ -157,7 +159,7 @@ const ProductLifecycleDetails = () => {
               <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
                 <h2 className="text-xl font-semibold mb-6">Timeline</h2>
 
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="grid sm:grid-cols-3 gap-4 mb-6">
                   {["Announcement", "Feature Freeze", "Sunset"].map((item) => (
                     <div key={item}>
                       <p className="text-sm text-gray-600 mb-2">{item}</p>

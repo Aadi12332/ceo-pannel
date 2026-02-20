@@ -23,7 +23,7 @@ const ProductDetails = () => {
   return (
     <MainLayout>
       <div className="space-y-5">
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start gap-3 flex-wrap">
           <div
             className="flex items-center gap-3 cursor-pointer"
             onClick={() => navigate(-1)}

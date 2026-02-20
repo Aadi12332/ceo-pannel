@@ -14,19 +14,19 @@ export default function AddEditTrainingMaterialModal({
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div onClick={(e)=>e.stopPropagation()} className="w-full max-w-3xl bg-white rounded-2xl border border-[#0000001a] p-6 relative">
+      <div onClick={(e)=>e.stopPropagation()} className="w-[96%] max-w-3xl bg-white lg:rounded-xl rounded-lg border border-[#0000001a] p-3 lg:p-6 relative">
         <button
           onClick={onClose}
-          className="absolute top-5 right-5"
+          className="absolute sm:top-5 top-3 sm:right-5 right-3"
         >
           <X className="w-5 h-5 text-[#111827]" />
         </button>
 
-        <h2 className="text-2xl font-semibold text-[#111827] mb-6">
+        <h2 className="text-2xl font-semibold text-[#111827] mb-6 mt-5 sm:mt-0">
           Add/Edit Training Material
         </h2>
 
-        <div className="space-y-6">
+        <div className="md:space-y-6 space-y-3">
           <div>
             <label className="block text-sm text-[#111827] mb-2">
               Title

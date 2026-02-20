@@ -17,9 +17,6 @@ const [openMonitor, setOpenMonitor] = useState(false);
       />
 
       <ActiveIncidents />
-
-
-
     </MainLayout>
   );
 };

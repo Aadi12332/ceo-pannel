@@ -66,8 +66,8 @@ const PostmortemBuilder = () => {
         <div className="space-y-4">
           {items.map((item, index) => (
             <div key={index} className="border-t border-[#0000001a] pt-4">
-              <div className="flex gap-4 items-start">
-                <div className="flex-1">
+              <div className="flex gap-4 items-start flex-wrap">
+                <div className="flex-1 min-w-[200px]">
                   <p className="text-sm mb-1">Action Items Description</p>
                   <input
                     type="text"
@@ -79,7 +79,7 @@ const PostmortemBuilder = () => {
                   />
                 </div>
 
-                <div className="flex-1">
+                <div className="flex-1 min-w-[200px]">
                   <p className="text-sm mb-1">Due Date</p>
                   <div className="relative">
                     <input
@@ -93,7 +93,7 @@ const PostmortemBuilder = () => {
                   </div>
                 </div>
 
-                <div className="flex-1">
+                <div className="flex-1 min-w-[200px]">
                   <p className="text-sm mb-1">Owner</p>
                   <input
                     type="text"

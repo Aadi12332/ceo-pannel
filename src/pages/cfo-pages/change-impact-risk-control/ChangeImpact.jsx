@@ -155,7 +155,7 @@ export default function ChangeImpact() {
         </div>
       </div>
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-3 !pt-1 border border-[#0000001a]">
-        <div className="max-h-[calc(100vh-430px)] overflow-auto scroll-hide">
+        <div className="max-h-[calc(100vh-430px)] overflow-auto scroll-hide lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] px-3">
           <table className="min-w-[1000px] w-full text-sm">
             <thead>
               <tr className="text-left border-b border-[#0000001a]">

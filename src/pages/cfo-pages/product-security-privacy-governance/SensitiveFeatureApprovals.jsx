@@ -247,7 +247,7 @@ export default function SensitiveFeatureApprovals() {
         ))}
       </div>
       <div className="bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
           <div>
             <h2 className="text-2xl font-semibold">
               Sensitive Feature Approvals
@@ -408,7 +408,7 @@ export default function SensitiveFeatureApprovals() {
         </div>
       </div>
       <div className="bg-white lg:rounded-2xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
           <div>
             <h2 className="text-2xl font-semibold">
               Security Risk Review History

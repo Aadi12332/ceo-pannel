@@ -11,7 +11,7 @@ const CommonCard = ({
   subTextValue
 }) => {
   return (
-    <div className="flex justify-between items-center bg-white rounded-xl px-5 py-4 shadow-sm">
+    <div className="flex justify-between items-center bg-white lg:rounded-xl rounded-lg sm:px-6 px-3 py-4 shadow-sm">
       <div className="flex flex-col gap-3">
         <p className="text-base text-[#1E1E1E]">{title}</p>
 

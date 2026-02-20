@@ -182,7 +182,7 @@ const ProductOperationalReadiness = () => {
               className="!mt-1"
             />
           )}
-          <div className="flex items-center gap-5 mb-5">
+          <div className="flex items-center sm:gap-5 gap-3 flex-wrap mb-5">
             {tabs.map((tab, index) => {
               const isActive = activeTab === index;
               const isCompleted = activeTab > index;
@@ -234,7 +234,7 @@ const ProductOperationalReadiness = () => {
                 return (
                   <div
                     key={index}
-                    className="bg-white rounded-2xl p-6 border border-[#0000001a] flex items-start gap-4"
+                    className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-start gap-4"
                   >
                     <div
                       className={`w-12 h-12 rounded-xl flex items-center justify-center ${style.iconBg} ${style.iconColor}`}
@@ -280,7 +280,7 @@ const ProductOperationalReadiness = () => {
                 ].map((user, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-2xl p-5 border border-[#0000001a] flex justify-between items-center"
+                    className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex justify-between items-center"
                   >
                     <div>
                       <p className="font-semibold">{user.name}</p>
@@ -328,7 +328,7 @@ const ProductOperationalReadiness = () => {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-2xl p-5 border border-[#0000001a] flex items-center justify-between"
+                    className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center justify-between"
                   >
                     <div>
                       <p className="font-semibold">{item.title}</p>
@@ -381,7 +381,7 @@ const ProductOperationalReadiness = () => {
                 ].map((item, i) => (
                   <div
                     key={i}
-                    className="bg-white rounded-2xl p-5 border border-[#0000001a] flex items-center gap-4"
+                    className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center gap-4"
                   >
                     <div
                       className={`w-10 h-10 rounded-xl flex items-center justify-center ${
@@ -411,7 +411,7 @@ const ProductOperationalReadiness = () => {
 
         {activeTab === 2 && (
           <div className="space-y-5 mt-5">
-            <div className="bg-white rounded-2xl p-6 border border-[#0000001a]">
+            <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
               <div className="flex justify-between items-start">
                 <div>
                   <p className="text-lg font-semibold">Readiness Score</p>
@@ -425,7 +425,7 @@ const ProductOperationalReadiness = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-[#0000001a]">
+            <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
               <h2 className="text-2xl font-semibold">Requirements Summary</h2>
 
               <div className="mt-6 space-y-6">
@@ -471,7 +471,7 @@ const ProductOperationalReadiness = () => {
                     </div>
 
                     <span
-                      className={`px-3 py-1 text-xs rounded-full ${
+                      className={`px-3 py-1 text-xs text-center rounded-full ${
                         item.status === "Completed"
                           ? "bg-[#DCFCE7] text-[#15803D]"
                           : "bg-[#FEF3C7] text-[#B45309]"
@@ -484,7 +484,7 @@ const ProductOperationalReadiness = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-6 border border-[#0000001a]">
+            <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a]">
               <h2 className="text-2xl font-semibold">Sign-off</h2>
               <p className="text-sm text-[#6B7280] mt-1">
                 Please confirm the following to complete the operational
@@ -520,7 +520,7 @@ const ProductOperationalReadiness = () => {
                   >
                     <button
                       onClick={() => toggle(item.key)}
-                      className={`w-5 h-5 rounded-md flex items-center justify-center ${
+                      className={`w-5 min-w-5 h-5 rounded-md flex items-center justify-center ${
                         checked[item.key] ? "bg-[#0E1E38]" : "bg-[#E5E7EB]"
                       }`}
                     >
@@ -534,7 +534,7 @@ const ProductOperationalReadiness = () => {
                 ))}
               </div>
 
-              <div className="mt-8 flex items-center justify-between bg-[#F9FAFB] border border-[#0000001a] rounded-2xl p-4">
+              <div className="mt-8 flex items-center justify-between bg-[#F9FAFB] border border-[#0000001a] lg:rounded-xl rounded-lg lg:p-4 p-2">
                 <div className="flex items-center gap-4">
                   <img
                     src="https://i.pravatar.cc/100"

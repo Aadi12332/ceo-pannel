@@ -192,7 +192,7 @@ export default function ActiveIncidents() {
       </div>
 
       <div className="max-h-[calc(100vh-310px)] overflow-auto scroll-hide">
-        <div className="overflow-x-auto">
+        <div className="lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] overflow-auto scroll-hide">
           <table className="min-w-[900px] w-full text-sm">
             <tbody>
               {filtered.map((row) => (

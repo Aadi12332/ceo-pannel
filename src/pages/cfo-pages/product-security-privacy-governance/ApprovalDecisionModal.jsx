@@ -9,7 +9,7 @@ export default function ApprovalDecisionModal({ open, onClose }) {
 
   return (
     <div onClick={onClose} className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-      <div onClick={(e) => e.stopPropagation()} className="bg-white w-full max-w-2xl rounded-2xl p-6 border border-[#0000001a] relative">
+      <div onClick={(e) => e.stopPropagation()} className="bg-white w-[96%] max-w-2xl lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] relative">
         <button
           onClick={onClose}
           className="absolute right-5 top-5 text-gray-500 hover:text-black"

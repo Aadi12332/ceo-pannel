@@ -44,7 +44,7 @@ const Mitigation = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center gap-3 mb-5">
+      <div className="flex justify-between items-center gap-3 mb-5 flex-wrap">
         <div
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => navigate("/technical-incident-response")}
@@ -64,7 +64,7 @@ const Mitigation = () => {
 
       <StatusUpdatesDrawer openModal={openModal} setOpenModal={setOpenModal} />
 
-      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center justify-between mb-5">
+      <div className="bg-white lg:rounded-xl rounded-lg lg:p-6 p-3 border border-[#0000001a] flex items-center justify-between mb-5 flex-wrap gap-3">
         <div className="flex items-center gap-4">
           <span className={`px-2 py-0.5 text-xs rounded ${sevStyle[sev]}`}>
             {sev}
@@ -91,7 +91,7 @@ const Mitigation = () => {
           {actions.map((item, i) => (
             <div
               key={i}
-              className="flex items-center justify-between border-b border-[#0000001a] pb-4"
+              className="flex items-center justify-between border-b border-[#0000001a] pb-4 gap-3 flex-wrap"
             >
               <div>
                 <p className="font-bold text-[#1E1E1E]">{item.title}</p>

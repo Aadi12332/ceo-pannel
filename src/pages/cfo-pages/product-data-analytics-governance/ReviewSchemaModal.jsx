@@ -23,7 +23,7 @@ export const ReviewSchemaModal = ({ open, onClose }) => {
           Adds payment_method + discounts array
         </p>
 
-        <div className="border border-[#0000001a] rounded-xl bg-[#F9FAFB] p-2 text-sm text-gray-700">
+        <div className="border border-[#0000001a] rounded-xl bg-[#F9FAFB] p-2 text-sm text-gray-700 overflow-auto">
             <pre>
           {`{
             "type": "object",

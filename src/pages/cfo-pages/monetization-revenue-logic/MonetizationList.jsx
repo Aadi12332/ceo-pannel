@@ -67,59 +67,57 @@ export default function MonetizationList() {
         />
       </div>
       <div className="bg-white lg:rounded-xl rounded-lg lg:p-3 border border-[#0000001a]">
-        <div className="max-h-[calc(100vh-275px)] overflow-auto scroll-hide">
-        <table className="min-w-[1100px] w-full text-sm">
-  <thead>
-    <tr className="text-left border-b border-[#0000001a]">
-      <th className="py-4 px-4 font-semibold">Rule Name</th>
-      <th className="py-4 px-4 font-semibold">Strategy</th>
-      <th className="py-4 px-4 font-semibold">Updated Date</th>
-      <th className="py-4 px-4 font-semibold">Amount</th>
-      <th className="py-4 px-4 font-semibold">Status</th>
-      <th className="py-4 px-4 font-semibold text-center">Actions</th>
-    </tr>
-  </thead>
+        <div className="max-h-[calc(100vh-275px)] overflow-auto scroll-hide lg:w-[calc(100vw-390px)] w-[calc(100vw-48px)] px-3">
+          <table className="min-w-[1100px] w-full text-sm">
+            <thead>
+              <tr className="text-left border-b border-[#0000001a]">
+                <th className="py-4 px-4 font-semibold">Rule Name</th>
+                <th className="py-4 px-4 font-semibold">Strategy</th>
+                <th className="py-4 px-4 font-semibold">Updated Date</th>
+                <th className="py-4 px-4 font-semibold">Amount</th>
+                <th className="py-4 px-4 font-semibold">Status</th>
+                <th className="py-4 px-4 font-semibold text-center">Actions</th>
+              </tr>
+            </thead>
 
-  <tbody>
-    {rulesData.map((row) => (
-      <tr
-        key={row.id}
-        className="border-b border-[#0000001a] hover:bg-gray-50 transition"
-      >
-        <td className="py-5 px-4 font-medium text-[#111827]">
-          {row.ruleName}
-        </td>
+            <tbody>
+              {rulesData.map((row) => (
+                <tr
+                  key={row.id}
+                  className="border-b border-[#0000001a] hover:bg-gray-50 transition"
+                >
+                  <td className="py-5 px-4 font-medium text-[#111827]">
+                    {row.ruleName}
+                  </td>
 
-        <td className="px-4 text-[#374151]">
-          {row.strategy}
-        </td>
+                  <td className="px-4 text-[#374151]">{row.strategy}</td>
 
-        <td className="px-4 text-[#374151]">
-          {row.updatedDate}
-        </td>
+                  <td className="px-4 text-[#374151]">{row.updatedDate}</td>
 
-        <td className="px-4 text-[#111827] font-medium">
-          {row.amount}
-        </td>
+                  <td className="px-4 text-[#111827] font-medium">
+                    {row.amount}
+                  </td>
 
-        <td className="px-4">
-          <span
-            className={`px-3 py-1 text-xs rounded-md ${statusStyle[row.status]}`}
-          >
-            {row.status}
-          </span>
-        </td>
+                  <td className="px-4">
+                    <span
+                      className={`px-3 py-1 text-xs rounded-md ${statusStyle[row.status]}`}
+                    >
+                      {row.status}
+                    </span>
+                  </td>
 
-        <td className="px-4 text-center">
-          <button className="" onClick= {() => navigate("/add-monetization-rule")}>
-            <Pencil size={16} />
-          </button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
+                  <td className="px-4 text-center">
+                    <button
+                      className=""
+                      onClick={() => navigate("/add-monetization-rule")}
+                    >
+                      <Pencil size={16} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </>

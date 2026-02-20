@@ -215,7 +215,7 @@ export default function ApprovalQueue() {
 
   return (
     <>
-      <div className="flex flex-wrap gap-4 mb-5">
+      <div className="flex flex-wrap sm:gap-4 gap-2 mb-5">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.key;
 
@@ -223,7 +223,7 @@ export default function ApprovalQueue() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-8 h-14 rounded-full text-base font-medium transition
+              className={`sm:px-8 px-3 sm:h-14 h-11 rounded-full text-base font-medium transition
               ${
                 isActive
                   ? "bg-[#0E1E38] text-white"
